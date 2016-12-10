@@ -1,0 +1,22 @@
+{
+  "name": "grade-calculator",
+  "version": "1.0.0",
+  "description": "clean/modern website to calculate your final grade (with weights)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grade",
+    "calculator",
+    "final",
+    "grade",
+    "school",
+    "education"
+  ],
+  "author": "Chris Chuck",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^1.14.0"
+  }
+}
