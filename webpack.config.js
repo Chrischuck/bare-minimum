@@ -1,3 +1,4 @@
+/* eslint-disable */
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Dashboard = require('webpack-dashboard');
@@ -30,7 +31,6 @@ module.exports = {
     ]
   },
 
-  ///////// Dev server /////////
   devServer: {
     hot: true,
     quiet: true, // lets WebpackDashboard do its thing
@@ -41,11 +41,14 @@ module.exports = {
   plugins: [
     new DashboardPlugin(dashboard.setData),
     new HtmlWebpackPlugin({
+      title: 'Bare Minimum',
       filename: 'index.html',
       template: './index.html',
       inject: true
     })
   ]
+
+
 
 
 }
