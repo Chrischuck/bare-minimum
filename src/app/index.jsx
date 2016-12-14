@@ -1,10 +1,13 @@
+/* eslint-disable */
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import Home from '../routes/home/components';
 
 export default class App extends Component {
   render() {
     return (
-      <div className='App' />
+      <div>
+        { this.props.children || <Home /> }
+      </div>
     );
   }
 }
