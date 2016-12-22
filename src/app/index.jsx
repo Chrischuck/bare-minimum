@@ -10,10 +10,10 @@ import Header from '../components/header'
 export default class App extends Component {
   render() {
     return (
-        <div className='container'>
+        <div>
           <Header/>
 
-          <div className="container" style={{'padding-top': '70px'}}>
+          <div className="container" style={{'paddingTop': '50px', 'width': '100%', 'margin': '0 auto', paddingLeft: 0, paddingRight: 0}}>
             { this.props.children || <Home /> }
           </div>
 
