@@ -1,21 +1,26 @@
 import React from 'react';
 
+import chris from '../../../assets/chris.jpg';
+import chaz from '../../../assets/chaz.png';
+
+
 const AboutMe = () =>
-  <div className='row'>
-    <div className='col-lg-4'>
-      <img className='img-circle' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140' />
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+  <div className='row text-center'>
+    <div className='col-lg-6'>
+      <img className='img-circle' src={ chris } alt='Generic placeholder image' width='140' height='140' />
+      <h2>Chris</h2>
+      <p>I decieded to make this page because I needed to know what I needed on my differentials test to get an A and other sites didn't do what I needed.
+        So I built this with a modern stack and some javascript and things. I go to San Jose State and I hope this website will help you get through college!
+      </p>
     </div>
-    <div className='col-lg-4'>
-      <img className='img-circle' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140' />
-      <h2>Heading</h2>
-      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-    </div>
-    <div className='col-lg-4'>
-      <img className='img-circle' src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' alt='Generic placeholder image' width='140' height='140' />
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <div className='col-lg-6'>
+      <img className='img-circle' src={ chaz } alt='Generic placeholder image' width='140' height='140' />
+      <h2>Chaz</h2>
+      <p>
+        I'm majoring in Civil Engineering at Arizona State University, Class of 2019.
+        I like running and hiking with my dog.
+        I'm helping with this site to help other college students with their grades when the professors don't help.
+     </p>
     </div>
   </div>;
 
