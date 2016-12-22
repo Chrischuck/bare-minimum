@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class GPA extends Component {
+export default class GPA extends React.Component {
   render() {
     return (
       <div>

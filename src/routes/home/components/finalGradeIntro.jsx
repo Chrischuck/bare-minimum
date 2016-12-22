@@ -8,7 +8,7 @@ const FinalGradeIntro = () =>
         <span className='text-muted'> Let's get that A.</span>
       </h2>
       <p className='lead'>
-        Use this to see what you need on your final to achieve your desired grade.
+        Use this to know what you need on your final to achieve your desired grade.
       </p>
     </div>
     <div className='col-md-5'>
