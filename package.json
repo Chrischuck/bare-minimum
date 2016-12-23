@@ -18,6 +18,7 @@
   "author": "Chris Chuck",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "jquery": "^3.1.1",
