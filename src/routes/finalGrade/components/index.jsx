@@ -12,7 +12,10 @@ export default class FinalGrade extends React.Component {
           marginTop: '5%',
         } }
       >
+
+        <div className='well infobox'>
           <SimpleInput />
+        </div>
       </div>
     );
   }
