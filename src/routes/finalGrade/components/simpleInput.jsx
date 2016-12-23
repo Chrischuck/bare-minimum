@@ -25,7 +25,7 @@ export default class SimpleInput extends React.Component {
           className='text-center'
           style={ {
             marginTop: 25,
-            marginBottom: 25,
+            marginBottom: 15,
             color: '#2e2d2d',
           } }
         >Final Grade Calculator</h1>
@@ -39,7 +39,7 @@ export default class SimpleInput extends React.Component {
               style={ {
                 paddingRight: 0,
                 paddingTop: 10,
-                fontSize: 14
+                fontSize: 14,
               } }
             >Current grade:</label>
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -99,7 +99,7 @@ export default class SimpleInput extends React.Component {
           </div>
 
           <div className='center'>
-            <button className='btn btn-raised' onMouseUp={ this.blur } style={ { color: '#2e2d2d' } } >Primary button</button>
+            <a className='btn btn-primary' >Calculate <span className='glyphicon glyphicon-heart' /></a>
           </div>
 
         </div>
