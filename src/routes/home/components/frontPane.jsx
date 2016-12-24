@@ -1,6 +1,6 @@
 import React from 'react';
 
-import picture from '../../../assets/clock2.jpg';
+import picture from '../../../assets/clock.jpg';
 
 const FrontPane = () =>
   <div className='jumbotron jumbotron-fluid' style={ { height: '450px', background: `url(${picture})` } } >

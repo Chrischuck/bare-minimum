@@ -99,7 +99,11 @@ export default class SimpleInput extends React.Component {
           </div>
 
           <div className='center'>
-            <a className='btn btn-primary' >Calculate <span className='glyphicon glyphicon-heart' /></a>
+            <a
+              className='btn btn-primary'
+            >
+              Calculate <span className='glyphicon glyphicon-heart' />
+            </a>
           </div>
 
         </div>
