@@ -19,7 +19,7 @@ const routes = {
   component: App,
   IndexRoute: HomeRoute,
   childRoutes: [
-    FinalGradeRoute,
+    FinalGradeRoute(store),
     GPARoute,
     NotFoundRoute
   ]

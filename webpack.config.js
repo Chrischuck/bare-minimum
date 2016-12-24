@@ -10,8 +10,10 @@ module.exports = {
 
   /////////// Sets up entra and output code ////////
   context: __dirname + '/src', // directory webpack looks //
-  entry: './index.js', // file webpack looks at //
-
+  entry: [
+    'babel-polyfill',
+    './index.js', // file webpack looks at //
+  ],
   output: {
     filename: 'app.js', // output file name //
     path: __dirname + '/dist' // output file directory //
@@ -39,9 +41,10 @@ module.exports = {
         exclude: [/node_modules/],
         loader: 'babel-loader',
         options: {
-          presets: ["es2015", "react", "babel-preset-stage-0"],
+          presets: ["es2015", "react", "stage-0"],
           plugins: [
-              ["transform-decorators-legacy"]
+              ["transform-decorators-legacy"],
+              ["transform-runtime"]
             ]
           }
       },
