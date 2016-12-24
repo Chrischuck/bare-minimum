@@ -45,18 +45,19 @@ export default class SimpleInput extends React.Component {
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
+                type='number'
                 value={ this.state.currentGrade }
                 onChange={ event => this.onInputChange(event, 'currentGrade') }
-                placeholder='69'
+                placeholder='92.4'
                 id='currentGrade'
               />
             </div>
-            <p style={ { paddingTop: 5 } } >%</p>
+            <label htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
           </div>
 
           <div className='row form-group' style={ { margin: '10px' } } >
             <label
-              htmlFor='Final'
+              htmlFor='final'
               className='col-xs-3 col-form-label semi-bold'
               style={ {
                 paddingRight: 0,
@@ -67,18 +68,19 @@ export default class SimpleInput extends React.Component {
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
+                type='number'
                 value={ this.state.finalWeight }
                 onChange={ event => this.onInputChange(event, 'finalWeight') }
-                placeholder='420'
-                id='Final'
+                placeholder='90'
+                id='final'
               />
             </div>
-            <p style={ { paddingTop: 5 } } >%</p>
+            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
           </div>
 
           <div className='row form-group' style={ { margin: 10 } } >
             <label
-              htmlFor='example-number-input'
+              htmlFor='requiredGrade'
               className='col-xs-3 col-form-label semi-bold'
               style={ {
                 paddingRight: 0,
@@ -89,19 +91,18 @@ export default class SimpleInput extends React.Component {
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
+                type='number'
                 value={ this.state.requiredGrade }
                 onChange={ event => this.onInputChange(event, 'requiredGrade') }
-                placeholder='12'
-                id='example-number-input'
+                placeholder='10'
+                id='requiredGrade'
               />
             </div>
-            <p style={ { paddingTop: 5 } } >%</p>
+            <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
           </div>
 
-          <div className='center'>
-            <a
-              className='btn btn-primary'
-            >
+          <div className='row' style={ { marginLeft: '8%', marginRight: '8%' } } >
+            <a className='btn btn-primary col-md-6' >
               Calculate <span className='glyphicon glyphicon-heart' />
             </a>
           </div>
