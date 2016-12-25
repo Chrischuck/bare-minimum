@@ -8,8 +8,11 @@ import '../ui/bootstrap-material-design.css'
 import '../ui/ripple.css'
 import material from '../ui/material.js'
 import ripple from '../ui/material.js'
+import sweetAlert from '../ui/sweetalert.min.js'
+import '../ui/sweetalert.css'
 
 $.material.init()
+sweetAlert()
 
 import Header from '../components/header'
 

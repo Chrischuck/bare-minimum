@@ -26,14 +26,107 @@ class SimpleInput extends React.Component {
     };
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.calculateGrade = this.calculateGrade.bind(this);
+    this.onCalculate = this.onCalculate.bind(this);
+    this.errorStringBuilder = this.errorStringBuilder.bind(this);
   }
 
   onInputChange(event, name) {
     this.setState({ [name]: event.target.value });
   }
 
+  calculateGrade() {
+    const grade = Number(this.state.requiredGrade) / 100;
+    const examWorth = Number(this.state.finalWeight) / 100;
+    const currentGrade = Number(this.state.currentGrade) / 100;
+
+    const finalGrade = ((grade - ((1 - examWorth) * currentGrade)) / examWorth) * 100;
+    console.log(finalGrade)
+    return finalGrade.toFixed(2);
+  }
+
+  errorStringBuilder() {
+    const { currentGrade, finalWeight, requiredGrade } = this.state;
+
+    if (currentGrade === '' && finalWeight !== '' && requiredGrade !== '') {
+      return 'Please input your current grade.';
+    }
+    if (currentGrade !== '' && finalWeight === '' && requiredGrade !== '') {
+      return 'Please input your final percentage.';
+    }
+    if (currentGrade !== '' && finalWeight !== '' && requiredGrade === '') {
+      return 'Please input your target goal grade.';
+    }
+    if (currentGrade === '' && requiredGrade === '' && finalWeight !== '') {
+      return 'Please input your current grade and target goal grade.';
+    }
+    if (currentGrade === '' && requiredGrade !== '' && finalWeight === '') {
+      return 'Please input your current grade and final percentage.';
+    }
+    if (currentGrade !== '' && requiredGrade === '' && finalWeight === '') {
+      return 'Please input your target goal grade and final percentage';
+    }
+    if (currentGrade === '' && finalWeight === '' && requiredGrade === '') {
+      return 'Please input your current grade, target goal grade, and final percentage.';
+    }
+    if (Number(finalWeight) > 100) {
+      return 'Your final percentage can\'t be more than 100%';
+    }
+    return '';
+  }
+
+  calculatorStringBuilder(finalScore) {
+    let answerString = 'You will need at least ' +
+                        finalScore +
+                        '% on your final to get a ' +
+                        this.state.requiredGrade +
+                        '% overall.';
+
+    const score = Number(finalScore);
+    if (score > 100) {
+      answerString += ' May the force be with you!';
+    }
+    if (score <= 100 && score >= 90) {
+      answerString += ' You can do it!';
+    }
+    if (score < 90 && score >= 70) {
+      answerString += ' You got this in the bag!';
+    }
+    if (score < 70) {
+      answerString += ' What\'s the point of studying honestly?';
+    }
+    return answerString;
+  }
+
+  missingFormElements() {
+    swal({
+      title: 'Ugh oh!',
+      text: this.errorStringBuilder(),
+      confirmButtonColor: '#009688',
+      animation: 'slide-from-top',
+      type: 'warning',
+    });
+  }
+
+  noMissingElements() {
+    swal({
+      title: 'You can do it!',
+      text: this.calculatorStringBuilder(this.calculateGrade()),
+      confirmButtonColor: '#009688',
+      animation: 'slide-from-top',
+    });
+  }
+
+  onCalculate() {
+    const { currentGrade, finalWeight, requiredGrade } = this.state;
+    if (currentGrade === '' || finalWeight === '' || requiredGrade === '' || Number(finalWeight) > 100) {
+      this.missingFormElements();
+    } else {
+      this.noMissingElements();
+    }
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div style={ { marginTop: 10 } } >
 
@@ -71,29 +164,6 @@ class SimpleInput extends React.Component {
             <label htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
           </div>
 
-          <div className='row form-group' style={ { margin: '10px' } } >
-            <label
-              htmlFor='final'
-              className='col-xs-3 col-form-label semi-bold'
-              style={ {
-                paddingRight: 0,
-                paddingTop: 10,
-                fontSize: 14,
-              } }
-            >Final's worth:</label>
-            <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
-              <input
-                className='form-control'
-                type='number'
-                value={ this.state.finalWeight }
-                onChange={ event => this.onInputChange(event, 'finalWeight') }
-                placeholder='90'
-                id='final'
-              />
-            </div>
-            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
-          </div>
-
           <div className='row form-group' style={ { margin: 10 } } >
             <label
               htmlFor='requiredGrade'
@@ -110,15 +180,38 @@ class SimpleInput extends React.Component {
                 type='number'
                 value={ this.state.requiredGrade }
                 onChange={ event => this.onInputChange(event, 'requiredGrade') }
-                placeholder='10'
+                placeholder='90'
                 id='requiredGrade'
               />
             </div>
             <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
           </div>
 
+          <div className='row form-group' style={ { margin: '10px' } } >
+            <label
+              htmlFor='final'
+              className='col-xs-3 col-form-label semi-bold'
+              style={ {
+                paddingRight: 0,
+                paddingTop: 10,
+                fontSize: 14,
+              } }
+            >Final's worth:</label>
+            <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
+              <input
+                className='form-control'
+                type='number'
+                value={ this.state.finalWeight }
+                onChange={ event => this.onInputChange(event, 'finalWeight') }
+                placeholder='10'
+                id='final'
+              />
+            </div>
+            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
+          </div>
+
           <div className='row' style={ { marginLeft: '8%', marginRight: '8%' } } >
-            <a className='btn btn-primary col-md-6' onClick={ () => this.props.openModal(6) } >
+            <a className='btn btn-primary col-md-6' onClick={ this.onCalculate } >
               Calculate <span className='glyphicon glyphicon-heart' />
             </a>
           </div>
