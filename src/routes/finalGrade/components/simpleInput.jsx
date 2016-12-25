@@ -41,7 +41,7 @@ class SimpleInput extends React.Component {
     const currentGrade = Number(this.state.currentGrade) / 100;
 
     const finalGrade = ((grade - ((1 - examWorth) * currentGrade)) / examWorth) * 100;
-    console.log(finalGrade)
+
     return finalGrade.toFixed(2);
   }
 
