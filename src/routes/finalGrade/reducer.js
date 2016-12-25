@@ -5,12 +5,14 @@ const initialState = {
   modalData: null,
 };
 
-export default function reducer(state = initialState, action) {
+function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case (action.OPEN_FINAL_GRADE_MODAL):
-      return state;
+    case (actions.OPEN_FINAL_GRADE_MODAL):
+      return Object.assign({}, state, { isModalOpen: true, modalData: payload });
     default:
       return state;
   }
 }
+
+export default reducer;

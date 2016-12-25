@@ -1,6 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as gradeActions from '../actions';
 
-export default class SimpleInput extends React.Component {
+const mapStateToProps = state => ({
+  isModalOpen: state.finalGrade.isModalOpen,
+});
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openModal: (grade) => {
+      dispatch(gradeActions.openFinalGradeModal(grade));
+    },
+  };
+};
+
+class SimpleInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,6 +33,7 @@ export default class SimpleInput extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div style={ { marginTop: 10 } } >
 
@@ -102,7 +118,7 @@ export default class SimpleInput extends React.Component {
           </div>
 
           <div className='row' style={ { marginLeft: '8%', marginRight: '8%' } } >
-            <a className='btn btn-primary col-md-6' >
+            <a className='btn btn-primary col-md-6' onClick={ () => this.props.openModal(6) } >
               Calculate <span className='glyphicon glyphicon-heart' />
             </a>
           </div>
@@ -113,3 +129,5 @@ export default class SimpleInput extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(SimpleInput);

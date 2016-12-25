@@ -1,5 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import * as gradeActions from '../actions';
 
+const mapStateToProps = state => ({
+
+})
+
+const actions = Object.assign({}, gradeActions);
+
+@connect(mapStateToProps, actions)
 export default class FinalGradeModal extends React.Component {
   render() {
     return (
