@@ -7,4 +7,7 @@ Home Page!
 ![Screenshot](https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/screenshots/home.png "Home Page")
 
 Simple calculator
-![Screenshot](https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/screenshots/simple-calculator.png)
+![Screenshot](https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/screenshots/simple-calc.png)
+
+Alert Box
+![Screenshot](https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/screenshots/simple-calc-answer.png)
