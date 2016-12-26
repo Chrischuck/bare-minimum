@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 const GPARoute = {
-  path: 'gpa-calculator',
+  path: '/gpa-calculator',
   getComponents(location, callback) {
     require.ensure([
       './components/',

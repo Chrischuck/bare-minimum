@@ -3,20 +3,9 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 
 export default class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: 'home',
-    };
-    this.changeTab = this.changeTab.bind(this);
-  }
-
-  changeTab(name) {
-    this.setState({ active: name });
-  }
 
   render() {
-    const { active } = this.state;
+    const { path } = this.props;
 
     return (
       <nav className='navbar navbar-inverse navbar-fixed-top'>
@@ -39,9 +28,9 @@ export default class Header extends React.Component {
           </div>
           <div id='navbar' className='collapse navbar-collapse'>
             <ul className='nav navbar-nav'>
-              <li className={ classNames({ active: active === 'home' }) }><Link onClick={ () => this.changeTab('home') } to='/'>Home</Link></li>
-              <li className={ classNames({ active: active === 'grade' }) }><Link onClick={ () => this.changeTab('grade') } to='grade-calculator'>Grade Calculator</Link></li>
-              <li className={ classNames({ active: active === 'gpa' }) }><Link onClick={ () => this.changeTab('gpa') } to='gpa-calculator'>GPA Calculator</Link></li>
+              <li className={ classNames({ active: path === '/' }) }><Link to='/'>Home</Link></li>
+              <li className={ classNames({ active: path === 'grade-calculator' || path === '/grade-calculator' }) }><Link to='grade-calculator'>Grade Calculator</Link></li>
+              <li className={ classNames({ active: path === 'gpa-calculator' || path === '/gpa-calculator' }) }><Link to='gpa-calculator'>GPA Calculator</Link></li>
             </ul>
           </div>
         </div>
@@ -49,3 +38,7 @@ export default class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  path: React.PropTypes.string,
+};

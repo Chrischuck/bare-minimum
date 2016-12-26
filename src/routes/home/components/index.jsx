@@ -23,6 +23,7 @@ const Home = () =>
       <Divider />
       <br />
       <AboutMe />
+      <br />
     </div>
   </div>;
 

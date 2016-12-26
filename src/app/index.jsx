@@ -19,14 +19,23 @@ import Header from '../components/header'
 export default class App extends Component {
   render() {
     return (
-        <div>
-          <Header/>
+      <div>
+        <Header path={ this.props.location.pathname } />
 
-          <div className="container" style={{'paddingTop': '3%', 'width': '100%', 'margin': '0 auto', paddingLeft: 0, paddingRight: 0}}>
-            { this.props.children || <Home /> }
-          </div>
-
+        <div
+          className='container'
+          style={ {
+          paddingTop: '3%',
+          width: '100%',
+          margin: '0 auto',
+          paddingLeft: 0,
+          paddingRight: 0
+          } }
+        >
+          { this.props.children || <Home /> }
         </div>
+
+      </div>
 
     );
   }
