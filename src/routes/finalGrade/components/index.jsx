@@ -7,10 +7,7 @@ export default class FinalGrade extends React.Component {
     return (
       <div
         className='container col-md-6 col-md-offset-3'
-        style={ {
-          backgroundColor: '#eceeef',
-          marginTop: '5%',
-        } }
+        style={ { marginTop: '10%' } }
       >
         <div className='well infobox'>
           <SimpleInput />

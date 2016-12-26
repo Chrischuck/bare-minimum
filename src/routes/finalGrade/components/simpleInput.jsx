@@ -76,11 +76,19 @@ class SimpleInput extends React.Component {
   }
 
   calculatorStringBuilder(finalScore) {
-    let answerString = 'You will need at least ' +
-                        finalScore +
-                        '% on your final to get a ' +
-                        this.state.requiredGrade +
-                        '% overall.';
+    let answerString = '';
+
+    if (Number(finalScore) <= 50) {
+      answerString += 'You only need ';
+    } else {
+      answerString += 'You will nead at least ';
+    }
+
+    answerString +=  finalScore +
+                    '% on your final to get a ' +
+                    this.state.requiredGrade +
+                    '% overall.';
+
 
     const score = Number(finalScore);
     if (score > 100) {

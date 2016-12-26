@@ -22,7 +22,7 @@ const routes = {
   childRoutes: [
     FinalGradeRoute(store),
     GPARoute,
-    NotFoundRoute,
+    NotFoundRoute
   ]
 };
 
