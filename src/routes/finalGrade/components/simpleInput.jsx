@@ -100,8 +100,11 @@ class SimpleInput extends React.Component {
     if (score < 90 && score >= 70) {
       answerString += ' You got this in the bag!';
     }
-    if (score < 70) {
+    if (score < 70 && score >= 0) {
       answerString += ' What\'s the point of studying honestly?';
+    }
+    if (score < 0) {
+      answerString += ' Just stay in bed at this point!';
     }
     return answerString;
   }
@@ -147,41 +150,43 @@ class SimpleInput extends React.Component {
           } }
         >Final Grade Calculator</h1>
 
-        <div className='row' style={ { paddingLeft: '30%' } } >
+        <div className='row' >
 
-          <div className='form-group row' style={ { margin: '10px' } } >
+          <div className='row form-group' style={ { margin: 10 } } >
             <label
               htmlFor='currentGrade'
-              className='col-xs-3 col-form-label semi-bold'
+              className='col-xs-5 col-form-label semi-bold'
               style={ {
-                paddingRight: 0,
+                paddingRight: '15px',
+                textAlign: 'right',
                 paddingTop: 10,
                 fontSize: 14,
               } }
-            >Current grade:</label>
+            >You current grade:</label>
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
                 type='number'
                 value={ this.state.currentGrade }
                 onChange={ event => this.onInputChange(event, 'currentGrade') }
-                placeholder='92.4'
+                placeholder='90'
                 id='currentGrade'
               />
             </div>
-            <label htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
+            <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%.</label>
           </div>
 
           <div className='row form-group' style={ { margin: 10 } } >
             <label
               htmlFor='requiredGrade'
-              className='col-xs-3 col-form-label semi-bold'
+              className='col-xs-5 col-form-label semi-bold'
               style={ {
-                paddingRight: 0,
+                paddingRight: '15px',
                 paddingTop: 10,
+                textAlign: 'right',
                 fontSize: 14,
               } }
-            >You require:</label>
+            >You need a:</label>
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
@@ -192,15 +197,16 @@ class SimpleInput extends React.Component {
                 id='requiredGrade'
               />
             </div>
-            <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
+            <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >% in the class.</label>
           </div>
 
           <div className='row form-group' style={ { margin: '10px' } } >
             <label
               htmlFor='final'
-              className='col-xs-3 col-form-label semi-bold'
+              className='col-xs-5 col-form-label semi-bold text-left'
               style={ {
-                paddingRight: 0,
+                paddingRight: '15px',
+                textAlign: 'right',
                 paddingTop: 10,
                 fontSize: 14,
               } }
@@ -215,11 +221,11 @@ class SimpleInput extends React.Component {
                 id='final'
               />
             </div>
-            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 8 } } >%</label>
+            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4 } } >% of your grade.</label>
           </div>
 
           <div className='row' style={ { marginLeft: '8%', marginRight: '8%' } } >
-            <a className='btn btn-primary col-md-6' onClick={ this.onCalculate } >
+            <a className='btn btn-primary col-md-12' onClick={ this.onCalculate } >
               Calculate <span className='glyphicon glyphicon-heart' />
             </a>
           </div>
