@@ -35,6 +35,15 @@ class SimpleInput extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
+  onCalculate() {
+    const { currentGrade, finalWeight, requiredGrade } = this.state;
+    if (currentGrade === '' || finalWeight === '' || requiredGrade === '' || Number(finalWeight) > 100) {
+      this.missingFormElements();
+    } else {
+      this.noMissingElements();
+    }
+  }
+
   calculateGrade() {
     const grade = Number(this.state.requiredGrade) / 100;
     const examWorth = Number(this.state.finalWeight) / 100;
@@ -84,7 +93,7 @@ class SimpleInput extends React.Component {
       answerString += 'You will nead at least ';
     }
 
-    answerString +=  finalScore +
+    answerString += `${finalScore}` +
                     '% on your final to get a ' +
                     this.state.requiredGrade +
                     '% overall.';
@@ -126,15 +135,6 @@ class SimpleInput extends React.Component {
       confirmButtonColor: '#009688',
       animation: 'slide-from-top',
     });
-  }
-
-  onCalculate() {
-    const { currentGrade, finalWeight, requiredGrade } = this.state;
-    if (currentGrade === '' || finalWeight === '' || requiredGrade === '' || Number(finalWeight) > 100) {
-      this.missingFormElements();
-    } else {
-      this.noMissingElements();
-    }
   }
 
   render() {
