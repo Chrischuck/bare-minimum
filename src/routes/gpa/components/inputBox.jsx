@@ -9,6 +9,7 @@ export default class InputBox extends React.Component {
       grade: 0,
       units: 0,
     };
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   gradeToNumber(grade) {
@@ -36,6 +37,10 @@ export default class InputBox extends React.Component {
       default:
         return 0;
     }
+  }
+
+  onInputChange() {
+
   }
 
   render() {
