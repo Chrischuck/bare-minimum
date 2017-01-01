@@ -39,8 +39,8 @@ export default class InputBox extends React.Component {
     }
   }
 
-  onInputChange() {
-
+  onInputChange(event, name) {
+    this.setState({ [name]: event.target.value });
   }
 
   render() {
