@@ -1,12 +1,8 @@
-/* eslint-disable */
-import { createStore, applyMiddleware, } from 'redux';
+import { createStore } from 'redux';
 import createReducer from './reducers';
-import createLogger from 'redux-logger';
-
-const logger = createLogger()
 
 export default function configureStore(initialState) {
-  let store = createStore(createReducer(), initialState);
+  const store = createStore(createReducer(), initialState);
   store.asyncReducers = {};
   return store;
 }
