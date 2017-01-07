@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { injectAsyncReducer } from '../../store';
 
 const FinalGradeRoute = store => ({
@@ -7,13 +6,13 @@ const FinalGradeRoute = store => ({
     require.ensure([
       './components/',
       './reducer',
-    ], function(require) {
-        const FinalGrade = require('./components/').default;
-        const reducer = require('./reducer').default;
-        injectAsyncReducer(store, 'finalGrade', reducer);
-        callback(null, FinalGrade);
-     });
-   },
+    ], (require) => {
+      const FinalGrade = require('./components/').default;
+      const reducer = require('./reducer').default;
+      injectAsyncReducer(store, 'finalGrade', reducer);
+      callback(null, FinalGrade);
+    });
+  },
 });
 
 export default FinalGradeRoute;
