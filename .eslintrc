@@ -1,33 +1,8 @@
 {
-  "parser": "babel-eslint",
   "extends": "airbnb",
-  "env": {
-    "browser": true,
-    "mocha": true,
-    "node": true
-  },
   "rules": {
-    "arrow-parens": ["off"],
-    "compat/compat": 2,
-    "consistent-return": "off",
-    "comma-dangle": "off",
-    "generator-star-spacing": "off",
-    "import/no-extraneous-dependencies": "off",
-    "no-use-before-define": "off",
-    "react/jsx-no-bind": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
-    "react/prefer-stateless-function": "off",
-  },
-  "plugins": [
-    "import",
-    "compat",
-    "react"
-  ],
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.eslint.js"
-      }
-    }
+    "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-curly-spacing": [2, "always"],
+    "react/prefer-stateless-function": [0]
   }
 }
