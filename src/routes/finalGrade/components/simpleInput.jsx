@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as gradeActions from '../actions';
-import TextField from 'material-ui/TextField';
-
 
 const mapStateToProps = state => ({
   isModalOpen: state.finalGrade.isModalOpen,
@@ -141,31 +139,30 @@ class SimpleInput extends React.Component {
     return (
       <div style={ { marginTop: 10 } } >
 
-        <h1
+        <h2
           className='text-center'
           style={ {
             marginTop: 25,
             marginBottom: 15,
             color: '#2e2d2d',
           } }
-        >Final Grade Calculator</h1>
+        >Final Grade Calculator</h2>
 
         <div className='row' >
 
-          <div className='row form-group' style={ { margin: 10 } } >
+          <div className='row form-group has-success is-empty' style={ { margin: 10 } } >
             <label
               htmlFor='currentGrade'
               className='col-xs-5 col-form-label semi-bold'
               style={ {
                 paddingRight: '15px',
                 textAlign: 'right',
-                paddingTop: 10,
                 fontSize: 14,
               } }
-            >You current grade:</label>
-            <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
+            >Your current grade:</label>
+            <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
-                className='mdl-textfield__input mdl-js-ripple-effect'
+                className='form-control'
                 type='number'
                 value={ this.state.currentGrade }
                 onChange={ event => this.onInputChange(event, 'currentGrade') }
@@ -176,18 +173,17 @@ class SimpleInput extends React.Component {
             <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%.</label>
           </div>
 
-          <div className='row form-group' style={ { margin: 10 } } >
+          <div className='row form-group has-success is-empty' style={ { margin: 10 } } >
             <label
               htmlFor='requiredGrade'
               className='col-xs-5 col-form-label semi-bold'
               style={ {
                 paddingRight: '15px',
-                paddingTop: 10,
                 textAlign: 'right',
                 fontSize: 14,
               } }
             >You need a:</label>
-            <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
+            <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
                 type='number'
@@ -200,18 +196,17 @@ class SimpleInput extends React.Component {
             <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >% in the class.</label>
           </div>
 
-          <div className='row form-group' style={ { margin: '10px' } } >
+          <div className='row form-group has-success is-empty' style={ { margin: '10px' } } >
             <label
               htmlFor='final'
               className='col-xs-5 col-form-label semi-bold text-left'
               style={ {
                 paddingRight: '15px',
                 textAlign: 'right',
-                paddingTop: 10,
                 fontSize: 14,
               } }
             >Final's worth:</label>
-            <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
+            <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
                 type='number'
@@ -224,9 +219,9 @@ class SimpleInput extends React.Component {
             <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4 } } >% of your grade.</label>
           </div>
 
-          <div className='row' style={ { marginLeft: '8%', marginRight: '8%' } } >
-            <a className='btn btn-primary col-md-12' onClick={ this.onCalculate } >
-              Calculate <span className='glyphicon glyphicon-heart' />
+          <div className='row' style={ { marginLeft: '4%', marginRight: '4%', textAlign: 'center' } } >
+            <a className='btn btn-primary col-md-6 col-xs-6' onClick={ this.onCalculate } >
+                Calculate <span className='glyphicon glyphicon-heart' />
             </a>
           </div>
 

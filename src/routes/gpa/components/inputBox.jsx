@@ -84,84 +84,84 @@ export default class InputBox extends React.Component {
     }
   }
 
-createRandGrades() {
-  const grade = Math.floor((Math.random() * 6) + 1);
-  switch (grade) {
-    case 1:
-      return 'A+';
-    case 2:
-      return 'A';
-    case 3:
-      return 'A-';
-    case 4:
-      return 'B+';
-    case 5:
-      return 'B';
-    default:
-      return 'A-';
+  createRandGrades() {
+    const grade = Math.floor((Math.random() * 6) + 1);
+    switch (grade) {
+      case 1:
+        return 'A+';
+      case 2:
+        return 'A';
+      case 3:
+        return 'A-';
+      case 4:
+        return 'B+';
+      case 5:
+        return 'B';
+      default:
+        return 'A-';
+    }
   }
-}
 
-renderCourses(index) {
-  const courses = [
-    {
-      name: 'Math 133A',
-      grade: this.createRandGrades(),
-      units: '3',
-    },
-    {
-      name: 'Astro 10',
-      grade: this.createRandGrades(),
-      units: '2',
-    },
-    {
-      name: 'Phys 50',
-      grade: this.createRandGrades(),
-      units: '4',
-    },
-    {
-      name: 'Math 129A',
-      grade: this.createRandGrades(),
-      units: '3',
-    },
-    {
-      name: 'Math 42',
-      grade: this.createRandGrades(),
-      units: '3',
-    },
-    {
-      name: 'CS 46B',
-      grade: this.createRandGrades(),
-      units: '4',
-    },
-    {
-      name: 'Engl 18',
-      grade: this.createRandGrades(),
-      units: '2',
-    },
-    {
-      name: 'Kin 08',
-      grade: this.createRandGrades(),
-      units: '2',
-    },
-  ];
-  if (index < courses.length) {
-    return courses[index];
+  renderCourses(index) {
+    const courses = [
+      {
+        name: 'Math 133A',
+        grade: this.createRandGrades(),
+        units: '3',
+      },
+      {
+        name: 'Astro 10',
+        grade: this.createRandGrades(),
+        units: '2',
+      },
+      {
+        name: 'Phys 50',
+        grade: this.createRandGrades(),
+        units: '4',
+      },
+      {
+        name: 'Math 129A',
+        grade: this.createRandGrades(),
+        units: '3',
+      },
+      {
+        name: 'Math 42',
+        grade: this.createRandGrades(),
+        units: '3',
+      },
+      {
+        name: 'CS 46B',
+        grade: this.createRandGrades(),
+        units: '4',
+      },
+      {
+        name: 'Engl 18',
+        grade: this.createRandGrades(),
+        units: '2',
+      },
+      {
+        name: 'Kin 08',
+        grade: this.createRandGrades(),
+        units: '2',
+      },
+    ];
+    if (index < courses.length) {
+      return courses[index];
+    }
+    return {
+      name: 'ClassMcClassFace',
+      grade: 'A++',
+      units: '4.20',
+    };
   }
-  return {
-    name: 'ClassMcClassFace',
-    grade: 'A++',
-    units: '4.20',
-  };
-}
 
   render() {
     const { inputCount } = this.props;
     const course = this.renderCourses(inputCount);
     return (
-      <div className='row'>
+      <div className='row col-md-offset-1 col-xs-offset-1 no-padding'>
 
-        <div className='form-group has-success is-empty col-md-3'>
+        <div className='form-group has-success is-empty col-md-4 col-xs-4'>
           <label htmlFor={ `${inputCount}grade` } className='form-label'>Class</label>
           <input
             type='text'
@@ -170,10 +170,11 @@ renderCourses(index) {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'course') }
             placeholder={ course.name }
+            style={ { fontSize: '11px' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3'>
+        <div className='form-group has-success is-empty col-md-3 col-xs-3'>
           <label htmlFor={ `${inputCount}grade` } className='form-label'>Grade</label>
           <input
             maxLength='2'
@@ -183,10 +184,11 @@ renderCourses(index) {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'grade') }
             placeholder={ course.grade }
+            style={ { fontSize: '11px' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3'>
+        <div className='form-group has-success is-empty col-md-3 col-xs-3'>
           <label htmlFor={ `${inputCount}grade` } className='form-label'>Units</label>
           <input
             type='number'
@@ -196,6 +198,7 @@ renderCourses(index) {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'units') }
             placeholder={ course.units }
+            style={ { fontSize: '11px' } }
           />
         </div>
 
@@ -206,5 +209,5 @@ renderCourses(index) {
 
 InputBox.propTypes = {
   inputCount: React.PropTypes.number,
-  stateToParent: React.PropTypes.func
+  stateToParent: React.PropTypes.func,
 };

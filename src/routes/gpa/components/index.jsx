@@ -93,7 +93,7 @@ export default class GPA extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
 
     const { inputCount } = this.state;
     const inputs = [];
@@ -110,10 +110,8 @@ export default class GPA extends React.Component {
         className='container col-md-12'
         style={ { marginTop: '10%' } }
       >
-        <div className='well infobox' style={ { margin: 'auto', width: '50%' } }>
-          <div className='col-md-offset-2'>
-            { inputs }
-          </div>
+        <div className='well infobox col-md-6 col-md-offset-3' >
+          { inputs }
 
           <div className='row'>
             <div className='col-md-6' style={ { marginLeft: '8%', marginRight: '8%' } } >
