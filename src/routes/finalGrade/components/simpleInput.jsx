@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as gradeActions from '../actions';
+import TextField from 'material-ui/TextField';
+
 
 const mapStateToProps = state => ({
   isModalOpen: state.finalGrade.isModalOpen,
 });
 
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    openModal: (grade) => {
-      dispatch(gradeActions.openFinalGradeModal(grade));
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  openModal: (grade) => {
+    dispatch(gradeActions.openFinalGradeModal(grade));
+  },
+});
 
 class SimpleInput extends React.Component {
   constructor(props) {
@@ -93,10 +93,10 @@ class SimpleInput extends React.Component {
       answerString += 'You will nead at least ';
     }
 
-    answerString += `${finalScore}` +
-                    '% on your final to get a ' +
-                    this.state.requiredGrade +
-                    '% overall.';
+    answerString += `${`${finalScore}` +
+                    '% on your final to get a '}${
+                    this.state.requiredGrade
+                    }% overall.`;
 
 
     const score = Number(finalScore);
@@ -165,7 +165,7 @@ class SimpleInput extends React.Component {
             >You current grade:</label>
             <div className='col-xs-3' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
-                className='form-control'
+                className='mdl-textfield__input mdl-js-ripple-effect'
                 type='number'
                 value={ this.state.currentGrade }
                 onChange={ event => this.onInputChange(event, 'currentGrade') }
