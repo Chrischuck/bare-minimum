@@ -144,6 +144,7 @@ class SimpleInput extends React.Component {
           style={ {
             marginTop: 25,
             marginBottom: 15,
+            fontSize: '5vw 5h',
             color: '#2e2d2d',
           } }
         >Final Grade Calculator</h2>
@@ -155,9 +156,12 @@ class SimpleInput extends React.Component {
               htmlFor='currentGrade'
               className='col-xs-5 col-form-label semi-bold'
               style={ {
-                paddingRight: '15px',
+                paddingRight: '.8vw',
                 textAlign: 'right',
-                fontSize: 14,
+                paddingLeft: 0,
+                fontSize: '1.3vw 2vh',
+                lineHeight: '2.2vh',
+                paddingTop: '.8vh',
               } }
             >Your current grade:</label>
             <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -178,11 +182,13 @@ class SimpleInput extends React.Component {
               htmlFor='requiredGrade'
               className='col-xs-5 col-form-label semi-bold'
               style={ {
-                paddingRight: '15px',
+                paddingRight: '.8vw',
                 textAlign: 'right',
                 fontSize: 14,
+                paddingLeft: 0,
+                paddingTop: '.8vh',
               } }
-            >You need a:</label>
+            >You want a:</label>
             <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
               <input
                 className='form-control'
@@ -201,9 +207,11 @@ class SimpleInput extends React.Component {
               htmlFor='final'
               className='col-xs-5 col-form-label semi-bold text-left'
               style={ {
-                paddingRight: '15px',
+                paddingRight: '.8vw',
                 textAlign: 'right',
                 fontSize: 14,
+                paddingLeft: 0,
+                paddingTop: '.8vh',
               } }
             >Final's worth:</label>
             <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -220,8 +228,15 @@ class SimpleInput extends React.Component {
           </div>
 
           <div className='row' style={ { marginLeft: '4%', marginRight: '4%', textAlign: 'center' } } >
-            <a className='btn btn-primary col-md-6 col-xs-6' onClick={ this.onCalculate } >
-                Calculate <span className='glyphicon glyphicon-heart' />
+            <a
+              className='btn btn-primary col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3'
+              onClick={ this.onCalculate }
+              style={ {
+                backgroundColor: '#009688',
+              } }
+            >
+                Calculate
+                <span className='glyphicon glyphicon-heart' style={ { paddingLeft: 2 } } />
             </a>
           </div>
 

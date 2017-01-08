@@ -108,21 +108,52 @@ export default class GPA extends React.Component {
     return (
       <div
         className='container col-md-12'
-        style={ { marginTop: '10%' } }
+        style={ {
+          marginTop: '10vh',
+          paddingLeft: '2%',
+          paddingRight: '2%',
+          marginBottom: 10,
+        } }
       >
+
         <div className='well infobox col-md-6 col-md-offset-3' >
+          <h2
+            className='text-center'
+            style={ {
+              marginTop: 25,
+              marginBottom: 15,
+              fontSize: '5vw 5h',
+              color: '#2e2d2d',
+            } }
+          >GPA Calculator</h2>
+
           { inputs }
 
-          <div className='row'>
-            <div className='col-md-6' style={ { marginLeft: '8%', marginRight: '8%' } } >
-              <a className='btn btn-primary col-md-8' onClick={ this.addClass } >
-                Add Class <span className='glyphicon glyphicon-heart' />
-              </a>
-            </div>
-            <div className='col-md-6' style={ { marginLeft: '8%', marginRight: '8%' } } >
-              <a className='btn btn-primary col-md-8' onClick={ this.showGpa } >
-                Calculate <span className='glyphicon glyphicon-heart' />
-              </a>
+          <div className='row' >
+            <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1'>
+              <div className='pull-left' >
+                <a
+                  className='btn btn-primary no-padding'
+                  onClick={ this.addClass }
+                  style={ {
+                    backgroundColor: '#009688',
+                  } }
+                >
+                  Add Class <span className='glyphicon glyphicon-plus' />
+                </a>
+              </div>
+
+              <div className='pull-right' >
+                <a
+                  className='btn btn-primary no-padding'
+                  onClick={ this.showGpa }
+                  style={ {
+                    backgroundColor: '#009688',
+                  } }
+                >
+                  Calculate <span className='glyphicon glyphicon-heart' />
+                </a>
+              </div>
             </div>
           </div>
 

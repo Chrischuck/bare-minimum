@@ -4,6 +4,11 @@ import classNames from 'classnames';
 
 export default class Header extends React.Component {
 
+  componentDidMount() {
+    $(document).on('click', () => {
+      $('.collapse').collapse('hide');
+    });
+  }
   render() {
     const { path } = this.props;
 

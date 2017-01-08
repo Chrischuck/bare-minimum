@@ -29,7 +29,7 @@ export default class InputBox extends React.Component {
 
   setInParent() {
     const { course, grade, units } = this.state;
-    if (grade && units) {
+    if (typeof grade === 'number' && units) {
       if (typeof grade !== 'number') {
         this.setState({ grade: '' });
         swal({
@@ -77,7 +77,11 @@ export default class InputBox extends React.Component {
         return 1.0;
       case 'D-':
         return 0;
+      case 'F+':
+        return 0;
       case 'F':
+        return 0;
+      case 'F-':
         return 0;
       default:
         return grade;
@@ -149,7 +153,7 @@ export default class InputBox extends React.Component {
       return courses[index];
     }
     return {
-      name: 'ClassMcClassFace',
+      name: 'ClassyMcClassFace',
       grade: 'A++',
       units: '4.20',
     };
@@ -159,10 +163,15 @@ export default class InputBox extends React.Component {
     const { inputCount } = this.props;
     const course = this.renderCourses(inputCount);
     return (
-      <div className='row col-md-offset-1 col-xs-offset-1 no-padding'>
-
-        <div className='form-group has-success is-empty col-md-4 col-xs-4'>
-          <label htmlFor={ `${inputCount}grade` } className='form-label'>Class</label>
+      <div className='row' >
+        <div className='form-group has-success is-empty col-md-4 col-xs-4 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
+          <label
+            htmlFor={ `${inputCount}grade` }
+            className='form-label'
+          >
+            { 'Class ' }
+            <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
+          </label>
           <input
             type='text'
             className='form-control'
@@ -170,12 +179,15 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'course') }
             placeholder={ course.name }
-            style={ { fontSize: '11px' } }
+            style={ { fontSize: '1.3vh' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3 col-xs-3'>
-          <label htmlFor={ `${inputCount}grade` } className='form-label'>Grade</label>
+        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+          <label
+            htmlFor={ `${inputCount}grade` }
+            className='form-label'
+          >Grade</label>
           <input
             maxLength='2'
             type='text'
@@ -184,12 +196,15 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'grade') }
             placeholder={ course.grade }
-            style={ { fontSize: '11px' } }
+            style={ { fontSize: '1.3vh' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3 col-xs-3'>
-          <label htmlFor={ `${inputCount}grade` } className='form-label'>Units</label>
+        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+          <label
+            htmlFor={ `${inputCount}grade` }
+            className='form-label'
+          >Units</label>
           <input
             type='number'
             maxLength='1'
@@ -198,10 +213,9 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'units') }
             placeholder={ course.units }
-            style={ { fontSize: '11px' } }
+            style={ { fontSize: '1.3vh' } }
           />
         </div>
-
       </div>
     );
   }
