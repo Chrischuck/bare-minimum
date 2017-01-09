@@ -53,13 +53,6 @@ module.exports = {
 
     ]
   },
-
-  devServer: {
-    hot: true,
-    quiet: true, // lets WebpackDashboard do its thing
-    historyApiFallback: true,
-  },
-
   ////////// Plug ins! ///////////
   plugins: [
     new DashboardPlugin(dashboard.setData),
