@@ -17,7 +17,7 @@ module.exports = {
     './index.js', // file webpack looks at //
   ],
   output: {
-    filename: 'app.js', // output file name //
+    filename: 'bundle.js', // output file name //
     path: __dirname + '/dist' // output file directory //
   },
 
@@ -55,7 +55,13 @@ module.exports = {
   },
   ////////// Plug ins! ///////////
   plugins: [
-    new DashboardPlugin(dashboard.setData),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    }),
     new HtmlWebpackPlugin({
       title: 'Bare Minimum',
       filename: 'index.html',
