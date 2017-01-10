@@ -13,8 +13,7 @@ module.exports = {
     './index.js', // file webpack looks at //
   ],
   output: {
-    path: __dirname+ '/public',
-    publicPath: '/public/',
+    path: __dirname+ '/dist',
     filename: 'bundle.js'
   },
 
