@@ -35,7 +35,7 @@ module.exports = {
       { test: /\.svg$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "file" },
+      { test: /\.jpg$/, loader: "url-loader?limit=100000" },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
