@@ -87,7 +87,7 @@ export default class InputBox extends React.Component {
         units: '4',
       },
       {
-        name: 'Engl 18',
+        name: 'Engl 1B',
         grade: randGrade,
         units: '2',
       },
