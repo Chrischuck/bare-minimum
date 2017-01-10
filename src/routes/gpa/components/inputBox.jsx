@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default class InputBox extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -9,9 +8,14 @@ export default class InputBox extends React.Component {
       course: '',
       grade: '',
       units: '',
+      randGrade: '',
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.setInParent = this.setInParent.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({ randGrade: this.createRandGrades() });
   }
 
   onInputChange(event, name) {
@@ -50,45 +54,46 @@ export default class InputBox extends React.Component {
   }
 
   renderCourses(index) {
+    const { randGrade } = this.state;
     const courses = [
       {
         name: 'Math 133A',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '3',
       },
       {
         name: 'Astro 10',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '2',
       },
       {
         name: 'Phys 50',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '4',
       },
       {
         name: 'Math 129A',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '3',
       },
       {
         name: 'Math 42',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '3',
       },
       {
         name: 'CS 46B',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '4',
       },
       {
         name: 'Engl 18',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '2',
       },
       {
         name: 'Kin 08',
-        grade: this.createRandGrades(),
+        grade: randGrade,
         units: '2',
       },
     ];
