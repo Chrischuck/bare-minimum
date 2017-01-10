@@ -180,10 +180,16 @@ export default class GPA extends React.Component {
           { inputs }
 
           <div className='row' >
-            <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1'>
-              <div className='pull-left' >
+            <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
+              <div
+                className='pull-left col-md-6 col-xs-6'
+                style={ {
+                  paddingLeft: '5px',
+                  paddingRight: '5px',
+                } }
+              >
                 <a
-                  className='btn btn-primary no-padding'
+                  className='btn btn-primary no-padding col-md-12 col-xs-12'
                   onClick={ this.addClass }
                   style={ {
                     backgroundColor: '#009688',
@@ -193,9 +199,15 @@ export default class GPA extends React.Component {
                 </a>
               </div>
 
-              <div className='pull-right' >
+              <div
+                className='pull-right col-md-6 col-xs-6'
+                style={ {
+                  paddingLeft: '5px',
+                  paddingRight: '5px',
+                } }
+              >
                 <a
-                  className='btn btn-primary no-padding'
+                  className='btn btn-primary no-padding col-md-12 col-xs-12'
                   onClick={ this.showGpa }
                   style={ {
                     backgroundColor: '#009688',
