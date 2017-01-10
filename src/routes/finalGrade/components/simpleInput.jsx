@@ -170,7 +170,7 @@ class SimpleInput extends React.Component {
                 type='number'
                 value={ this.state.currentGrade }
                 onChange={ event => this.onInputChange(event, 'currentGrade') }
-                placeholder='90'
+                placeholder='92.4'
                 id='currentGrade'
               />
             </div>
