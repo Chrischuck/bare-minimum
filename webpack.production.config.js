@@ -13,8 +13,9 @@ module.exports = {
     './index.js', // file webpack looks at //
   ],
   output: {
-    filename: 'bundle.js', // output file name //
-    path: __dirname + '/docs' // output file directory //
+    path: __dirname+ '/public',
+    publicPath: '/public/',
+    filename: 'bundle.js'
   },
 
 
@@ -51,6 +52,8 @@ module.exports = {
   },
   ////////// Plug ins! ///////////
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
