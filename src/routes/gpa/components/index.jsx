@@ -179,7 +179,7 @@ export default class GPA extends React.Component {
 
           { inputs }
 
-          <div className='row' >
+          <div className='row' style={ { paddingTop: '1px' } } >
             <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
               <div
                 className='pull-left col-md-6 col-xs-6'
