@@ -2,10 +2,6 @@
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var Dashboard = require('webpack-dashboard');
-var DashboardPlugin = require('webpack-dashboard/plugin');
-
-var dashboard = new Dashboard();
 
 module.exports = {
 
@@ -18,7 +14,7 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js', // output file name //
-    path: __dirname + '/dist' // output file directory //
+    path: __dirname + '/docs' // output file directory //
   },
 
 

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import Home from '../routes/home/components';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'material-design-lite/material.min.css'
 import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 import 'sweetalert/dist/sweetalert.css';
 
