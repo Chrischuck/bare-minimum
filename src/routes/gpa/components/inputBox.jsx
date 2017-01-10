@@ -168,6 +168,7 @@ export default class InputBox extends React.Component {
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
+            style={ { fontWeight: 550 } }
           >
             { 'Class ' }
             <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
@@ -187,6 +188,7 @@ export default class InputBox extends React.Component {
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
+            style={ { fontWeight: 550 } }
           >Grade</label>
           <input
             maxLength='2'
@@ -204,6 +206,7 @@ export default class InputBox extends React.Component {
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
+            style={ { fontWeight: 550 } }
           >Units</label>
           <input
             type='number'
