@@ -101,7 +101,7 @@ export default class InputBox extends React.Component {
       return courses[index];
     }
     return {
-      name: 'ClassyMcClassFace',
+      name: 'Classy McClassFace',
       grade: 'A++',
       units: '4.20',
     };
@@ -128,7 +128,7 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'course') }
             placeholder={ course.name }
-            style={ { fontSize: '1.3vh' } }
+            style={ { fontSize: '1.2vh' } }
           />
         </div>
 
@@ -146,7 +146,7 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'grade') }
             placeholder={ course.grade }
-            style={ { fontSize: '1.3vh' } }
+            style={ { fontSize: '1.2vh' } }
           />
         </div>
 
@@ -164,7 +164,7 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'units') }
             placeholder={ course.units }
-            style={ { fontSize: '1.3vh' } }
+            style={ { fontSize: '1.2vh' } }
           />
         </div>
       </div>

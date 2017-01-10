@@ -215,7 +215,7 @@ export default class GPA extends React.Component {
                 autoComplete='off'
                 placeholder='3.8'
                 onChange={ event => this.onInputChange(event, 'pastGpa') }
-                style={ { fontSize: '1.3vh' } }
+                style={ { fontSize: '1.2vh' } }
               />
             </div>
 
@@ -235,7 +235,7 @@ export default class GPA extends React.Component {
                 autoComplete='off'
                 placeholder='60'
                 onChange={ event => this.onInputChange(event, 'pastUnits') }
-                style={ { fontSize: '1.3vh' } }
+                style={ { fontSize: '1.2vh' } }
               />
             </div>
           </div>
