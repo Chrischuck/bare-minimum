@@ -6,14 +6,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 import 'sweetalert/dist/sweetalert.css';
 
-
 sweetAlert()
 
 import Header from '../components/header'
 
-
 export default class App extends Component {
-
   render() {
     return (
         <div>

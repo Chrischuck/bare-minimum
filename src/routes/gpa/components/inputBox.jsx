@@ -15,34 +15,14 @@ export default class InputBox extends React.Component {
   }
 
   onInputChange(event, name) {
-    let val = '';
-
-    if (name === 'grade') {
-      val = this.gradeToNumber(event.target.value);
-    } else {
-      val = event.target.value;
-    }
-    this.setState({ [name]: val },
+    this.setState({ [name]: event.target.value },
       () => this.setInParent(),
     );
   }
 
   setInParent() {
     const { course, grade, units } = this.state;
-    if (typeof grade === 'number' && units) {
-      if (typeof grade !== 'number') {
-        this.setState({ grade: '' });
-        swal({
-          title: 'Ugh oh!',
-          text: `We dodn't recognize the grade of '${grade}'!`,
-          confirmButtonColor: '#009688',
-          animation: 'slide-from-top',
-          type: 'warning',
-        });
-      } else {
-        this.props.stateToParent(this.createId(), course, grade, units);
-      }
-    }
+    this.props.stateToParent(this.createId(), course, grade, units);
   }
 
   createId() {
@@ -50,43 +30,6 @@ export default class InputBox extends React.Component {
     return `courseGpa${inputCount}`;
   }
 
-  gradeToNumber(grade) {
-    const parsedGrade = grade.toUpperCase();
-    switch (parsedGrade) {
-      case 'A+':
-        return 4;
-      case 'A':
-        return 4;
-      case 'A-':
-        return 3.7;
-      case 'B+':
-        return 3.3;
-      case 'B':
-        return 3.0;
-      case 'B-':
-        return 2.7;
-      case 'C+':
-        return 2.3;
-      case 'C':
-        return 2.0;
-      case 'C-':
-        return 1.7;
-      case 'D+':
-        return 1.3;
-      case 'D':
-        return 1.0;
-      case 'D-':
-        return 0;
-      case 'F+':
-        return 0;
-      case 'F':
-        return 0;
-      case 'F-':
-        return 0;
-      default:
-        return grade;
-    }
-  }
 
   createRandGrades() {
     const grade = Math.floor((Math.random() * 6) + 1);

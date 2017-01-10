@@ -20,13 +20,19 @@ export default class GPA extends React.Component {
   }
 
   onInputChange(event, name) {
-    this.setState({ [name]: event.target.value });
+    this.setState({ [name]: event.target.value }, () => this.calculate());
   }
 
   stateFromChild(id, course, grade, units) {
     const { courses } = this.state;
+    const previousCourse = courses[id];
+
     courses[id] = { course, grade, units };
-    this.setState({ courses }, () => this.calculate());
+    if (previousCourse && previousCourse.course !== course) {
+      this.setState({ courses });
+    } else {
+      this.setState({ courses }, () => this.calculate());
+    }
   }
 
   calculate() {
@@ -37,24 +43,81 @@ export default class GPA extends React.Component {
     let totalCredits = 0;
     for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];
-      const { grade, units } = courses[key];
+      const { grade, units, course } = courses[key];
+      const numericGrade = this.gradeToNumber(grade);
 
-      totalPoints += grade * Number(units);
-      totalCredits += Number(units);
+      if (typeof numericGrade === 'number' && grade && units) {
+        totalPoints += numericGrade * Number(units);
+        totalCredits += Number(units);
+      } else if (typeof numericGrade !== 'number' && grade && units) {
+        swal({
+          title: 'Oops!',
+          text: course ?
+          `Your grade for ${course} doesn't look right!` :
+          'One of your grades doesn\'t look right!',
+          confirmButtonColor: '#009688',
+          animation: 'slide-from-top',
+          type: 'warning',
+        });
+      }
     }
-    console.log(pastGpa);
-    console.log(pastUnits);
-    if (typeof Number(pastGpa) === 'number' && typeof Number(pastUnits) === 'number') {
+
+    if (!isNaN(Number(pastGpa)) && !isNaN(Number(pastUnits))) {
       totalPoints += Number(pastGpa) * pastUnits;
       totalCredits += Number(pastUnits);
     }
-    const calculatedGpa = Math.ceil((totalPoints / totalCredits) * 100) / 100;
+
+    const toRound = ((totalPoints / totalCredits) * 1000) % 10 >= 5;
+    const calculatedGpa = toRound ?
+      Math.ceil((totalPoints / totalCredits) * 100) / 100 :
+      Math.floor((totalPoints / totalCredits) * 100) / 100;
+    if (isNaN(calculatedGpa)) {
+      return;
+    }
     if ((calculatedGpa * 10) % 10 !== 0) {
       const gpa = calculatedGpa.toFixed(2);
       this.setState({ gpa });
     } else {
       const gpa = calculatedGpa.toFixed(1);
       this.setState({ gpa });
+    }
+  }
+
+  gradeToNumber(grade) {
+    const parsedGrade = grade.toUpperCase();
+    switch (parsedGrade) {
+      case 'A+':
+        return 4;
+      case 'A':
+        return 4;
+      case 'A-':
+        return 3.7;
+      case 'B+':
+        return 3.3;
+      case 'B':
+        return 3.0;
+      case 'B-':
+        return 2.7;
+      case 'C+':
+        return 2.3;
+      case 'C':
+        return 2.0;
+      case 'C-':
+        return 1.7;
+      case 'D+':
+        return 1.3;
+      case 'D':
+        return 1.0;
+      case 'D-':
+        return 0;
+      case 'F+':
+        return 0;
+      case 'F':
+        return 0;
+      case 'F-':
+        return 0;
+      default:
+        return grade;
     }
   }
 
