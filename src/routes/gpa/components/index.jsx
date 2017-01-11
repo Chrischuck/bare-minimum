@@ -186,7 +186,6 @@ export default class GPA extends React.Component {
           marginBottom: 10,
         } }
       >
-
         <div className='well infobox col-md-6 col-md-offset-3' >
           <h2
             className='text-center'
