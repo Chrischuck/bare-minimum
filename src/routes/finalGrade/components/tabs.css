@@ -1,0 +1,22 @@
+.navtabs>li>a {
+    background-color: transparent !important;
+    color: #2e2d2d;
+    font-size: 1.2vh;
+    margin: 0;
+    border-left: 1px #ddd;
+}
+
+.navtabs>li>a:hover {
+    background-color: #ddd !important;
+    margin: 0;
+}
+
+.navtabs > li.active > a,
+.navtabs > li.active > a:hover,
+.navtabs > li.active > a:focus {
+  color: #009688;
+  background-color: #e7e7e7;
+  font-weight: 450;
+  font-size: 1.2vh;
+  margin:0;
+}

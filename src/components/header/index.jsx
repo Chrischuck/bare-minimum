@@ -29,7 +29,7 @@ export default class Header extends React.Component {
               <span className='icon-bar' />
               <span className='icon-bar' />
             </button>
-            <a className='navbar-brand'>Bare Minimum</a>
+            <Link to='/grade-calculator' className='navbar-brand'>Bare Minimum</Link>
           </div>
           <div id='navbar' className='collapse navbar-collapse'>
             <ul className='nav navbar-nav'>

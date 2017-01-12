@@ -59,6 +59,7 @@ export default class GPA extends React.Component {
           animation: 'slide-from-top',
           type: 'warning',
         });
+        return;
       }
     }
 
@@ -187,7 +188,7 @@ export default class GPA extends React.Component {
         } }
       >
         <div className='well infobox col-md-6 col-md-offset-3' >
-          <h2
+          <h3
             className='text-center'
             style={ {
               marginTop: 25,
@@ -195,7 +196,7 @@ export default class GPA extends React.Component {
               fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
-          >GPA Calculator</h2>
+          >GPA Calculator</h3>
 
           <div className='row'>
             <div className='form-group has-success is-empty col-md-2 col-xs-5 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
@@ -242,7 +243,7 @@ export default class GPA extends React.Component {
           { inputs }
 
           <div className='row' style={ { paddingTop: '1px' } } >
-            <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
+            <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1' style={ { padding: 0 } }>
               <div
                 className='pull-left col-md-6 col-xs-6'
                 style={ {

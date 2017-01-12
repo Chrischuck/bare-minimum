@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as gradeActions from '../actions';
+import * as gradeActions from '../../actions';
 
 const mapStateToProps = state => ({
   isModalOpen: state.finalGrade.isModalOpen,
@@ -139,7 +139,7 @@ class SimpleInput extends React.Component {
     return (
       <div style={ { marginTop: 10 } } >
 
-        <h2
+        <h3
           className='text-center'
           style={ {
             marginTop: 25,
@@ -147,7 +147,7 @@ class SimpleInput extends React.Component {
             fontSize: '5vw 5h',
             color: '#2e2d2d',
           } }
-        >Final Grade Calculator</h2>
+        >Final Grade Calculator</h3>
 
         <div className='row' >
 
@@ -162,6 +162,7 @@ class SimpleInput extends React.Component {
                 fontSize: '1.3vw 2vh',
                 lineHeight: '2.2vh',
                 paddingTop: '.8vh',
+                fontWeight: 400,
               } }
             >Your current grade:</label>
             <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -174,7 +175,7 @@ class SimpleInput extends React.Component {
                 id='currentGrade'
               />
             </div>
-            <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%.</label>
+            <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
           </div>
 
           <div className='row form-group has-success is-empty' style={ { margin: 10 } } >
@@ -187,6 +188,7 @@ class SimpleInput extends React.Component {
                 fontSize: 14,
                 paddingLeft: 0,
                 paddingTop: '.8vh',
+                fontWeight: 400,
               } }
             >You want a:</label>
             <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -199,7 +201,7 @@ class SimpleInput extends React.Component {
                 id='requiredGrade'
               />
             </div>
-            <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >% in the class.</label>
+            <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >% in the class.</label>
           </div>
 
           <div className='row form-group has-success is-empty' style={ { margin: '10px' } } >
@@ -212,6 +214,7 @@ class SimpleInput extends React.Component {
                 fontSize: 14,
                 paddingLeft: 0,
                 paddingTop: '.8vh',
+                fontWeight: 400,
               } }
             >Final's worth:</label>
             <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -224,7 +227,7 @@ class SimpleInput extends React.Component {
                 id='final'
               />
             </div>
-            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4 } } >% of your grade.</label>
+            <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4, fontWeight: 400 } } >% of your grade.</label>
           </div>
 
           <div className='row' style={ { marginLeft: '4%', marginRight: '4%', textAlign: 'center' } } >
