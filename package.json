@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
     "build": "NODE_ENV=production webpack -p --config ./webpack.production.config.js",
-    "start": "node server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "grade",
