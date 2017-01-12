@@ -68,10 +68,6 @@ module.exports = {
       template: './index.html',
       inject: true
     }),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    }),
     new ExtractTextPlugin("styles.css")
   ]
 
