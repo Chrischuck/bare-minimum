@@ -8,7 +8,7 @@
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
     "build": "NODE_ENV=production webpack -p --config ./webpack.production.config.js",
     "start": "node server.js",
-    "postinstall": "node_modules/.bin/webpack -p --config webpack.production.config.js"
+    "postinstall": "NPM_CONFIG_PRODUCTION=false webpack -p --config webpack.production.config.js"
   },
   "keywords": [
     "grade",
