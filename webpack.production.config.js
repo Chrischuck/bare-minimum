@@ -9,15 +9,23 @@ module.exports = {
   /////////// Sets up entra and output code ////////
   devtool: 'cheap-module-source-map',
   context: __dirname + '/src', // directory webpack looks //
-  entry: [
-    'babel-polyfill',
-    './index.js', // file webpack looks at //
-  ],
+  entry: {
+    app: './index.js', // file webpack looks at //
+    vendor: [
+      'sweetalert',
+      'react',
+      'react-dom',
+      'redux',
+      'classnames',
+      'redux-saga',
+      'react-router',
+      'react-redux'
+    ]
+  },
   output: {
     path: __dirname+ '/dist',
     filename: 'bundle.js'
   },
-
 
   /////////// Sets up loaders ////////
   resolve: {
@@ -54,6 +62,7 @@ module.exports = {
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.CommonsChunkPlugin("vendor", 'vendor.js'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       comments: true,
