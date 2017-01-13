@@ -12,7 +12,7 @@ import Header from '../components/header'
 export default class App extends Component {
   render() {
     return (
-        <div id='harambe'>
+        <div id='globalWrapper'>
           <Header path={ this.props.location.pathname } />
 
           <div

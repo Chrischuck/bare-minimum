@@ -14,7 +14,7 @@ export default class Header extends React.Component {
   }
 
   componentDidMount() {
-    document.getElementById('harambe').onclick = this.closeDropdown;
+    document.getElementById('globalWrapper').onclick = this.closeDropdown;
   }
 
   openDropdown() {

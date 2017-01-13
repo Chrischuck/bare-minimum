@@ -179,8 +179,8 @@ export default class WeightedGrade extends React.Component {
   }
 
   inputToNumber(input) {
-    if (input.substr(input.length - 1) === '%') {
-      return Number(input.substr(0, input.length - 1)) / 100;
+    if (input.substring(input.length - 1) === '%') {
+      return Number(input.substring(0, input.length - 1)) / 100;
     } else if (!isNaN(Number(input))) {
       return Number(input) / 100;
     } else {
