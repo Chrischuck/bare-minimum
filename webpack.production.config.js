@@ -52,13 +52,17 @@ module.exports = {
   },
   ////////// Plug ins! ///////////
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
+      comments: true,
+      beautify: false,
+      mangle: false,
       compress: {
-        warnings: false
+        warnings: false,
+        drop_console: true
+
       }
     }),
     new HtmlWebpackPlugin({
@@ -68,10 +72,6 @@ module.exports = {
       inject: true
     }),
     new ExtractTextPlugin("styles.css"),
-    new PurifyCSSPlugin({
-      basePath: '/',
-      resolveExtensions: ['.html']
-    }),
     new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
