@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import classNames from 'classnames';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -35,7 +34,7 @@ export default class Header extends React.Component {
           <div className='navbar-header'>
             <button
               type='button'
-              className={ classNames('navbar-toggle', { collapsed: !isDropdownOpen }) }
+              className={ !isDropdownOpen ? 'navbar-toggle collapsed' : 'navbar-toggle' }
               data-toggle='collapse'
               data-target='#navbar'
               aria-expanded={ isDropdownOpen }
@@ -49,11 +48,11 @@ export default class Header extends React.Component {
             </button>
             <Link to='/grade-calculator' className='navbar-brand'>Bare Minimum</Link>
           </div>
-          <div id='navbar' className={ classNames('collapse navbar-collapse', { in: isDropdownOpen }) }>
+          <div id='navbar' className={ isDropdownOpen ? 'collapse navbar-collapse in' : 'collapse navbar-collapse' }>
             <ul className='nav navbar-nav'>
-              <li className={ classNames({ active: path === '/' }) }><Link to='/'>Home</Link></li>
-              <li className={ classNames({ active: path === 'grade-calculator' || path === '/grade-calculator' }) }><Link to='grade-calculator'>Grade Calculator</Link></li>
-              <li className={ classNames({ active: path === 'gpa-calculator' || path === '/gpa-calculator' }) }><Link to='gpa-calculator'>GPA Calculator</Link></li>
+              <li className={ path === '/' ? 'active' : '' }><Link to='/'>Home</Link></li>
+              <li className={ path === 'grade-calculator' || path === '/grade-calculator' ? 'active' : '' }><Link to='grade-calculator'>Grade Calculator</Link></li>
+              <li className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }><Link to='gpa-calculator'>GPA Calculator</Link></li>
             </ul>
           </div>
         </div>
