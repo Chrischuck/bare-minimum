@@ -282,7 +282,7 @@ export default class WeightedGrade extends React.Component {
                   fontSize: '2vh',
                 } }
               >
-                  Add Category <span className='glyphicon glyphicon-plus' />
+                  Add Category
               </a>
             </div>
 
@@ -301,7 +301,7 @@ export default class WeightedGrade extends React.Component {
                   fontSize: '2vh',
                 } }
               >
-                  Calculate <span className='glyphicon glyphicon-heart' />
+                  Calculate
               </a>
             </div>
           </div>

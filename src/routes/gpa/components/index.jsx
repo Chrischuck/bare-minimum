@@ -258,7 +258,7 @@ export default class GPA extends React.Component {
                     backgroundColor: '#009688',
                   } }
                 >
-                  Add Class <span className='glyphicon glyphicon-plus' />
+                  Add Class
                 </a>
               </div>
 
@@ -276,7 +276,7 @@ export default class GPA extends React.Component {
                     backgroundColor: '#009688',
                   } }
                 >
-                  Calculate <span className='glyphicon glyphicon-heart' />
+                  Calculate
                 </a>
               </div>
             </div>

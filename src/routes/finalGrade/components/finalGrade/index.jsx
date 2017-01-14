@@ -239,7 +239,6 @@ class SimpleInput extends React.Component {
               } }
             >
                 Calculate
-                <span className='glyphicon glyphicon-heart' style={ { paddingLeft: 2 } } />
             </a>
           </div>
 
