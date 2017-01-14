@@ -2,21 +2,30 @@
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 
 module.exports = {
 
   /////////// Sets up entra and output code ////////
   devtool: 'cheap-module-source-map',
   context: __dirname + '/src', // directory webpack looks //
-  entry: [
-    'babel-polyfill',
-    './index.js', // file webpack looks at //
-  ],
+  entry: {
+    app: './index.js', // file webpack looks at //
+    vendor: [
+      'sweetalert',
+      'react',
+      'react-dom',
+      'redux',
+      'classnames',
+      'redux-saga',
+      'react-router',
+      'react-redux'
+    ]
+  },
   output: {
     path: __dirname+ '/dist',
     filename: 'bundle.js'
   },
-
 
   /////////// Sets up loaders ////////
   resolve: {
@@ -51,13 +60,18 @@ module.exports = {
   },
   ////////// Plug ins! ///////////
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.CommonsChunkPlugin("vendor", 'vendor.js'),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
+      comments: true,
+      beautify: false,
+      mangle: false,
       compress: {
-        warnings: false
+        warnings: false,
+        drop_console: true
+
       }
     }),
     new HtmlWebpackPlugin({
@@ -65,10 +79,6 @@ module.exports = {
       filename: 'index.html',
       template: './index.html',
       inject: true
-    }),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
     }),
     new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
