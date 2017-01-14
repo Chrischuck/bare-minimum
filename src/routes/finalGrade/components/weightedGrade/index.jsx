@@ -211,13 +211,13 @@ export default class WeightedGrade extends React.Component {
         <p
           className='text-center'
           style={ {
-            marginBottom: 15,
+            marginBottom: 4,
             fontSize: '1.6vh',
             color: '#5d5d5d',
           } }
         >% sign is not neccesary</p>
         <div className='row'>
-          <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+          <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
             <label
               htmlFor={ 'requiredGrade' }
               className='form-label'
@@ -234,7 +234,7 @@ export default class WeightedGrade extends React.Component {
               style={ { fontSize: '1.6vh' } }
             />
           </div>
-          <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+          <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
             <label
               htmlFor={ 'finalWeight' }
               className='form-label'

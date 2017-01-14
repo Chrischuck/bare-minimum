@@ -217,15 +217,15 @@ export default class GPA extends React.Component {
           <h3
             className='text-center'
             style={ {
-              marginTop: 25,
-              marginBottom: 15,
+              marginTop: 0,
+              marginBottom: 10,
               fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
           >GPA Calculator</h3>
 
           <div className='row'>
-            <div className='form-group has-success is-empty col-md-2 col-xs-5 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
+            <div className='form-group has-success is-empty col-md-2 col-xs-5 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
               <label
                 htmlFor='pastGPA'
                 className='form-label'
@@ -245,7 +245,7 @@ export default class GPA extends React.Component {
               />
             </div>
 
-            <div className='form-group has-success is-empty col-md-2 col-xs-5' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
+            <div className='form-group has-success is-empty col-md-2 col-xs-5' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
               <label
                 htmlFor='pastUnits'
                 className='form-label'

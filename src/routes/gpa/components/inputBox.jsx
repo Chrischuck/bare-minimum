@@ -112,7 +112,7 @@ export default class InputBox extends React.Component {
     const course = this.renderCourses(inputCount);
     return (
       <div className='row' >
-        <div className='form-group has-success is-empty col-md-4 col-xs-4 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
+        <div className='form-group has-success is-empty col-md-4 col-xs-4 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
@@ -132,7 +132,7 @@ export default class InputBox extends React.Component {
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
@@ -150,7 +150,7 @@ export default class InputBox extends React.Component {
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
