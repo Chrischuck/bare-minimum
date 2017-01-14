@@ -21,7 +21,6 @@
   "author": "Chris Chuck",
   "license": "ISC",
   "dependencies": {
-    "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "react": "^15.4.1",
@@ -29,7 +28,6 @@
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
-    "redux-logger": "^2.7.4",
     "redux-saga": "^0.13.0",
     "sweetalert": "^1.1.3"
   },

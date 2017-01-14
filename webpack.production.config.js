@@ -18,8 +18,8 @@ module.exports = {
       'redux',
       'classnames',
       'redux-saga',
-      'react-router',
-      'react-redux'
+      'react-redux',
+      'react-router'
     ]
   },
   output: {
