@@ -8,7 +8,6 @@ export default class InputBox extends React.Component {
       category: '',
       grade: '',
       weight: '',
-      randPercentage: '',
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.setInParent = this.setInParent.bind(this);
@@ -33,7 +32,6 @@ export default class InputBox extends React.Component {
 
 
   renderCategories(index) {
-    const { randGrade } = this.state;
     const courses = [
       {
         category: 'Homework',
@@ -75,9 +73,9 @@ export default class InputBox extends React.Component {
       return courses[index];
     }
     return {
-      category: 'Classy McClassFace',
+      category: 'Memetics',
       grade: '100%',
-      weight: '25%',
+      weight: '100%',
     };
   }
 

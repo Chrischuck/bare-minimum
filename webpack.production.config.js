@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 
@@ -12,13 +13,10 @@ module.exports = {
   entry: {
     app: './index.js', // file webpack looks at //
     vendor: [
-      'sweetalert',
       'react',
       'react-dom',
-      'redux',
-      'redux-saga',
-      'react-redux',
-      'react-router'
+      'react-router',
+      'sweetalert'
     ]
   },
   output: {
@@ -40,7 +38,7 @@ module.exports = {
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "url-loader" },
+      { test: /\.jpg$/, loader: "url-loader?limit=100000" },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
@@ -80,6 +78,7 @@ module.exports = {
       inject: true
     }),
     new ExtractTextPlugin("styles.css"),
+    new BundleAnalyzerPlugin(),
     new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')

@@ -1,19 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as gradeActions from '../../actions';
 
-const mapStateToProps = state => ({
-  isModalOpen: state.finalGrade.isModalOpen,
-});
-
-
-const mapDispatchToProps = dispatch => ({
-  openModal: (grade) => {
-    dispatch(gradeActions.openFinalGradeModal(grade));
-  },
-});
-
-class SimpleInput extends React.Component {
+export default class SimpleInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -248,5 +235,3 @@ class SimpleInput extends React.Component {
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(SimpleInput);
