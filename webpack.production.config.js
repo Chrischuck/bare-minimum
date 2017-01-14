@@ -3,7 +3,6 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 
@@ -78,7 +77,6 @@ module.exports = {
       inject: true
     }),
     new ExtractTextPlugin("styles.css"),
-    new BundleAnalyzerPlugin(),
     new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
