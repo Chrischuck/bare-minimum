@@ -63,11 +63,16 @@ module.exports = {
       minimize: true,
       comments: true,
       beautify: false,
-      mangle: false,
+      mangle: true,
       compress: {
-        warnings: false,
-        drop_console: true
-
+        sequences: true,
+    		dead_code: true,
+    		conditionals: true,
+    		booleans: true,
+    		unused: true,
+    		if_return: true,
+    		join_vars: true,
+    		drop_console: true
       }
     }),
     new HtmlWebpackPlugin({
