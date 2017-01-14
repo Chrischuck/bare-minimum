@@ -87,11 +87,11 @@ export default class InputBox extends React.Component {
     const category = this.renderCategories(inputCount);
     return (
       <div className='row' >
-        <div className='form-group has-success is-empty col-md-4 col-xs-4 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
+        <div className='form-group has-success is-empty col-md-4 col-sm-4 col-xs-4 col-sm-offset-1 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px' } }>
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '1.6vh' } }
+            style={ { fontWeight: 500, fontSize: '1.4vh' } }
           >
             { 'Category ' }
             <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
@@ -103,43 +103,43 @@ export default class InputBox extends React.Component {
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'category') }
             placeholder={ category.category }
-            style={ { fontSize: '1.7vh' } }
+            style={ { fontSize: '1.6vh' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '1.6vh' } }
+            style={ { fontWeight: 500, fontSize: '1.4vh' } }
           >Current Grade</label>
           <input
             maxLength='3'
-            type='text'
+            type='number'
             className='form-control'
             id={ `${inputCount}grade` }
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'grade') }
             placeholder={ category.grade }
-            style={ { fontSize: '1.7vh' } }
+            style={ { fontSize: '1.6vh' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
+        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
           <label
             htmlFor={ `${inputCount}weight` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '1.6vh' } }
+            style={ { fontWeight: 500, fontSize: '1.4vh' } }
           >Weight</label>
           <input
-            type='text'
+            type='number'
             maxLength='3'
             className='form-control'
             id={ `${inputCount}weight` }
             autoComplete='off'
             onChange={ event => this.onInputChange(event, 'weight') }
             placeholder={ category.weight }
-            style={ { fontSize: '1.7vh' } }
+            style={ { fontSize: '1.6vh' } }
           />
         </div>
       </div>

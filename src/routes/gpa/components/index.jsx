@@ -20,6 +20,32 @@ export default class GPA extends React.Component {
   }
 
   onInputChange(event, name) {
+    if (name === 'pastGpa' && Number(event.target.value) > 4) {
+      swal({
+        title: 'Impossible!',
+        text: 'You can\'t have a gpa higher than a 4.0!',
+        confirmButtonColor: '#009688',
+        animation: 'slide-from-top',
+        type: 'warning',
+      });
+    } else if (name === 'pastGpa' && Number(event.target.value) < 0) {
+      swal({
+        title: 'Impossible!',
+        text: 'You can\'t have a gpa lower than a 0!',
+        confirmButtonColor: '#009688',
+        animation: 'slide-from-top',
+        type: 'warning',
+      });
+    } else if (name === 'pastUnits' && Number(event.target.value) < 0) {
+      swal({
+        title: 'Oh dear!',
+        text: 'You can\'t have negative units!',
+        confirmButtonColor: '#009688',
+        animation: 'slide-from-top',
+        type: 'warning',
+      });
+    }
+
     this.setState({ [name]: event.target.value }, () => this.calculate());
   }
 
@@ -181,7 +207,7 @@ export default class GPA extends React.Component {
       <div
         className='container col-md-12'
         style={ {
-          marginTop: '10vh',
+          marginTop: '13vh',
           paddingLeft: '2%',
           paddingRight: '2%',
           marginBottom: 10,
@@ -209,7 +235,7 @@ export default class GPA extends React.Component {
                 <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
-                type='text'
+                type='number'
                 className='form-control'
                 id='pastGPA'
                 autoComplete='off'
@@ -229,7 +255,7 @@ export default class GPA extends React.Component {
                 <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
-                type='text'
+                type='number'
                 className='form-control'
                 id='pastUnits'
                 autoComplete='off'
@@ -243,7 +269,7 @@ export default class GPA extends React.Component {
           { inputs }
 
           <div className='row' style={ { paddingTop: '1px' } } >
-            <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1' style={ { padding: 0 } }>
+            <div className='col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1' style={ { padding: 0 } }>
               <div
                 className='pull-left col-md-6 col-xs-6'
                 style={ {

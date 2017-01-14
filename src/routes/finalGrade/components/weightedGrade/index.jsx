@@ -35,10 +35,11 @@ export default class WeightedGrade extends React.Component {
   calculate() {
     const { categories, requiredGrade, finalWeight } = this.state;
     const keys = Object.keys(categories);
-    const requiredPercent = this.inputToNumber(requiredGrade);
-    const finalPercent = this.inputToNumber(finalWeight);
+    const requiredPercent = Number(requiredGrade) / 100;
+    const finalPercent = Number(finalWeight) / 100;
     let contributions = 0;
     let totalWeights = 0;
+    let totalPercentage = Number(finalWeight);
 
     if (!requiredPercent) {
       swal({
@@ -64,8 +65,9 @@ export default class WeightedGrade extends React.Component {
     for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];
       const { category, grade, weight } = categories[key];
-      const numericalGrade = this.inputToNumber(grade);
-      const numericalWeight = this.inputToNumber(weight);
+      const numericalGrade = Number(grade) / 100;
+      const numericalWeight = Number(weight) / 100;
+      totalPercentage += Number(weight);
       if (!numericalGrade) {
         swal({
           title: 'Oops!',
@@ -105,11 +107,11 @@ export default class WeightedGrade extends React.Component {
       });
       return;
     }
-
-    if ((totalWeights + finalPercent) !== 1) {
+    console.log(totalPercentage);
+    if ((totalPercentage) !== 100) {
       swal({
         title: 'Oops!',
-        text: (totalWeights + finalPercent) > 1 ?
+        text: totalPercentage > 100 ?
         'Your total percentage can\'t be greater than 100!' :
         'Your total percentage can\'t be less than 100!',
         confirmButtonColor: '#009688',
@@ -178,23 +180,12 @@ export default class WeightedGrade extends React.Component {
     return answerString;
   }
 
-  inputToNumber(input) {
-    if (input.substring(input.length - 1) === '%') {
-      return Number(input.substring(0, input.length - 1)) / 100;
-    } else if (!isNaN(Number(input))) {
-      return Number(input) / 100;
-    } else {
-      return undefined;
-    }
-  }
-
   addCategory() {
     const { inputCount } = this.state;
     this.setState({ inputCount: inputCount + 1 });
   }
 
   render() {
-    console.log(this.state);
     const { inputCount } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i += 1) {
@@ -230,34 +221,34 @@ export default class WeightedGrade extends React.Component {
             <label
               htmlFor={ 'requiredGrade' }
               className='form-label'
-              style={ { fontWeight: 500, fontSize: '1.8vh' } }
+              style={ { fontWeight: 500, fontSize: '1.4vh' } }
             >You want a:</label>
             <input
               maxLength='3'
-              type='text'
+              type='number'
               className='form-control'
               id={ 'requiredGrade' }
               autoComplete='off'
               onChange={ event => this.onInputChange(event, 'requiredGrade') }
               placeholder={ '93%' }
-              style={ { fontSize: '1.7vh' } }
+              style={ { fontSize: '1.6vh' } }
             />
           </div>
           <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '5px', paddingRight: '5px' } } >
             <label
               htmlFor={ 'finalWeight' }
               className='form-label'
-              style={ { fontWeight: 500, fontSize: '1.8vh' } }
+              style={ { fontWeight: 500, fontSize: '1.4vh' } }
             >Final's worth:</label>
             <input
               maxLength='3'
-              type='text'
+              type='number'
               className='form-control'
               id={ 'finalWeight' }
               autoComplete='off'
               onChange={ event => this.onInputChange(event, 'finalWeight') }
               placeholder={ '20%' }
-              style={ { fontSize: '1.7vh' } }
+              style={ { fontSize: '1.6vh' } }
             />
           </div>
         </div>
@@ -266,7 +257,7 @@ export default class WeightedGrade extends React.Component {
 
 
         <div className='row' style={ { paddingTop: '1px' } } >
-          <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1' style={ { padding: 0 } } >
+          <div className='col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1' style={ { padding: 0 } } >
             <div
               className='pull-left col-md-6 col-xs-6'
               style={ {

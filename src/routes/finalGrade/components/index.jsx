@@ -36,7 +36,7 @@ export default class FinalGrade extends React.Component {
       <div
         className='container col-md-12'
         style={ {
-          marginTop: '10vh',
+          marginTop: '13vh',
           paddingLeft: '2%',
           paddingRight: '2%',
         } }
