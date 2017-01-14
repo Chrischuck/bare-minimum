@@ -7,7 +7,6 @@ var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 module.exports = {
 
   /////////// Sets up entra and output code ////////
-  devtool: 'cheap-module-source-map',
   context: __dirname + '/src', // directory webpack looks //
   entry: {
     app: './index.js', // file webpack looks at //
