@@ -16,7 +16,8 @@ export default class Header extends React.Component {
     document.getElementById('globalWrapper').onclick = this.closeDropdown;
   }
 
-  openDropdown() {
+  openDropdown(event) {
+    event.stopPropagation();
     this.setState({ isDropdownOpen: true });
   }
 
@@ -39,7 +40,7 @@ export default class Header extends React.Component {
               data-target='#navbar'
               aria-expanded={ isDropdownOpen }
               aria-controls='navbar'
-              onClick={ this.openDropdown }
+              onClick={ event => this.openDropdown(event) }
             >
               <span className='sr-only'>Toggle navigation</span>
               <span className='icon-bar' />
