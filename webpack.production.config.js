@@ -83,20 +83,19 @@ module.exports = {
     		drop_console: true
       }
     }),
-    new OfflinePlugin(),
     new HtmlWebpackPlugin({
       title: 'Bare Minimum',
       filename: 'index.html',
       template: './index.html',
       inject: true
     }),
-    new webpack.optimize.AggressiveMergingPlugin(), 
+    new webpack.optimize.AggressiveMergingPlugin(),
     new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
       }
-    }),
+    })
   ]
 
 }

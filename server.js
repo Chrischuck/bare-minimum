@@ -1,20 +1,17 @@
 /* eslint-disable */
 var path = require('path');
 var express = require('express');
+var compression = require('compression');
 
 var app = express();
+app.use(compression());
+
 var PORT = process.env.PORT || 8080
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', function(req, res) {
     res.sendfile('./dist/index.html');
-});
-
-app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
 });
 
 
