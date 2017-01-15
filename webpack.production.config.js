@@ -41,8 +41,8 @@ module.exports = {
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
-      { test: /\.png$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "url-loader?limit=100000" },
+      { test: /\.png$/, loader: "url-loader?limit=500" },
+      { test: /\.jpg$/, loader: "url-loader?limit=500" },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
@@ -85,16 +85,6 @@ module.exports = {
       filename: 'index.html',
       template: './index.html',
       inject: true
-    }),
-    new PurifyCSSPlugin({
-      basePath: __dirname,
-      paths: [
-                "dist/*.html",
-              ],
-      resolveExtensions: ['.html'],
-      purifyOptions: {
-        info: true,
-      }
     }),
     new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
