@@ -23,6 +23,10 @@ module.exports = {
 
   /////////// Sets up loaders ////////
   resolve: {
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat'
+  },
     extensions: ['', '.js', '.jsx', '.json', '.css']
   },
   module: {

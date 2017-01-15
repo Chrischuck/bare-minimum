@@ -14,7 +14,9 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
-      'sweetalert'
+      'sweetalert',
+      'preact',
+      'preact-compat'
     ]
   },
   output: {
@@ -24,6 +26,10 @@ module.exports = {
 
   /////////// Sets up loaders ////////
   resolve: {
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat'
+  },
     extensions: ['', '.js', '.jsx', '.json', '.css']
   },
   module: {
@@ -79,6 +85,16 @@ module.exports = {
       filename: 'index.html',
       template: './index.html',
       inject: true
+    }),
+    new PurifyCSSPlugin({
+      basePath: __dirname,
+      paths: [
+                "dist/*.html",
+              ],
+      resolveExtensions: ['.html'],
+      purifyOptions: {
+        info: true,
+      }
     }),
     new ExtractTextPlugin("styles.css"),
     new webpack.DefinePlugin({
