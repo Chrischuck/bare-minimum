@@ -4,7 +4,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var Dashboard = require('webpack-dashboard');
 var DashboardPlugin = require('webpack-dashboard/plugin');
-var OfflinePlugin = require('offline-plugin');
 
 
 var dashboard = new Dashboard();
@@ -74,7 +73,6 @@ module.exports = {
       template: './index.html',
       inject: true
     }),
-    new OfflinePlugin(),
     new ExtractTextPlugin("styles.css")
   ]
 

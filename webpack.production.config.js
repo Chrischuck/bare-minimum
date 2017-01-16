@@ -3,8 +3,6 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
-var CompressionPlugin = require("compression-webpack-plugin");
 
 
 module.exports = {
