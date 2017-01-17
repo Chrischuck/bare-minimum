@@ -1,5 +1,8 @@
 import React from 'react';
+import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 import InputBox from './inputBox';
+
+sweetAlert();
 
 export default class GPA extends React.Component {
   constructor(props) {

@@ -2,10 +2,7 @@
 import React, { Component } from 'react';
 import Home from '../routes/home/components';
 import 'bootstrap/dist/css/bootstrap.css';
-import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 import 'sweetalert/dist/sweetalert.css';
-
-sweetAlert()
 
 import Header from '../components/header'
 
