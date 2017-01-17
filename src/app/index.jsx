@@ -16,6 +16,7 @@ export default class App extends Component {
           <div
             className='container'
             style={ {
+            paddingTop: '2%',
             width: '100%',
             margin: '0 auto',
             paddingLeft: 0,
