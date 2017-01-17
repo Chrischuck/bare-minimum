@@ -22,7 +22,6 @@
   "author": "Chris Chuck",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "preact": "^7.1.0",
     "preact-compat": "^3.10.0",
     "react": "^15.4.1",

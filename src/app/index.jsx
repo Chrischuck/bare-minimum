@@ -1,8 +1,9 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import Home from '../routes/home/components';
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 import 'sweetalert/dist/sweetalert.css';
+import './styles.css'
 
 import Header from '../components/header'
 
@@ -15,7 +16,6 @@ export default class App extends Component {
           <div
             className='container'
             style={ {
-            paddingTop: '2%',
             width: '100%',
             margin: '0 auto',
             paddingLeft: 0,

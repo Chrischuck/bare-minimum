@@ -30,7 +30,7 @@ export default class Header extends React.Component {
     const { isDropdownOpen } = this.state;
 
     return (
-      <nav className='navbar navbar-inverse navbar-fixed-top'>
+      <nav className='navbar navbar-inverse navbar-static-top'>
         <div className='container'>
           <div className='navbar-header'>
             <button

@@ -214,7 +214,8 @@ export default class WeightedGrade extends React.Component {
         <p
           className='text-center'
           style={ {
-            marginBottom: 4,
+            marginBottom: 8,
+            marginTop: 0,
             fontSize: '1.6vh',
             color: '#5d5d5d',
           } }
