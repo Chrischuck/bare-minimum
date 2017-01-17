@@ -1,0 +1,11 @@
+{
+  "name": "Bare Minimum",
+  "short_name": "Bare Minimum",
+  "icons": [],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#009688",
+  "theme_color": "#009688"
+}

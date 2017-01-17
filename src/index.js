@@ -2,8 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-require('offline-plugin/runtime').install();
-
+import './manifest.json'
 import App from './app';
 
 import FinalGradeRoute from './routes/finalGrade';
