@@ -44,8 +44,10 @@ module.exports = {
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
-      { test: /\.png$/, loader: "file-loader" },
-      { test: /\.jpg$/, loader: "file-loader" },
+      { test: /\.(jpe?g|png)$/i, loaders: [
+            'file?hash=sha512&digest=hex',
+            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ] },
       {test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
@@ -94,7 +96,7 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new BundleAnalyzerPlugin()
+    //new BundleAnalyzerPlugin()
   ]
 
 }
