@@ -44,19 +44,16 @@ module.exports = {
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
-      { test: /\.png$/, loader: "url-loader?limit=500" },
-      { test: /\.jpg$/, loader: "url-loader?limit=500" },
+      { test: /\.png$/, loader: "file-loader" },
+      { test: /\.jpg$/, loader: "file-loader" },
       {test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
         loader: 'babel-loader',
         options: {
-          presets: ["es2015", "react", "stage-0"],
-          plugins: [
-              ["transform-decorators-legacy"],
-              ["transform-runtime"]
-            ]
+          presets: ["es2015", "react", "stage-0"]
+
           }
       },
 
@@ -97,7 +94,7 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new BundleAnalyzerPlugin()
+    //new BundleAnalyzerPlugin()
   ]
 
 }
