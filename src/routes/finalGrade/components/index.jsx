@@ -45,10 +45,10 @@ export default class FinalGrade extends React.Component {
           <div className='row' data-example-id='simple-nav-tabs'>
 
             <ul className='nav nav-tabs navtabs no-padding scrolling' >
-              <li role='presentation' className={ currentTab === 'gradeCalc' ? 'active' : '' } style={ { backgroundColor: '#f5f5f5' } } >
+              <li role='presentation' className={ currentTab === 'gradeCalc' ? 'active' : '' } >
                 <a onClick={ () => this.onTabChange('gradeCalc') } style={ { paddingLeft: '.8vw', paddingRight: '.8vw' } }>Final Grade Calc</a>
               </li>
-              <li role='presentation' className={ currentTab === 'weightedGrade' ? 'active' : '' }>
+              <li role='presentation' className={ currentTab === 'weightedGrade' ? 'active' : '' } >
                 <a onClick={ () => this.onTabChange('weightedGrade') } style={ { paddingLeft: '.8vw', paddingRight: '.8vw' } }>Weighted Grade Calc</a>
               </li>
             </ul>
