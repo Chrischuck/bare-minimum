@@ -87,10 +87,9 @@ export default class WeightedGrade extends React.Component {
       sweetalert('Oh no!', 'Looks like you haven\'t added any categories!', 'warning');
       return;
     }
-    console.log(totalPercentage);
     if ((totalPercentage) !== 100) {
       sweetalert(
-        'Dang!',
+        'Oops!',
         totalPercentage > 100 ?
           'Your total percentage can\'t be greater than 100!' :
           'Your total percentage can\'t be less than 100!',
