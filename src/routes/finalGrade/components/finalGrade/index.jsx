@@ -1,7 +1,6 @@
 import React from 'react';
-import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 
-sweetAlert();
+import sweetalert from '../../../../util/sweetalert';
 
 export default class SimpleInput extends React.Component {
   constructor(props) {
@@ -107,22 +106,11 @@ export default class SimpleInput extends React.Component {
   }
 
   missingFormElements() {
-    swal({
-      title: 'Ugh oh!',
-      text: this.errorStringBuilder(),
-      confirmButtonColor: '#009688',
-      animation: 'slide-from-top',
-      type: 'warning',
-    });
+    sweetalert('Ugh Oh!', this.errorStringBuilder(), 'warning');
   }
 
   noMissingElements() {
-    swal({
-      title: 'You can do it!',
-      text: this.calculatorStringBuilder(this.calculateGrade()),
-      confirmButtonColor: '#009688',
-      animation: 'slide-from-top',
-    });
+    sweetalert('Ugh Oh!', this.calculatorStringBuilder(this.calculateGrade()), null);
   }
 
   render() {

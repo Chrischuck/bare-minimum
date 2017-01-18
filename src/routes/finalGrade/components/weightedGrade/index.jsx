@@ -1,8 +1,7 @@
 import React from 'react';
-import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 import InputBox from './inputBox';
 
-sweetAlert();
+import sweetalert from '../../../../util/sweetalert';
 
 export default class WeightedGrade extends React.Component {
   constructor(props) {
@@ -45,23 +44,11 @@ export default class WeightedGrade extends React.Component {
     let totalPercentage = Number(finalWeight);
 
     if (!requiredPercent) {
-      swal({
-        title: 'Ugh Oh!',
-        text: 'The grade you want doesn\'t look right!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Ugh Oh!', 'The grade you want doesn\'t look right!', 'warning');
       return;
     }
     if (!finalPercent) {
-      swal({
-        title: 'Ugh Oh!',
-        text: 'The final\'s weight doesn\'t look right!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Ugh Oh!', 'The final\'s weight doesn\'t look right!', 'warning');
       return;
     }
 
@@ -72,27 +59,23 @@ export default class WeightedGrade extends React.Component {
       const numericalWeight = Number(weight) / 100;
       totalPercentage += Number(weight);
       if (!numericalGrade) {
-        swal({
-          title: 'Oops!',
-          text: category ?
-          `Your grade for ${category} doesn't look right!` :
-          'One of your grades doesn\'t look right!',
-          confirmButtonColor: '#009688',
-          animation: 'slide-from-top',
-          type: 'warning',
-        });
+        sweetalert(
+          'Oops!',
+           category ?
+            `Your grade for ${category} doesn't look right!` :
+           '  One of your grades doesn\'t look right!',
+         'warning',
+       );
         return;
       }
       if (!numericalWeight) {
-        swal({
-          title: 'Oops!',
-          text: category ?
-          `Your weight for ${category} doesn't look right!` :
-          'One of your weights doesn\'t look right!',
-          confirmButtonColor: '#009688',
-          animation: 'slide-from-top',
-          type: 'warning',
-        });
+        sweetalert(
+          'Oops!',
+           category ?
+            `Your weight for ${category} doesn't look right!` :
+           '  One of your weights doesn\'t look right!',
+         'warning',
+       );
         return;
       }
       if (numericalGrade && numericalWeight) {
@@ -101,26 +84,17 @@ export default class WeightedGrade extends React.Component {
       }
     }
     if (totalWeights === 0) {
-      swal({
-        title: 'Oops!',
-        text: 'Looks like you haven\'t added any categories!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Oh no!', 'Looks like you haven\'t added any categories!', 'warning');
       return;
     }
     console.log(totalPercentage);
     if ((totalPercentage) !== 100) {
-      swal({
-        title: 'Oops!',
-        text: totalPercentage > 100 ?
-        'Your total percentage can\'t be greater than 100!' :
-        'Your total percentage can\'t be less than 100!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert(
+        'Dang!',
+        totalPercentage > 100 ?
+          'Your total percentage can\'t be greater than 100!' :
+          'Your total percentage can\'t be less than 100!',
+        'warning');
       return;
     }
 
@@ -132,20 +106,9 @@ export default class WeightedGrade extends React.Component {
       Math.floor(finalGrade * 100) / 100;
 
     if (!isNaN(calculatedGrade)) {
-      swal({
-        title: 'You can do it!',
-        text: this.calculatorStringBuilder(calculatedGrade),
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-      });
+      sweetalert('You can do it!', this.calculatorStringBuilder(calculatedGrade), null);
     } else {
-      swal({
-        title: 'Oops!',
-        text: 'Something went wrong, make sure your inputs are right!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Ugh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
     }
   }
 

@@ -17,7 +17,7 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
-      'sweetalert',
+      'sweetalert2',
       'preact',
       'preact-compat'
     ]
@@ -94,7 +94,7 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-    //new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ]
 
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import sweetAlert from 'sweetalert/dist/sweetalert.min.js';
 import InputBox from './inputBox';
 
-sweetAlert();
+import sweetalert from '../../../util/sweetalert';
 
 export default class GPA extends React.Component {
   constructor(props) {
@@ -24,29 +23,11 @@ export default class GPA extends React.Component {
 
   onInputChange(event, name) {
     if (name === 'pastGpa' && Number(event.target.value) > 4) {
-      swal({
-        title: 'Impossible!',
-        text: 'You can\'t have a gpa higher than a 4.0!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
     } else if (name === 'pastGpa' && Number(event.target.value) < 0) {
-      swal({
-        title: 'Impossible!',
-        text: 'You can\'t have a gpa lower than a 0!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
     } else if (name === 'pastUnits' && Number(event.target.value) < 0) {
-      swal({
-        title: 'Oh dear!',
-        text: 'You can\'t have negative units!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Oh dear!', 'You can\'t have negative units!', 'warning');
     }
 
     this.setState({ [name]: event.target.value }, () => this.calculate());
@@ -79,15 +60,12 @@ export default class GPA extends React.Component {
         totalPoints += numericGrade * Number(units);
         totalCredits += Number(units);
       } else if (typeof numericGrade !== 'number' && grade && units) {
-        swal({
-          title: 'Oops!',
-          text: course ?
-          `Your grade for ${course} doesn't look right!` :
-          'One of your grades doesn\'t look right!',
-          confirmButtonColor: '#009688',
-          animation: 'slide-from-top',
-          type: 'warning',
-        });
+        sweetalert(
+          'Oops!',
+          course ?
+            `Your grade for ${course} doesn't look right!` :
+            'One of your grades doesn\'t look right!',
+          'warning');
         return;
       }
     }
@@ -159,20 +137,9 @@ export default class GPA extends React.Component {
   showGpa() {
     const { gpa } = this.state;
     if (gpa) {
-      swal({
-        title: 'Nice!',
-        text: this.gpaStringBuilder(gpa),
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-      });
+      sweetalert('Nice!', this.gpaStringBuilder(gpa), null);
     } else {
-      swal({
-        title: 'Ugh oh!',
-        text: 'It appears you haven\'t added any classes!',
-        confirmButtonColor: '#009688',
-        animation: 'slide-from-top',
-        type: 'warning',
-      });
+      sweetalert('Ugh oh!!', 'It appears you haven\'t added any classes!', 'warning');
     }
   }
 
