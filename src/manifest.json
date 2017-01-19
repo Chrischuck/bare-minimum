@@ -1,7 +1,17 @@
 {
   "name": "Bare Minimum",
   "short_name": "Bare Minimum",
-  "icons": [],
+  "icons": [
+    {
+        "src": "./assets/Bm144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      }, {
+        "src": "./assets/Bm192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+    }
+  ],
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

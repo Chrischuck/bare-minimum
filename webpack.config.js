@@ -41,6 +41,7 @@ module.exports = {
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.jpg$/, loader: "url-loader?limit=100000" },
+      { test: /\.ico$/, loader: "url-loader?limit=100000" },
       {test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
