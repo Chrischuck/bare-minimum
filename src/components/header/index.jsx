@@ -18,7 +18,8 @@ export default class Header extends React.Component {
 
   openDropdown(event) {
     event.stopPropagation();
-    this.setState({ isDropdownOpen: true });
+    const { isDropdownOpen } = this.state;
+    this.setState({ isDropdownOpen: !isDropdownOpen });
   }
 
   closeDropdown() {
