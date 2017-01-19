@@ -45,7 +45,7 @@ module.exports = {
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
-      { test: /\.(jpe?g|png|ico)$/i, loaders: [
+      { test: /\.(jpe?g|png)$/i, loaders: [
             'file?hash=sha512&digest=hex',
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ] },
@@ -97,7 +97,7 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new FaviconsWebpackPlugin({
+     new FaviconsWebpackPlugin({
       logo: './assets/Bm144.png',
       icons: {
        android: false,
