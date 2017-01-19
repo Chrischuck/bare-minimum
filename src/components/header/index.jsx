@@ -47,7 +47,7 @@ export default class Header extends React.Component {
               <span className='icon-bar' />
               <span className='icon-bar' />
             </button>
-            <Link to='/grade-calculator' className='navbar-brand'>Bare Minimum</Link>
+            <div className='navbar-brand'>Bare Minimum</div>
           </div>
           <div id='navbar' className={ isDropdownOpen ? 'collapse navbar-collapse in' : 'collapse navbar-collapse' }>
             <ul className='nav navbar-nav'>

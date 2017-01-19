@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var Dashboard = require('webpack-dashboard');
 var DashboardPlugin = require('webpack-dashboard/plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 
 var dashboard = new Dashboard();
@@ -74,6 +75,21 @@ module.exports = {
       filename: 'index.html',
       template: './index.html',
       inject: true
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './assets/Bm144.png',
+      icons: {
+       android: false,
+       appleIcon: false,
+       appleStartup: false,
+       coast: false,
+       favicons: true,
+       firefox: false,
+       opengraph: false,
+       twitter: false,
+       yandex: false,
+       windows: false
+     }
     }),
     new ExtractTextPlugin("styles.css")
   ]

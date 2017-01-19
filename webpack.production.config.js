@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 
 
@@ -96,6 +97,21 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
+    new FaviconsWebpackPlugin({
+      logo: './assets/Bm144.png',
+      icons: {
+       android: false,
+       appleIcon: false,
+       appleStartup: false,
+       coast: false,
+       favicons: true,
+       firefox: false,
+       opengraph: false,
+       twitter: false,
+       yandex: false,
+       windows: false
+     }
+   }),
     //new BundleAnalyzerPlugin()
   ]
 
