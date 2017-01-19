@@ -96,7 +96,7 @@ module.exports = {
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
       }
-    }),
+    })/*
      new FaviconsWebpackPlugin({
       logo: './assets/Bm144.png',
       icons: {
@@ -111,7 +111,7 @@ module.exports = {
        yandex: false,
        windows: false
      }
-   }),
+   }),*/
     //new BundleAnalyzerPlugin()
   ]
 
