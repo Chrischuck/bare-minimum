@@ -1,0 +1,14 @@
+{
+  "presets": ["es2015", "stage-0", "react"],
+  "env": {
+    "production": {
+      "presets": ["react-optimize"]
+    }
+  },
+  "plugins": [
+    "add-module-exports",
+    "closure-elimination",
+    "transform-react-constant-elements",
+    "transform-react-remove-prop-types"
+	]
+}
