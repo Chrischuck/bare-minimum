@@ -6,7 +6,6 @@
     }
   },
   "plugins": [
-    "add-module-exports",
     "closure-elimination",
     "transform-react-constant-elements",
     "transform-react-remove-prop-types"
