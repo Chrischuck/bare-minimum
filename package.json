@@ -20,7 +20,7 @@
     "gpa"
   ],
   "author": "Chris Chuck",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "preact": "^7.1.0",
     "preact-compat": "^3.10.0",
