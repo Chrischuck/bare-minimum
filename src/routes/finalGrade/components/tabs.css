@@ -15,7 +15,7 @@
 .navtabs > li.active > a:hover,
 .navtabs > li.active > a:focus {
   color: #009688;
-  background-color: #f5f5f5;
+  background-color: transparent;
   font-weight: 450;
   font-size: 1.2vh;
   margin:0;

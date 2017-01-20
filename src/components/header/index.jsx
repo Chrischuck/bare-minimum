@@ -52,9 +52,9 @@ export default class Header extends React.Component {
           </div>
           <div id='navbar' className={ isDropdownOpen ? 'collapse navbar-collapse in' : 'collapse navbar-collapse' }>
             <ul className='nav navbar-nav'>
-              <li className={ path === '/' ? 'active' : '' }><Link to='/'>Home</Link></li>
               <li className={ path === 'grade-calculator' || path === '/grade-calculator' ? 'active' : '' }><Link to='grade-calculator'>Grade Calculator</Link></li>
               <li className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }><Link to='gpa-calculator'>GPA Calculator</Link></li>
+              <li className={ path === 'about' || path === '/about' ? 'active' : '' }><Link to='about'>About</Link></li>
             </ul>
           </div>
         </div>

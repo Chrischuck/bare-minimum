@@ -111,8 +111,8 @@ module.exports = {
        yandex: false,
        windows: false
      }
-   })
-    //new BundleAnalyzerPlugin()
+   }),
+    new BundleAnalyzerPlugin()
   ]
 
 }

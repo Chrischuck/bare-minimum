@@ -8,8 +8,8 @@ const AboutMe = () =>
     <div className='col-lg-6 col-lg-offset-3' >
       <img className='img-circle' src={ chris } alt='Generic placeholder image' width='140' height='140' />
       <h2>Chris</h2>
-      <p>I decieded to make this page because I needed to know what I needed on my differentials test to get an A and other sites didn't do what I needed.
-        So I built this with a modern stack and some javascript and long and things. I go to San Jose State and I hope this website will help you get through college!
+      <p>I deceided to make this page because I needed to know what I needed on my differentials test to get an A and other sites didn't do what I needed.
+        So I built this with a modern stack and some javascript and love and things. I go to San Jose State and I hope this website will help you get through college!
       </p>
     </div>
   </div>;

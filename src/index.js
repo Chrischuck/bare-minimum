@@ -8,15 +8,16 @@ import App from './app';
 
 import FinalGradeRoute from './routes/finalGrade';
 import GPARoute from './routes/gpa';
-import HomeRoute from './routes/home';
+import AboutRoute from './routes/about';
 import NotFoundRoute from './routes/notFound';
 
 const routes = {
   path: '/',
   component: App,
-  IndexRoute: HomeRoute,
+  indexRoute: { onEnter: (nextState, replace) => replace('/grade-calculator') },
   childRoutes: [
     FinalGradeRoute,
+    AboutRoute,
     GPARoute,
     NotFoundRoute,
   ],

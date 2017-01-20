@@ -1,14 +1,15 @@
 /* eslint-disable */
 
-const HomeRoute = {
+const AboutRoute = {
+  path: 'about',
   getComponents(location, callback) {
     require.ensure([
       './components/',
       ], function (require) {
-        const Home = require('./components/').default;
-       callback(null, Home);
+        const About = require('./components/').default;
+       callback(null, About);
      });
    },
 };
 
-export default HomeRoute;
+export default AboutRoute;

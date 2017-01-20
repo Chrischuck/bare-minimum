@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Home from '../routes/home/components';
+import GradeCalculator from '../routes/finalGrade/components';
 import './styles.css';
 import Header from '../components/header';
 
@@ -19,7 +19,7 @@ export default class App extends Component {
             paddingRight: 0,
           } }
         >
-          { this.props.children || <Home /> }
+          { this.props.children || <GradeCalculator /> }
         </div>
       </div>
     );
