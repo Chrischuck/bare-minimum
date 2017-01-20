@@ -20,7 +20,8 @@ module.exports = {
       'react-router',
       'sweetalert2',
       'preact',
-      'preact-compat'
+      'preact-compat',
+      'react-helmet'
     ]
   },
   output: {
@@ -112,7 +113,7 @@ module.exports = {
        windows: false
      }
    }),
-    new BundleAnalyzerPlugin()
+    //new BundleAnalyzerPlugin()
   ]
 
 }

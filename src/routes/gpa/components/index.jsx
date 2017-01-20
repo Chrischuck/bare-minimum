@@ -1,4 +1,6 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+
 import InputBox from './inputBox';
 
 import sweetalert from '../../../util/sweetalert';
@@ -183,6 +185,13 @@ export default class GPA extends React.Component {
           marginBottom: 10,
         } }
       >
+        <Helmet
+          title='Bare Minimum | GPA Calculator'
+          meta={ [
+            { name: 'description', content: 'See how you\'ve done so far!' },
+          ] }
+        />
+
         <div className='well infobox col-md-6 col-md-offset-3' >
           <h3
             className='text-center'
