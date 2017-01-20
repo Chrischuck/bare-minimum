@@ -120,7 +120,7 @@ export default class SimpleInput extends React.Component {
         <h3
           className='text-center'
           style={ {
-            marginTop: 25,
+            marginTop: 15,
             marginBottom: 15,
             fontSize: '5vw 5h',
             color: '#2e2d2d',

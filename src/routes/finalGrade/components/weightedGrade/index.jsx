@@ -166,7 +166,7 @@ export default class WeightedGrade extends React.Component {
         <h3
           className='text-center'
           style={ {
-            marginTop: 25,
+            marginTop: 15,
             marginBottom: 2,
             fontSize: '5vw 5h',
             color: '#2e2d2d',
