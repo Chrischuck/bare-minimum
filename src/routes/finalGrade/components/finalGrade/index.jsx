@@ -110,7 +110,7 @@ export default class SimpleInput extends React.Component {
   }
 
   noMissingElements() {
-    sweetalert('Ugh Oh!', this.calculatorStringBuilder(this.calculateGrade()), null);
+    sweetalert('You can do it!', this.calculatorStringBuilder(this.calculateGrade()), null);
   }
 
   render() {
