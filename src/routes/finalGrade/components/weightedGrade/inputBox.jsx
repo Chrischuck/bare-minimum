@@ -99,6 +99,7 @@ export default class InputBox extends React.Component {
             className='form-control'
             id={ `${inputCount}category` }
             autoComplete='off'
+            value={ this.state.category }
             onChange={ event => this.onInputChange(event, 'category') }
             placeholder={ category.category }
             style={ { fontSize: '1.6vh' } }
@@ -117,6 +118,7 @@ export default class InputBox extends React.Component {
             className='form-control'
             id={ `${inputCount}grade` }
             autoComplete='off'
+            value={ this.state.grade }
             onChange={ event => this.onInputChange(event, 'grade') }
             placeholder={ category.grade }
             style={ { fontSize: '1.6vh' } }
@@ -135,6 +137,7 @@ export default class InputBox extends React.Component {
             className='form-control'
             id={ `${inputCount}weight` }
             autoComplete='off'
+            value={ this.state.weight }
             onChange={ event => this.onInputChange(event, 'weight') }
             placeholder={ category.weight }
             style={ { fontSize: '1.6vh' } }

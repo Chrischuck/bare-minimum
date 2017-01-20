@@ -219,6 +219,7 @@ export default class GPA extends React.Component {
                 id='pastGPA'
                 autoComplete='off'
                 placeholder='3.8'
+                value={ this.state.pastGpa }
                 onChange={ event => this.onInputChange(event, 'pastGpa') }
                 style={ { fontSize: '1.2vh' } }
               />
@@ -239,6 +240,7 @@ export default class GPA extends React.Component {
                 id='pastUnits'
                 autoComplete='off'
                 placeholder='60'
+                value={ this.state.pastUnits }
                 onChange={ event => this.onInputChange(event, 'pastUnits') }
                 style={ { fontSize: '1.2vh' } }
               />

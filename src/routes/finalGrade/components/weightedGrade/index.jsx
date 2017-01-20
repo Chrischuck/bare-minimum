@@ -195,6 +195,7 @@ export default class WeightedGrade extends React.Component {
               className='form-control'
               id={ 'requiredGrade' }
               autoComplete='off'
+              value={ this.state.requiredGrade }
               onChange={ event => this.onInputChange(event, 'requiredGrade') }
               placeholder={ '93%' }
               style={ { fontSize: '1.6vh' } }
@@ -212,6 +213,7 @@ export default class WeightedGrade extends React.Component {
               className='form-control'
               id={ 'finalWeight' }
               autoComplete='off'
+              value={ this.state.finalWeight }
               onChange={ event => this.onInputChange(event, 'finalWeight') }
               placeholder={ '20%' }
               style={ { fontSize: '1.6vh' } }
