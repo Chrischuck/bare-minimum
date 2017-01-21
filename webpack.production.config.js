@@ -115,7 +115,16 @@ module.exports = {
        windows: false
      }
    }),
-   new OfflinePlugin(),
+   new OfflinePlugin({
+     cacheMaps: [
+         {
+         match: function(requestUrl) {
+          return new URL('/grade-calculator', location)
+        },
+        requestTypes: ['cross-origin', 'same-origin', 'navigate']
+       }
+     ]
+   }),
     //new BundleAnalyzerPlugin()
   ]
 
