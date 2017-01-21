@@ -124,6 +124,10 @@ module.exports = {
           {
             urlPattern: /grade-calculator/,
             handler: 'cacheFirst',
+          },
+          {
+            urlPattern: /gpa-calculator/,
+            handler: 'cacheFirst',
           }
       ],
       }

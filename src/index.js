@@ -13,7 +13,7 @@ import NotFoundRoute from './routes/notFound';
 
 (function() {
   if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/my-service-worker.js');
+    navigator.serviceWorker.register('/harambe.js');
   }
 })();
 
