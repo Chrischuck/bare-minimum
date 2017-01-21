@@ -5,6 +5,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+var OfflinePlugin = require('offline-plugin');
+
 
 
 
@@ -113,6 +115,7 @@ module.exports = {
        windows: false
      }
    }),
+   new OfflinePlugin(),
     //new BundleAnalyzerPlugin()
   ]
 
