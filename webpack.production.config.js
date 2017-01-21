@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-var OfflinePlugin = require('offline-plugin');
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 
 
@@ -115,16 +115,19 @@ module.exports = {
        windows: false
      }
    }),
-   new OfflinePlugin({
-     cacheMaps: [
-         {
-         match: function(requestUrl) {
-          return new URL('/grade-calculator', location)
-        },
-        requestTypes: ['cross-origin', 'same-origin', 'navigate']
-       }
-     ]
-   }),
+   new SWPrecacheWebpackPlugin(
+      {
+        cacheId: ' cincinnati-zoo',
+        filename: 'harambe.js',
+        maximumFileSizeToCacheInBytes: 4194304,
+        runtimeCaching: [
+          {
+            urlPattern: /grade-calculator/,
+            handler: 'cacheFirst',
+          }
+      ],
+      }
+    )
     //new BundleAnalyzerPlugin()
   ]
 

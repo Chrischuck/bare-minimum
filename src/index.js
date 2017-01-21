@@ -11,8 +11,11 @@ import GPARoute from './routes/gpa';
 import AboutRoute from './routes/about';
 import NotFoundRoute from './routes/notFound';
 
-require('offline-plugin/runtime').install();
-
+(function() {
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/my-service-worker.js');
+  }
+})();
 
 const routes = {
   path: '/',
