@@ -13,6 +13,7 @@ import NotFoundRoute from './routes/notFound';
 
 require('offline-plugin/runtime').install();
 
+
 const routes = {
   path: '/',
   component: App,
