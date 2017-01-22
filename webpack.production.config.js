@@ -5,6 +5,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
 
 
 
@@ -113,6 +115,23 @@ module.exports = {
        windows: false
      }
    }),
+   new SWPrecacheWebpackPlugin(
+      {
+        cacheId: ' cincinnati-zoo',
+        filename: 'harambe.js',
+        maximumFileSizeToCacheInBytes: 4194304,
+        runtimeCaching: [
+          {
+            urlPattern: /grade-calculator/,
+            handler: 'cacheFirst',
+          },
+          {
+            urlPattern: /gpa-calculator/,
+            handler: 'cacheFirst',
+          }
+      ],
+      }
+    )
     //new BundleAnalyzerPlugin()
   ]
 
