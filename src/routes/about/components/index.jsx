@@ -1,12 +1,19 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import AboutMe from './aboutMe';
-
 import Divider from '../../../components/divider';
 
+import AboutMe from './aboutMe';
+import About from './about';
+
 const Home = () =>
-  <div style={ { marginTop: '2%' } }>
+  <div
+    style={ {
+      marginTop: '13vh',
+      paddingLeft: '2%',
+      paddingRight: '2%',
+    } }
+  >
     <Helmet
       title='Bare Minimum'
       meta={ [
@@ -14,6 +21,7 @@ const Home = () =>
       ] }
     />
     <div className='col-md-10 col-md-offset-1'>
+      <About />
       <Divider />
       <br />
       <AboutMe />
