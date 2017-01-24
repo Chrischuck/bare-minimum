@@ -11,6 +11,12 @@ import GPARoute from './routes/gpa';
 import AboutRoute from './routes/about';
 import NotFoundRoute from './routes/notFound';
 
+(function() {
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/harambe.js');
+  }
+})();
+
 const routes = {
   path: '/',
   component: App,
