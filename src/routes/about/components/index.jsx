@@ -9,7 +9,7 @@ import About from './about';
 const Home = () =>
   <div
     style={ {
-      marginTop: '13vh',
+      marginTop: '10vh',
       paddingLeft: '2%',
       paddingRight: '2%',
     } }

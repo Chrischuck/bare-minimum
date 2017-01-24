@@ -3,7 +3,7 @@ import React from 'react';
 
 const About = () =>
   <div className='row text-center' >
-    <h3> About </h3>
+    <h1> About </h1>
     <p>
       Bare Minimum was created based on college students’ hunger for success.
        We are here to provide the best way to ensure good grades and even better GPAs.
