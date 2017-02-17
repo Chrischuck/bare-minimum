@@ -9,23 +9,26 @@ export default class InputBox extends React.Component {
       grade: '',
       weight: '',
     };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.setInParent = this.setInParent.bind(this);
   }
 
-
-  onInputChange(event, name) {
-    this.setState({ [name]: event.target.value },
-      () => this.setInParent(),
-    );
+  onCategoryChange = (event) => {
+    this.setState({ category: event.target.value }, () => this.setInParent());
   }
 
-  setInParent() {
+  onGradeChange = (event) => {
+    this.setState({ grade: event.target.value }, () => this.setInParent());
+  }
+
+  onWeightChange = (event) => {
+    this.setState({ weight: event.target.value }, () => this.setInParent());
+  }
+
+  setInParent = () => {
     const { category, grade, weight } = this.state;
     this.props.stateToParent(this.createId(), category, grade, weight);
   }
 
-  createId() {
+  createId = () => {
     const { inputCount } = this.props;
     return `weightedGrade${inputCount}`;
   }
@@ -100,7 +103,7 @@ export default class InputBox extends React.Component {
             id={ `${inputCount}category` }
             autoComplete='off'
             value={ this.state.category }
-            onChange={ event => this.onInputChange(event, 'category') }
+            onChange={ this.onCategoryChange }
             placeholder={ category.category }
             style={ { fontSize: '1.6vh' } }
           />
@@ -119,7 +122,7 @@ export default class InputBox extends React.Component {
             id={ `${inputCount}grade` }
             autoComplete='off'
             value={ this.state.grade }
-            onChange={ event => this.onInputChange(event, 'grade') }
+            onChange={ this.onGradeChange }
             placeholder={ category.grade }
             style={ { fontSize: '1.6vh' } }
           />
@@ -138,7 +141,7 @@ export default class InputBox extends React.Component {
             id={ `${inputCount}weight` }
             autoComplete='off'
             value={ this.state.weight }
-            onChange={ event => this.onInputChange(event, 'weight') }
+            onChange={ this.onWeightChange }
             placeholder={ category.weight }
             style={ { fontSize: '1.6vh' } }
           />

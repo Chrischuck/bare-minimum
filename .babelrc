@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "stage-0",
+    "es2015",
+    "react"
+  ],
+  "plugins": [
+    "closure-elimination",
+    "transform-react-constant-elements",
+    "transform-react-remove-prop-types",
+    "transform-class-properties"
+  ]
+}

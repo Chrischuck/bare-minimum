@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.20.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.9",
     "babel-plugin-closure-elimination": "^1.1.14",
     "babel-plugin-transform-class-properties": "^6.19.0",
@@ -74,37 +75,5 @@
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dashboard": "^0.2.0",
     "webpack-dev-server": "^1.16.2"
-  },
-  "babel": {
-    "presets": [
-      "stage-0",
-      "es2015",
-      "react"
-    ],
-    "plugins": [
-      "closure-elimination",
-      "transform-react-constant-elements",
-      "transform-react-remove-prop-types"
-    ]
-  },
-  "eslint": {
-    "extends": "airbnb",
-    "rules": {
-      "jsx-quotes": [
-        2,
-        "prefer-single"
-      ],
-      "react/jsx-curly-spacing": [
-        2,
-        "always"
-      ],
-      "react/prefer-stateless-function": [
-        0
-      ],
-      "arrow-body-style": [
-        "error",
-        "never"
-      ]
-    }
   }
 }

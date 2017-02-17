@@ -15,27 +15,27 @@ export default class GPA extends React.Component {
       inputCount: 4,
       gpa: '',
     };
-
-    this.stateFromChild = this.stateFromChild.bind(this);
-    this.addClass = this.addClass.bind(this);
-    this.calculate = this.calculate.bind(this);
-    this.showGpa = this.showGpa.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
   }
 
-  onInputChange(event, name) {
-    if (name === 'pastGpa' && Number(event.target.value) > 4) {
+  onPastGpaChange = (event) => {
+    if (Number(event.target.value) > 4) {
       sweetalert('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
-    } else if (name === 'pastGpa' && Number(event.target.value) < 0) {
+    } else if (Number(event.target.value) < 0) {
       sweetalert('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
-    } else if (name === 'pastUnits' && Number(event.target.value) < 0) {
-      sweetalert('Oh dear!', 'You can\'t have negative units!', 'warning');
+    } else {
+      this.setState({ pastGpa: event.target.value }, () => this.calculate());
     }
-
-    this.setState({ [name]: event.target.value }, () => this.calculate());
   }
 
-  stateFromChild(id, course, grade, units) {
+  onUnitsChange = (event) => {
+    if (Number(event.target.value) < 0) {
+      sweetalert('Oh dear!', 'You can\'t have negative units!', 'warning');
+    } else {
+      this.setState({ pastUnits: event.target.value }, () => this.calculate());
+    }
+  }
+
+  stateFromChild = (id, course, grade, units) => {
     const { courses } = this.state;
     const previousCourse = courses[id];
 
@@ -47,7 +47,7 @@ export default class GPA extends React.Component {
     }
   }
 
-  calculate() {
+  calculate = () => {
     const { courses, pastGpa, pastUnits } = this.state;
     const keys = Object.keys(courses);
 
@@ -131,12 +131,12 @@ export default class GPA extends React.Component {
     }
   }
 
-  addClass() {
+  addClass = () => {
     const { inputCount } = this.state;
     this.setState({ inputCount: inputCount + 1 });
   }
 
-  showGpa() {
+  showGpa = () => {
     const { gpa } = this.state;
     if (gpa) {
       sweetalert('Nice!', this.gpaStringBuilder(gpa), null);
@@ -220,7 +220,7 @@ export default class GPA extends React.Component {
                 autoComplete='off'
                 placeholder='3.8'
                 value={ this.state.pastGpa }
-                onChange={ event => this.onInputChange(event, 'pastGpa') }
+                onChange={ this.onPastGpaChange }
                 style={ { fontSize: '1.2vh' } }
               />
             </div>
@@ -241,7 +241,7 @@ export default class GPA extends React.Component {
                 autoComplete='off'
                 placeholder='60'
                 value={ this.state.pastUnits }
-                onChange={ event => this.onInputChange(event, 'pastUnits') }
+                onChange={ this.onUnitsChange }
                 style={ { fontSize: '1.2vh' } }
               />
             </div>

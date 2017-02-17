@@ -10,21 +10,25 @@ export default class InputBox extends React.Component {
       units: '',
       randGrade: '',
     };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.setInParent = this.setInParent.bind(this);
   }
 
   componentWillMount() {
     this.setState({ randGrade: this.createRandGrades() });
   }
 
-  onInputChange(event, name) {
-    this.setState({ [name]: event.target.value },
-      () => this.setInParent(),
-    );
+  onCourseChange = (event) => {
+    this.setState({ course: event.target.value }, () => this.setInParent());
   }
 
-  setInParent() {
+  onGradeChange = (event) => {
+    this.setState({ grade: event.target.value }, () => this.setInParent());
+  }
+
+  onUnitsChange = (event) => {
+    this.setState({ units: event.target.value }, () => this.setInParent());
+  }
+
+  setInParent = () => {
     const { course, grade, units } = this.state;
     this.props.stateToParent(this.createId(), course, grade, units);
   }
@@ -53,7 +57,7 @@ export default class InputBox extends React.Component {
     }
   }
 
-  renderCourses(index) {
+  renderCourses = (index) => {
     const { randGrade } = this.state;
     const courses = [
       {
@@ -126,7 +130,7 @@ export default class InputBox extends React.Component {
             className='form-control'
             id={ `${inputCount}grade` }
             autoComplete='off'
-            onChange={ event => this.onInputChange(event, 'course') }
+            onChange={ this.onCourseChange }
             placeholder={ course.name }
             style={ { fontSize: '1.2vh' } }
           />
@@ -144,7 +148,7 @@ export default class InputBox extends React.Component {
             className='form-control'
             id={ `${inputCount}grade` }
             autoComplete='off'
-            onChange={ event => this.onInputChange(event, 'grade') }
+            onChange={ this.onGradeChange }
             placeholder={ course.grade }
             style={ { fontSize: '1.2vh' } }
           />
@@ -162,7 +166,7 @@ export default class InputBox extends React.Component {
             className='form-control'
             id={ `${inputCount}grade` }
             autoComplete='off'
-            onChange={ event => this.onInputChange(event, 'units') }
+            onChange={ this.onUnitsChange }
             placeholder={ course.units }
             style={ { fontSize: '1.2vh' } }
           />

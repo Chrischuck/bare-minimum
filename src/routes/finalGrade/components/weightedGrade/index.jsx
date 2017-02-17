@@ -10,20 +10,21 @@ export default class WeightedGrade extends React.Component {
       categories: {},
       requiredGrade: '',
       finalWeight: '',
-      inputCount: 2,
+      inputCount: 3,
     };
-
-    this.stateFromChild = this.stateFromChild.bind(this);
-    this.addCategory = this.addCategory.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
-    this.calculate = this.calculate.bind(this);
   }
 
-  onInputChange(event, name) {
-    this.setState({ [name]: event.target.value });
+  // Input methods
+  onRequiredGradeChange = (event) => {
+    this.setState({ requiredGrade: event.target.value });
   }
 
-  stateFromChild(id, category, grade, weight) {
+  onFinalWeightChange = (event) => {
+    this.setState({ finalWeight: event.target.value });
+  }
+
+  // Get data from the children....maybe use redux for this
+  stateFromChild = (id, category, grade, weight) => {
     const { categories } = this.state;
     const previousCategory = categories[id];
     categories[id] = { category, grade, weight };
@@ -34,7 +35,8 @@ export default class WeightedGrade extends React.Component {
     }
   }
 
-  calculate() {
+  // All logic
+  calculate = () => {
     const { categories, requiredGrade, finalWeight } = this.state;
     const keys = Object.keys(categories);
     const requiredPercent = Number(requiredGrade) / 100;
@@ -111,7 +113,7 @@ export default class WeightedGrade extends React.Component {
     }
   }
 
-  calculatorStringBuilder(finalScore) {
+  calculatorStringBuilder = (finalScore) => {
     let answerString = '';
 
     if (Number(finalScore) <= 50) {
@@ -145,7 +147,7 @@ export default class WeightedGrade extends React.Component {
     return answerString;
   }
 
-  addCategory() {
+  addCategory = () => {
     const { inputCount } = this.state;
     this.setState({ inputCount: inputCount + 1 });
   }
@@ -196,7 +198,7 @@ export default class WeightedGrade extends React.Component {
               id={ 'requiredGrade' }
               autoComplete='off'
               value={ this.state.requiredGrade }
-              onChange={ event => this.onInputChange(event, 'requiredGrade') }
+              onChange={ this.onRequiredGradeChange }
               placeholder={ '93%' }
               style={ { fontSize: '1.6vh' } }
             />
@@ -214,7 +216,7 @@ export default class WeightedGrade extends React.Component {
               id={ 'finalWeight' }
               autoComplete='off'
               value={ this.state.finalWeight }
-              onChange={ event => this.onInputChange(event, 'finalWeight') }
+              onChange={ this.onFinalWeightChange }
               placeholder={ '20%' }
               style={ { fontSize: '1.6vh' } }
             />
