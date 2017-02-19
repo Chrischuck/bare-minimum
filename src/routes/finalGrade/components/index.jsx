@@ -37,9 +37,9 @@
        <div
          className='container col-md-12'
          style={ {
-           marginTop: '13vh',
-           paddingLeft: '2%',
-           paddingRight: '2%',
+           marginTop: '10vh',
+           paddingLeft: '0',
+           paddingRight: '0',
          } }
        >
          <Helmet
@@ -49,7 +49,7 @@
            ] }
          />
 
-         <div className='well infobox col-md-6 col-md-offset-3' >
+         <div className='well infobox col-md-6 col-md-offset-3 col-sm-12' >
            <div className='row' data-example-id='simple-nav-tabs'>
 
              <ul className='nav nav-tabs navtabs no-padding scrolling' style={ { marginTop: 0 } } >

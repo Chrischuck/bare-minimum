@@ -13,7 +13,7 @@ export default class Header extends React.Component {
   }
 
   componentDidMount() {
-    document.getElementById('globalWrapper').onclick = this.closeDropdown;
+    document.getElementById('body').onclick = this.closeDropdown;
   }
 
   openDropdown(event) {

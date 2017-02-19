@@ -6,7 +6,7 @@ import Header from '../components/header';
 export default class App extends Component {
   render() {
     return (
-      <div id='globalWrapper'>
+      <div id='globalWrapper' className='globalWrapper'>
         <Header path={ this.props.location.pathname } />
 
         <div
@@ -17,6 +17,7 @@ export default class App extends Component {
             margin: '0 auto',
             paddingLeft: 0,
             paddingRight: 0,
+            overflow: 'scroll',
           } }
         >
           { this.props.children || <GradeCalculator /> }

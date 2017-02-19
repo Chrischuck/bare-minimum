@@ -177,11 +177,11 @@ export default class GPA extends React.Component {
     }
     return (
       <div
-        className='container col-md-12'
+        className='container col-md-12 wrapperClass'
         style={ {
-          marginTop: '13vh',
-          paddingLeft: '2%',
-          paddingRight: '2%',
+          marginTop: '10vh',
+          paddingLeft: '0px',
+          paddingRight: '0px',
           marginBottom: 10,
         } }
       >
