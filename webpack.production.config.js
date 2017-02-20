@@ -117,7 +117,7 @@ module.exports = {
    }),
    new SWPrecacheWebpackPlugin(
       {
-        cacheId: ' cincinnati-zoo',
+        cacheId: 'cincinnati-zoo',
         filename: 'harambe.js',
         maximumFileSizeToCacheInBytes: 4194304,
         minify: true,
