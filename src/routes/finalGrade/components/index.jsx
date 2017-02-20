@@ -54,10 +54,10 @@
 
              <ul className='nav nav-tabs navtabs no-padding scrolling' style={ { marginTop: 0 } } >
                <li role='presentation' className={ currentTab === 'gradeCalc' ? 'active' : '' } >
-                 <a onClick={ () => this.onTabChange('gradeCalc') } style={ { paddingLeft: '.8vw', paddingRight: '.8vw', backgroundColor: currentTab === 'gradeCalc' ? '#f5f5f5' : 'transparent' } }>Final Grade Calc</a>
+                 <a onClick={ () => this.onTabChange('gradeCalc') } style={ { paddingLeft: '.8vw', paddingRight: '.8vw', backgroundColor: currentTab === 'gradeCalc' ? '#ffffff' : 'transparent' } }>Final Grade Calc</a>
                </li>
                <li role='presentation' className={ currentTab === 'weightedGrade' ? 'active' : '' } >
-                 <a onClick={ () => this.onTabChange('weightedGrade') } style={ { paddingLeft: '.8vw', paddingRight: '.8vw', backgroundColor: currentTab === 'weightedGrade' ? '#f5f5f5' : 'transparent' } }>Weighted Grade Calc</a>
+                 <a onClick={ () => this.onTabChange('weightedGrade') } style={ { paddingLeft: '.8vw', paddingRight: '.8vw', backgroundColor: currentTab === 'weightedGrade' ? '#ffffff' : 'transparent' } }>Weighted Grade Calc</a>
                </li>
              </ul>
            </div>
