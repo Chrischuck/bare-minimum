@@ -24,9 +24,9 @@
   "dependencies": {
     "preact": "^7.1.0",
     "preact-compat": "^3.10.0",
+    "preact-helmet": "^4.0.0-alpha-2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-helmet": "^4.0.0",
     "react-router": "^3.0.0",
     "sweetalert2": "^6.3.2"
   },
