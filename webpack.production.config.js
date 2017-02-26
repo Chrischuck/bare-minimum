@@ -23,7 +23,7 @@ module.exports = {
       'sweetalert2',
       'preact',
       'preact-compat',
-      'react-helmet'
+      'preact-helmet'
     ]
   },
   output: {
@@ -132,8 +132,8 @@ module.exports = {
           }
       ],
       }
-    )
-    //new BundleAnalyzerPlugin()
+    ),
+    new BundleAnalyzerPlugin()
   ]
 
 }
