@@ -2,7 +2,6 @@
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var PurifyCSSPlugin = require('purifycss-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
@@ -37,7 +36,7 @@ module.exports = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat'
   },
-    extensions: ['', '.js', '.jsx', '.json', '.css']
+    extensions: ['.js', '.jsx', '.json', '.css']
   },
   module: {
     loaders: [
@@ -47,46 +46,34 @@ module.exports = {
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
       { test: /\.(jpe?g|png)$/i, loaders: [
-            'file?hash=sha512&digest=hex',
-            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+            'file-loader?hash=sha512&digest=hex',
+            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ] },
-      {test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
+      //{test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
         loader: 'babel-loader',
-        options: {
-          presets: ["es2015", "react", "stage-0"]
-
+        query: {
+          presets: ["es2015", "react", "stage-0"],
+          plugins: [
+              ["transform-decorators-legacy"],
+              ["transform-runtime"]
+            ]
           }
       },
-
-
     ]
   },
   ////////// Plug ins! ///////////
   plugins: [
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.CommonsChunkPlugin("vendor", 'vendor.js'),
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      comments: true,
-      beautify: false,
-      mangle: true,
-      compress: {
-        sequences: true,
-    		dead_code: true,
-    		conditionals: true,
-    		booleans: true,
-    		unused: true,
-    		if_return: true,
-    		join_vars: true,
-    		drop_console: true
-      }
-    }),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
+    new webpack.LoaderOptionsPlugin({
+       minimize: true,
+       debug: false
+     }),
     new HtmlWebpackPlugin({
       title: 'Bare Minimum',
       filename: 'index.html',
@@ -133,7 +120,9 @@ module.exports = {
       ],
       }
     ),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static'
+    })
   ]
 
 }

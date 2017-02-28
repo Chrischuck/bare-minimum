@@ -29,17 +29,17 @@ module.exports = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat'
   },
-    extensions: ['', '.js', '.jsx', '.json', '.css']
+    extensions: ['.js', '.jsx', '.json', '.css']
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["babel-loader"] },
+      { test: /\.jsx?$/, exclude: /node_modules/, use: ["babel-loader"] },
       { test: /\.eot/, loader: 'url-loader?mimetype=application/vnd.ms-fontobject' },
       { test: /\.ttf/, loader: 'url-loader?mimetype=application/x-font-ttf' },
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.jpg$/, loader: "url-loader?limit=100000" },
       { test: /\.ico$/, loader: "url-loader?limit=100000" },
@@ -48,7 +48,7 @@ module.exports = {
         test: /\.js$/,
         exclude: [/node_modules/],
         loader: 'babel-loader',
-        options: {
+        query: {
           presets: ["es2015", "react", "stage-0"],
           plugins: [
               ["transform-decorators-legacy"],
