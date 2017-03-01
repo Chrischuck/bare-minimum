@@ -7,8 +7,6 @@ var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 
-
-
 module.exports = {
 
   /////////// Sets up entra and output code ////////
