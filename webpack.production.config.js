@@ -118,9 +118,7 @@ module.exports = {
       ],
       }
     ),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static'
-    })
+  //  new BundleAnalyzerPlugin()
   ]
 
 }

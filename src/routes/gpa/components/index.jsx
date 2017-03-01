@@ -192,7 +192,7 @@ export default class GPA extends React.Component {
           ] }
         />
 
-        <div className='well infobox col-md-6 col-md-offset-3' >
+        <div className='well infobox' >
           <h3
             className='text-center'
             style={ {
