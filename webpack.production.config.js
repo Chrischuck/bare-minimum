@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-
+var BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
 
@@ -24,7 +24,7 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname+ '/dist',
+    path: __dirname + '/dist',
     filename: 'bundle.js'
   },
 
@@ -55,7 +55,7 @@ module.exports = {
         exclude: [/node_modules/],
         loader: 'babel-loader',
         query: {
-          presets: ["es2015", "react", "stage-0"],
+          presets: ["es2015", "react", "stage-0", "babili"],
           plugins: [
               ["transform-decorators-legacy"],
               ["transform-runtime"]
@@ -85,7 +85,8 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-     new FaviconsWebpackPlugin({
+    new BabiliPlugin({}, { comments: false}),
+    new FaviconsWebpackPlugin({
       logo: './assets/Bm144.png',
       icons: {
        android: false,
@@ -118,7 +119,7 @@ module.exports = {
       ],
       }
     ),
-  //  new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ]
 
 }

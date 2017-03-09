@@ -10,4 +10,9 @@
     "transform-react-remove-prop-types",
     "transform-class-properties"
   ],
+  "env": {
+    "production": {
+      "presets": ["babili"]
+    }
+  }
 }
