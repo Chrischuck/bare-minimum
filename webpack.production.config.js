@@ -31,8 +31,8 @@ module.exports = {
   /////////// Sets up loaders ////////
   resolve: {
     alias: {
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat'
+      'react': 'preact-compat/dist/preact-compat',
+      'react-dom': 'preact-compat/dist/preact-compat'
   },
     extensions: ['.js', '.jsx', '.json', '.css']
   },
@@ -55,7 +55,7 @@ module.exports = {
         exclude: [/node_modules/],
         loader: 'babel-loader',
         query: {
-          presets: ["es2015", "react", "stage-0", "babili"],
+          presets: ["es2015", "react", "stage-0"],
           plugins: [
               ["transform-decorators-legacy"],
               ["transform-runtime"]
