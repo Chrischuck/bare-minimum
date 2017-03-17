@@ -49,7 +49,7 @@
            ] }
          />
 
-         <div className='well infobox col-md-6 col-md-offset-3 col-sm-12' >
+         <div className='well infobox' >
            <div className='row' data-example-id='simple-nav-tabs'>
 
              <ul className='nav nav-tabs navtabs no-padding scrolling' style={ { marginTop: 0 } } >
