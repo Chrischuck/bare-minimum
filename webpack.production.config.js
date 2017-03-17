@@ -17,7 +17,7 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
-      'sweetalert2',
+      'sweetalert',
       'preact',
       'preact-compat',
       'preact-helmet'
@@ -119,7 +119,7 @@ module.exports = {
       ],
       }
     ),
-    //new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ]
 
 }
