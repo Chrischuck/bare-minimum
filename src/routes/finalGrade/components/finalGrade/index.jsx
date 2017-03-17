@@ -1,5 +1,4 @@
 import React from 'react';
-
 import sweetalert from '../../../../util/sweetalert';
 
 export default class SimpleInput extends React.Component {

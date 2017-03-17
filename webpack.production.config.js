@@ -85,7 +85,7 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new BabiliPlugin({}, { comments: false}),
+    //new BabiliPlugin({}, { comments: false}),
     new FaviconsWebpackPlugin({
       logo: './assets/Bm144.png',
       icons: {
@@ -119,7 +119,7 @@ module.exports = {
       ],
       }
     ),
-    new BundleAnalyzerPlugin()
+    //new BundleAnalyzerPlugin()
   ]
 
 }
