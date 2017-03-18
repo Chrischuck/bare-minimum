@@ -737,7 +737,6 @@ tbody.collapse.in {
   width: 100%;
   min-height: 50px;
   margin-bottom: 0px;
-  border: 1px solid transparent;
 }
 @media (max-width: 767px) {
   .navbar {
@@ -821,6 +820,8 @@ tbody.collapse.in {
     border-radius: 0;
   }
 }
+
+
 .navbar-brand {
   float: left;
   padding: 15px 15px;
@@ -829,10 +830,10 @@ tbody.collapse.in {
   height: 50px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    visibility: hidden;
   }
 }
 .navbar-toggle {
@@ -934,14 +935,15 @@ tbody.collapse.in {
   }
 }
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #263238;
+  border-color: #263238;
 }
 .navbar-inverse .navbar-brand {
   color: #ffffff;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #acb1b4;
+  border-bottom: 3px solid #acb1b4;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -952,7 +954,8 @@ tbody.collapse.in {
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
-  background-color: #080808;
+  background-color: #263238;
+  border-bottom-color: #18ffff;
 }
 .navbar-inverse .navbar-toggle {
   border-color: #333333;

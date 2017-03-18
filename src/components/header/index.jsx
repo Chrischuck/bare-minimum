@@ -8,21 +8,19 @@ export default class Header extends React.Component {
     this.state = {
       isDropdownOpen: false,
     };
-    this.openDropdown = this.openDropdown.bind(this);
-    this.closeDropdown = this.closeDropdown.bind(this);
   }
 
   componentDidMount() {
     document.getElementById('body').onclick = this.closeDropdown;
   }
 
-  openDropdown(event) {
+  openDropdown = (event) => {
     event.stopPropagation();
     const { isDropdownOpen } = this.state;
     this.setState({ isDropdownOpen: !isDropdownOpen });
   }
 
-  closeDropdown() {
+  closeDropdown = () => {
     this.setState({ isDropdownOpen: false });
   }
 
@@ -34,20 +32,6 @@ export default class Header extends React.Component {
       <nav className='navbar navbar-inverse navbar-static-top'>
         <div className='container'>
           <div className='navbar-header'>
-            <button
-              type='button'
-              className={ !isDropdownOpen ? 'navbar-toggle collapsed' : 'navbar-toggle' }
-              data-toggle='collapse'
-              data-target='#navbar'
-              aria-expanded={ isDropdownOpen }
-              aria-controls='navbar'
-              onClick={ event => this.openDropdown(event) }
-            >
-              <span className='sr-only'>Toggle navigation</span>
-              <span className='icon-bar' />
-              <span className='icon-bar' />
-              <span className='icon-bar' />
-            </button>
             <div className='navbar-brand'>Bare Minimum</div>
           </div>
           <div id='navbar' className={ isDropdownOpen ? 'collapse navbar-collapse in' : 'collapse navbar-collapse' }>
