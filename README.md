@@ -1,5 +1,4 @@
 # bare-minimum
-=========
 
 Live: <a target="_blank" href="https://bareminimum.co" >Bare Minimum!</a>
 
@@ -16,4 +15,5 @@ A progressive web app designed to help other college students get through colleg
 - [ ] Replace Sweetalert w/ custom modals
 - [ ] Increase performance/load times
 
+#
 If you want to help out, just clone and do a little npm install and you're on your way!
