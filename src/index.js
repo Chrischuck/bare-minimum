@@ -7,6 +7,7 @@ import './manifest.json'
 import App from './app';
 
 import FinalGradeRoute from './routes/finalGrade';
+import WeightedGradeRoute from './routes/weightedGrade';
 import GPARoute from './routes/gpa';
 import AboutRoute from './routes/about';
 import NotFoundRoute from './routes/notFound';
@@ -23,6 +24,7 @@ const routes = {
   indexRoute: { onEnter: (nextState, replace) => replace('/grade-calculator') },
   childRoutes: [
     FinalGradeRoute,
+    WeightedGradeRoute,
     AboutRoute,
     GPARoute,
     NotFoundRoute,
