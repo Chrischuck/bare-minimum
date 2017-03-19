@@ -147,7 +147,7 @@ export default class FinalGrade extends React.Component {
                   paddingRight: '.8vw',
                   textAlign: 'right',
                   paddingLeft: 0,
-                  fontSize: '1.3vw 2vh',
+                  fontSize: '14px',
                   lineHeight: '2.2vh',
                   paddingTop: '.8vh',
                   fontWeight: 400,
