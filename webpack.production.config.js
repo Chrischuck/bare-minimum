@@ -113,6 +113,10 @@ module.exports = {
             handler: 'cacheFirst',
           },
           {
+            urlPattern: /weighted-gpa-calculator/,
+            handler: 'cacheFirst',
+          },
+          {
             urlPattern: /gpa-calculator/,
             handler: 'cacheFirst',
           }

@@ -1,7 +1,7 @@
 import React from 'react';
+import Helmet from 'preact-helmet';
 import InputBox from './inputBox';
-
-import sweetalert from '../../../../util/sweetalert';
+import sweetalert from '../../../util/sweetalert';
 
 export default class WeightedGrade extends React.Component {
   constructor(props) {
@@ -164,104 +164,122 @@ export default class WeightedGrade extends React.Component {
       );
     }
     return (
-      <div>
-        <h3
-          className='text-center'
-          style={ {
-            marginTop: 15,
-            marginBottom: 2,
-            fontSize: '5vw 5h',
-            color: '#2e2d2d',
-          } }
-        >Weighted Final Grade Calculator</h3>
+      <div
+        className='container col-md-12'
+        style={ {
+          marginTop: '15vh',
+          paddingLeft: '0',
+          paddingRight: '0',
+        } }
+      >
+        <Helmet
+          title='Bare Minimum | Final Grade Calculator'
+          meta={ [
+            { name: 'description', content: 'Final grade calculator to help you pass your classes!' },
+          ] }
+        />
+        <div className='well infobox' >
 
-        <p
-          className='text-center'
-          style={ {
-            marginBottom: 8,
-            marginTop: 0,
-            fontSize: '1.6vh',
-            color: '#5d5d5d',
-          } }
-        >% sign is not neccesary</p>
-        <div className='row'>
-          <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
-            <label
-              htmlFor={ 'requiredGrade' }
-              className='form-label'
-              style={ { fontWeight: 500, fontSize: '1.4vh' } }
-            >You want a:</label>
-            <input
-              maxLength='3'
-              type='number'
-              className='form-control'
-              id={ 'requiredGrade' }
-              autoComplete='off'
-              value={ this.state.requiredGrade }
-              onChange={ this.onRequiredGradeChange }
-              placeholder={ '93%' }
-              style={ { fontSize: '1.6vh' } }
-            />
-          </div>
-          <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
-            <label
-              htmlFor={ 'finalWeight' }
-              className='form-label'
-              style={ { fontWeight: 500, fontSize: '1.4vh' } }
-            >Final's worth:</label>
-            <input
-              maxLength='3'
-              type='number'
-              className='form-control'
-              id={ 'finalWeight' }
-              autoComplete='off'
-              value={ this.state.finalWeight }
-              onChange={ this.onFinalWeightChange }
-              placeholder={ '20%' }
-              style={ { fontSize: '1.6vh' } }
-            />
-          </div>
-        </div>
-
-        { inputs }
-
-
-        <div className='row' style={ { paddingTop: '1px' } } >
-          <div className='col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1' style={ { padding: 0 } } >
-            <div
-              className='pull-left col-md-6 col-xs-6'
+          <div>
+            <h3
+              className='text-center'
               style={ {
-                paddingLeft: '5px',
-                paddingRight: '5px',
+                marginTop: 15,
+                marginBottom: 2,
+                fontSize: '5vw 5h',
+                color: '#2e2d2d',
               } }
-            >
-              <a
-                className='btn btn-primary no-padding col-md-12 col-xs-12'
-                onClick={ this.addCategory }
-                style={ {
-                  backgroundColor: '#009688',
-                } }
-              >
-                  Add Category
-              </a>
+            >Weighted Final Grade Calculator</h3>
+
+            <p
+              className='text-center'
+              style={ {
+                marginBottom: 8,
+                marginTop: 0,
+                fontSize: '1.6vh',
+                color: '#5d5d5d',
+              } }
+            >% sign is not neccesary</p>
+            <div className='row'>
+              <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
+                <label
+                  htmlFor={ 'requiredGrade' }
+                  className='form-label'
+                  style={ { fontWeight: 500, fontSize: '1.4vh' } }
+                >You want a:</label>
+                <input
+                  maxLength='3'
+                  type='number'
+                  className='form-control'
+                  id={ 'requiredGrade' }
+                  autoComplete='off'
+                  value={ this.state.requiredGrade }
+                  onChange={ this.onRequiredGradeChange }
+                  placeholder={ '93%' }
+                  style={ { fontSize: '1.6vh' } }
+                />
+              </div>
+              <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
+                <label
+                  htmlFor={ 'finalWeight' }
+                  className='form-label'
+                  style={ { fontWeight: 500, fontSize: '1.4vh' } }
+                >Final's worth:</label>
+                <input
+                  maxLength='3'
+                  type='number'
+                  className='form-control'
+                  id={ 'finalWeight' }
+                  autoComplete='off'
+                  value={ this.state.finalWeight }
+                  onChange={ this.onFinalWeightChange }
+                  placeholder={ '20%' }
+                  style={ { fontSize: '1.6vh' } }
+                />
+              </div>
             </div>
 
-            <div
-              className='pull-right col-md-6 col-xs-6'
-              style={ {
-                paddingLeft: '5px',
-                paddingRight: '5px',
-              } }
-            >
-              <a
-                className='btn btn-primary no-padding col-md-12 col-xs-12'
-                onClick={ this.calculate }
-                style={ {
-                  backgroundColor: '#009688',
-                } }
-              >
-                  Calculate
-              </a>
+            { inputs }
+
+
+            <div className='row' style={ { paddingTop: '1px' } } >
+              <div className='col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1' style={ { padding: 0 } } >
+                <div
+                  className='pull-left col-md-6 col-xs-6'
+                  style={ {
+                    paddingLeft: '5px',
+                    paddingRight: '5px',
+                  } }
+                >
+                  <a
+                    className='btn btn-primary no-padding col-md-12 col-xs-12'
+                    onClick={ this.addCategory }
+                    style={ {
+                      backgroundColor: '#009688',
+                    } }
+                  >
+                      Add Category
+                  </a>
+                </div>
+
+                <div
+                  className='pull-right col-md-6 col-xs-6'
+                  style={ {
+                    paddingLeft: '5px',
+                    paddingRight: '5px',
+                  } }
+                >
+                  <a
+                    className='btn btn-primary no-padding col-md-12 col-xs-12'
+                    onClick={ this.calculate }
+                    style={ {
+                      backgroundColor: '#009688',
+                    } }
+                  >
+                      Calculate
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
