@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'preact-helmet';
 
 import InputBox from './inputBox';
-
 import sweetalert from '../../../util/sweetalert';
 
 export default class GPA extends React.Component {

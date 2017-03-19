@@ -1,8 +1,6 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import Divider from '../../../components/divider';
-
 import AboutMe from './aboutMe';
 import About from './about';
 
@@ -22,11 +20,11 @@ const Home = () =>
     />
     <div className='col-md-10 col-md-offset-1'>
       <About />
-      <Divider />
+      <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
       <br />
       <AboutMe />
       <br />
-      <Divider />
+      <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
     </div>
   </div>;
 
