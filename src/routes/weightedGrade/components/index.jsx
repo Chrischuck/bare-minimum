@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
+
 import InputBox from './inputBox';
 import sweetalert from '../../../util/sweetalert';
 
@@ -60,23 +61,19 @@ export default class WeightedGrade extends React.Component {
       const numericalGrade = Number(grade) / 100;
       const numericalWeight = Number(weight) / 100;
       totalPercentage += Number(weight);
-      if (!numericalGrade) {
+      if (!numericalGrade && category) {
         sweetalert(
           'Oops!',
-           category ?
-            `Your grade for ${category} doesn't look right!` :
-           '  One of your grades doesn\'t look right!',
-         'warning',
+          `Your grade for ${category} doesn't look right!`,
+          'warning',
        );
         return;
       }
-      if (!numericalWeight) {
+      if (!numericalWeight && category) {
         sweetalert(
           'Oops!',
-           category ?
-            `Your weight for ${category} doesn't look right!` :
-           '  One of your weights doesn\'t look right!',
-         'warning',
+          `Your weight for ${category} doesn't look right!`,
+          'warning',
        );
         return;
       }
@@ -173,9 +170,9 @@ export default class WeightedGrade extends React.Component {
         } }
       >
         <Helmet
-          title='Bare Minimum | Final Grade Calculator'
+          title='Bare Minimum | Weighted Final Grade Calculator'
           meta={ [
-            { name: 'description', content: 'Final grade calculator to help you pass your classes!' },
+            { name: 'description', content: 'Weighted Final grade calculator to help you pass your classes!' },
           ] }
         />
         <div className='well infobox' >

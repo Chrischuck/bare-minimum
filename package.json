@@ -16,7 +16,11 @@
     "grade",
     "school",
     "education",
-    "gpa"
+    "gpa",
+    "react",
+    "preact",
+    "webpack",
+    "material design"
   ],
   "author": "Chris Chuck",
   "license": "MIT",
