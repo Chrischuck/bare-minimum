@@ -5,6 +5,9 @@ html {
   height:100%;
   width:100%;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 body {
   margin: 0;
   height:100%;
@@ -677,7 +680,7 @@ tbody.collapse.in {
 }
 .nav > li {
   position: relative;
-  display: block;
+  display: inline-block;
 }
 .nav > li > a {
   position: relative;
@@ -750,21 +753,11 @@ tbody.collapse.in {
     float: left;
   }
 }
-.navbar-collapse {
-  overflow-x: visible;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-top: 1px solid transparent;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  -webkit-overflow-scrolling: touch;
-}
-.navbar-collapse.in {
-  overflow-y: auto;
-}
-@media (min-width: 768px) {
+
+@media (min-width: 0px) {
   .navbar-collapse {
     width: auto;
+    overflow-x: visible !important;
     border-top: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -776,7 +769,7 @@ tbody.collapse.in {
     overflow: visible !important;
   }
   .navbar-collapse.in {
-    overflow-y: visible;
+    overflow-x: visible;
   }
   .navbar-collapse,
   .navbar-static-top .navbar-collapse,
@@ -785,23 +778,14 @@ tbody.collapse.in {
     padding-right: 0;
   }
 }
-.navbar-collapse,
-.navbar-fixed-bottom .navbar-collapse {
-  max-height: 340px;
-}
+
 @media (max-device-width: 480px) and (orientation: landscape) {
   .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px;
   }
 }
-.container > .navbar-header,
-.container-fluid > .navbar-header,
-.container > .navbar-collapse,
-.container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
-}
+
 @media (min-width: 768px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
@@ -834,6 +818,9 @@ tbody.collapse.in {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     visibility: hidden;
+    height: 0px;
+    width: 0px;
+    padding: 0px;
   }
 }
 .navbar-toggle {
@@ -865,13 +852,20 @@ tbody.collapse.in {
     display: none;
   }
 }
-.navbar-nav {
-  margin: 7.5px -15px;
-}
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+}
+@media (max-width: 768px) {
+  .navbar-nav {
+    padding: 0;
+    width: 100%;
+    height: inherit;
+    white-space: nowrap;
+    overflow-x: visible;
+    overflow-y: hidden;
+  }
 }
 
 @media (min-width: 768px) {
