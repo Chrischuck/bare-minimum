@@ -1,11 +1,11 @@
 /* eslint-disable */
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-var BabiliPlugin = require("babili-webpack-plugin");
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
 
@@ -125,5 +125,4 @@ module.exports = {
     ),
     //new BundleAnalyzerPlugin()
   ]
-
 }

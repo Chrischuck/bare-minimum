@@ -22,7 +22,6 @@ module.exports = {
     path: __dirname + '/dist' // output file directory //
   },
 
-
   /////////// Sets up loaders ////////
   resolve: {
     alias: {
@@ -93,5 +92,4 @@ module.exports = {
     }),
     new ExtractTextPlugin("styles.css")
   ]
-
 }
