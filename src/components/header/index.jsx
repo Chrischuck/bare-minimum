@@ -7,7 +7,7 @@ const Header = ({ path }) =>
       <div className='navbar-header'>
         <div className='navbar-brand'>Bare Minimum</div>
       </div>
-      <div id='navbar' className='collapse navbar-collapse'>
+      <div id='navbar' className='navbar-collapse'>
         <ul className='nav navbar-nav'>
           <li className={ path === 'grade-calculator' || path === '/grade-calculator' ? 'active' : '' }><Link to='grade-calculator'>Grade Calculator</Link></li>
           <li className={ path === 'weighted-grade-calculator' || path === '/weighted-grade-calculator' ? 'active' : '' }><Link to='weighted-grade-calculator'>Weighted Grade Calculator</Link></li>
