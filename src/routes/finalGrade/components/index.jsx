@@ -73,7 +73,7 @@ export default class FinalGrade extends React.Component {
     if (Number(finalScore) <= 50) {
       answerString += 'You only need ';
     } else {
-      answerString += 'You will nead at least ';
+      answerString += 'You will need at least ';
     }
 
     answerString += `${`${finalScore}` +
