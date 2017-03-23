@@ -5,7 +5,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
 
@@ -85,7 +84,6 @@ module.exports = {
       'NODE_ENV': JSON.stringify('production')
       }
     }),
-    //new BabiliPlugin({}, { comments: false}),
     new FaviconsWebpackPlugin({
       logo: './assets/Bm144.png',
       icons: {
@@ -113,7 +111,7 @@ module.exports = {
             handler: 'cacheFirst',
           },
           {
-            urlPattern: /weighted-gpa-calculator/,
+            urlPattern: /weighted-grade-calculator/,
             handler: 'cacheFirst',
           },
           {
