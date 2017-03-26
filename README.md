@@ -2,7 +2,7 @@
 
 Live: <a target="_blank" href="https://bareminimum.co" >Bare Minimum!</a>
 
-😥 69% on Google lighthouse 😥 (previously 100% before updates!)
+🚀 100% on Lighthouse! 🚀
 
 Written using react, webpack 2, preact, and love!
 
