@@ -48,7 +48,7 @@ module.exports = {
             'file-loader?hash=sha512&digest=hex',
             'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ] },
-      //{test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
+      { test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
