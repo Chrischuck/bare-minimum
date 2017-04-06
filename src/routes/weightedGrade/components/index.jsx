@@ -251,6 +251,9 @@ export default class WeightedGrade extends React.Component {
                   <a
                     className='btn btn-primary no-padding col-md-12 col-xs-12'
                     onClick={ this.addCategory }
+                    style={ {
+                      backgroundColor: '#009688',
+                    } }
                   >
                       Add Category
                   </a>
