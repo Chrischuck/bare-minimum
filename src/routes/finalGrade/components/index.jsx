@@ -147,8 +147,6 @@ export default class FinalGrade extends React.Component {
                 style={ {
                   paddingRight: '.8vw',
                   textAlign: 'right',
-                  paddingLeft: 0,
-                  fontSize: '14px',
                   lineHeight: '2.2vh',
                   paddingTop: '.8vh',
                   fontWeight: 400,
@@ -174,8 +172,6 @@ export default class FinalGrade extends React.Component {
                   style={ {
                     paddingRight: '.8vw',
                     textAlign: 'right',
-                    fontSize: 14,
-                    paddingLeft: 0,
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
@@ -200,8 +196,6 @@ export default class FinalGrade extends React.Component {
                   style={ {
                     paddingRight: '.8vw',
                     textAlign: 'right',
-                    fontSize: 14,
-                    paddingLeft: 0,
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
@@ -223,9 +217,6 @@ export default class FinalGrade extends React.Component {
                 <a
                   className='btn btn-primary col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3'
                   onClick={ this.onCalculate }
-                  style={ {
-                    backgroundColor: '#009688',
-                  } }
                 >
                     Calculate
                 </a>
