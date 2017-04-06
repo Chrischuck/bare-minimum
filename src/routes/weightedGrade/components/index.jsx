@@ -269,9 +269,6 @@ export default class WeightedGrade extends React.Component {
                   <a
                     className='btn btn-primary no-padding col-md-12 col-xs-12'
                     onClick={ this.calculate }
-                    style={ {
-                      backgroundColor: '#009688',
-                    } }
                   >
                       Calculate
                   </a>

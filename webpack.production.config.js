@@ -65,7 +65,7 @@ module.exports = {
   },
   ////////// Plug ins! ///////////
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
     new webpack.LoaderOptionsPlugin({
        minimize: true,
