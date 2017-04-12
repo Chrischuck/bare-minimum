@@ -8,12 +8,7 @@ export default class InputBox extends React.Component {
       course: '',
       grade: '',
       units: '',
-      randGrade: '',
     };
-  }
-
-  componentWillMount() {
-    this.setState({ randGrade: this.createRandGrades() });
   }
 
   onCourseChange = (event) => {
@@ -38,66 +33,46 @@ export default class InputBox extends React.Component {
     return `courseGpa${inputCount}`;
   }
 
-
-  createRandGrades() {
-    const grade = Math.floor((Math.random() * 6) + 1);
-    switch (grade) {
-      case 1:
-        return 'A+';
-      case 2:
-        return 'A';
-      case 3:
-        return 'A-';
-      case 4:
-        return 'B+';
-      case 5:
-        return 'B';
-      default:
-        return 'A-';
-    }
-  }
-
   renderCourses = (index) => {
-    const { randGrade } = this.state;
     const courses = [
       {
         name: 'Math 133A',
-        grade: randGrade,
+        grade: 'A+',
         units: '3',
       },
       {
         name: 'Astro 10',
-        grade: randGrade,
+        grade: 'A',
         units: '2',
       },
       {
         name: 'Phys 50',
-        grade: randGrade,
+        grade: 'B+',
         units: '4',
       },
       {
         name: 'Math 129A',
-        grade: randGrade,
+        grade: 'A-',
         units: '3',
       },
       {
         name: 'Math 42',
-        grade: randGrade,
+        grade: 'A-',
         units: '3',
       },
       {
         name: 'CS 46B',
-        grade: randGrade,
+        grade: 'A',
         units: '4',
       },
       {
         name: 'Engl 1B',
-        grade: randGrade,
+        grade: 'B',
         units: '2',
       },
       {
         name: 'Kin 08',
-        grade: randGrade,
+        grade: 'A',
         units: '2',
       },
     ];
