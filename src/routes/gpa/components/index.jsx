@@ -17,7 +17,7 @@ export default class GPA extends React.Component {
       gpa: '',
     };
   }
-  
+
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state.inputCount !== nextState.inputCount) {
       return true;
