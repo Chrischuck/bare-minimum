@@ -3,6 +3,7 @@ import Helmet from 'preact-helmet';
 
 import InputBox from './inputBox';
 import sweetalert from '../../../util/sweetalert';
+import { gpaStringBuilder } from '../../../util/stringBuilders';
 
 export default class GPA extends React.Component {
   constructor(props) {
@@ -14,6 +15,13 @@ export default class GPA extends React.Component {
       inputCount: 4,
       gpa: '',
     };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.inputCount !== nextState.inputCount) {
+      return true;
+    }
+    return false;
   }
 
   onPastGpaChange = (event) => {
@@ -138,28 +146,9 @@ export default class GPA extends React.Component {
   showGpa = () => {
     const { gpa } = this.state;
     if (gpa) {
-      sweetalert('Nice!', this.gpaStringBuilder(gpa), null);
+      sweetalert('Nice!', gpaStringBuilder(gpa), null);
     } else {
       sweetalert('Ugh oh!!', 'It appears you haven\'t added any classes!', 'warning');
-    }
-  }
-
-  gpaStringBuilder(gpa) {
-    const numbericGpa = Number(gpa);
-    if (numbericGpa >= 4) {
-      return `Damn you're rocking a ${gpa}`;
-    }
-    if (numbericGpa < 4 && numbericGpa >= 3.8) {
-      return `Good job you have a solid ${gpa}`;
-    }
-    if (numbericGpa < 3.8 && numbericGpa >= 3) {
-      return `Awesome you got a ${gpa}`;
-    }
-    if (numbericGpa < 3 && numbericGpa >= 2.5) {
-      return `Not bad, you're getting a ${gpa}`;
-    }
-    if (numbericGpa < 2.5) {
-      return `You have a ${gpa}`;
     }
   }
 

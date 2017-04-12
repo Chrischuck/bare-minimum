@@ -1,0 +1,53 @@
+export function calculatorStringBuilder(finalScore, requiredGrade) {
+  let answerString = '';
+
+  if (Number(finalScore) <= 50) {
+    answerString += 'You only need ';
+  } else {
+    answerString += 'You will need at least ';
+  }
+
+  answerString += `${`${finalScore}` +
+                    '% on your final to get a '}${
+                    requiredGrade
+                    }% overall.`;
+
+
+  const score = Number(finalScore);
+  if (score > 100) {
+    answerString += ' May the force be with you!';
+  }
+  if (score <= 100 && score >= 90) {
+    answerString += ' You can do it!';
+  }
+  if (score < 90 && score >= 70) {
+    answerString += ' You got this in the bag!';
+  }
+  if (score < 70 && score >= 0) {
+    answerString += ' What\'s the point of studying honestly?';
+  }
+  if (score < 0) {
+    answerString += ' Just stay in bed at this point!';
+  }
+  return answerString;
+}
+
+export function gpaStringBuilder(gpa) {
+  const numbericGpa = Number(gpa);
+  if (numbericGpa >= 4) {
+    return `Damn you're rocking a ${gpa}`;
+  }
+  if (numbericGpa < 4 && numbericGpa >= 3.8) {
+    return `Good job you have a solid ${gpa}`;
+  }
+  if (numbericGpa < 3.8 && numbericGpa >= 3) {
+    return `Awesome you got a ${gpa}`;
+  }
+  if (numbericGpa < 3 && numbericGpa >= 2.5) {
+    return `Not bad, you're getting a ${gpa}`;
+  }
+  if (numbericGpa < 2.5) {
+    return `You have a ${gpa}`;
+  }
+  return '';
+}

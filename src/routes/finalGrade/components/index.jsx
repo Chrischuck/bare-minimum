@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'preact-helmet';
 
 import sweetalert from '../../../util/sweetalert';
+import { calculatorStringBuilder } from '../../../util/stringBuilders';
 
 export default class FinalGrade extends React.Component {
   constructor(props) {
@@ -67,46 +68,12 @@ export default class FinalGrade extends React.Component {
     return '';
   }
 
-  calculatorStringBuilder(finalScore) {
-    let answerString = '';
-
-    if (Number(finalScore) <= 50) {
-      answerString += 'You only need ';
-    } else {
-      answerString += 'You will need at least ';
-    }
-
-    answerString += `${`${finalScore}` +
-                    '% on your final to get a '}${
-                    this.state.requiredGrade
-                    }% overall.`;
-
-
-    const score = Number(finalScore);
-    if (score > 100) {
-      answerString += ' May the force be with you!';
-    }
-    if (score <= 100 && score >= 90) {
-      answerString += ' You can do it!';
-    }
-    if (score < 90 && score >= 70) {
-      answerString += ' You got this in the bag!';
-    }
-    if (score < 70 && score >= 0) {
-      answerString += ' What\'s the point of studying honestly?';
-    }
-    if (score < 0) {
-      answerString += ' Just stay in bed at this point!';
-    }
-    return answerString;
-  }
-
   missingFormElements() {
     sweetalert('Ugh Oh!', this.errorStringBuilder(), 'warning');
   }
 
   noMissingElements() {
-    sweetalert('You can do it!', this.calculatorStringBuilder(this.calculateGrade()), null);
+    sweetalert('You can do it!', calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade), null);
   }
 
   render() {
