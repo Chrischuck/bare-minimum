@@ -3,6 +3,8 @@ import Helmet from 'preact-helmet';
 
 import InputBox from './inputBox';
 import sweetalert from '../../../util/sweetalert';
+import { gpaStringBuilder } from '../../../util/stringBuilders';
+import { gpaCalculate } from '../../../util/calculations';
 
 export default class GPA extends React.Component {
   constructor(props) {
@@ -16,119 +18,54 @@ export default class GPA extends React.Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.inputCount !== nextState.inputCount) {
+      return true;
+    }
+    return false;
+  }
+
   onPastGpaChange = (event) => {
+    const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) > 4) {
       sweetalert('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
     } else if (Number(event.target.value) < 0) {
       sweetalert('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
     } else {
-      this.setState({ pastGpa: event.target.value }, () => this.calculate());
+      this.setState({ pastGpa: event.target.value }, () => {
+        const gpa = gpaCalculate(courses, pastGpa, pastUnits, sweetalert);
+        this.setState({ gpa });
+      });
     }
   }
 
   onUnitsChange = (event) => {
+    const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) < 0) {
       sweetalert('Oh dear!', 'You can\'t have negative units!', 'warning');
     } else {
-      this.setState({ pastUnits: event.target.value }, () => this.calculate());
+      this.setState({ pastUnits: event.target.value }, () => {
+        const gpa = gpaCalculate(courses, pastGpa, pastUnits, sweetalert);
+        this.setState({ gpa });
+      });
     }
   }
 
   stateFromChild = (id, course, grade, units) => {
-    const { courses } = this.state;
+    const { courses, pastGpa, pastUnits } = this.state;
     const previousCourse = courses[id];
 
     courses[id] = { course, grade, units };
     if (previousCourse && previousCourse.course !== course) {
       this.setState({ courses });
     } else {
-      this.setState({ courses }, () => this.calculate());
+      this.setState({ courses }, () => {
+        const gpa = gpaCalculate(courses, pastGpa, pastUnits, sweetalert);
+        this.setState({ gpa });
+      });
     }
   }
 
-  calculate = () => {
-    const { courses, pastGpa, pastUnits } = this.state;
-    const keys = Object.keys(courses);
-
-    let totalPoints = 0;
-    let totalCredits = 0;
-    for (let i = 0; i < keys.length; i += 1) {
-      const key = keys[i];
-      const { grade, units, course } = courses[key];
-      const numericGrade = this.gradeToNumber(grade);
-
-      if (typeof numericGrade === 'number' && grade && units) {
-        totalPoints += numericGrade * Number(units);
-        totalCredits += Number(units);
-      } else if (typeof numericGrade !== 'number' && grade && units) {
-        sweetalert(
-          'Oops!',
-          course ?
-            `Your grade for ${course} doesn't look right!` :
-            'One of your grades doesn\'t look right!',
-          'warning');
-        return;
-      }
-    }
-
-    if (!isNaN(Number(pastGpa)) && !isNaN(Number(pastUnits))) {
-      totalPoints += Number(pastGpa) * pastUnits;
-      totalCredits += Number(pastUnits);
-    }
-
-    const toRound = ((totalPoints / totalCredits) * 1000) % 10 >= 5;
-    const calculatedGpa = toRound ?
-      Math.ceil((totalPoints / totalCredits) * 100) / 100 :
-      Math.floor((totalPoints / totalCredits) * 100) / 100;
-    if (isNaN(calculatedGpa)) {
-      return;
-    }
-    if ((calculatedGpa * 10) % 10 !== 0) {
-      const gpa = calculatedGpa.toFixed(2);
-      this.setState({ gpa });
-    } else {
-      const gpa = calculatedGpa.toFixed(1);
-      this.setState({ gpa });
-    }
-  }
-
-  gradeToNumber(grade) {
-    const parsedGrade = grade.toUpperCase();
-    switch (parsedGrade) {
-      case 'A+':
-        return 4;
-      case 'A':
-        return 4;
-      case 'A-':
-        return 3.7;
-      case 'B+':
-        return 3.3;
-      case 'B':
-        return 3.0;
-      case 'B-':
-        return 2.7;
-      case 'C+':
-        return 2.3;
-      case 'C':
-        return 2.0;
-      case 'C-':
-        return 1.7;
-      case 'D+':
-        return 1.3;
-      case 'D':
-        return 1.0;
-      case 'D-':
-        return 0;
-      case 'F+':
-        return 0;
-      case 'F':
-        return 0;
-      case 'F-':
-        return 0;
-      default:
-        return grade;
-    }
-  }
 
   addClass = () => {
     const { inputCount } = this.state;
@@ -138,28 +75,9 @@ export default class GPA extends React.Component {
   showGpa = () => {
     const { gpa } = this.state;
     if (gpa) {
-      sweetalert('Nice!', this.gpaStringBuilder(gpa), null);
+      sweetalert('Nice!', gpaStringBuilder(gpa), null);
     } else {
       sweetalert('Ugh oh!!', 'It appears you haven\'t added any classes!', 'warning');
-    }
-  }
-
-  gpaStringBuilder(gpa) {
-    const numbericGpa = Number(gpa);
-    if (numbericGpa >= 4) {
-      return `Damn you're rocking a ${gpa}`;
-    }
-    if (numbericGpa < 4 && numbericGpa >= 3.8) {
-      return `Good job you have a solid ${gpa}`;
-    }
-    if (numbericGpa < 3.8 && numbericGpa >= 3) {
-      return `Awesome you got a ${gpa}`;
-    }
-    if (numbericGpa < 3 && numbericGpa >= 2.5) {
-      return `Not bad, you're getting a ${gpa}`;
-    }
-    if (numbericGpa < 2.5) {
-      return `You have a ${gpa}`;
     }
   }
 

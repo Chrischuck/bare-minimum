@@ -11,21 +11,11 @@ export default class InputBox extends React.Component {
     };
   }
 
-  onCategoryChange = (event) => {
-    this.setState({ category: event.target.value }, () => this.setInParent());
-  }
-
-  onGradeChange = (event) => {
-    this.setState({ grade: event.target.value }, () => this.setInParent());
-  }
-
-  onWeightChange = (event) => {
-    this.setState({ weight: event.target.value }, () => this.setInParent());
-  }
-
-  setInParent = () => {
-    const { category, grade, weight } = this.state;
-    this.props.stateToParent(this.createId(), category, grade, weight);
+  onInputChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value }, () => {
+      const { category, grade, weight } = this.state;
+      this.props.stateToParent(this.createId(), category, grade, weight);
+    });
   }
 
   createId = () => {
@@ -103,7 +93,8 @@ export default class InputBox extends React.Component {
             id={ `${inputCount}category` }
             autoComplete='off'
             value={ this.state.category }
-            onChange={ this.onCategoryChange }
+            name='category'
+            onChange={ this.onInputChange }
             placeholder={ category.category }
             style={ { fontSize: '1.6vh' } }
           />
@@ -122,7 +113,8 @@ export default class InputBox extends React.Component {
             id={ `${inputCount}grade` }
             autoComplete='off'
             value={ this.state.grade }
-            onChange={ this.onGradeChange }
+            name='grade'
+            onChange={ this.onInputChange }
             placeholder={ category.grade }
             style={ { fontSize: '1.6vh' } }
           />
@@ -141,7 +133,8 @@ export default class InputBox extends React.Component {
             id={ `${inputCount}weight` }
             autoComplete='off'
             value={ this.state.weight }
-            onChange={ this.onWeightChange }
+            name='weight'
+            onChange={ this.onInputChange }
             placeholder={ category.weight }
             style={ { fontSize: '1.6vh' } }
           />

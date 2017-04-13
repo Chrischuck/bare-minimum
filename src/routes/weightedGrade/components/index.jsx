@@ -3,6 +3,7 @@ import Helmet from 'preact-helmet';
 
 import InputBox from './inputBox';
 import sweetalert from '../../../util/sweetalert';
+import { calculatorStringBuilder } from '../../../util/stringBuilders';
 
 export default class WeightedGrade extends React.Component {
   constructor(props) {
@@ -13,6 +14,13 @@ export default class WeightedGrade extends React.Component {
       finalWeight: '',
       inputCount: 3,
     };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.inputCount !== nextState.inputCount) {
+      return true;
+    }
+    return false;
   }
 
   // Input methods
@@ -104,44 +112,10 @@ export default class WeightedGrade extends React.Component {
       Math.floor(finalGrade * 100) / 100;
 
     if (!isNaN(calculatedGrade)) {
-      sweetalert('You can do it!', this.calculatorStringBuilder(calculatedGrade), null);
+      sweetalert('You can do it!', calculatorStringBuilder(calculatedGrade, this.state.requiredGrade), null);
     } else {
       sweetalert('Ugh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
     }
-  }
-
-  calculatorStringBuilder = (finalScore) => {
-    let answerString = '';
-
-    if (Number(finalScore) <= 50) {
-      answerString += 'You only need ';
-    } else {
-      answerString += 'You will need at least ';
-    }
-
-    answerString += `${`${finalScore}` +
-                    '% on your final to get a '}${
-                    this.state.requiredGrade
-                    }% overall.`;
-
-
-    const score = Number(finalScore);
-    if (score > 100) {
-      answerString += ' May the force be with you!';
-    }
-    if (score <= 100 && score >= 90) {
-      answerString += ' You can do it!';
-    }
-    if (score < 90 && score >= 70) {
-      answerString += ' You got this in the bag!';
-    }
-    if (score < 70 && score >= 0) {
-      answerString += ' What\'s the point of studying honestly?';
-    }
-    if (score < 0) {
-      answerString += ' Just stay in bed at this point!';
-    }
-    return answerString;
   }
 
   addCategory = () => {
