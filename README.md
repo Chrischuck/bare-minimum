@@ -15,5 +15,18 @@ A progressive web app designed to help other college students get through colleg
 - [ ] Increase performance/load times
 - [ ] Fix ui font issues, make it look better
 
-#
-If you want to help out, just clone and do a little npm install and you're on your way!
+## Installation
+If you want to help out, just clone and npm install(or yarn!) and you're on your way!  
+
+To get the webpack dev server running:  
+```bash
+npm run dev
+```
+In order to emulate production:
+```bash
+npm run build
+```  
+and then
+```bash
+npm run start
+```
