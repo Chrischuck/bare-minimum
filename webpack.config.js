@@ -40,8 +40,11 @@ module.exports = {
       { test: /\.svg$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
-      { test: /\.jpg$/, loader: "url-loader?limit=100000" },
       { test: /\.ico$/, loader: "url-loader?limit=100000" },
+       { test: /\.(jpe?g|png)$/i, loaders: [
+            'file-loader?hash=sha512&digest=hex',
+            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+      ] },
       {test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
