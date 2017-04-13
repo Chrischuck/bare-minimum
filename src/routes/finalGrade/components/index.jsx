@@ -15,8 +15,8 @@ export default class FinalGrade extends React.Component {
     };
   }
 
-  onInputChange = (event, name) => {
-    this.setState({ [name]: event.target.value });
+  onInputChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   onCalculate = () => {
@@ -123,8 +123,9 @@ export default class FinalGrade extends React.Component {
                 <input
                   className='form-control'
                   type='number'
+                  name='currentGrade'
                   value={ this.state.currentGrade }
-                  onChange={ event => this.onInputChange(event, 'currentGrade') }
+                  onChange={ this.onInputChange }
                   placeholder='92.4'
                   id='currentGrade'
                 />
@@ -147,8 +148,9 @@ export default class FinalGrade extends React.Component {
                   <input
                     className='form-control'
                     type='number'
+                    name='requiredGrade'
                     value={ this.state.requiredGrade }
-                    onChange={ event => this.onInputChange(event, 'requiredGrade') }
+                    onChange={ this.onInputChange }
                     placeholder='90'
                     id='requiredGrade'
                   />
@@ -172,7 +174,8 @@ export default class FinalGrade extends React.Component {
                     className='form-control'
                     type='number'
                     value={ this.state.finalWeight }
-                    onChange={ event => this.onInputChange(event, 'finalWeight') }
+                    name='finalWeight'
+                    onChange={ this.onInputChange }
                     placeholder='10'
                     id='final'
                   />
