@@ -42,9 +42,8 @@ module.exports = {
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
-      { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
-      { test: /\.(jpe?g)$/i, loaders: [
+      { test: /\.(jpe?g|png)$/i, loaders: [
             'file-loader?hash=sha512&digest=hex',
             'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ] },
