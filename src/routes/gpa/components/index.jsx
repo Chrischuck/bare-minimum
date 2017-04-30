@@ -14,7 +14,6 @@ export default class GPA extends React.Component {
       pastGpa: '',
       pastUnits: '',
       inputCount: 4,
-      gpa: '',
       isModalOpen: false,
       title: null,
       message: null,
@@ -33,41 +32,32 @@ export default class GPA extends React.Component {
     } else if (Number(event.target.value) < 0) {
       this.openModal('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
     } else {
-      this.setState({ pastGpa: event.target.value }, () => {
-        const gpa = this.gpaCalculate(courses, pastGpa, pastUnits);
-        this.setState({ gpa });
-      });
+      this.setState({ pastGpa: event.target.value });
     }
   }
 
   onUnitsChange = (event) => {
-    const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) < 0) {
       this.openModal('Oh dear!', 'You can\'t have negative units!', 'warning');
     } else {
-      this.setState({ pastUnits: event.target.value }, () => {
-        const gpa = this.gpaCalculate(courses, pastGpa, pastUnits);
-        this.setState({ gpa });
-      });
+      this.setState({ pastUnits: event.target.value });
     }
   }
 
   stateFromChild = (id, course, grade, units) => {
-    const { courses, pastGpa, pastUnits } = this.state;
-    const previousCourse = courses[id];
-
+    const { courses } = this.state;
+    const previousCategory = courses[id];
     courses[id] = { course, grade, units };
-    if (previousCourse && previousCourse.course !== course) {
+    if (previousCategory && previousCategory.course !== course) {
       this.setState({ courses });
     } else {
-      this.setState({ courses }, () => {
-        const gpa = this.gpaCalculate(courses, pastGpa, pastUnits);
-        this.setState({ gpa });
-      });
+      this.setState({ courses });
     }
   }
 
-  gpaCalculate = (courses, pastGpa, pastUnits) => {
+  calculate = () => {
+    const { courses, pastGpa, pastUnits } = this.state;
+
     const keys = Object.keys(courses);
     let totalPoints = 0;
     let totalCredits = 0;
@@ -125,29 +115,18 @@ export default class GPA extends React.Component {
     });
   }
 
+  showGpa = () => {
+    const gpa = this.calculate();
+    if (gpa !== 0) {
+      this.openModal('Nice!', gpaStringBuilder(gpa), null);
+    } else {
+      this.openModal('Oh no!', 'Oh my you haven\'t added any classes', 'warning');
+    }
+  }
+
   addClass = () => {
     const { inputCount } = this.state;
     this.setState({ inputCount: inputCount + 1 });
-  }
-
-  showGpa = () => {
-    const { gpa } = this.state;
-    if (gpa) {
-      this.setState({
-        title: 'Nice!',
-        message: gpaStringBuilder(gpa),
-        type: null,
-        isModalOpen: true,
-      });
-    } else {
-      this.setState({
-        title: 'Ugh oh!',
-        message: 'It appears you haven\'t added any classes!',
-        type: 'warning',
-        isModalOpen: true,
-      });
-      this.openModal('Ugh oh!', 'It appears you haven\'t added any classes!', 'warning');
-    }
   }
 
   render() {

@@ -91,14 +91,6 @@ export default class FinalGrade extends React.Component {
     return '';
   }
 
-  missingFormElements() {
-    sweetalert('Ugh Oh!', this.errorStringBuilder(), 'warning');
-  }
-
-  noMissingElements() {
-    sweetalert('You can do it!', calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade), null);
-  }
-
   render() {
     const { isModalOpen, title, message, type } = this.state;
     return (
