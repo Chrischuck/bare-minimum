@@ -126,8 +126,9 @@ export default class FinalGrade extends React.Component {
                   name='currentGrade'
                   value={ this.state.currentGrade }
                   onChange={ this.onInputChange }
-                  placeholder='92.4'
+                  placeholder='92'
                   id='currentGrade'
+                  style={ { fontSize: '16px', fontWeight: '450', color: '#000000' } }
                 />
               </div>
               <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
@@ -153,6 +154,7 @@ export default class FinalGrade extends React.Component {
                     onChange={ this.onInputChange }
                     placeholder='90'
                     id='requiredGrade'
+                    style={ { fontSize: '16px', fontWeight: '450', color: '#000000' } }
                   />
                 </div>
                 <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >% in the class.</label>
@@ -178,6 +180,7 @@ export default class FinalGrade extends React.Component {
                     onChange={ this.onInputChange }
                     placeholder='10'
                     id='final'
+                    style={ { fontSize: '16px', fontWeight: '450', color: '#000000' } }
                   />
                 </div>
                 <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4, fontWeight: 400 } } >% of your grade.</label>

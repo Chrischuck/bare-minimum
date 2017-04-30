@@ -172,11 +172,11 @@ export default class WeightedGrade extends React.Component {
               } }
             >% sign is not neccesary</p>
             <div className='row'>
-              <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
+              <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '0px', paddingRight: '2.5px', marginBottom: 5 } } >
                 <label
                   htmlFor={ 'requiredGrade' }
                   className='form-label'
-                  style={ { fontWeight: 500, fontSize: '1.4vh' } }
+                  style={ { fontWeight: 500, fontSize: '11px' } }
                 >You want a:</label>
                 <input
                   maxLength='3'
@@ -187,14 +187,14 @@ export default class WeightedGrade extends React.Component {
                   value={ this.state.requiredGrade }
                   onChange={ this.onRequiredGradeChange }
                   placeholder={ '93%' }
-                  style={ { fontSize: '1.6vh' } }
+                  style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
               </div>
-              <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
+              <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '2.5px', paddingRight: '0px', marginBottom: 5 } } >
                 <label
                   htmlFor={ 'finalWeight' }
                   className='form-label'
-                  style={ { fontWeight: 500, fontSize: '1.4vh' } }
+                  style={ { fontWeight: 500, fontSize: '11px' } }
                 >Final's worth:</label>
                 <input
                   maxLength='3'
@@ -205,7 +205,7 @@ export default class WeightedGrade extends React.Component {
                   value={ this.state.finalWeight }
                   onChange={ this.onFinalWeightChange }
                   placeholder={ '20%' }
-                  style={ { fontSize: '1.6vh' } }
+                  style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
               </div>
             </div>
@@ -218,8 +218,8 @@ export default class WeightedGrade extends React.Component {
                 <div
                   className='pull-left col-md-6 col-xs-6'
                   style={ {
-                    paddingLeft: '5px',
-                    paddingRight: '5px',
+                    paddingLeft: '0px',
+                    paddingRight: '2.5px',
                   } }
                 >
                   <a
@@ -236,8 +236,8 @@ export default class WeightedGrade extends React.Component {
                 <div
                   className='pull-right col-md-6 col-xs-6'
                   style={ {
-                    paddingLeft: '5px',
-                    paddingRight: '5px',
+                    paddingLeft: '2.5px',
+                    paddingRight: '0px',
                   } }
                 >
                   <a
