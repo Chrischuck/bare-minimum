@@ -41,7 +41,7 @@ module.exports = {
       { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.ico$/, loader: "url-loader?limit=100000" },
-       { test: /\.(jpe?g|png)$/i, loaders: [
+       { test: /\.(jpe?g)$/i, loaders: [
             'file-loader?hash=sha512&digest=hex',
             'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
       ] },

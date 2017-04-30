@@ -1,7 +1,7 @@
 import React from 'react';
 
 import chris from '../../../assets/chris.jpg';
-import kimchi from '../../../assets/kimchi.jpeg';
+import kimchi from '../../../assets/kimchi.jpg';
 
 
 const AboutMe = () =>

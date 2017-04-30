@@ -3,12 +3,10 @@
   "short_name": "Bare Minimum",
   "icons": [
     {
-      "src": "91d9d08254e5af7fbd1a581aca6e6b52.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "1ce69dbe623a33d32a3e3d6c3758f1d2.png",
       "type": "image/png",
       "sizes": "192x192"
     }

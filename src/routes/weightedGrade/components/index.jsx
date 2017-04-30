@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
+import Modal from '../../../components/modal';
 import InputBox from './inputBox';
-import sweetalert from '../../../util/sweetalert';
 import { calculatorStringBuilder } from '../../../util/stringBuilders';
 
 export default class WeightedGrade extends React.Component {
@@ -13,14 +13,15 @@ export default class WeightedGrade extends React.Component {
       requiredGrade: '',
       finalWeight: '',
       inputCount: 3,
+      isModalOpen: false,
+      title: null,
+      message: null,
+      type: null,
     };
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.inputCount !== nextState.inputCount) {
-      return true;
-    }
-    return false;
+    return this.state.inputCount !== nextState.inputCount || this.state.isModalOpen !== nextState.isModalOpen;
   }
 
   // Input methods
@@ -55,11 +56,11 @@ export default class WeightedGrade extends React.Component {
     let totalPercentage = Number(finalWeight);
 
     if (!requiredPercent) {
-      sweetalert('Ugh Oh!', 'The grade you want doesn\'t look right!', 'warning');
+      this.openModal('Ugh Oh!', 'The grade you want doesn\'t look right!', 'warning');
       return;
     }
     if (!finalPercent) {
-      sweetalert('Ugh Oh!', 'The final\'s weight doesn\'t look right!', 'warning');
+      this.openModal('Ugh Oh!', 'The final\'s weight doesn\'t look right!', 'warning');
       return;
     }
 
@@ -70,7 +71,7 @@ export default class WeightedGrade extends React.Component {
       const numericalWeight = Number(weight) / 100;
       totalPercentage += Number(weight);
       if (!numericalGrade && category) {
-        sweetalert(
+        this.openModal(
           'Oops!',
           `Your grade for ${category} doesn't look right!`,
           'warning',
@@ -78,7 +79,7 @@ export default class WeightedGrade extends React.Component {
         return;
       }
       if (!numericalWeight && category) {
-        sweetalert(
+        this.openModal(
           'Oops!',
           `Your weight for ${category} doesn't look right!`,
           'warning',
@@ -91,11 +92,11 @@ export default class WeightedGrade extends React.Component {
       }
     }
     if (totalWeights === 0) {
-      sweetalert('Oh no!', 'Looks like you haven\'t added any categories!', 'warning');
+      this.openModal('Oh no!', 'Looks like you haven\'t added any categories!', 'warning');
       return;
     }
     if ((totalPercentage) !== 100) {
-      sweetalert(
+      this.openModal(
         'Oops!',
         totalPercentage > 100 ?
           'Your total percentage can\'t be greater than 100!' :
@@ -112,10 +113,28 @@ export default class WeightedGrade extends React.Component {
       Math.floor(finalGrade * 100) / 100;
 
     if (!isNaN(calculatedGrade)) {
-      sweetalert('You can do it!', calculatorStringBuilder(calculatedGrade, this.state.requiredGrade), null);
+      this.openModal('You can do it!', calculatorStringBuilder(calculatedGrade, this.state.requiredGrade), null);
     } else {
-      sweetalert('Ugh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
+      this.openModal('Ugh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
     }
+  }
+
+  openModal = (title, message, type) => {
+    this.setState({
+      title,
+      message,
+      type,
+      isModalOpen: true,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      title: null,
+      message: null,
+      type: null,
+      isModalOpen: false,
+    });
   }
 
   addCategory = () => {
@@ -124,7 +143,7 @@ export default class WeightedGrade extends React.Component {
   }
 
   render() {
-    const { inputCount } = this.state;
+    const { inputCount, isModalOpen, title, message, type } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i += 1) {
       inputs.push(
@@ -143,6 +162,7 @@ export default class WeightedGrade extends React.Component {
           paddingRight: '0',
         } }
       >
+        { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
           title='Bare Minimum | Weighted Final Grade Calculator'
           meta={ [
