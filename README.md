@@ -11,7 +11,6 @@ A progressive web app designed to help other college students get through colleg
 ## Goals
 - [ ] Get rid of all unused CSS
 - [ ] Replace React Router w/ smaller or custom library
-- [ ] Replace Sweetalert w/ custom modals
 - [ ] Increase performance/load times
 - [ ] Fix ui font issues, make it look better
 
