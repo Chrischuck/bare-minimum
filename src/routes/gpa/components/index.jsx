@@ -1,10 +1,10 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
+import Modal from '../../../components/modal';
 import InputBox from './inputBox';
-import sweetalert from '../../../util/sweetalert';
+import { gradeToNumber } from '../../../util/calculations';
 import { gpaStringBuilder } from '../../../util/stringBuilders';
-import { gpaCalculate } from '../../../util/calculations';
 
 export default class GPA extends React.Component {
   constructor(props) {
@@ -15,25 +15,26 @@ export default class GPA extends React.Component {
       pastUnits: '',
       inputCount: 4,
       gpa: '',
+      isModalOpen: false,
+      title: null,
+      message: null,
+      type: null,
     };
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.inputCount !== nextState.inputCount) {
-      return true;
-    }
-    return false;
+    return this.state.inputCount !== nextState.inputCount || this.state.isModalOpen !== nextState.isModalOpen;
   }
 
   onPastGpaChange = (event) => {
     const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) > 4) {
-      sweetalert('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
+      this.openModal('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
     } else if (Number(event.target.value) < 0) {
-      sweetalert('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
+      this.openModal('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
     } else {
       this.setState({ pastGpa: event.target.value }, () => {
-        const gpa = gpaCalculate(courses, pastGpa, pastUnits, sweetalert);
+        const gpa = this.gpaCalculate(courses, pastGpa, pastUnits);
         this.setState({ gpa });
       });
     }
@@ -42,10 +43,10 @@ export default class GPA extends React.Component {
   onUnitsChange = (event) => {
     const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) < 0) {
-      sweetalert('Oh dear!', 'You can\'t have negative units!', 'warning');
+      this.openModal('Oh dear!', 'You can\'t have negative units!', 'warning');
     } else {
       this.setState({ pastUnits: event.target.value }, () => {
-        const gpa = gpaCalculate(courses, pastGpa, pastUnits, sweetalert);
+        const gpa = this.gpaCalculate(courses, pastGpa, pastUnits);
         this.setState({ gpa });
       });
     }
@@ -60,12 +61,69 @@ export default class GPA extends React.Component {
       this.setState({ courses });
     } else {
       this.setState({ courses }, () => {
-        const gpa = gpaCalculate(courses, pastGpa, pastUnits, sweetalert);
+        const gpa = this.gpaCalculate(courses, pastGpa, pastUnits);
         this.setState({ gpa });
       });
     }
   }
 
+  gpaCalculate = (courses, pastGpa, pastUnits) => {
+    const keys = Object.keys(courses);
+    let totalPoints = 0;
+    let totalCredits = 0;
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = keys[i];
+      const { grade, units, course } = courses[key];
+      const numericGrade = gradeToNumber(grade);
+
+      if (typeof numericGrade === 'number' && grade && units) {
+        totalPoints += numericGrade * Number(units);
+        totalCredits += Number(units);
+      } else if (typeof numericGrade !== 'number' && grade && units) {
+        this.openModal(
+          'Oops!',
+          course ?
+          `Your grade for ${course} doesn't look right!` :
+          'One of your grades doesn\'t look right!',
+          'warning');
+        return 0;
+      }
+    }
+
+    if (!isNaN(Number(pastGpa)) && !isNaN(Number(pastUnits))) {
+      totalPoints += Number(pastGpa) * pastUnits;
+      totalCredits += Number(pastUnits);
+    }
+
+    const toRound = ((totalPoints / totalCredits) * 1000) % 10 >= 5;
+    const calculatedGpa = toRound ?
+      Math.ceil((totalPoints / totalCredits) * 100) / 100 :
+      Math.floor((totalPoints / totalCredits) * 100) / 100;
+    if (isNaN(calculatedGpa)) {
+      return 0;
+    }
+    return (calculatedGpa * 10) % 10 !== 0 ?
+      calculatedGpa.toFixed(2) :
+      calculatedGpa.toFixed(1);
+  }
+
+  openModal = (title, message, type) => {
+    this.setState({
+      title,
+      message,
+      type,
+      isModalOpen: true,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      title: null,
+      message: null,
+      type: null,
+      isModalOpen: false,
+    });
+  }
 
   addClass = () => {
     const { inputCount } = this.state;
@@ -75,14 +133,25 @@ export default class GPA extends React.Component {
   showGpa = () => {
     const { gpa } = this.state;
     if (gpa) {
-      sweetalert('Nice!', gpaStringBuilder(gpa), null);
+      this.setState({
+        title: 'Nice!',
+        message: gpaStringBuilder(gpa),
+        type: null,
+        isModalOpen: true,
+      });
     } else {
-      sweetalert('Ugh oh!!', 'It appears you haven\'t added any classes!', 'warning');
+      this.setState({
+        title: 'Ugh oh!',
+        message: 'It appears you haven\'t added any classes!',
+        type: 'warning',
+        isModalOpen: true,
+      });
+      this.openModal('Ugh oh!', 'It appears you haven\'t added any classes!', 'warning');
     }
   }
 
   render() {
-    const { inputCount } = this.state;
+    const { inputCount, isModalOpen, title, message, type } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i += 1) {
       inputs.push(
@@ -102,6 +171,7 @@ export default class GPA extends React.Component {
           marginBottom: 10,
         } }
       >
+        { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
           title='Bare Minimum | GPA Calculator'
           meta={ [
