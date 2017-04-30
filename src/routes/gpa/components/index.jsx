@@ -125,10 +125,10 @@ export default class GPA extends React.Component {
               <label
                 htmlFor='pastGPA'
                 className='form-label'
-                style={ { fontWeight: 550 } }
+                style={ { fontWeight: 500 } }
               >
                 { 'Past GPA ' }
-                <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
+                <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
                 type='number'
@@ -138,7 +138,7 @@ export default class GPA extends React.Component {
                 placeholder='3.8'
                 value={ this.state.pastGpa }
                 onChange={ this.onPastGpaChange }
-                style={ { fontSize: '1.2vh' } }
+                style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
               />
             </div>
 
@@ -146,10 +146,10 @@ export default class GPA extends React.Component {
               <label
                 htmlFor='pastUnits'
                 className='form-label'
-                style={ { fontWeight: 550 } }
+                style={ { fontWeight: 500 } }
               >
                 { 'Past Units ' }
-                <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
+                <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
                 type='number'
@@ -159,7 +159,7 @@ export default class GPA extends React.Component {
                 placeholder='60'
                 value={ this.state.pastUnits }
                 onChange={ this.onUnitsChange }
-                style={ { fontSize: '1.2vh' } }
+                style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
               />
             </div>
           </div>

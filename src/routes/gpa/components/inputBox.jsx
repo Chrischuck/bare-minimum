@@ -88,7 +88,7 @@ export default class InputBox extends React.Component {
             style={ { fontWeight: 550 } }
           >
             { 'Class ' }
-            <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
+            <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
           </label>
           <input
             type='text'
@@ -98,7 +98,7 @@ export default class InputBox extends React.Component {
             name='course'
             onChange={ this.onInputChange }
             placeholder={ course.name }
-            style={ { fontSize: '1.2vh' } }
+            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
 
@@ -117,7 +117,7 @@ export default class InputBox extends React.Component {
             name='grade'
             onChange={ this.onInputChange }
             placeholder={ course.grade }
-            style={ { fontSize: '1.2vh' } }
+            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
 
@@ -136,7 +136,7 @@ export default class InputBox extends React.Component {
             name='units'
             onChange={ this.onInputChange }
             placeholder={ course.units }
-            style={ { fontSize: '1.2vh' } }
+            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
       </div>

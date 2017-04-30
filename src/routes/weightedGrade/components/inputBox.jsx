@@ -66,7 +66,7 @@ export default class InputBox extends React.Component {
       return courses[index];
     }
     return {
-      category: 'Memetics',
+      category: 'Stuff',
       grade: '100%',
       weight: '100%',
     };
@@ -78,14 +78,14 @@ export default class InputBox extends React.Component {
     const category = this.renderCategories(inputCount);
     return (
       <div className='row' >
-        <div className='form-group has-success is-empty col-md-4 col-sm-4 col-xs-4 col-sm-offset-1 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
+        <div className='form-group has-success is-empty col-md-4 col-sm-4 col-xs-4 col-sm-offset-1 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } }>
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '1.4vh' } }
+            style={ { fontWeight: 500, fontSize: '11px' } }
           >
             { 'Category ' }
-            <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.3vh', fontWeight: 500 } } >(optional)</span>
+            <span className='semi-bold' style={ { color: '#99999c', fontSize: '8px', fontWeight: 500 } } >(optional)</span>
           </label>
           <input
             type='text'
@@ -96,15 +96,15 @@ export default class InputBox extends React.Component {
             name='category'
             onChange={ this.onInputChange }
             placeholder={ category.category }
-            style={ { fontSize: '1.6vh' } }
+            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
+        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } } >
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '1.4vh' } }
+            style={ { fontWeight: 500, fontSize: '11px' } }
           >Current Grade</label>
           <input
             maxLength='3'
@@ -116,15 +116,15 @@ export default class InputBox extends React.Component {
             name='grade'
             onChange={ this.onInputChange }
             placeholder={ category.grade }
-            style={ { fontSize: '1.6vh' } }
+            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
 
-        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } } >
+        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '0px', paddingRight: '0px', marginBottom: 5 } } >
           <label
             htmlFor={ `${inputCount}weight` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '1.4vh' } }
+            style={ { fontWeight: 500, fontSize: '11px' } }
           >Weight</label>
           <input
             type='number'
@@ -136,7 +136,7 @@ export default class InputBox extends React.Component {
             name='weight'
             onChange={ this.onInputChange }
             placeholder={ category.weight }
-            style={ { fontSize: '1.6vh' } }
+            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
       </div>
