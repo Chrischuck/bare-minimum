@@ -8,6 +8,7 @@ import App from './app';
 
 import FinalGradeRoute from './routes/finalGrade';
 import WeightedGradeRoute from './routes/weightedGrade';
+import DamageCalculator from './routes/damageControl';
 import GPARoute from './routes/gpa';
 import AboutRoute from './routes/about';
 import NotFoundRoute from './routes/notFound';
@@ -25,6 +26,7 @@ const routes = {
   childRoutes: [
     FinalGradeRoute,
     WeightedGradeRoute,
+    DamageCalculator,
     AboutRoute,
     GPARoute,
     NotFoundRoute,
