@@ -2,7 +2,6 @@ import React from 'react';
 import Helmet from 'preact-helmet';
 
 import Modal from '../../../components/modal';
-import { calculatorStringBuilder } from '../../../util/stringBuilders';
 
 export default class DamageCalculator extends React.Component {
   constructor(props) {
@@ -28,7 +27,10 @@ export default class DamageCalculator extends React.Component {
     if (currentGrade === '' || assignmentWeight === '' || assignmentGrade === '') {
       this.openModal('Ugh Oh!', this.errorStringBuilder(), 'warning');
     } else {
-      this.openModal('You can do it!', calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade), null);
+      this.openModal(
+          'After consulting the magic 8 ball...',
+          `It has been revealed your grade is now ${this.calculateGrade()}%.`,
+          null);
     }
   }
 
@@ -62,30 +64,30 @@ export default class DamageCalculator extends React.Component {
   }
 
   errorStringBuilder = () => {
-    const { currentGrade, finalWeight, requiredGrade } = this.state;
+    const { currentGrade, assignmentWeight, assignmentGrade } = this.state;
 
-    if (currentGrade === '' && finalWeight !== '' && requiredGrade !== '') {
+    if (currentGrade === '' && assignmentWeight !== '' && assignmentGrade !== '') {
       return 'Please input your current grade.';
     }
-    if (currentGrade !== '' && finalWeight === '' && requiredGrade !== '') {
-      return 'Please input your final percentage.';
+    if (currentGrade !== '' && assignmentWeight === '' && assignmentGrade !== '') {
+      return 'Please input your assignment\'s grade.';
     }
-    if (currentGrade !== '' && finalWeight !== '' && requiredGrade === '') {
-      return 'Please input your target goal grade.';
+    if (currentGrade !== '' && assignmentWeight !== '' && assignmentGrade === '') {
+      return 'Please input your assignment\'s weight.';
     }
-    if (currentGrade === '' && requiredGrade === '' && finalWeight !== '') {
-      return 'Please input your current grade and target goal grade.';
+    if (currentGrade === '' && assignmentWeight === '' && assignmentGrade !== '') {
+      return 'Please input your current grade and assignment\'s grade.';
     }
-    if (currentGrade === '' && requiredGrade !== '' && finalWeight === '') {
-      return 'Please input your current grade and final percentage.';
+    if (currentGrade === '' && assignmentWeight !== '' && assignmentGrade === '') {
+      return 'Please input your current grade and assignment\'s weight.';
     }
-    if (currentGrade !== '' && requiredGrade === '' && finalWeight === '') {
-      return 'Please input your target goal grade and final percentage';
+    if (currentGrade !== '' && assignmentWeight === '' && assignmentGrade === '') {
+      return 'Please input your assignment\'s grade and assignment\'s weight';
     }
-    if (currentGrade === '' && finalWeight === '' && requiredGrade === '') {
-      return 'Please input your current grade, target goal grade, and final percentage.';
+    if (currentGrade === '' && assignmentWeight === '' && assignmentGrade === '') {
+      return 'Please input your current grade, assignment\'s grade, and assignment\'s weight.';
     }
-    if (Number(finalWeight) > 100) {
+    if (Number(assignmentGrade) > 100) {
       return 'Your final percentage can\'t be more than 100%';
     }
     return '';
