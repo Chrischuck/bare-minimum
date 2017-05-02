@@ -89,9 +89,9 @@ export default class DamageCalculator extends React.Component {
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } />}
         <Helmet
-          title='Bare Minimum | Final Grade Calculator'
+          title='Bare Minimum | Damage Calculator'
           meta={ [
-            { name: 'description', content: 'Final grade calculator to help you pass your classes!' },
+            { name: 'description', content: 'See how an assignment will affect your grade!' },
           ] }
         />
         <div className='well infobox' >
