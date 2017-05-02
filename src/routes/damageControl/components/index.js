@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'preact-helmet';
 
 import Modal from '../../../components/modal';
+import { simpleErrorStringBuilder } from '../../../util/stringBuilders';
 
 export default class DamageCalculator extends React.Component {
   constructor(props) {
@@ -65,27 +66,13 @@ export default class DamageCalculator extends React.Component {
 
   errorStringBuilder = () => {
     const { currentGrade, assignmentWeight, assignmentGrade } = this.state;
-
-    if (currentGrade === '' && assignmentWeight !== '' && assignmentGrade !== '') {
-      return 'Please input your current grade.';
-    }
-    if (currentGrade !== '' && assignmentWeight === '' && assignmentGrade !== '') {
-      return 'Please input your assignment\'s grade.';
-    }
-    if (currentGrade !== '' && assignmentWeight !== '' && assignmentGrade === '') {
-      return 'Please input your assignment\'s weight.';
-    }
-    if (currentGrade === '' && assignmentWeight === '' && assignmentGrade !== '') {
-      return 'Please input your current grade and assignment\'s grade.';
-    }
-    if (currentGrade === '' && assignmentWeight !== '' && assignmentGrade === '') {
-      return 'Please input your current grade and assignment\'s weight.';
-    }
-    if (currentGrade !== '' && assignmentWeight === '' && assignmentGrade === '') {
-      return 'Please input your assignment\'s grade and assignment\'s weight';
-    }
-    if (currentGrade === '' && assignmentWeight === '' && assignmentGrade === '') {
-      return 'Please input your current grade, assignment\'s grade, and assignment\'s weight.';
+    const errorString = simpleErrorStringBuilder({
+      'current grade': currentGrade,
+      'assignment\'s weight': assignmentWeight,
+      'assignment\'s grade': assignmentGrade,
+    });
+    if (errorString) {
+      return errorString;
     }
     if (Number(assignmentGrade) > 100) {
       return 'Your final percentage can\'t be more than 100%';
