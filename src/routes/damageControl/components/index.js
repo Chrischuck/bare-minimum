@@ -2,16 +2,16 @@ import React from 'react';
 import Helmet from 'preact-helmet';
 
 import Modal from '../../../components/modal';
-import { calculatorStringBuilder, simpleErrorStringBuilder } from '../../../util/stringBuilders';
+import { simpleErrorStringBuilder } from '../../../util/stringBuilders';
 
-export default class FinalGrade extends React.Component {
+export default class DamageCalculator extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       currentGrade: '',
-      finalWeight: '',
-      requiredGrade: '',
+      assignmentWeight: '',
+      assignmentGrade: '',
       isModalOpen: false,
       title: null,
       message: null,
@@ -24,11 +24,14 @@ export default class FinalGrade extends React.Component {
   }
 
   onCalculate = () => {
-    const { currentGrade, finalWeight, requiredGrade } = this.state;
-    if (currentGrade === '' || finalWeight === '' || requiredGrade === '' || Number(finalWeight) > 100) {
+    const { currentGrade, assignmentWeight, assignmentGrade } = this.state;
+    if (currentGrade === '' || assignmentWeight === '' || assignmentGrade === '') {
       this.openModal('Ugh Oh!', this.errorStringBuilder(), 'warning');
     } else {
-      this.openModal('You can do it!', calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade), null);
+      this.openModal(
+          'After consulting the magic 8 ball...',
+          `It has been revealed your grade is now ${this.calculateGrade()}%.`,
+          null);
     }
   }
 
@@ -52,25 +55,26 @@ export default class FinalGrade extends React.Component {
   }
 
   calculateGrade = () => {
-    const grade = Number(this.state.requiredGrade) / 100;
-    const examWorth = Number(this.state.finalWeight) / 100;
-    const currentGrade = Number(this.state.currentGrade) / 100;
+    const grade = Number(this.state.currentGrade) / 100;
+    const assignmentWorth = Number(this.state.assignmentWeight) / 100;
+    const assignmentGrade = Number(this.state.assignmentGrade) / 100;
 
-    const finalGrade = ((grade - ((1 - examWorth) * currentGrade)) / examWorth) * 100;
+    const finalGrade = ((assignmentWorth * assignmentGrade) + ((1 - assignmentWorth) * grade)) * 100;
 
     return finalGrade.toFixed(2);
   }
 
   errorStringBuilder = () => {
-    const { currentGrade, finalWeight, requiredGrade } = this.state;
+    const { currentGrade, assignmentWeight, assignmentGrade } = this.state;
     const errorString = simpleErrorStringBuilder({
       'current grade': currentGrade,
-      'final\'s weight': finalWeight,
-      'target grade': requiredGrade });
+      'assignment\'s weight': assignmentWeight,
+      'assignment\'s grade': assignmentGrade,
+    });
     if (errorString) {
       return errorString;
     }
-    if (Number(finalWeight) > 100) {
+    if (Number(assignmentGrade) > 100) {
       return 'Your final percentage can\'t be more than 100%';
     }
     return '';
@@ -101,7 +105,17 @@ export default class FinalGrade extends React.Component {
                 fontSize: '5vw 5h',
                 color: '#2e2d2d',
               } }
-            >Final Grade Calculator</h3>
+            >Damage Calculator</h3>
+            <p className='text-center'
+              style={ {
+                  marginBottom: 8,
+                  marginTop: 0,
+                  fontSize: '1.6vh',
+                  color: '#5d5d5d',
+              } }
+            >
+                Find out how an assignment will affect your grade.
+            </p>
             <div className='row' >
 
             <div className='row form-group has-success is-empty' style={ { margin: 10 } } >
@@ -138,23 +152,24 @@ export default class FinalGrade extends React.Component {
                   style={ {
                     paddingRight: '.8vw',
                     textAlign: 'right',
+                    lineHeight: '2.2vh',
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
-                >You want a:</label>
+                >You plan on getting/got:</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
                   <input
                     className='form-control'
                     type='number'
-                    name='requiredGrade'
-                    value={ this.state.requiredGrade }
+                    name='assignmentGrade'
+                    value={ this.state.assignmentGrade }
                     onChange={ this.onInputChange }
                     placeholder='90'
                     id='requiredGrade'
                     style={ { fontSize: '16px', fontWeight: '450', color: '#000000' } }
                   />
                 </div>
-                <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >% in the class.</label>
+                <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
               </div>
 
               <div className='row form-group has-success is-empty' style={ { margin: '10px' } } >
@@ -164,16 +179,17 @@ export default class FinalGrade extends React.Component {
                   style={ {
                     paddingRight: '.8vw',
                     textAlign: 'right',
+                    lineHeight: '2.2vh',
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
-                >Final's worth:</label>
+                >Assignment's worth:</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
                   <input
                     className='form-control'
                     type='number'
-                    value={ this.state.finalWeight }
-                    name='finalWeight'
+                    value={ this.state.assignmentWeight }
+                    name='assignmentWeight'
                     onChange={ this.onInputChange }
                     placeholder='10'
                     id='final'

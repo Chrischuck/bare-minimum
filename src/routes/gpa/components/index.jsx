@@ -26,7 +26,6 @@ export default class GPA extends React.Component {
   }
 
   onPastGpaChange = (event) => {
-    const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) > 4) {
       this.openModal('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
     } else if (Number(event.target.value) < 0) {
@@ -143,12 +142,7 @@ export default class GPA extends React.Component {
     return (
       <div
         className='container col-md-12 wrapperClass'
-        style={ {
-          marginTop: '15vh',
-          paddingLeft: '0px',
-          paddingRight: '0px',
-          marginBottom: 10,
-        } }
+        style={ { marginTop: '15vh', marginBottom: 10 } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
