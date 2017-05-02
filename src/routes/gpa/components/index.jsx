@@ -26,7 +26,6 @@ export default class GPA extends React.Component {
   }
 
   onPastGpaChange = (event) => {
-    const { courses, pastGpa, pastUnits } = this.state;
     if (Number(event.target.value) > 4) {
       this.openModal('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
     } else if (Number(event.target.value) < 0) {
