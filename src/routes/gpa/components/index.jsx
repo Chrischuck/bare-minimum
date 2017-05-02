@@ -142,12 +142,7 @@ export default class GPA extends React.Component {
     return (
       <div
         className='container col-md-12 wrapperClass'
-        style={ {
-          marginTop: '15vh',
-          paddingLeft: '0px',
-          paddingRight: '0px',
-          marginBottom: 10,
-        } }
+        style={ { marginTop: '15vh', marginBottom: 10 } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
