@@ -77,7 +77,7 @@ export default class InputBox extends React.Component {
     const { inputCount } = this.props;
     const category = this.renderCategories(inputCount);
     return (
-      <div className='row' style={ { margin: '13px' } }>
+      <div className='row input-row'>
         <div className='form-group has-success is-empty col-md-5 col-sm-5 col-xs-5' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } }>
           <label
             htmlFor={ `${inputCount}grade` }
@@ -85,7 +85,7 @@ export default class InputBox extends React.Component {
             style={ { fontWeight: 500 } }
           >
             { 'Category ' }
-            <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.2vh', fontWeight: 500 } } >(optional)</span>
+            <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.6vh', fontWeight: 500 } } >(optional)</span>
           </label>
           <input
             type='text'

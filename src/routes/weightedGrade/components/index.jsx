@@ -182,7 +182,7 @@ export default class WeightedGrade extends React.Component {
                 color: '#5d5d5d',
               } }
             >% sign is not neccesary</p>
-            <div className='row' style={ { margin: '13px' } } >
+            <div className='row input-row' >
               <div className='form-group has-success is-empty col-md-6 col-xs-6 col-sm-6' style={ { paddingLeft: '0px', paddingRight: '2.5px', marginBottom: 5 } } >
                 <label
                   htmlFor={ 'requiredGrade' }
@@ -226,7 +226,7 @@ export default class WeightedGrade extends React.Component {
             { inputs }
 
 
-            <div className='row' style={ { paddingTop: '1px', margin: '13px' } } >
+            <div className='row input-row' style={ { paddingTop: '1px' } } >
               <div className='col-md-12 col-xs-12' style={ { padding: 0 } } >
                 <div
                   className='pull-left col-md-6 col-xs-6'
