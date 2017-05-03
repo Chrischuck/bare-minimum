@@ -219,12 +219,7 @@ hr {
     width: 1170px;
   }
 }
-.container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+
 .row {
   margin-left: -15px;
   margin-right: -15px;
@@ -558,9 +553,9 @@ input[type="button"].btn-block {
 
 @media (min-width: 768px) {
   .container > .navbar-header,
-  .container-fluid > .navbar-header,
+   .navbar-header,
   .container > .navbar-collapse,
-  .container-fluid > .navbar-collapse {
+  .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
   }
@@ -586,7 +581,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 768px) {
   .navbar > .container .navbar-brand,
-  .navbar > .container-fluid .navbar-brand {
+  .navbar > .navbar-brand {
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -684,8 +679,6 @@ input[type="button"].btn-block {
 .clearfix:after,
 .container:before,
 .container:after,
-.container-fluid:before,
-.container-fluid:after,
 .row:before,
 .row:after,
 .form-horizontal .form-group:before,
@@ -703,7 +696,6 @@ input[type="button"].btn-block {
 }
 .clearfix:after,
 .container:after,
-.container-fluid:after,
 .row:after,
 .form-horizontal .form-group:after,
 .nav:after,
@@ -724,32 +716,22 @@ input[type="button"].btn-block {
   float: left !important;
 }
 
-.text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
 .hidden {
   display: none !important;
 }
-.affix {
-  position: fixed;
-}
+
 .modal-background {
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
+    position: fixed;
+    z-index: 100; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fff;
     font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;

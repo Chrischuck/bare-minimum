@@ -24,13 +24,8 @@ export default class WeightedGrade extends React.Component {
     return this.state.inputCount !== nextState.inputCount || this.state.isModalOpen !== nextState.isModalOpen;
   }
 
-  // Input methods
-  onRequiredGradeChange = (event) => {
-    this.setState({ requiredGrade: event.target.value });
-  }
-
-  onFinalWeightChange = (event) => {
-    this.setState({ finalWeight: event.target.value });
+  onInputChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   // Get data from the children....maybe use redux for this
@@ -200,8 +195,9 @@ export default class WeightedGrade extends React.Component {
                   className='form-control'
                   id={ 'requiredGrade' }
                   autoComplete='off'
+                  name='requiredGrade'
                   value={ this.state.requiredGrade }
-                  onChange={ this.onRequiredGradeChange }
+                  onChange={ this.onInputChange }
                   placeholder={ '93%' }
                   style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
@@ -219,7 +215,8 @@ export default class WeightedGrade extends React.Component {
                   id={ 'finalWeight' }
                   autoComplete='off'
                   value={ this.state.finalWeight }
-                  onChange={ this.onFinalWeightChange }
+                  name='finalWeight'
+                  onChange={ this.onInputChange }
                   placeholder={ '20%' }
                   style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
