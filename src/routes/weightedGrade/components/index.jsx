@@ -24,13 +24,8 @@ export default class WeightedGrade extends React.Component {
     return this.state.inputCount !== nextState.inputCount || this.state.isModalOpen !== nextState.isModalOpen;
   }
 
-  // Input methods
-  onRequiredGradeChange = (event) => {
-    this.setState({ requiredGrade: event.target.value });
-  }
-
-  onFinalWeightChange = (event) => {
-    this.setState({ finalWeight: event.target.value });
+  onInputChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   // Get data from the children....maybe use redux for this
@@ -155,7 +150,7 @@ export default class WeightedGrade extends React.Component {
     }
     return (
       <div
-        className='container col-md-12'
+        className='container'
         style={ { marginTop: '15vh' } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
@@ -183,16 +178,16 @@ export default class WeightedGrade extends React.Component {
               style={ {
                 marginBottom: 8,
                 marginTop: 0,
-                fontSize: '1.6vh',
+                fontSize: '13px',
                 color: '#5d5d5d',
               } }
             >% sign is not neccesary</p>
-            <div className='row'>
-              <div className='form-group has-success is-empty col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '0px', paddingRight: '2.5px', marginBottom: 5 } } >
+            <div className='row input-row' >
+              <div className='form-group has-success is-empty col-md-6 col-xs-6 col-sm-6' style={ { paddingLeft: '0px', paddingRight: '2.5px', marginBottom: 5 } } >
                 <label
                   htmlFor={ 'requiredGrade' }
                   className='form-label'
-                  style={ { fontWeight: 500, fontSize: '11px' } }
+                  style={ { fontWeight: 500 } }
                 >You want a:</label>
                 <input
                   maxLength='3'
@@ -200,17 +195,18 @@ export default class WeightedGrade extends React.Component {
                   className='form-control'
                   id={ 'requiredGrade' }
                   autoComplete='off'
+                  name='requiredGrade'
                   value={ this.state.requiredGrade }
-                  onChange={ this.onRequiredGradeChange }
+                  onChange={ this.onInputChange }
                   placeholder={ '93%' }
                   style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
               </div>
-              <div className='form-group has-success is-empty col-md-5 col-xs-5 ' style={ { paddingLeft: '2.5px', paddingRight: '0px', marginBottom: 5 } } >
+              <div className='form-group has-success is-empty col-md-6 col-xs-6 col-sm-6' style={ { paddingLeft: '2.5px', paddingRight: '0px', marginBottom: 5 } } >
                 <label
                   htmlFor={ 'finalWeight' }
                   className='form-label'
-                  style={ { fontWeight: 500, fontSize: '11px' } }
+                  style={ { fontWeight: 500 } }
                 >Final's worth:</label>
                 <input
                   maxLength='3'
@@ -219,7 +215,8 @@ export default class WeightedGrade extends React.Component {
                   id={ 'finalWeight' }
                   autoComplete='off'
                   value={ this.state.finalWeight }
-                  onChange={ this.onFinalWeightChange }
+                  name='finalWeight'
+                  onChange={ this.onInputChange }
                   placeholder={ '20%' }
                   style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
@@ -229,8 +226,8 @@ export default class WeightedGrade extends React.Component {
             { inputs }
 
 
-            <div className='row' style={ { paddingTop: '1px' } } >
-              <div className='col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1' style={ { padding: 0 } } >
+            <div className='row input-row' style={ { paddingTop: '1px' } } >
+              <div className='col-md-12 col-xs-12' style={ { padding: 0 } } >
                 <div
                   className='pull-left col-md-6 col-xs-6'
                   style={ {

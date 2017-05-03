@@ -141,7 +141,7 @@ export default class GPA extends React.Component {
     }
     return (
       <div
-        className='container col-md-12 wrapperClass'
+        className='container wrapperClass'
         style={ { marginTop: '15vh', marginBottom: 10 } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
@@ -163,15 +163,15 @@ export default class GPA extends React.Component {
             } }
           >GPA Calculator</h3>
 
-          <div className='row'>
-            <div className='form-group has-success is-empty col-md-5 col-xs-5 col-xs-offset-1' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
+          <div className='row input-row'>
+            <div className='form-group has-success is-empty col-md-6 col-xs-6' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
               <label
                 htmlFor='pastGPA'
                 className='form-label'
                 style={ { fontWeight: 500 } }
               >
                 { 'Past GPA ' }
-                <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
+                <span className='semi-bold' style={ { color: '#99999c', fontSize: '14px', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
                 type='number'
@@ -185,14 +185,14 @@ export default class GPA extends React.Component {
               />
             </div>
 
-            <div className='form-group has-success is-empty col-md-5 col-xs-5' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
+            <div className='form-group has-success is-empty col-md-6 col-xs-6' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
               <label
                 htmlFor='pastUnits'
                 className='form-label'
                 style={ { fontWeight: 500 } }
               >
                 { 'Past Units ' }
-                <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
+                <span className='semi-bold' style={ { color: '#99999c', fontSize: '14px', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
                 type='number'
@@ -209,8 +209,8 @@ export default class GPA extends React.Component {
 
           { inputs }
 
-          <div className='row' style={ { paddingTop: '1px' } } >
-            <div className='col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1' style={ { padding: 0 } }>
+          <div className='row input-row' style={ { paddingTop: '1px' } } >
+            <div className='col-md-12 col-xs-12' style={ { padding: 0 } }>
               <div
                 className='pull-left col-md-6 col-xs-6'
                 style={ {

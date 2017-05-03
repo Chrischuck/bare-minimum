@@ -199,16 +199,7 @@ hr {
   padding-left: 0px;
   padding-right: 0px;
 }
-@media (max-width: 768px) {
-  .container {
-    padding-left: 0px;
-    padding-right: 0px;  }
-}
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
+
 @media (min-width: 992px) {
   .container {
     width: 970px;
@@ -219,16 +210,7 @@ hr {
     width: 1170px;
   }
 }
-.container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.row {
-  margin-left: -15px;
-  margin-right: -15px;
-}
+
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
@@ -515,32 +497,16 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
-.nav {
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-.nav > li {
-  position: relative;
-  display: inline-block;
-}
-.nav > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-}
-.nav > li > a:hover,
-.nav > li > a:focus {
-  text-decoration: none;
-  background-color: #eeeeee;
-}
-
 .navbar {
   position: absolute;
   width: 100%;
   min-height: 50px;
   margin-bottom: 0px;
+  background-color: #263238;
+  border-color: #263238;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  z-index: 1000;
+  border-width: 0 0 1px;
 }
 @media (max-width: 768px) {
   .navbar {
@@ -561,14 +527,9 @@ input[type="button"].btn-block {
   border-top: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-.navbar-collapse,
-.navbar-static-top .navbar-collapse,
-.navbar-fixed-bottom .navbar-collapse {
   padding-left: 0;
   padding-right: 0;
-  }
+}
 
 @media (max-device-width: 480px) and (orientation: landscape) {
   .navbar-collapse,
@@ -579,9 +540,9 @@ input[type="button"].btn-block {
 
 @media (min-width: 768px) {
   .container > .navbar-header,
-  .container-fluid > .navbar-header,
+   .navbar-header,
   .container > .navbar-collapse,
-  .container-fluid > .navbar-collapse {
+  .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
   }
@@ -597,6 +558,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  color: #ffffff;
   float: left;
   padding: 15px 15px;
   font-size: 18px;
@@ -606,7 +568,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 768px) {
   .navbar > .container .navbar-brand,
-  .navbar > .container-fluid .navbar-brand {
+  .navbar > .navbar-brand {
     visibility: hidden;
     height: 0px;
     width: 0px;
@@ -614,11 +576,29 @@ input[type="button"].btn-block {
   }
 }
 
+.navbar-nav > li {
+  position: relative;
+  display: inline-block;
+}
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
 }
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  text-decoration: none;
+  background-color: #263238;
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
     padding: 0;
@@ -627,6 +607,7 @@ input[type="button"].btn-block {
     white-space: nowrap;
     overflow-x: visible;
     overflow-y: hidden;
+    margin-bottom: 0px;
   }
 }
 
@@ -644,25 +625,17 @@ input[type="button"].btn-block {
   }
 }
 
-.navbar-inverse {
-  background-color: #263238;
-  border-color: #263238;
-}
-.navbar-inverse .navbar-brand {
-  color: #ffffff;
-}
-.navbar-inverse .navbar-nav > li > a {
+.navbar-nav > li > a {
   color: #acb1b4;
   border-bottom: 3px solid #acb1b4;
 }
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
+.navbar-nav > li > a:focus {
   color: #ffffff;
   background-color: transparent;
 }
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
   color: #ffffff;
   background-color: #263238;
   border-bottom-color: #06a294;
@@ -672,13 +645,22 @@ input[type="button"].btn-block {
   width: calc((576px * .5) + 295px);
   margin: 0 auto;
   min-height: 20px;
-  padding: 19px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
   margin-bottom: 20px;
   background-color: #ffffff;
   border: 0px;
   border-radius: 0px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
+
+.input-row {
+  margin-left: 8.33333333%;
+  margin-right: 8.33333333%;
+}
+
 @media (max-width: 768px) {
   .well {
     width: 100%;
@@ -688,13 +670,16 @@ input[type="button"].btn-block {
     border-bottom: 0px;
     box-shadow: none;
   }
+  .input-row {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
 }
+
 .clearfix:before,
 .clearfix:after,
 .container:before,
 .container:after,
-.container-fluid:before,
-.container-fluid:after,
 .row:before,
 .row:after,
 .form-horizontal .form-group:before,
@@ -712,7 +697,6 @@ input[type="button"].btn-block {
 }
 .clearfix:after,
 .container:after,
-.container-fluid:after,
 .row:after,
 .form-horizontal .form-group:after,
 .nav:after,
@@ -732,41 +716,23 @@ input[type="button"].btn-block {
 .pull-left {
   float: left !important;
 }
-.hide {
-  display: none !important;
-}
-.show {
-  display: block !important;
-}
-.invisible {
-  visibility: hidden;
-}
-.text-hide {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
+
 .hidden {
   display: none !important;
 }
-.affix {
-  position: fixed;
-}
+
 .modal-background {
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
+    position: fixed;
+    z-index: 100; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fff;
     font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
