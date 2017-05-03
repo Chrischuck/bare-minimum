@@ -110,6 +110,10 @@ module.exports = {
             handler: 'cacheFirst',
           },
           {
+            urlPattern: /damage-calculator/,
+            handler: 'cacheFirst',
+          },
+          {
             urlPattern: /weighted-grade-calculator/,
             handler: 'cacheFirst',
           },

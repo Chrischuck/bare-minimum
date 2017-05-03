@@ -108,10 +108,10 @@ export default class DamageCalculator extends React.Component {
             >Damage Calculator</h3>
             <p className='text-center'
               style={ {
-                  marginBottom: 8,
-                  marginTop: 0,
-                  fontSize: '1.6vh',
-                  color: '#5d5d5d',
+                marginBottom: 8,
+                marginTop: 0,
+                fontSize: '1.6vh',
+                color: '#5d5d5d',
               } }
             >
                 Find out how an assignment will affect your grade.
