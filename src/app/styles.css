@@ -515,32 +515,16 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
-.nav {
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-.nav > li {
-  position: relative;
-  display: inline-block;
-}
-.nav > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-}
-.nav > li > a:hover,
-.nav > li > a:focus {
-  text-decoration: none;
-  background-color: #eeeeee;
-}
-
 .navbar {
   position: absolute;
   width: 100%;
   min-height: 50px;
   margin-bottom: 0px;
+  background-color: #263238;
+  border-color: #263238;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  z-index: 1000;
+  border-width: 0 0 1px;
 }
 @media (max-width: 768px) {
   .navbar {
@@ -561,14 +545,9 @@ input[type="button"].btn-block {
   border-top: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-.navbar-collapse,
-.navbar-static-top .navbar-collapse,
-.navbar-fixed-bottom .navbar-collapse {
   padding-left: 0;
   padding-right: 0;
-  }
+}
 
 @media (max-device-width: 480px) and (orientation: landscape) {
   .navbar-collapse,
@@ -597,6 +576,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-brand {
+  color: #ffffff;
   float: left;
   padding: 15px 15px;
   font-size: 18px;
@@ -614,11 +594,29 @@ input[type="button"].btn-block {
   }
 }
 
+.navbar-nav > li {
+  position: relative;
+  display: inline-block;
+}
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
 }
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  text-decoration: none;
+  background-color: #263238;
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
     padding: 0;
@@ -627,6 +625,7 @@ input[type="button"].btn-block {
     white-space: nowrap;
     overflow-x: visible;
     overflow-y: hidden;
+    margin-bottom: 0px;
   }
 }
 
@@ -644,25 +643,17 @@ input[type="button"].btn-block {
   }
 }
 
-.navbar-inverse {
-  background-color: #263238;
-  border-color: #263238;
-}
-.navbar-inverse .navbar-brand {
-  color: #ffffff;
-}
-.navbar-inverse .navbar-nav > li > a {
+.navbar-nav > li > a {
   color: #acb1b4;
   border-bottom: 3px solid #acb1b4;
 }
-.navbar-inverse .navbar-nav > li > a:hover,
-.navbar-inverse .navbar-nav > li > a:focus {
+.navbar-nav > li > a:focus {
   color: #ffffff;
   background-color: transparent;
 }
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
   color: #ffffff;
   background-color: #263238;
   border-bottom-color: #06a294;
@@ -672,7 +663,7 @@ input[type="button"].btn-block {
   width: calc((576px * .5) + 295px);
   margin: 0 auto;
   min-height: 20px;
-  padding: 19px;
+  padding: 15px;
   margin-bottom: 20px;
   background-color: #ffffff;
   border: 0px;
@@ -732,15 +723,7 @@ input[type="button"].btn-block {
 .pull-left {
   float: left !important;
 }
-.hide {
-  display: none !important;
-}
-.show {
-  display: block !important;
-}
-.invisible {
-  visibility: hidden;
-}
+
 .text-hide {
   font: 0/0 a;
   color: transparent;

@@ -77,15 +77,15 @@ export default class InputBox extends React.Component {
     const { inputCount } = this.props;
     const category = this.renderCategories(inputCount);
     return (
-      <div className='row' >
-        <div className='form-group has-success is-empty col-md-4 col-sm-4 col-xs-4 col-sm-offset-1 col-md-offset-1 col-xs-offset-1' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } }>
+      <div className='row' style={ { margin: '13px' } }>
+        <div className='form-group has-success is-empty col-md-5 col-sm-5 col-xs-5' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } }>
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '11px' } }
+            style={ { fontWeight: 500 } }
           >
             { 'Category ' }
-            <span className='semi-bold' style={ { color: '#99999c', fontSize: '8px', fontWeight: 500 } } >(optional)</span>
+            <span className='semi-bold' style={ { color: '#99999c', fontSize: '1.2vh', fontWeight: 500 } } >(optional)</span>
           </label>
           <input
             type='text'
@@ -100,12 +100,12 @@ export default class InputBox extends React.Component {
           />
         </div>
 
-        <div className='form-group has-success is-empty col-sm-3 col-md-3 col-xs-3' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } } >
+        <div className='form-group has-success is-empty col-sm-4 col-md-4 col-xs-4' style={ { paddingLeft: '0px', paddingRight: '5px', marginBottom: 5 } } >
           <label
             htmlFor={ `${inputCount}grade` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '11px' } }
-          >Current Grade</label>
+            style={ { fontWeight: 500 } }
+          >Your Grade</label>
           <input
             maxLength='3'
             type='number'
@@ -124,7 +124,7 @@ export default class InputBox extends React.Component {
           <label
             htmlFor={ `${inputCount}weight` }
             className='form-label'
-            style={ { fontWeight: 500, fontSize: '11px' } }
+            style={ { fontWeight: 500 } }
           >Weight</label>
           <input
             type='number'

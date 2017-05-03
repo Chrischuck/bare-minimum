@@ -104,7 +104,7 @@ export default class FinalGrade extends React.Component {
             >Final Grade Calculator</h3>
             <div className='row' >
 
-            <div className='row form-group has-success is-empty' style={ { margin: 10 } } >
+            <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
               <label
                 htmlFor='currentGrade'
                 className='col-xs-5 col-form-label semi-bold'
@@ -131,7 +131,7 @@ export default class FinalGrade extends React.Component {
               <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
             </div>
 
-              <div className='row form-group has-success is-empty' style={ { margin: 10 } } >
+              <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
                 <label
                   htmlFor='requiredGrade'
                   className='col-xs-5 col-form-label semi-bold'
@@ -157,7 +157,7 @@ export default class FinalGrade extends React.Component {
                 <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >% in the class.</label>
               </div>
 
-              <div className='row form-group has-success is-empty' style={ { margin: '10px' } } >
+              <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
                 <label
                   htmlFor='final'
                   className='col-xs-5 col-form-label semi-bold text-left'
