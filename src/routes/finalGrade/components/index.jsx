@@ -80,7 +80,7 @@ export default class FinalGrade extends React.Component {
     const { isModalOpen, title, message, type } = this.state;
     return (
       <div
-        className='container col-md-12'
+        className='container'
         style={ { marginTop: '15vh' } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } />}

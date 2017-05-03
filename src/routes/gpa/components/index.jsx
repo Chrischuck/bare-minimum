@@ -141,7 +141,7 @@ export default class GPA extends React.Component {
     }
     return (
       <div
-        className='container col-md-12 wrapperClass'
+        className='container wrapperClass'
         style={ { marginTop: '15vh', marginBottom: 10 } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
@@ -171,7 +171,7 @@ export default class GPA extends React.Component {
                 style={ { fontWeight: 500 } }
               >
                 { 'Past GPA ' }
-                <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
+                <span className='semi-bold' style={ { color: '#99999c', fontSize: '14px', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
                 type='number'
@@ -192,7 +192,7 @@ export default class GPA extends React.Component {
                 style={ { fontWeight: 500 } }
               >
                 { 'Past Units ' }
-                <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
+                <span className='semi-bold' style={ { color: '#99999c', fontSize: '14px', fontWeight: 500 } } >(optional)</span>
               </label>
               <input
                 type='number'

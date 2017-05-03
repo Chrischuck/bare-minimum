@@ -88,7 +88,7 @@ export default class InputBox extends React.Component {
             style={ { fontWeight: 550 } }
           >
             { 'Class ' }
-            <span className='semi-bold' style={ { color: '#99999c', fontSize: '10px', fontWeight: 500 } } >(optional)</span>
+            <span className='semi-bold' style={ { color: '#99999c', fontSize: '14px', fontWeight: 500 } } >(optional)</span>
           </label>
           <input
             type='text'

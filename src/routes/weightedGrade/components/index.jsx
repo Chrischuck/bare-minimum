@@ -150,7 +150,7 @@ export default class WeightedGrade extends React.Component {
     }
     return (
       <div
-        className='container col-md-12'
+        className='container'
         style={ { marginTop: '15vh' } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
@@ -178,7 +178,7 @@ export default class WeightedGrade extends React.Component {
               style={ {
                 marginBottom: 8,
                 marginTop: 0,
-                fontSize: '10px',
+                fontSize: '13px',
                 color: '#5d5d5d',
               } }
             >% sign is not neccesary</p>

@@ -84,7 +84,7 @@ export default class DamageCalculator extends React.Component {
     const { isModalOpen, title, message, type } = this.state;
     return (
       <div
-        className='container col-md-12'
+        className='container'
         style={ { marginTop: '15vh' } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } />}
@@ -110,7 +110,7 @@ export default class DamageCalculator extends React.Component {
               style={ {
                 marginBottom: 8,
                 marginTop: 0,
-                fontSize: '1.6vh',
+                fontSize: '13px',
                 color: '#5d5d5d',
               } }
             >
@@ -156,7 +156,7 @@ export default class DamageCalculator extends React.Component {
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
-                >You plan on getting/got:</label>
+                >Assignment's grade:</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
                   <input
                     className='form-control'
