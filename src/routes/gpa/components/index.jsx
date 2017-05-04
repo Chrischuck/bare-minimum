@@ -15,6 +15,7 @@ export default class GPA extends React.Component {
       pastUnits: '',
       APlusCounts: false,
       greaterThan4: false,
+      goesToHundreth: false,
       inputCount: 4,
       isModalOpen: false,
       title: null,
@@ -61,7 +62,7 @@ export default class GPA extends React.Component {
   }
 
   calculate = () => {
-    const { courses, pastGpa, pastUnits, APlusCounts, greaterThan4 } = this.state;
+    const { courses, pastGpa, pastUnits, APlusCounts, greaterThan4, goesToHundreth } = this.state;
 
     const keys = Object.keys(courses);
     let totalPoints = 0;
@@ -69,7 +70,7 @@ export default class GPA extends React.Component {
     for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];
       const { grade, units, course } = courses[key];
-      const numericGrade = gradeToNumber(grade, APlusCounts);
+      const numericGrade = gradeToNumber(grade, APlusCounts, goesToHundreth);
 
       if (typeof numericGrade === 'number' && grade && units) {
         totalPoints += numericGrade * Number(units);
@@ -148,8 +149,7 @@ export default class GPA extends React.Component {
         />,
       );
     }
-    if (this.refs.greaterThan4)
-    console.log(this.refs.greaterThan4.state)
+
     return (
       <div
         className='container wrapperClass'
@@ -189,6 +189,24 @@ export default class GPA extends React.Component {
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px', float: 'left' } }>
               <input type='checkbox' id='checkbox1' name='set-name' className='switch-input' />
               <label htmlFor='checkbox1' className='switch-label' id='APlusCounts' onClick={ this.toggleInput } />
+            </div>
+          </div>
+
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '10px' } }>
+            <p
+              className='col-md-10 col-sm-10 col-xs-10'
+              style={ {
+                display: 'inline',
+                verticalAlign: 'middle',
+                paddingRight: '0px',
+                paddingLeft: '0px',
+                marginTop: 0,
+                marginBottom: 0,
+                marginRight: 0,
+              } }>Does your grade scale go to the hundreth place?</p>
+            <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
+              <input type='checkbox' id='checkbox2' name='set-name' className='switch-input' />
+              <label htmlFor='checkbox2' className='switch-label' id='goesToHundreth' onClick={ this.toggleInput } />
             </div>
           </div>
 

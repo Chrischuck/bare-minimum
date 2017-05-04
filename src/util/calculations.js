@@ -1,7 +1,7 @@
-export function gradeToNumber(grade, APlusCounts) {
+export function gradeToNumber(grade, APlusCounts, goesToHundreth) {
   const parsedGrade = grade.toUpperCase();
   if (APlusCounts && parsedGrade === 'A+') {
-    return 4.33;
+    return goesToHundreth ? 4.33 : 4.3;
   }
   switch (parsedGrade) {
     case 'A+':
@@ -9,30 +9,36 @@ export function gradeToNumber(grade, APlusCounts) {
     case 'A':
       return 4;
     case 'A-':
-      return 3.7;
+      return goesToHundreth ? 3.67 : 3.7;
     case 'B+':
-      return 3.3;
+      return goesToHundreth ? 3.33 : 3.3;
     case 'B':
       return 3.0;
     case 'B-':
-      return 2.7;
+      return goesToHundreth ? 2.67 : 2.7;
     case 'C+':
-      return 2.3;
+      return goesToHundreth ? 2.33 : 2.3;
     case 'C':
       return 2.0;
     case 'C-':
-      return 1.7;
+      return goesToHundreth ? 1.67 : 1.7;
     case 'D+':
-      return 1.3;
+      return goesToHundreth ? 1.33 : 1.3;
     case 'D':
       return 1.0;
     case 'D-':
-      return 0;
+      return goesToHundreth ? 0.7 : 0.67;
     case 'F+':
       return 0;
     case 'F':
       return 0;
     case 'F-':
+      return 0;
+    case 'E+':
+      return 0;
+    case 'E':
+      return 0;
+    case 'E-':
       return 0;
     default:
       return grade;
