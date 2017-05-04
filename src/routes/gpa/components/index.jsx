@@ -13,6 +13,8 @@ export default class GPA extends React.Component {
       courses: {},
       pastGpa: '',
       pastUnits: '',
+      APlusCounts: false,
+      greaterThan4: false,
       inputCount: 4,
       isModalOpen: false,
       title: null,
@@ -21,12 +23,12 @@ export default class GPA extends React.Component {
     };
   }
 
- /* shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {
     return this.state.inputCount !== nextState.inputCount || this.state.isModalOpen !== nextState.isModalOpen;
-  }*/ 
+  }
 
   onPastGpaChange = (event) => {
-    if (Number(event.target.value) > 4) {
+    if (Number(event.target.value) > 4 && !this.state.APlusCounts && !this.state.greaterThan4) {
       this.openModal('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
     } else if (Number(event.target.value) < 0) {
       this.openModal('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
@@ -43,6 +45,10 @@ export default class GPA extends React.Component {
     }
   }
 
+  toggleInput = (event) => {
+    this.setState({ [event.target.id]: !this.state[event.target.id] });
+  }
+
   stateFromChild = (id, course, grade, units) => {
     const { courses } = this.state;
     const previousCategory = courses[id];
@@ -55,7 +61,7 @@ export default class GPA extends React.Component {
   }
 
   calculate = () => {
-    const { courses, pastGpa, pastUnits } = this.state;
+    const { courses, pastGpa, pastUnits, APlusCounts, greaterThan4 } = this.state;
 
     const keys = Object.keys(courses);
     let totalPoints = 0;
@@ -63,7 +69,7 @@ export default class GPA extends React.Component {
     for (let i = 0; i < keys.length; i += 1) {
       const key = keys[i];
       const { grade, units, course } = courses[key];
-      const numericGrade = gradeToNumber(grade);
+      const numericGrade = gradeToNumber(grade, APlusCounts);
 
       if (typeof numericGrade === 'number' && grade && units) {
         totalPoints += numericGrade * Number(units);
@@ -91,9 +97,12 @@ export default class GPA extends React.Component {
     if (isNaN(calculatedGpa)) {
       return 0;
     }
-    return (calculatedGpa * 10) % 10 !== 0 ?
+    const finalGpa = (calculatedGpa * 10) % 10 !== 0 ?
       calculatedGpa.toFixed(2) :
       calculatedGpa.toFixed(1);
+    return finalGpa > 4 && !greaterThan4 ?
+      '4.0' :
+      finalGpa;
   }
 
   openModal = (title, message, type) => {
@@ -129,7 +138,7 @@ export default class GPA extends React.Component {
   }
 
   render() {
-    const { inputCount, isModalOpen, title, message, type } = this.state;
+    const { inputCount, isModalOpen, title, message, type, APlusCounts, greaterThan4 } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i++) {
       inputs.push(
@@ -139,6 +148,8 @@ export default class GPA extends React.Component {
         />,
       );
     }
+    if (this.refs.greaterThan4)
+    console.log(this.refs.greaterThan4.state)
     return (
       <div
         className='container wrapperClass'
@@ -176,8 +187,8 @@ export default class GPA extends React.Component {
                 marginRight: 0,
               } }>Is an A+ a 4.33 at your school?</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px', float: 'left' } }>
-              <input type='checkbox' id='checkbox1' name='set-name' checked={ false } className='switch-input' />
-              <label htmlFor='checkbox1' className='switch-label' />
+              <input type='checkbox' id='checkbox1' name='set-name' className='switch-input' />
+              <label htmlFor='checkbox1' className='switch-label' id='APlusCounts' onClick={ this.toggleInput } />
             </div>
           </div>
 
@@ -194,8 +205,8 @@ export default class GPA extends React.Component {
                 marginRight: 0,
               } }>Can you achieve higher than a 4.0 at your school?</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
-              <input type='checkbox' id='checkbox2' name='set-name' checked={ false } className='switch-input' />
-              <label htmlFor='checkbox2' className='switch-label' />
+              <input type='checkbox' id='checkbox2' name='set-name' className='switch-input' />
+              <label htmlFor='checkbox2' className='switch-label' id='greaterThan4' onClick={ this.toggleInput } />
             </div>
           </div>
 

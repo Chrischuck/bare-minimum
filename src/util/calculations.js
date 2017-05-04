@@ -1,5 +1,8 @@
-export function gradeToNumber(grade) {
+export function gradeToNumber(grade, APlusCounts) {
   const parsedGrade = grade.toUpperCase();
+  if (APlusCounts && parsedGrade === 'A+') {
+    return 4.33;
+  }
   switch (parsedGrade) {
     case 'A+':
       return 4;
