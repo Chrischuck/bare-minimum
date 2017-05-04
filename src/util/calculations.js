@@ -1,11 +1,8 @@
 export function gradeToNumber(grade, APlusCounts, goesToHundreth) {
   const parsedGrade = grade.toUpperCase();
-  if (APlusCounts && parsedGrade === 'A+') {
-    return goesToHundreth ? 4.33 : 4.3;
-  }
   switch (parsedGrade) {
     case 'A+':
-      return 4;
+      return APlusCounts ? (goesToHundreth ? 4.33 : 4.3) : 4.0;
     case 'A':
       return 4;
     case 'A-':

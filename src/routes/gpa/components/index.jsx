@@ -157,7 +157,7 @@ export default class GPA extends React.Component {
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
-          title='Bare Minimum | GPA Calculator'
+          title='Bare Minimum | Universal GPA Calculator'
           meta={ [
             { name: 'description', content: 'See how you\'ve done so far!' },
           ] }
@@ -172,9 +172,9 @@ export default class GPA extends React.Component {
               fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
-          >GPA Calculator</h3>
+          >Universal GPA Calculator</h3>
 
-          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '10px' } }>
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '5px' } }>
             <p
               className='col-md-10 col-sm-10 col-xs-10'
               style={ {
@@ -185,14 +185,14 @@ export default class GPA extends React.Component {
                 marginTop: 0,
                 marginBottom: 0,
                 marginRight: 0,
-              } }>Is an A+ a 4.33 at your school?</p>
+              } }>A+ is a 4.33 at your school</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px', float: 'left' } }>
               <input type='checkbox' id='checkbox1' name='set-name' className='switch-input' />
               <label htmlFor='checkbox1' className='switch-label' id='APlusCounts' onClick={ this.toggleInput } />
             </div>
           </div>
 
-          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '10px' } }>
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '5px' } }>
             <p
               className='col-md-10 col-sm-10 col-xs-10'
               style={ {
@@ -203,14 +203,14 @@ export default class GPA extends React.Component {
                 marginTop: 0,
                 marginBottom: 0,
                 marginRight: 0,
-              } }>Does your grade scale go to the hundreth place?</p>
+              } }>Grade scale goes to the hundreth place</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
               <input type='checkbox' id='checkbox2' name='set-name' className='switch-input' />
               <label htmlFor='checkbox2' className='switch-label' id='goesToHundreth' onClick={ this.toggleInput } />
             </div>
           </div>
 
-          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '10px' } }>
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '8px' } }>
             <p
               className='col-md-10 col-sm-10 col-xs-10'
               style={ {
@@ -221,10 +221,10 @@ export default class GPA extends React.Component {
                 marginTop: 0,
                 marginBottom: 0,
                 marginRight: 0,
-              } }>Can you achieve higher than a 4.0 at your school?</p>
+              } }>Greater than a 4.0 is attainable</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
-              <input type='checkbox' id='checkbox2' name='set-name' className='switch-input' />
-              <label htmlFor='checkbox2' className='switch-label' id='greaterThan4' onClick={ this.toggleInput } />
+              <input type='checkbox' id='checkbox3' name='set-name' className='switch-input' />
+              <label htmlFor='checkbox3' className='switch-label' id='greaterThan4' onClick={ this.toggleInput } />
             </div>
           </div>
 
