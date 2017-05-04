@@ -185,7 +185,7 @@ export default class GPA extends React.Component {
                 marginTop: 0,
                 marginBottom: 0,
                 marginRight: 0,
-              } }>A+ is a 4.33 at your school</p>
+              } }>A+ is a 4.33 at your school.</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px', float: 'left' } }>
               <input type='checkbox' id='checkbox1' name='set-name' className='switch-input' />
               <label htmlFor='checkbox1' className='switch-label' id='APlusCounts' onClick={ this.toggleInput } />
@@ -203,7 +203,7 @@ export default class GPA extends React.Component {
                 marginTop: 0,
                 marginBottom: 0,
                 marginRight: 0,
-              } }>Grade scale goes to the hundreth place</p>
+              } }>Grade scale goes to the hundreth place.</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
               <input type='checkbox' id='checkbox2' name='set-name' className='switch-input' />
               <label htmlFor='checkbox2' className='switch-label' id='goesToHundreth' onClick={ this.toggleInput } />
@@ -221,7 +221,7 @@ export default class GPA extends React.Component {
                 marginTop: 0,
                 marginBottom: 0,
                 marginRight: 0,
-              } }>Greater than a 4.0 is attainable</p>
+              } }>Greater than a 4.0 is attainable.</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
               <input type='checkbox' id='checkbox3' name='set-name' className='switch-input' />
               <label htmlFor='checkbox3' className='switch-label' id='greaterThan4' onClick={ this.toggleInput } />
