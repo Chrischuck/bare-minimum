@@ -157,21 +157,47 @@ export default class GPA extends React.Component {
             className='text-center'
             style={ {
               marginTop: 15,
-              marginBottom: 2,
+              marginBottom: 10,
               fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
           >GPA Calculator</h3>
 
-          <div className='row input-row text-center switch-body'>
-            <p className='col-md-6 col-sm-8 col-xs-8 col-xs-offset-2 col-md-offset-3' style={ { display: 'inline', verticalAlign: 'middle', paddingRight: '0px', paddingLeft: '0px', marginTop: 0, marginBottom: 0, marginRight: 0 } }>Can is an A+ a 4.33 at your school?</p>
-            <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
-              <input type='checkbox' id='id-name--1' name='set-name' checked={ false } className='switch-input' />
-              <label for='id-name--1' className='switch-label' />
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '10px' } }>
+            <p
+              className='col-md-10 col-sm-10 col-xs-10'
+              style={ {
+                display: 'inline',
+                verticalAlign: 'middle',
+                paddingRight: '0px',
+                paddingLeft: '2%',
+                marginTop: 0,
+                marginBottom: 0,
+                marginRight: 0,
+              } }>Is an A+ a 4.33 at your school?</p>
+            <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px', float: 'left' } }>
+              <input type='checkbox' id='checkbox1' name='set-name' checked={ false } className='switch-input' />
+              <label htmlFor='checkbox1' className='switch-label' />
             </div>
           </div>
 
-
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '10px' } }>
+            <p
+              className='col-md-10 col-sm-10 col-xs-10'
+              style={ {
+                display: 'inline',
+                verticalAlign: 'middle',
+                paddingRight: '0px',
+                paddingLeft: '0px',
+                marginTop: 0,
+                marginBottom: 0,
+                marginRight: 0,
+              } }>Can you achieve higher than a 4.0 at your school?</p>
+            <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
+              <input type='checkbox' id='checkbox2' name='set-name' checked={ false } className='switch-input' />
+              <label htmlFor='checkbox2' className='switch-label' />
+            </div>
+          </div>
 
           <div className='row input-row'>
             <div className='form-group has-success is-empty col-md-6 col-xs-6' style={ { paddingLeft: '5px', paddingRight: '5px', marginBottom: 5 } }>
