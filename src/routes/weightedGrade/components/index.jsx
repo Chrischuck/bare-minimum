@@ -140,7 +140,7 @@ export default class WeightedGrade extends React.Component {
   render() {
     const { inputCount, isModalOpen, title, message, type } = this.state;
     const inputs = [];
-    for (let i = 0; i < inputCount; i += 1) {
+    for (let i = 0; i < inputCount; i++) {
       inputs.push(
         <InputBox
           inputCount={ i }

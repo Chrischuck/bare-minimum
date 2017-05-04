@@ -1,7 +1,8 @@
 export function calculatorStringBuilder(finalScore, requiredGrade) {
   let answerString = '';
+  const score = Number(finalScore);
 
-  if (Number(finalScore) <= 50) {
+  if (score <= 50) {
     answerString += 'You only need ';
   } else {
     answerString += 'You will need at least ';
@@ -12,8 +13,6 @@ export function calculatorStringBuilder(finalScore, requiredGrade) {
                     requiredGrade
                     }% overall.`;
 
-
-  const score = Number(finalScore);
   if (score > 100) {
     answerString += ' May the force be with you!';
   }
