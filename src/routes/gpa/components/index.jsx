@@ -16,7 +16,7 @@ export default class GPA extends React.Component {
       APlusCounts: false,
       greaterThan4: false,
       goesToHundreth: false,
-      inputCount: 4,
+      inputCount: 3,
       isModalOpen: false,
       title: null,
       message: null,
@@ -152,8 +152,8 @@ export default class GPA extends React.Component {
 
     return (
       <div
-        className='container wrapperClass'
-        style={ { marginTop: '15vh', marginBottom: 10 } }
+        className='container wrapperClass well-container'
+        style={ { marginBottom: 5 } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet

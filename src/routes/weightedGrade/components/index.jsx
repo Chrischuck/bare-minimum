@@ -150,8 +150,7 @@ export default class WeightedGrade extends React.Component {
     }
     return (
       <div
-        className='container'
-        style={ { marginTop: '15vh' } }
+        className='container well-container'
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
