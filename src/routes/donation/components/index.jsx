@@ -2,12 +2,12 @@ import React from 'react';
 import Helmet from 'preact-helmet';
 
 import AboutMe from './aboutMe';
-import About from './about';
+import Donate from './donate';
 
 const Home = () =>
   <div
     style={ {
-      marginTop: '10vh',
+      marginTop: '7vh',
       paddingLeft: '2%',
       paddingRight: '2%',
     } }
@@ -19,12 +19,16 @@ const Home = () =>
       ] }
     />
     <div className='col-md-10 col-md-offset-1'>
-      <About />
+      <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
+      <Donate />
       <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
       <br />
       <AboutMe />
       <br />
       <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
+      <p className='text-center'>
+            Email us at BareMinimumDonations@gmail.com for any suggestions for charities or our site!
+      </p>
     </div>
   </div>;
 
