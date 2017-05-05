@@ -83,7 +83,7 @@ export default class DamageCalculator extends React.Component {
   render() {
     const { isModalOpen, title, message, type } = this.state;
     return (
-      <div className='container well-container'>
+      <div className='container'>
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } />}
         <Helmet
           title='Bare Minimum | Damage Calculator'

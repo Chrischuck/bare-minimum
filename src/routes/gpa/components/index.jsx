@@ -152,7 +152,7 @@ export default class GPA extends React.Component {
 
     return (
       <div
-        className='container wrapperClass well-container'
+        className='container wrapperClass'
         style={ { marginBottom: 5 } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
@@ -167,8 +167,8 @@ export default class GPA extends React.Component {
           <h3
             className='text-center'
             style={ {
-              marginTop: 15,
-              marginBottom: 10,
+              marginTop: 14,
+              marginBottom: 8,
               fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
@@ -210,7 +210,7 @@ export default class GPA extends React.Component {
             </div>
           </div>
 
-          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '8px' } }>
+          <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '6px' } }>
             <p
               className='col-md-10 col-sm-10 col-xs-10'
               style={ {
