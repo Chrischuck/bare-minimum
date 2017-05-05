@@ -55,16 +55,17 @@ export function simpleErrorStringBuilder(payload = {}) {
   const keys = Object.keys(payload);
   let baseString = 'Please input your';
   const emptyKeys = keys.filter(key => payload[key] === '');
+  const length = emptyKeys.length;
   if (emptyKeys.length < 1) {
     return '';
-  } else if (emptyKeys.length === 1) {
+  } else if (length === 1) {
     baseString += ` ${emptyKeys[0]},`;
     return baseString;
   }
-  for (let i = 0; i < emptyKeys.length - 1; i++) {
-    baseString += ` ${emptyKeys[i]}${emptyKeys.length > 2 ? ',' : ''}`;
+  for (let i = 0; i < length - 1; i++) {
+    baseString += ` ${emptyKeys[i]}${length > 2 && i !== length - 2 ? ',' : ''}`;
   }
-  const lastIndex = emptyKeys.length - 1;
+  const lastIndex = length - 1;
   baseString += ` and ${emptyKeys[lastIndex]}.`;
   return baseString;
 }
