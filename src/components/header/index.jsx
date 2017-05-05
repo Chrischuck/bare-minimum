@@ -13,7 +13,7 @@ const Header = ({ path }) =>
           <li className={ path === 'damage-calculator' || path === '/damage-calculator' ? 'active' : '' }><Link to='damage-calculator'>Damage Calculator</Link></li>
           <li className={ path === 'weighted-grade-calculator' || path === '/weighted-grade-calculator' ? 'active' : '' }><Link to='weighted-grade-calculator'>Weighted Grade Calculator</Link></li>
           <li className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }><Link to='gpa-calculator'>GPA Calculator</Link></li>
-          <li className={ path === 'about' || path === '/about' ? 'active' : '' }><Link to='about'>About</Link></li>
+          <li className={ path === 'donate' || path === '/donate' ? 'active' : '' }><Link to='donate'>Donate</Link></li>
         </ul>
       </div>
     </div>
