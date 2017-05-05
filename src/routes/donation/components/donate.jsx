@@ -3,7 +3,7 @@ import React from 'react';
 const Donate = () =>
   <div className='row text-center'>
     <h1>Donate</h1>
-    <h3>All you need to do is venmo us @BareMinimumDonations</h3>
+    <h3>Venmo us your donation at: @BareMinimumDonations</h3>
     <div className='col-md-8 col-md-offset-2'>
         <h4>About Us</h4>
         <p>
@@ -39,7 +39,7 @@ const Donate = () =>
         </p>
         <h4>Donate!</h4>
         <p>
-            Venmo us at <span style={ { fontWeight: 'bold' } }>@BareMinimumDonations</span> and leave us a comment!
+            Venmo us: <span style={ { fontWeight: 'bold' } }>@BareMinimumDonations</span> and leave us a comment!
         </p>
     </div>
   </div>;
