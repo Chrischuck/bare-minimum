@@ -140,7 +140,7 @@ export default class WeightedGrade extends React.Component {
   render() {
     const { inputCount, isModalOpen, title, message, type } = this.state;
     const inputs = [];
-    for (let i = 0; i < inputCount; i += 1) {
+    for (let i = 0; i < inputCount; i++) {
       inputs.push(
         <InputBox
           inputCount={ i }
@@ -151,7 +151,6 @@ export default class WeightedGrade extends React.Component {
     return (
       <div
         className='container'
-        style={ { marginTop: '15vh' } }
       >
         { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
