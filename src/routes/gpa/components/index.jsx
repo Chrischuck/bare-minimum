@@ -139,7 +139,7 @@ export default class GPA extends React.Component {
   }
 
   render() {
-    const { inputCount, isModalOpen, title, message, type, APlusCounts, greaterThan4 } = this.state;
+    const { inputCount, isModalOpen, title, message, type, APlusCounts, greaterThan4, goesToHundreth } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i++) {
       inputs.push(
@@ -187,7 +187,7 @@ export default class GPA extends React.Component {
                 marginRight: 0,
               } }>A+ is a 4.33 at your school.</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px', float: 'left' } }>
-              <input type='checkbox' id='checkbox1' name='set-name' className='switch-input' />
+              <input type='checkbox' id='checkbox1' name='set-name' checked={ APlusCounts } className='switch-input' />
               <label htmlFor='checkbox1' className='switch-label' id='APlusCounts' onClick={ this.toggleInput } />
             </div>
           </div>
@@ -205,7 +205,7 @@ export default class GPA extends React.Component {
                 marginRight: 0,
               } }>Grade scale goes to the hundreth place.</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
-              <input type='checkbox' id='checkbox2' name='set-name' className='switch-input' />
+              <input type='checkbox' id='checkbox2' name='set-name' checked={ goesToHundreth } className='switch-input' />
               <label htmlFor='checkbox2' className='switch-label' id='goesToHundreth' onClick={ this.toggleInput } />
             </div>
           </div>
@@ -223,7 +223,7 @@ export default class GPA extends React.Component {
                 marginRight: 0,
               } }>Greater than a 4.0 is attainable.</p>
             <div className='col-md-2 col-sm-2 col-xs-2' style={ { paddingLeft: '0px' } }>
-              <input type='checkbox' id='checkbox3' name='set-name' className='switch-input' />
+              <input type='checkbox' id='checkbox3' name='set-name' checked={ greaterThan4 } className='switch-input' />
               <label htmlFor='checkbox3' className='switch-label' id='greaterThan4' onClick={ this.toggleInput } />
             </div>
           </div>
