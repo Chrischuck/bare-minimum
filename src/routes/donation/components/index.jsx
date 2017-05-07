@@ -22,12 +22,11 @@ const Home = () =>
       <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
       <Donate />
       <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
-      <br />
       <AboutMe />
       <br />
       <hr className='featurette-divider' style={ { borderTop: '1px solid #333333' } } />
       <p className='text-center'>
-            Email us at BareMinimumDonations@gmail.com for any suggestions for charities or our site!
+            Email us at <span style={ { fontWeight: 'bold' } }>BareMinimumDonations@gmail.com</span> for any suggestions for charities or our site!
       </p>
     </div>
   </div>;

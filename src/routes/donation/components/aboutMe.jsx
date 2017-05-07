@@ -6,6 +6,7 @@ import kimchi from '../../../assets/kimchi.jpg';
 
 const AboutMe = () =>
   <div className='row text-center'>
+    <h1>Le Team</h1>
     <div className='col-md-6' >
       <img className='img-circle' src={ chris } alt='Generic placeholder image' width='150' height='150' />
       <h2>Chris</h2>

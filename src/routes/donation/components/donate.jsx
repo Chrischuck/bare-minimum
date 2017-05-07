@@ -9,7 +9,7 @@ const Donate = () =>
         <p>
             Bare Minimum was created based on college students’ hunger for success.
             We are here to provide the best way to ensure good grades and even better GPAs
-            and we strive to make your college life easier, by helping you do the bare minimum to achieve greatness.
+            and we strive to make your college life easier, by donating you do the bare minimum to achieve greatness.
         </p>
         <h4> Why We Donate</h4>
         <p>
@@ -22,7 +22,7 @@ const Donate = () =>
         <h4>Where Does the Money Go</h4>
         <p>
             First and foremost, donated money will pay off our servers and domain name in order to keep this site running and ad free.
-            This runs us around $70 dollars per year. However, any extra cash we make we will donate to charity!
+            This runs us around $6 per month. However, any extra cash we make we will donate to charity!
             Bare Minimum gives all donations to the charities listed below.
             We are politically neutral with our donation choices and strive to donate to charities to either help other humans or our planet earth.
             We center our efforts towards the Breast Cancer Research Foundation and the Waterkeeper Alliance.
