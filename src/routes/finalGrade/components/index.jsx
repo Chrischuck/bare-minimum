@@ -26,7 +26,7 @@ export default class FinalGrade extends React.Component {
   onCalculate = () => {
     const { currentGrade, finalWeight, requiredGrade } = this.state;
     if (currentGrade === '' || finalWeight === '' || requiredGrade === '' || Number(finalWeight) > 100) {
-      this.openModal('Ugh Oh!', this.errorStringBuilder(), 'warning');
+      this.openModal('Uh Oh!', this.errorStringBuilder(), 'warning');
     } else {
       this.openModal('You can do it!', calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade), null);
     }

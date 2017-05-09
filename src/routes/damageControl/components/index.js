@@ -26,7 +26,7 @@ export default class DamageCalculator extends React.Component {
   onCalculate = () => {
     const { currentGrade, assignmentWeight, assignmentGrade } = this.state;
     if (currentGrade === '' || assignmentWeight === '' || assignmentGrade === '') {
-      this.openModal('Ugh Oh!', this.errorStringBuilder(), 'warning');
+      this.openModal('Uh Oh!', this.errorStringBuilder(), 'warning');
     } else {
       this.openModal(
           'After consulting the magic 8 ball...',

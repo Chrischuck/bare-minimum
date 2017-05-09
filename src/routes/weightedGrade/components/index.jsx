@@ -51,11 +51,11 @@ export default class WeightedGrade extends React.Component {
     let totalPercentage = Number(finalWeight);
 
     if (!requiredPercent) {
-      this.openModal('Ugh Oh!', 'The grade you want doesn\'t look right!', 'warning');
+      this.openModal('Uh Oh!', 'The grade you want doesn\'t look right!', 'warning');
       return;
     }
     if (!finalPercent) {
-      this.openModal('Ugh Oh!', 'The final\'s weight doesn\'t look right!', 'warning');
+      this.openModal('Uh Oh!', 'The final\'s weight doesn\'t look right!', 'warning');
       return;
     }
 
@@ -110,7 +110,7 @@ export default class WeightedGrade extends React.Component {
     if (!isNaN(calculatedGrade)) {
       this.openModal('You can do it!', calculatorStringBuilder(calculatedGrade, this.state.requiredGrade), null);
     } else {
-      this.openModal('Ugh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
+      this.openModal('Uh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
     }
   }
 
