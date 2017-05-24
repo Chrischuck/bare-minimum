@@ -3,7 +3,7 @@ import React from 'react';
 const Donate = () =>
   <div className='row text-center'>
     <h1>Donate</h1>
-    <h3>Venmo us your donation at: <a href='https://venmo.com/BareMinimumDonations?txn=charge'>@BareMinimumDonations</a></h3>
+    <h3>Venmo us your donation at: <a href='https://venmo.com/BareMinimumDonations?txn=pay&note=Thank+you+for+your+consideration!+Every+donation+puts+us+closer+to+our+goal+of+helping+the+world.'>@BareMinimumDonations</a></h3>
     <div className='col-md-8 col-md-offset-2'>
         <h4>About Us</h4>
         <p>
@@ -40,7 +40,7 @@ const Donate = () =>
         <h4>Donate!</h4>
         <p>
             Venmo us: <span style={ { fontWeight: 'bold' } }>
-                <a href='https://venmo.com/BareMinimumDonations?txn=charge'>@BareMinimumDonations</a>
+                <a href='https://venmo.com/BareMinimumDonations?txn=pay&note=Thank+you+for+your+consideration!+Every+donation+puts+us+closer+to+our+goal+of+helping+the+world.'>@BareMinimumDonations</a>
             </span> and leave us a comment!
         </p>
     </div>
