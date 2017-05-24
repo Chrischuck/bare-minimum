@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Modal = ({ closeModal, title, message, type }) => 
+const Modal = ({ closeModal, title, message, type }) =>
   <div className='modal-background'>
     <div className='modal-content'>
       {

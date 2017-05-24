@@ -6,7 +6,6 @@ import Header from '../components/header';
 const App = ({ location, children }) =>
   <div id='globalWrapper' className='globalWrapper'>
     <Header path={ location.pathname } />
-
     <div
       className='container'
       style={ {
