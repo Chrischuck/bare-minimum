@@ -20,7 +20,3 @@ const Header = ({ path }) =>
   </nav>;
 
 export default Header;
-
-Header.propTypes = {
-  path: React.PropTypes.string,
-};

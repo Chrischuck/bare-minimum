@@ -143,8 +143,3 @@ export default class InputBox extends React.Component {
     );
   }
 }
-
-InputBox.propTypes = {
-  inputCount: React.PropTypes.number,
-  stateToParent: React.PropTypes.func,
-};

@@ -103,7 +103,8 @@ export default class DamageCalculator extends React.Component {
                 color: '#2e2d2d',
               } }
             >Damage Calculator</h3>
-            <p className='text-center'
+            <p
+              className='text-center'
               style={ {
                 marginBottom: 8,
                 marginTop: 0,
@@ -142,33 +143,6 @@ export default class DamageCalculator extends React.Component {
               <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
             </div>
 
-              <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
-                <label
-                  htmlFor='requiredGrade'
-                  className='col-xs-5 col-form-label semi-bold'
-                  style={ {
-                    paddingRight: '.8vw',
-                    textAlign: 'right',
-                    lineHeight: '2.2vh',
-                    paddingTop: '.8vh',
-                    fontWeight: 400,
-                  } }
-                >Assignment's grade:</label>
-                <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
-                  <input
-                    className='form-control'
-                    type='number'
-                    name='assignmentGrade'
-                    value={ this.state.assignmentGrade }
-                    onChange={ this.onInputChange }
-                    placeholder='90'
-                    id='requiredGrade'
-                    style={ { fontSize: '16px', fontWeight: '450', color: '#000000' } }
-                  />
-                </div>
-                <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
-              </div>
-
               <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px'  } } >
                 <label
                   htmlFor='final'
@@ -180,7 +154,7 @@ export default class DamageCalculator extends React.Component {
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
-                >Assignment's worth:</label>
+                >{'Assignment\'s worth:'}</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
                   <input
                     className='form-control'
@@ -194,6 +168,33 @@ export default class DamageCalculator extends React.Component {
                   />
                 </div>
                 <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4, fontWeight: 400 } } >% of your grade.</label>
+              </div>
+
+              <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
+                <label
+                  htmlFor='requiredGrade'
+                  className='col-xs-5 col-form-label semi-bold'
+                  style={ {
+                    paddingRight: '.8vw',
+                    textAlign: 'right',
+                    lineHeight: '2.2vh',
+                    paddingTop: '.8vh',
+                    fontWeight: 400,
+                  } }
+                >{'Assignment\'s grade:'}</label>
+                <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
+                  <input
+                    className='form-control'
+                    type='number'
+                    name='assignmentGrade'
+                    value={ this.state.assignmentGrade }
+                    onChange={ this.onInputChange }
+                    placeholder='90'
+                    id='requiredGrade'
+                    style={ { fontSize: '16px', fontWeight: '450', color: '#000000' } }
+                  />
+                </div>
+                <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
               </div>
 
               <div className='row' style={ { marginLeft: '4%', marginRight: '4%', textAlign: 'center' } } >
