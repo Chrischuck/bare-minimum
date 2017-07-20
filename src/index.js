@@ -1,17 +1,19 @@
 /* eslint-disable */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from 'react-router/lib/Router'
-import browserHistory from 'react-router/lib/browserHistory';
+import createHistory from 'history/createBrowserHistory'
+
 import './manifest.json'
+
+import Router from './app/router';
 import App from './app';
 
-import FinalGradeRoute from './routes/finalGrade';
-import WeightedGradeRoute from './routes/weightedGrade';
-import DamageCalculator from './routes/damageControl';
-import GPARoute from './routes/gpa';
-import DonateRoute from './routes/donation';
-import NotFoundRoute from './routes/notFound';
+import FinalGradeRoute from './routes/finalGrade/components';
+import WeightedGradeRoute from './routes/weightedGrade/components';
+import DamageCalculator from './routes/damageControl/components';
+import GPARoute from './routes/gpa/components';
+import DonateRoute from './routes/donation/components';
+import NotFoundRoute from './routes/notFound/components';
 
 (function() {
   if('serviceWorker' in navigator) {
@@ -19,21 +21,22 @@ import NotFoundRoute from './routes/notFound';
   }
 })();
 
+const history = createHistory()
+
 const routes = {
-  path: '/',
   component: App,
   indexRoute: { onEnter: (nextState, replace) => replace('/grade-calculator') },
-  childRoutes: [
+  childRoutes: {
     FinalGradeRoute,
     WeightedGradeRoute,
     DamageCalculator,
     DonateRoute,
     GPARoute,
     NotFoundRoute,
-  ],
+  },
 };
 
 ReactDOM.render(
-    <Router history={ browserHistory } routes={ routes } />,
+    <Router history={history} routes={routes}/>,
   document.getElementById('app')
 );

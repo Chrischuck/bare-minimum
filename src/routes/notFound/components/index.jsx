@@ -1,9 +1,7 @@
 import React from 'react';
-import Link from 'react-router/lib/Link';
-
 import sword from '../../../assets/sword.png';
 
-const NotFound = () =>
+const NotFound = ({ push }) =>
   <div className='col-md-6 col-md-offset-3 text-center' style={ { paddingTop: '15%' } } >
     <div className='bs-component'>
       <h2>404 Not Found</h2>
@@ -15,11 +13,9 @@ const NotFound = () =>
       <h4>
         It's dangerous to alone! Here take this!
       </h4>
-
-      <Link to='/'>
+      <a name={ 'grade-calculator' } onClick={ push }>
         <img className='featurette-image img-responsive center-block' role='presentation' src={ sword } />
-      </Link>
-
+      </a>
     </div>
   </div>;
 

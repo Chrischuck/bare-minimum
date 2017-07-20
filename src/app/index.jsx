@@ -3,9 +3,10 @@ import GradeCalculator from '../routes/finalGrade/components';
 import './styles.css';
 import Header from '../components/header';
 
-const App = ({ location, children }) =>
+const App = ({ pathname, component, push }) =>
   <div id='globalWrapper' className='globalWrapper'>
-    <Header path={ location.pathname } />
+    <Header path={ pathname } push={ push } />
+
     <div
       className='container'
       style={ {
@@ -17,7 +18,7 @@ const App = ({ location, children }) =>
         overflow: 'scroll',
       } }
     >
-      { children || <GradeCalculator /> }
+      { component || <GradeCalculator /> }
     </div>
   </div>;
 
