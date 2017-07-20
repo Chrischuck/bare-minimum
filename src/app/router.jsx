@@ -27,7 +27,7 @@ class Router extends React.Component {
     const pathname = history.location.pathname;
     if (pathname === '/') {
       history.replace('/grade-calculator');
-      this.setState({ currentPath: this.props.history.pathname });
+      this.setState({ currentPath: '/grade-calculator' });
     }
     const FinalGradeComponent = routes.childRoutes.FinalGradeRoute;
     const DamageCalculatorComponent = routes.childRoutes.DamageCalculator;
