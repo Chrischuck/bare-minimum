@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import Modal from '../../../components/modal';
 import { simpleErrorStringBuilder } from '../../../util/stringBuilders';
 
 export default class DamageCalculator extends React.Component {
@@ -12,10 +11,6 @@ export default class DamageCalculator extends React.Component {
       currentGrade: '',
       assignmentWeight: '',
       assignmentGrade: '',
-      isModalOpen: false,
-      title: null,
-      message: null,
-      type: null,
     };
   }
 
@@ -26,32 +21,18 @@ export default class DamageCalculator extends React.Component {
   onCalculate = () => {
     const { currentGrade, assignmentWeight, assignmentGrade } = this.state;
     if (currentGrade === '' || assignmentWeight === '' || assignmentGrade === '') {
-      this.openModal('Uh Oh!', this.errorStringBuilder(), 'warning');
+      this.props.openModal({
+        title: 'Uh Oh!',
+        message: this.errorStringBuilder(),
+        type: 'warning',
+      });
     } else {
-      this.openModal(
-          'After consulting the magic 8 ball...',
-          `It has been revealed your grade is now ${this.calculateGrade()}%.`,
-          null);
+      this.props.openModal({
+        title: 'After consulting the magic 8 ball...',
+        message: `It has been revealed your grade is now ${this.calculateGrade()}%.`,
+        type: null,
+      });
     }
-  }
-
-  openModal = (title, message, type) => {
-    this.setState({
-      title,
-      message,
-      type,
-      isModalOpen: true,
-    });
-  }
-
-
-  closeModal = () => {
-    this.setState({
-      title: null,
-      message: null,
-      type: null,
-      isModalOpen: false,
-    });
   }
 
   calculateGrade = () => {
@@ -81,10 +62,8 @@ export default class DamageCalculator extends React.Component {
   }
 
   render() {
-    const { isModalOpen, title, message, type } = this.state;
     return (
       <div className='container'>
-        { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } />}
         <Helmet
           title='Bare Minimum | Damage Calculator'
           meta={ [

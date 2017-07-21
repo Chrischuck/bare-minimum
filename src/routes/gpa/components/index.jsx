@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import Modal from '../../../components/modal';
 import InputBox from './inputBox';
 import { gradeToNumber } from '../../../util/calculations';
 import { gpaStringBuilder } from '../../../util/stringBuilders';
@@ -17,10 +16,6 @@ export default class GPA extends React.Component {
       greaterThan4: false,
       goesToHundreth: false,
       inputCount: 3,
-      isModalOpen: false,
-      title: null,
-      message: null,
-      type: null,
     };
   }
 
@@ -30,9 +25,17 @@ export default class GPA extends React.Component {
 
   onPastGpaChange = (event) => {
     if (Number(event.target.value) > 4 && !this.state.APlusCounts && !this.state.greaterThan4) {
-      this.openModal('Impossible!', 'You can\'t have a gpa higher than a 4.0!', 'warning');
+      this.props.openModal({
+        title: 'Impossible!',
+        message: 'You can\'t have a gpa higher than a 4.0!',
+        type: 'warning',
+      });
     } else if (Number(event.target.value) < 0) {
-      this.openModal('Hmm!', 'I don\'t think anyone\'s gpa can be that bad!', 'warning');
+      this.props.openModal({
+        title: 'Hmm!',
+        message: 'I don\'t think anyone\'s gpa can be that bad!',
+        type: 'warning',
+      });
     } else {
       this.setState({ pastGpa: event.target.value });
     }
@@ -40,7 +43,11 @@ export default class GPA extends React.Component {
 
   onUnitsChange = (event) => {
     if (Number(event.target.value) < 0) {
-      this.openModal('Oh dear!', 'You can\'t have negative units!', 'warning');
+      this.props.openModal({
+        title: 'Oh dear!',
+        message: 'You can\'t have negative units!',
+        type: 'warning',
+      });
     } else {
       this.setState({ pastUnits: event.target.value });
     }
@@ -76,12 +83,13 @@ export default class GPA extends React.Component {
         totalPoints += numericGrade * Number(units);
         totalCredits += Number(units);
       } else if (typeof numericGrade !== 'number' && grade && units) {
-        this.openModal(
-          'Oops!',
-          course ?
+        this.props.openModal({
+          title: 'Oops!',
+          message: course ?
           `Your grade for ${course} doesn't look right!` :
           'One of your grades doesn\'t look right!',
-          'warning');
+          type: 'warning',
+        });
         return 0;
       }
     }
@@ -106,30 +114,20 @@ export default class GPA extends React.Component {
       finalGpa;
   }
 
-  openModal = (title, message, type) => {
-    this.setState({
-      title,
-      message,
-      type,
-      isModalOpen: true,
-    });
-  }
-
-  closeModal = () => {
-    this.setState({
-      title: null,
-      message: null,
-      type: null,
-      isModalOpen: false,
-    });
-  }
-
   showGpa = () => {
     const gpa = this.calculate();
     if (gpa !== 0) {
-      this.openModal('Nice!', gpaStringBuilder(gpa), null);
+      this.props.openModal({
+        title: 'Nice!',
+        message: gpaStringBuilder(gpa),
+        type: null,
+      });
     } else {
-      this.openModal('Oh no!', 'Oh my you haven\'t added any classes', 'warning');
+      this.props.openModal({
+        title: 'Oh no!',
+        message: 'Oh my you haven\'t added any classes',
+        type: 'warning',
+      });
     }
   }
 
@@ -139,7 +137,7 @@ export default class GPA extends React.Component {
   }
 
   render() {
-    const { inputCount, isModalOpen, title, message, type, APlusCounts, greaterThan4, goesToHundreth } = this.state;
+    const { inputCount, APlusCounts, greaterThan4, goesToHundreth } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i++) {
       inputs.push(
@@ -155,7 +153,6 @@ export default class GPA extends React.Component {
         className='container wrapperClass'
         style={ { marginBottom: 5 } }
       >
-        { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
           title='Bare Minimum | Universal GPA Calculator'
           meta={ [

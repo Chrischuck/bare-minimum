@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import Modal from '../../../components/modal';
 import { calculatorStringBuilder, simpleErrorStringBuilder } from '../../../util/stringBuilders';
 
 export default class FinalGrade extends React.Component {
@@ -12,10 +11,6 @@ export default class FinalGrade extends React.Component {
       currentGrade: '',
       finalWeight: '',
       requiredGrade: '',
-      isModalOpen: false,
-      title: null,
-      message: null,
-      type: null,
     };
   }
 
@@ -26,29 +21,18 @@ export default class FinalGrade extends React.Component {
   onCalculate = () => {
     const { currentGrade, finalWeight, requiredGrade } = this.state;
     if (currentGrade === '' || finalWeight === '' || requiredGrade === '' || Number(finalWeight) > 100) {
-      this.openModal('Uh Oh!', this.errorStringBuilder(), 'warning');
+      this.props.openModal({
+        title: 'Uh Oh!',
+        message: this.errorStringBuilder(),
+        type: 'warning',
+      });
     } else {
-      this.openModal('You can do it!', calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade), null);
+      this.props.openModal({
+        title: 'You can do it!',
+        message: calculatorStringBuilder(this.calculateGrade(), this.state.requiredGrade),
+        type: null,
+      });
     }
-  }
-
-  openModal = (title, message, type) => {
-    this.setState({
-      title,
-      message,
-      type,
-      isModalOpen: true,
-    });
-  }
-
-
-  closeModal = () => {
-    this.setState({
-      title: null,
-      message: null,
-      type: null,
-      isModalOpen: false,
-    });
   }
 
   calculateGrade = () => {
@@ -77,12 +61,10 @@ export default class FinalGrade extends React.Component {
   }
 
   render() {
-    const { isModalOpen, title, message, type } = this.state;
     return (
       <div
         className='container'
       >
-        { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } />}
         <Helmet
           title='Bare Minimum | Final Grade Calculator'
           meta={ [

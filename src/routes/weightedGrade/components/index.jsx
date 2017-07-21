@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import Modal from '../../../components/modal';
 import InputBox from './inputBox';
 import { calculatorStringBuilder } from '../../../util/stringBuilders';
 
@@ -13,10 +12,6 @@ export default class WeightedGrade extends React.Component {
       requiredGrade: '',
       finalWeight: '',
       inputCount: 3,
-      isModalOpen: false,
-      title: null,
-      message: null,
-      type: null,
     };
   }
 
@@ -51,11 +46,19 @@ export default class WeightedGrade extends React.Component {
     let totalPercentage = Number(finalWeight);
 
     if (!requiredPercent) {
-      this.openModal('Uh Oh!', 'The grade you want doesn\'t look right!', 'warning');
+      this.props.openModal({
+        title: 'Uh Oh!',
+        message: 'The grade you want doesn\'t look right!',
+        type: 'warning',
+      });
       return;
     }
     if (!finalPercent) {
-      this.openModal('Uh Oh!', 'The final\'s weight doesn\'t look right!', 'warning');
+      this.props.openModal({
+        title: 'Uh Oh!',
+        message: 'The final\'s weight doesn\'t look right!',
+        type: 'warning',
+      });
       return;
     }
 
@@ -66,19 +69,19 @@ export default class WeightedGrade extends React.Component {
       const numericalWeight = Number(weight) / 100;
       totalPercentage += Number(weight);
       if (!numericalGrade && category) {
-        this.openModal(
-          'Oops!',
-          `Your grade for ${category} doesn't look right!`,
-          'warning',
-       );
+        this.props.openModal({
+          title: 'Oops!',
+          message: `Your grade for ${category} doesn't look right!`,
+          type: 'warning',
+        });
         return;
       }
       if (!numericalWeight && category) {
-        this.openModal(
-          'Oops!',
-          `Your weight for ${category} doesn't look right!`,
-          'warning',
-       );
+        this.props.openModal({
+          title: 'Oops!',
+          message: `Your weight for ${category} doesn't look right!`,
+          type: 'warning',
+        });
         return;
       }
       if (numericalGrade && numericalWeight) {
@@ -87,16 +90,21 @@ export default class WeightedGrade extends React.Component {
       }
     }
     if (totalWeights === 0) {
-      this.openModal('Oh no!', 'Looks like you haven\'t added any categories!', 'warning');
+      this.props.openModal({
+        title: 'Oh no!',
+        message: 'Looks like you haven\'t added any categories!',
+        type: 'warning',
+      });
       return;
     }
     if ((totalPercentage) !== 100) {
-      this.openModal(
-        'Oops!',
-        totalPercentage > 100 ?
+      this.props.openModal({
+        title: 'Oops!',
+        message: totalPercentage > 100 ?
           'Your total percentage can\'t be greater than 100!' :
           'Your total percentage can\'t be less than 100!',
-        'warning');
+        type: 'warning',
+      });
       return;
     }
 
@@ -108,28 +116,18 @@ export default class WeightedGrade extends React.Component {
       Math.floor(finalGrade * 100) / 100;
 
     if (!isNaN(calculatedGrade)) {
-      this.openModal('You can do it!', calculatorStringBuilder(calculatedGrade, this.state.requiredGrade), null);
+      this.props.openModal({
+        title: 'You can do it!',
+        message: calculatorStringBuilder(calculatedGrade, this.state.requiredGrade),
+        type: null,
+      });
     } else {
-      this.openModal('Uh Oh!', 'Something went wrong, make sure your inputs are right!', 'warning');
+      this.props.openModal({
+        title: 'Uh Oh!',
+        message: 'Something went wrong, make sure your inputs are right!',
+        type: 'warning',
+      });
     }
-  }
-
-  openModal = (title, message, type) => {
-    this.setState({
-      title,
-      message,
-      type,
-      isModalOpen: true,
-    });
-  }
-
-  closeModal = () => {
-    this.setState({
-      title: null,
-      message: null,
-      type: null,
-      isModalOpen: false,
-    });
   }
 
   addCategory = () => {
@@ -138,7 +136,7 @@ export default class WeightedGrade extends React.Component {
   }
 
   render() {
-    const { inputCount, isModalOpen, title, message, type } = this.state;
+    const { inputCount } = this.state;
     const inputs = [];
     for (let i = 0; i < inputCount; i++) {
       inputs.push(
@@ -152,7 +150,6 @@ export default class WeightedGrade extends React.Component {
       <div
         className='container'
       >
-        { isModalOpen && <Modal closeModal={ this.closeModal } title={ title } message={ message } type={ type } /> }
         <Helmet
           title='Bare Minimum | Weighted Final Grade Calculator'
           meta={ [
