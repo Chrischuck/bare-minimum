@@ -15,7 +15,6 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      'react-router',
       'preact',
       'preact-compat',
       'preact-helmet'
@@ -128,6 +127,6 @@ module.exports = {
       ],
       }
     ),
-     new BundleAnalyzerPlugin()
+     //new BundleAnalyzerPlugin()
   ]
 }

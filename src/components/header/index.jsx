@@ -1,7 +1,6 @@
 import React from 'react';
-import Link from 'react-router/lib/Link';
 
-const Header = ({ path }) =>
+const Header = ({ path, push }) =>
   <nav className='navbar navbar-static-top'>
     <div className='container'>
       <div className='navbar-header'>
@@ -9,11 +8,21 @@ const Header = ({ path }) =>
       </div>
       <div id='navbar' className='navbar-collapse'>
         <ul className='navbar-nav'>
-          <li className={ path === 'grade-calculator' || path === '/grade-calculator' ? 'active' : '' }><Link to='grade-calculator'>Final Grade Calculator</Link></li>
-          <li className={ path === 'damage-calculator' || path === '/damage-calculator' ? 'active' : '' }><Link to='damage-calculator'>Damage Calculator</Link></li>
-          <li className={ path === 'weighted-grade-calculator' || path === '/weighted-grade-calculator' ? 'active' : '' }><Link to='weighted-grade-calculator'>Weighted Grade Calculator</Link></li>
-          <li className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }><Link to='gpa-calculator'>GPA Calculator</Link></li>
-          <li className={ path === 'donate' || path === '/donate' ? 'active' : '' }><Link to='donate'>Donate</Link></li>
+          <li style={{ cursor: 'pointer' }} className={ path === 'grade-calculator' || path === '/grade-calculator' ? 'active' : '' }>
+            <a name={ 'grade-calculator' } onClick={ push }>Final Grade Calculator</a>
+          </li>
+          <li style={{ cursor: 'pointer' }} className={ path === 'damage-calculator' || path === '/damage-calculator' ? 'active' : '' }>
+            <a name={ 'damage-calculator' } onClick={ push }>Damage Calculator</a>
+          </li>
+          <li style={{ cursor: 'pointer' }} className={ path === 'weighted-grade-calculator' || path === '/weighted-grade-calculator' ? 'active' : '' }>
+            <a name={ 'weighted-grade-calculator' } onClick={ push }>Weighted Grade Calculator</a>
+          </li>
+          <li style={{ cursor: 'pointer' }} className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }>
+            <a name={ 'gpa-calculator' } onClick={ push }>GPA Calculator</a>
+          </li>
+          <li style={{ cursor: 'pointer' }} className={ path === 'donate' || path === '/donate' ? 'active' : '' }>
+            <a name={ 'donate' } onClick={ push }>Donate</a>
+          </li>
         </ul>
       </div>
     </div>
