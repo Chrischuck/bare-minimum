@@ -20,9 +20,6 @@ const Header = ({ path, push }) =>
           <li style={{ cursor: 'pointer' }} className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }>
             <a name={ 'gpa-calculator' } onClick={ push }>GPA Calculator</a>
           </li>
-          <li style={{ cursor: 'pointer' }} className={ path === 'donate' || path === '/donate' ? 'active' : '' }>
-            <a name={ 'donate' } onClick={ push }>Donate</a>
-          </li>
         </ul>
       </div>
     </div>

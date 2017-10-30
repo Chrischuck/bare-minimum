@@ -12,7 +12,6 @@ import FinalGradeRoute from './routes/finalGrade/components';
 import WeightedGradeRoute from './routes/weightedGrade/components';
 import DamageCalculator from './routes/damageControl/components';
 import GPARoute from './routes/gpa/components';
-import DonateRoute from './routes/donation/components';
 import NotFoundRoute from './routes/notFound/components';
 
 (function() {
@@ -30,7 +29,6 @@ const routes = {
     FinalGradeRoute,
     WeightedGradeRoute,
     DamageCalculator,
-    DonateRoute,
     GPARoute,
     NotFoundRoute,
   },
