@@ -9,12 +9,18 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      isModalOpen: null, // schema: ({ title: 'string', messge: 'string', type: null or something})
+      isModalOpen: false, // schema: ({ title: 'string', messge: 'string', type: null or something})
+      modalData: {
+        title: '',
+        message: '',
+        type: '',
+      }
     };
   }
   openModal = ({ title, message, type }) => {
     this.setState({
-      isModalOpen: {
+      isModalOpen: true,
+      modalData: {
         title,
         message,
         type,
@@ -24,20 +30,31 @@ class App extends React.Component {
 
   closeModal = () => {
     this.setState({
-      isModalOpen: null,
+      isModalOpen: false,
+      modalData: {
+        title: '',
+        message: '',
+        type: '',
+      },
     });
   }
 
   render() {
     const { pathname, component, push } = this.props;
-    const { isModalOpen } = this.state;
+    const { isModalOpen, modalData } = this.state;
     return (
       <div id='globalWrapper' className='globalWrapper'>
-        <Header path={ pathname } push={ push } />
-        { 
-          isModalOpen &&
-          <Modal closeModal={ this.closeModal } title={ isModalOpen.title } message={ isModalOpen.message } type={ isModalOpen.type } />
+        {
+          Header({ path: pathname, push })
         }
+        {
+          Modal({
+            isModalOpen,
+            modalData,
+            closeModal: this.closeModal,
+          })
+        }
+
         <div
           className='container'
           style={ {

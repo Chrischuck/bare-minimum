@@ -1,17 +1,17 @@
 import React from 'react';
 
-const Modal = ({ closeModal, title, message, type }) =>
-  <div className='modal-background'>
-    <div className='modal-content'>
+const Modal = ({ isModalOpen, modalData, closeModal }) =>
+  <div className={ `modal-background ${isModalOpen ? 'visible' : ''}` }>
+    <div className={ `modal-content ${isModalOpen ? 'visible' : ''}` }>
       {
-        type &&
+        modalData.type &&
         <div className='modal-icon modal-warning'>
           <span className='modal-body' />
           <span className='modal-dot' />
         </div>
       }
-      <h2 className='modal-h2'>{ title }</h2>
-      <p className='modal-p'>{ message }</p>
+      <h2 className='modal-h2'>{ modalData.title }</h2>
+      <p className='modal-p'>{ modalData.message }</p>
       <div className='modal-button-container'>
         <a
           className='btn btn-primary'
