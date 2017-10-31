@@ -100,7 +100,7 @@ export default class DamageCalculator extends React.Component {
                 htmlFor='currentGrade'
                 className='col-xs-5 col-form-label semi-bold'
                 style={ {
-                  paddingRight: '.8vw',
+                  paddingRight: '10px',
                   textAlign: 'right',
                   lineHeight: '2.2vh',
                   paddingTop: '.8vh',
@@ -127,7 +127,7 @@ export default class DamageCalculator extends React.Component {
                   htmlFor='final'
                   className='col-xs-5 col-form-label semi-bold text-left'
                   style={ {
-                    paddingRight: '.8vw',
+                    paddingRight: '10px',
                     textAlign: 'right',
                     lineHeight: '2.2vh',
                     paddingTop: '.8vh',
@@ -154,7 +154,7 @@ export default class DamageCalculator extends React.Component {
                   htmlFor='requiredGrade'
                   className='col-xs-5 col-form-label semi-bold'
                   style={ {
-                    paddingRight: '.8vw',
+                    paddingRight: '10px',
                     textAlign: 'right',
                     lineHeight: '2.2vh',
                     paddingTop: '.8vh',
