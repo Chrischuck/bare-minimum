@@ -1,5 +1,4 @@
 import React, { Children, cloneElement } from 'react';
-import GradeCalculator from '../routes/finalGrade/components';
 import './styles.css';
 import Header from '../components/header';
 import Modal from '../components/modal';
@@ -66,7 +65,7 @@ class App extends React.Component {
             overflow: 'scroll',
           } }
         >
-          { Children.map(component, child => cloneElement(child, { closeModal: this.closeModal, openModal: this.openModal })) || <GradeCalculator /> }
+          { Children.map(component, child => cloneElement(child, { closeModal: this.closeModal, openModal: this.openModal })) }
         </div>
       </div>
     );

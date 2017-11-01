@@ -2,20 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createHistory from 'history/createBrowserHistory'
-import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 import './manifest.json'
 
-import Router from './app/router';
+import Router from './app/utils/router';
 import App from './app';
 
-import FinalGradeRoute from './routes/finalGrade/components';
-import WeightedGradeRoute from './routes/weightedGrade/components';
-import DamageCalculator from './routes/damageControl/components';
-import GPARoute from './routes/gpa/components';
-import NotFoundRoute from './routes/notFound/components';
-
-OfflinePluginRuntime.install();
+import FinalGradeRoute from './routes/finalGrade/components/index.bundle.js';
+import WeightedGradeRoute from './routes/weightedGrade/components/index.bundle.js';
+import DamageCalculator from './routes/damageControl/components/index.bundle.js';
+import GPARoute from './routes/gpa/components/index.bundle.js';
+import NotFoundRoute from './routes/notFound/components/index.bundle.js';
 
 const history = createHistory()
 

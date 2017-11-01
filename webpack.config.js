@@ -31,6 +31,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, use: ["babel-loader"] },
+      { test: /\.bundle\.js$/, loader: 'bundle-loader', options: { lazy: true } },      
       { test: /\.eot/, loader: 'url-loader?mimetype=application/vnd.ms-fontobject' },
       { test: /\.ttf/, loader: 'url-loader?mimetype=application/x-font-ttf' },
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
