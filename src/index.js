@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createHistory from 'history/createBrowserHistory'
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 import './manifest.json'
 
@@ -13,6 +14,8 @@ import WeightedGradeRoute from './routes/weightedGrade/components';
 import DamageCalculator from './routes/damageControl/components';
 import GPARoute from './routes/gpa/components';
 import NotFoundRoute from './routes/notFound/components';
+
+OfflinePluginRuntime.install();
 
 const history = createHistory()
 

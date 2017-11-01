@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 module.exports = {
   context: __dirname + '/src', 
@@ -95,6 +96,7 @@ module.exports = {
    }),
     new CopyWebpackPlugin([
       { from: '../_redirects' },
-    ])
+    ]),
+    new OfflinePlugin()
   ]
 }

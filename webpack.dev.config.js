@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -95,32 +94,7 @@ module.exports = {
        windows: false
      }
    }),
-   new SWPrecacheWebpackPlugin(
-      {
-        cacheId: 'bareminimum',
-        filename: 'bareminimumSW.js',
-        maximumFileSizeToCacheInBytes: 4194304,
-        minify: true,
-        runtimeCaching: [
-          {
-            urlPattern: /grade-calculator/,
-            handler: 'cacheFirst',
-          },
-          {
-            urlPattern: /damage-calculator/,
-            handler: 'cacheFirst',
-          },
-          {
-            urlPattern: /weighted-grade-calculator/,
-            handler: 'cacheFirst',
-          },
-          {
-            urlPattern: /gpa-calculator/,
-            handler: 'cacheFirst',
-          },
-      ],
-      }
-    ),
+
     new CopyWebpackPlugin([
       { from: '../_redirects' },
     ]),
