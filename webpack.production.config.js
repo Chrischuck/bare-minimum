@@ -5,6 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
@@ -127,6 +128,9 @@ module.exports = {
       ],
       }
     ),
+    new CopyWebpackPlugin([
+      { from: '../_redirects' },
+    ])
      //new BundleAnalyzerPlugin()
   ]
 }
