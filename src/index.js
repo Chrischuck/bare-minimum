@@ -16,7 +16,7 @@ import NotFoundRoute from './routes/notFound/components';
 
 (function() {
   if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/bareminimumSW.js');
+    navigator.serviceWorker.register('bareminimumSW.js');
   }
 })();
 
