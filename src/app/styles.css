@@ -695,7 +695,7 @@ input[type="button"].btn-block {
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.6);
     visibility: hidden;
 }
 
@@ -706,15 +706,15 @@ input[type="button"].btn-block {
 
 .modal-content {
     background-color: #fff;
-    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
     width: 478px;
     padding: 17px;
     border-radius: 3px;
     text-align: center;
     position: fixed;
-    left: 50%;
-    top: 50%;
+    left: 51%;
+    top: 45%;
     margin-left: -256px;
+    margin-right: -256px;
     margin-top: -200px;
     overflow: hidden;
     z-index: -99998;
@@ -732,6 +732,7 @@ input[type="button"].btn-block {
 }
 @media (max-width: 540px) {
   .modal-content {
+    top: 60%;    
     width: auto;
     margin-left: 0;
     margin-right: 0;

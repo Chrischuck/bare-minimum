@@ -125,7 +125,7 @@ export default class GPA extends React.Component {
     } else {
       this.props.openModal({
         title: 'Oh no!',
-        message: 'Oh my you haven\'t added any classes',
+        message: 'You haven\'t added any classes',
         type: 'warning',
       });
     }
