@@ -117,10 +117,6 @@ module.exports = {
             urlPattern: /gpa-calculator/,
             handler: 'cacheFirst',
           },
-          {
-            urlPattern: /donate/,
-            handler: 'cacheFirst',
-          }
       ],
       }
     ),
