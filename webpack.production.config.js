@@ -100,24 +100,6 @@ module.exports = {
         filename: 'bareminimumSW.js',
         maximumFileSizeToCacheInBytes: 4194304,
         minify: true,
-        runtimeCaching: [
-          {
-            urlPattern: /grade-calculator/,
-            handler: 'cacheFirst',
-          },
-          {
-            urlPattern: /damage-calculator/,
-            handler: 'cacheFirst',
-          },
-          {
-            urlPattern: /weighted-grade-calculator/,
-            handler: 'cacheFirst',
-          },
-          {
-            urlPattern: /gpa-calculator/,
-            handler: 'cacheFirst',
-          },
-      ],
       }
     ),
     new CopyWebpackPlugin([
