@@ -36,25 +36,25 @@ class Router extends React.Component {
     const asyncGpaComponent = routes.childRoutes.GPARoute;
     const asyncNotFoundComponent = routes.childRoutes.NotFoundRoute;
 
-    const FinalGradeComponent = () => (
+    const FinalGradeComponent = props => (
       <Bundle load={ asyncFinalGradeComponent }>
-        { Comp => <Comp /> }
+        { Comp => <Comp { ...props } /> }
       </Bundle>
     )
-    const DamageCalculatorComponent = () => (
+    const DamageCalculatorComponent = props => (
       <Bundle load={ asyncDamageCalculatorComponent }>
-        { Comp => <Comp /> }
+        { Comp => <Comp { ...props } /> }
       </Bundle>
     )
-    const WeightedGradeComponent = () => (
+    const WeightedGradeComponent = props => (
       <Bundle load={ asyncWeightedGradeComponent }>
-        { Comp => <Comp /> }
+        { Comp => <Comp { ...props } /> }
       </Bundle>
     )
 
-    const GpaComponent = () => (
+    const GpaComponent = props => (
       <Bundle load={ asyncGpaComponent }>
-        { Comp => <Comp /> }
+        { Comp => <Comp { ...props } /> }
       </Bundle>
     )
     const NotFoundComponent = props => (
