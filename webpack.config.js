@@ -11,18 +11,16 @@ var dashboard = new Dashboard();
 
 module.exports = {
 
-  /////////// Sets up entra and output code ////////
-  context: __dirname + '/src', // directory webpack looks //
+  context: __dirname + '/src',
   entry: [
     'babel-polyfill',
-    './index.js', // file webpack looks at //
+    './index.js', 
   ],
   output: {
-    filename: 'app.js', // output file name //
-    path: __dirname + '/dist' // output file directory //
+    filename: 'app.js',
+    path: __dirname + '/dist' 
   },
 
-  /////////// Sets up loaders ////////
   resolve: {
     alias: {
       'react': 'preact-compat',
@@ -65,11 +63,10 @@ module.exports = {
 
   devServer: {
     hot: true,
-    quiet: true, // lets WebpackDashboard do its thing
+    quiet: true, 
     historyApiFallback: true,
   },
 
-  ////////// Plug ins! ///////////
   plugins: [
     new DashboardPlugin(dashboard.setData),
     new HtmlWebpackPlugin({
