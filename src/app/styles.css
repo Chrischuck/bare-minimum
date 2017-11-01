@@ -14,35 +14,7 @@ body {
   width:100%;
 }
 
-article,
-aside,
-details,
-figcaption,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-[hidden],
-template {
-  display: none;
-}
+
 a {
   background-color: transparent;
 }
@@ -50,16 +22,11 @@ a:active,
 a:hover {
   outline: 0;
 }
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-b,
+
 strong {
   font-weight: bold;
 }
-dfn {
-  font-style: italic;
-}
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -67,18 +34,14 @@ h1 {
 img {
   border: 0;
 }
-figure {
-  margin: 1em 40px;
-}
+
 hr {
   -webkit-box-sizing: content-box;
      -moz-box-sizing: content-box;
           box-sizing: content-box;
   height: 0;
 }
-pre {
-  overflow: auto;
-}
+
 .text-center {
   text-align: center;
 }
