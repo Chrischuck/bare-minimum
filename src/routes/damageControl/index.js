@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import { simpleErrorStringBuilder } from '../../../util/stringBuilders';
+import { simpleErrorStringBuilder } from '../../util/stringBuilders';
 
 export default class DamageCalculator extends React.Component {
   constructor(props) {

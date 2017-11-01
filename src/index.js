@@ -8,11 +8,11 @@ import './manifest.json'
 import Router from './app/utils/router';
 import App from './app';
 
-import FinalGradeRoute from './routes/finalGrade/components/index.bundle.js';
-import WeightedGradeRoute from './routes/weightedGrade/components/index.bundle.js';
-import DamageCalculator from './routes/damageControl/components/index.bundle.js';
-import GPARoute from './routes/gpa/components/index.bundle.js';
-import NotFoundRoute from './routes/notFound/components/index.bundle.js';
+import FinalGradeRoute from './routes/finalGrade';
+import WeightedGradeRoute from './routes/weightedGrade';
+import DamageCalculator from './routes/damageControl';
+import GPARoute from './routes/gpa';
+import NotFoundRoute from './routes/notFound';
 
 const history = createHistory()
 

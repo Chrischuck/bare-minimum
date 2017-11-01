@@ -1,5 +1,5 @@
 import React from 'react';
-import sword from '../../../assets/sword.png';
+import sword from '../../assets/sword.png';
 
 const NotFound = ({ push }) =>
   <div className='col-md-6 col-md-offset-3 text-center' style={ { paddingTop: '15%' } } >

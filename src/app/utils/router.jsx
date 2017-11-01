@@ -1,5 +1,4 @@
 import React from 'react';
-import Bundle from './Bundle'
 
 class Router extends React.Component {
   constructor(props) {
@@ -30,40 +29,12 @@ class Router extends React.Component {
       history.replace('/grade-calculator');
       this.setState({ currentPath: '/grade-calculator' });
     }
-    const asyncFinalGradeComponent = routes.childRoutes.FinalGradeRoute;
-    const asyncDamageCalculatorComponent = routes.childRoutes.DamageCalculator;
-    const asyncWeightedGradeComponent = routes.childRoutes.WeightedGradeRoute;
-    const asyncGpaComponent = routes.childRoutes.GPARoute;
-    const asyncNotFoundComponent = routes.childRoutes.NotFoundRoute;
-
-    const FinalGradeComponent = props => (
-      <Bundle load={ asyncFinalGradeComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-    const DamageCalculatorComponent = props => (
-      <Bundle load={ asyncDamageCalculatorComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-    const WeightedGradeComponent = props => (
-      <Bundle load={ asyncWeightedGradeComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-
-    const GpaComponent = props => (
-      <Bundle load={ asyncGpaComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-    const NotFoundComponent = props => (
-      <Bundle load={ asyncNotFoundComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
+    const FinalGradeComponent = routes.childRoutes.FinalGradeRoute;
+    const DamageCalculatorComponent = routes.childRoutes.DamageCalculator;
+    const WeightedGradeComponent = routes.childRoutes.WeightedGradeRoute;
+    const GpaComponent = routes.childRoutes.GPARoute;
+    const NotFoundComponent = routes.childRoutes.NotFoundRoute;
     
-
     let component = null;
     switch (pathname) {
       case '/grade-calculator':

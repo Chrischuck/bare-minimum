@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import InputBox from './inputBox';
-import { calculatorStringBuilder } from '../../../util/stringBuilders';
+import InputBox from './components/inputBox';
+import { calculatorStringBuilder } from '../../util/stringBuilders';
 
 export default class WeightedGrade extends React.Component {
   constructor(props) {

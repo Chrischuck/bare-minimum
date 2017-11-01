@@ -1,9 +1,9 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import InputBox from './inputBox';
-import { gradeToNumber } from '../../../util/calculations';
-import { gpaStringBuilder } from '../../../util/stringBuilders';
+import InputBox from './components/inputBox';
+import { gradeToNumber } from '../../util/calculations';
+import { gpaStringBuilder } from '../../util/stringBuilders';
 
 export default class GPA extends React.Component {
   constructor(props) {

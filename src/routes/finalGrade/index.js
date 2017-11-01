@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'preact-helmet';
 
-import { calculatorStringBuilder, simpleErrorStringBuilder } from '../../../util/stringBuilders';
+import { calculatorStringBuilder, simpleErrorStringBuilder } from '../../util/stringBuilders';
 
 export default class FinalGrade extends React.Component {
   constructor(props) {
