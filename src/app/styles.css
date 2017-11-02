@@ -500,6 +500,7 @@ input[type="button"].btn-block {
   }
 }
 .navbar-nav {
+  font-size: 14.5px;
   padding: 0;
 }
 .navbar-nav > li {
