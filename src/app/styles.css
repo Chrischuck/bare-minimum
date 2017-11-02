@@ -434,6 +434,9 @@ input[type="button"].btn-block {
     -moz-box-shadow: none;
     box-shadow: none;
   }
+  body {
+    background-color: #ffffff;    
+  }
 }
 @media (min-width: 768px) {
   .navbar-header {
@@ -458,6 +461,20 @@ input[type="button"].btn-block {
   .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px;
+  }
+}
+
+.navbar-container {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+@media (max-width: 768px) {
+  .navbar-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  body {
+    background-color: #ffffff;    
   }
 }
 

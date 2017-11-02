@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({ path, push }) =>
   <nav className='navbar navbar-static-top'>
-    <div style={{marginLeft: '5%', marginRight: '5%'}}>
+    <div className='navbar-container'>
       <div className='navbar-header'>
         <div className='navbar-brand'>Bare Minimum</div>
       </div>
