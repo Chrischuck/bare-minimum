@@ -12,7 +12,7 @@
         "sizes": "192x192"
     }
   ],
-  "start_url": "/",
+  "start_url": "/grade-calculator",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
