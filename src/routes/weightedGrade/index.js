@@ -159,7 +159,7 @@ export default class WeightedGrade extends React.Component {
         <div className='well infobox' >
 
           <div>
-            <h3
+            <h2
               className='text-center'
               style={ {
                 marginTop: 15,
@@ -167,7 +167,7 @@ export default class WeightedGrade extends React.Component {
                 fontSize: '5vw 5h',
                 color: '#2e2d2d',
               } }
-            >Weighted Final Grade Calculator</h3>
+            >Weighted Final Grade Calculator</h2>
 
             <p
               className='text-center'

@@ -74,7 +74,7 @@ export default class FinalGrade extends React.Component {
         <div className='well infobox' >
           <div style={ { marginTop: 10 } } >
 
-            <h3
+            <h2
               className='text-center'
               style={ {
                 marginTop: 15,
@@ -82,7 +82,7 @@ export default class FinalGrade extends React.Component {
                 fontSize: '5vw 5h',
                 color: '#2e2d2d',
               } }
-            >Final Grade Calculator</h3>
+            >Final Grade Calculator</h2>
             <div className='row' >
 
             <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >

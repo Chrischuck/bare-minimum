@@ -73,7 +73,7 @@ export default class DamageCalculator extends React.Component {
         <div className='well infobox' >
           <div style={ { marginTop: 10 } } >
 
-            <h3
+            <h2
               className='text-center'
               style={ {
                 marginTop: 15,
@@ -81,7 +81,7 @@ export default class DamageCalculator extends React.Component {
                 fontSize: '5vw 5h',
                 color: '#2e2d2d',
               } }
-            >Damage Calculator</h3>
+            >Damage Calculator</h2>
             <p
               className='text-center'
               style={ {

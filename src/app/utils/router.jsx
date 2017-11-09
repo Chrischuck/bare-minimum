@@ -29,7 +29,10 @@ class Router extends React.Component {
     if (pathname === '/') {
       history.replace('/grade-calculator');
       this.setState({ currentPath: '/grade-calculator' });
+      const component = <FinalGradeComponent />
+      return <App pathname={ history.location.pathname } component={ component } push={ this.push } />
     }
+
     const FinalGradeComponent = routes.childRoutes.FinalGradeRoute;
     const DamageCalculatorComponent = routes.childRoutes.DamageCalculator;
     const WeightedGradeComponent = routes.childRoutes.WeightedGradeRoute;
@@ -54,9 +57,7 @@ class Router extends React.Component {
         component = <NotFoundComponent push={ this.push } />;
     }
     return (
-      <div>
-        <App pathname={ this.props.history.location.pathname } component={ component } push={ this.push } />
-      </div>
+      <App pathname={ history.location.pathname } component={ component } push={ this.push } />
     );
   }
 }

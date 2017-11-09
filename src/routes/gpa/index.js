@@ -161,7 +161,7 @@ export default class GPA extends React.Component {
         />
 
         <div className='well infobox' >
-          <h3
+          <h2
             className='text-center'
             style={ {
               marginTop: 14,
@@ -169,7 +169,7 @@ export default class GPA extends React.Component {
               fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
-          >Universal GPA Calculator</h3>
+          >Universal GPA Calculator</h2>
 
           <div className='row input-switch-row text-center switch-body' style={ { marginBottom: '5px' } }>
             <p
