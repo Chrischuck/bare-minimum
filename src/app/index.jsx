@@ -41,6 +41,7 @@ class App extends React.Component {
   render() {
     const { pathname, component, push } = this.props;
     const { isModalOpen, modalData } = this.state;
+
     return (
       <div id='globalWrapper' className='globalWrapper'>
         {

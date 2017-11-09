@@ -25,6 +25,7 @@ class Router extends React.Component {
     const { history, routes } = this.props;
     const App = routes.component;
     const pathname = history.location.pathname;
+
     if (pathname === '/') {
       history.replace('/grade-calculator');
       this.setState({ currentPath: '/grade-calculator' });
@@ -54,7 +55,7 @@ class Router extends React.Component {
     }
     return (
       <div>
-        <App pathname={ this.state.currentPath } component={ component } push={ this.push } />
+        <App pathname={ this.props.history.location.pathname } component={ component } push={ this.push } />
       </div>
     );
   }
