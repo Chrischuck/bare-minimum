@@ -2,8 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createHistory from 'history/createBrowserHistory'
-
-import './manifest.json'
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 import Router from './app/utils/router';
 import App from './app';
@@ -32,3 +31,5 @@ ReactDOM.render(
     <Router history={history} routes={routes}/>,
   document.getElementById('app')
 );
+
+OfflinePluginRuntime.install();

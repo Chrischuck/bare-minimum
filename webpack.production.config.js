@@ -71,7 +71,14 @@ module.exports = {
       title: 'Bare Minimum',
       filename: 'index.html',
       template: './index.html',
-      inject: true
+      inject: true,
+      minify: {
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        minifyCSS: true,
+        minifyURLs: true,
+        minifyJS: true
+      }
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new ExtractTextPlugin("styles.css"),
@@ -97,6 +104,18 @@ module.exports = {
    }),
     new CopyWebpackPlugin([
       { from: '../_redirects' },
+      { from: '../manifest.json' }
     ]),
+    new OfflinePlugin({
+      caches: {
+        main: ['*.bundle.js', 'index.html', 'styles.css', '*.png'],
+        additional: [],
+        optional: []
+      },
+      ServiceWorker: {
+        output: 'baremin-sw.js',
+        minify: true
+      }
+    })
   ]
 }
