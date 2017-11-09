@@ -108,7 +108,7 @@ module.exports = {
     ]),
     new OfflinePlugin({
       caches: {
-        main: ['*.bundle.js', 'index.html', 'styles.css', '*.png'],
+        main: ['*.bundle.js', 'index.html', 'styles.css', '*.png', '*.ico', 'manifest.json'],
         additional: [],
         optional: []
       },
