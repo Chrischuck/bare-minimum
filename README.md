@@ -2,7 +2,7 @@
 
 Live: <a target="_blank" href="https://bareminimum.co" >Bare Minimum!</a>
 
-![Alt text](./src/assets/BM512.png?raw=true "Title")
+![Alt text](https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/Bm192.png "Title")
 
 Written using react, webpack 3, preact, and love!
 
