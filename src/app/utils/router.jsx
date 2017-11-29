@@ -1,4 +1,5 @@
 import React from 'react';
+import Bundle from './bundle'
 
 class Router extends React.Component {
   constructor(props) {
@@ -26,23 +27,51 @@ class Router extends React.Component {
     const App = routes.component;
     const pathname = history.location.pathname;
 
+    const asyncFinalGradeComponent = routes.childRoutes.FinalGradeRoute;
+    const asyncDamageCalculatorComponent = routes.childRoutes.DamageCalculator;
+    const asyncWeightedGradeComponent = routes.childRoutes.WeightedGradeRoute;
+    const asyncGpaComponent = routes.childRoutes.GPARoute;
+    const asyncNotFoundComponent = routes.childRoutes.NotFoundRoute;
+
+    const FinalGradeComponent = () => (
+      <Bundle load={ asyncFinalGradeComponent }>
+        { Comp => <Comp /> }
+      </Bundle>
+    )
+    const DamageCalculatorComponent = () => (
+      <Bundle load={ asyncDamageCalculatorComponent }>
+        { Comp => <Comp /> }
+      </Bundle>
+    )
+    const WeightedGradeComponent = () => (
+      <Bundle load={ asyncWeightedGradeComponent }>
+        { Comp => <Comp /> }
+      </Bundle>
+    )
+
+    const GpaComponent = () => (
+      <Bundle load={ asyncGpaComponent }>
+        { Comp => <Comp /> }
+      </Bundle>
+    )
+    const NotFoundComponent = props => (
+      <Bundle load={ asyncNotFoundComponent }>
+        { Comp => <Comp { ...props } /> }
+      </Bundle>
+    )
+
     if (pathname === '/') {
       history.replace('/grade-calculator');
       this.setState({ currentPath: '/grade-calculator' });
       const component = <FinalGradeComponent />
       return <App pathname={ history.location.pathname } component={ component } push={ this.push } />
     }
-
-    const FinalGradeComponent = routes.childRoutes.FinalGradeRoute;
-    const DamageCalculatorComponent = routes.childRoutes.DamageCalculator;
-    const WeightedGradeComponent = routes.childRoutes.WeightedGradeRoute;
-    const GpaComponent = routes.childRoutes.GPARoute;
-    const NotFoundComponent = routes.childRoutes.NotFoundRoute;
     
     let component = null;
+
     switch (pathname) {
       case '/grade-calculator':
-        component = <FinalGradeComponent />;
+        component = <FinalGradeComponent />
         break;
       case '/damage-calculator':
         component = <DamageCalculatorComponent />;

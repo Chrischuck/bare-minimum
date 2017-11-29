@@ -7,11 +7,11 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import Router from './app/utils/router';
 import App from './app';
 
-import FinalGradeRoute from './routes/finalGrade';
-import WeightedGradeRoute from './routes/weightedGrade';
-import DamageCalculator from './routes/damageControl';
-import GPARoute from './routes/gpa';
-import NotFoundRoute from './routes/notFound';
+import FinalGradeRoute from './routes/finalGrade/index.bundle.js';
+import WeightedGradeRoute from './routes/weightedGrade/index.bundle.js';
+import DamageCalculator from './routes/damageControl/index.bundle.js';
+import GPARoute from './routes/gpa/index.bundle.js';
+import NotFoundRoute from './routes/notFound/index.bundle.js';
 
 const history = createHistory()
 
