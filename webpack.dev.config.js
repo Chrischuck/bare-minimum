@@ -94,7 +94,6 @@ module.exports = {
        windows: false
      }
    }),
-
     new CopyWebpackPlugin([
       { from: '../_redirects' },
     ]),

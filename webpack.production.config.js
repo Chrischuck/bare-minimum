@@ -67,6 +67,7 @@ module.exports = {
        minimize: true,
        debug: false
      }),
+    new webpack.optimize.ModuleConcatenationPlugin(),         
     new HtmlWebpackPlugin({
       title: 'Bare Minimum',
       filename: 'index.html',
@@ -77,7 +78,9 @@ module.exports = {
         collapseInlineTagWhitespace: true,
         minifyCSS: true,
         minifyURLs: true,
-        minifyJS: true
+        minifyJS: true,
+        removeComments: true,
+        removeRedundantAttributes: true
       }
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
@@ -112,6 +115,8 @@ module.exports = {
         additional: [],
         optional: []
       },
+      AppCache: false,
+      externals: ['/'],
       ServiceWorker: {
         output: 'baremin-sw.js',
         minify: true
