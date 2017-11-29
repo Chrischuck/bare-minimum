@@ -116,7 +116,7 @@ module.exports = {
         optional: []
       },
       AppCache: false,
-      externals: ['/'],
+      externals: ['/', '/grade-calculator'],
       ServiceWorker: {
         output: 'baremin-sw.js',
         minify: true
