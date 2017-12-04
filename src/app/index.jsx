@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, Component } from 'react';
 import './styles.css';
 import Header from '../components/header';
 import Modal from '../components/modal';
@@ -39,7 +39,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { pathname, component, push } = this.props;
+    const { pathname, Component, push } = this.props;
     const { isModalOpen, modalData } = this.state;
 
     return (
@@ -66,7 +66,7 @@ class App extends React.Component {
             overflow: 'scroll',
           } }
         >
-          { Children.map(component, child => cloneElement(child, { closeModal: this.closeModal, openModal: this.openModal })) }
+        <Component openModal={this.openModal} closeModal={this.closeModal} />
         </div>
       </div>
     );

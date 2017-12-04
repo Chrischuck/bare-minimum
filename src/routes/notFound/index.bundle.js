@@ -13,7 +13,7 @@ const NotFound = ({ push }) =>
       <h4>
         It's dangerous to alone! Here take this!
       </h4>
-      <a name={ 'grade-calculator' } onClick={ push }>
+      <a name={ 'grade-calculator' } onClick={ push } style={{ cursor: 'pointer' }}>
         <img className='featurette-image img-responsive center-block' role='presentation' src={ sword } />
       </a>
     </div>

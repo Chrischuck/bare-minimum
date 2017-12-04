@@ -62,6 +62,7 @@ export default class DamageCalculator extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className='container'>
         <Helmet
