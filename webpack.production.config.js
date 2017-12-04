@@ -115,6 +115,14 @@ module.exports = {
         additional: [],
         optional: []
       },
+      cacheMaps: [
+        {
+          match: function(requestUrl) {
+            return new URL('/', location);
+          },
+          requestTypes: ['navigate']
+        }
+      ],
       AppCache: false,
       externals: ['/', '/grade-calculator'],
       ServiceWorker: {
