@@ -77,7 +77,7 @@ module.exports = {
       inject: true
     }),
     new FaviconsWebpackPlugin({
-      logo: './assets/Bm144.png',
+      logo: './assets/logo.png',
       icons: {
        android: false,
        appleIcon: false,
