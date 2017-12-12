@@ -91,7 +91,7 @@ module.exports = {
       }
     }),
     new FaviconsWebpackPlugin({
-      logo: './assets/Bm144.png',
+      logo: './assets/logo.png',
       icons: {
        android: false,
        appleIcon: false,
