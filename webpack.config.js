@@ -76,21 +76,6 @@ module.exports = {
       template: './index.html',
       inject: true
     }),
-    new FaviconsWebpackPlugin({
-      logo: './assets/logo.png',
-      icons: {
-       android: false,
-       appleIcon: false,
-       appleStartup: false,
-       coast: false,
-       favicons: true,
-       firefox: false,
-       opengraph: false,
-       twitter: false,
-       yandex: false,
-       windows: false
-     }
-    }),
     new ExtractTextPlugin("styles.css")
   ]
 }
