@@ -10,7 +10,6 @@ A  web app designed to help other college students get through college. Eventual
 
 ## Goals
 - [ ] Increase performance/load times
-- [ ] Fix ui font issues, make it look better
 
 ## Installation
 If you want to help out, just clone and npm install(or yarn!) and you're on your way!  
