@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = ({ path, push }) =>
-  <nav className='navbar navbar-static-top'>
+  <nav className='navbar'>
     <div className='navbar-container'>
       <div className='navbar-header'>
         <div className='navbar-brand'>Bare Minimum</div>
