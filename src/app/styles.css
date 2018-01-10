@@ -19,7 +19,7 @@ body {
 
 a {
   background-color: transparent;
-  color: #009688;
+  color: #2f80ed;
   text-decoration: none;
 }
 a:active,
@@ -51,15 +51,6 @@ h1 {
 }
 
 
-a:hover,
-a:focus {
-  color: #23527c;
-  text-decoration: underline;
-}
-a:focus {
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
 
 .container {
   margin-right: auto;
@@ -214,13 +205,7 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
 }
-input[type="file"] {
-  display: block;
-}
-input[type="file"]:focus {
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
+
 .form-control {
   display: block;
   width: 100%;
@@ -228,7 +213,8 @@ input[type="file"]:focus {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  font-size: 15px;
+  font-weight: 400;
   background-color: #ffffff;
   background-image: none;
   border: 1px solid #9e9c9c;
@@ -238,7 +224,7 @@ input[type="file"]:focus {
   transition: border-color ease-in-out .2s, box-shadow ease-in-out .2s;
 }
 .form-control:focus {
-  border-color: #009180;
+  border-color: #1e72df;
   outline: 0;
 }
 .form-control::-moz-placeholder {
@@ -255,9 +241,7 @@ input[type="file"]:focus {
   border: 0;
   background-color: transparent;
 }
-input[type="search"] {
-  -webkit-appearance: none;
-}
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -300,21 +284,14 @@ input[type="search"] {
 
 .btn-primary {  
   color: #ffffff;
-  background-color: #009688;
-  border-radius: 3px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  background-color: #2f80ed;
+  border-radius: 1.3125rem;
 }
 
 .btn-primary:hover {
   text-decoration: none;  
   color: #ffffff;
-  background-color: rgb(1, 129, 116);
-}
-
-
-input[type="reset"].btn-block,
-input[type="button"].btn-block {
-  width: 100%;
+  background-color: #1e72df;
 }
 
 .navbar {
@@ -598,7 +575,6 @@ input[type="button"].btn-block {
 }
 @media (max-width: 540px) {
   .modal-content {
-    top: 60%;    
     width: auto;
     margin-left: 0;
     margin-right: 0;
@@ -721,10 +697,10 @@ input[type="button"].btn-block {
   display: inline-block;
 }
 .switch-input:checked + .switch-label:before {
-  background-color: rgba(2, 197, 179, 0.82);
+  background-color: #56CCF2;
 }
 .switch-input:checked + .switch-label:after {
-  background-color: #018679;
+  background-color: #2f80ed;
   -ms-transform: translate(80%, -50%);
   -webkit-transform: translate(80%, -50%);
   transform: translate(80%, -50%);

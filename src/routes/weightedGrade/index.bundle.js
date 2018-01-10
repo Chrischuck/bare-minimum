@@ -195,7 +195,6 @@ export default class WeightedGrade extends React.Component {
                   value={ this.state.requiredGrade }
                   onChange={ this.onInputChange }
                   placeholder={ '93%' }
-                  style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
               </div>
               <div className='form-group has-success is-empty col-md-6 col-xs-6 col-sm-6' style={ { paddingLeft: '2.5px', paddingRight: '0px', marginBottom: 5 } } >
@@ -214,7 +213,6 @@ export default class WeightedGrade extends React.Component {
                   name='finalWeight'
                   onChange={ this.onInputChange }
                   placeholder={ '20%' }
-                  style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
                 />
               </div>
             </div>
@@ -234,9 +232,6 @@ export default class WeightedGrade extends React.Component {
                   <a
                     className='btn btn-primary no-padding col-md-12 col-xs-12'
                     onClick={ this.addCategory }
-                    style={ {
-                      backgroundColor: '#009688',
-                    } }
                   >
                       Add Category
                   </a>

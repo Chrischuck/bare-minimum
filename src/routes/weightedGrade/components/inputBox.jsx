@@ -96,7 +96,6 @@ export default class InputBox extends React.Component {
             name='category'
             onChange={ this.onInputChange }
             placeholder={ category.category }
-            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
 
@@ -116,7 +115,6 @@ export default class InputBox extends React.Component {
             name='grade'
             onChange={ this.onInputChange }
             placeholder={ category.grade }
-            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
 
@@ -136,7 +134,6 @@ export default class InputBox extends React.Component {
             name='weight'
             onChange={ this.onInputChange }
             placeholder={ category.weight }
-            style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
           />
         </div>
       </div>
