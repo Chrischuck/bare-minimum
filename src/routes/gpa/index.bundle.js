@@ -243,7 +243,6 @@ export default class GPA extends React.Component {
                 placeholder='3.8'
                 value={ this.state.pastGpa }
                 onChange={ this.onPastGpaChange }
-                style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
               />
             </div>
 
@@ -264,7 +263,6 @@ export default class GPA extends React.Component {
                 placeholder='60'
                 value={ this.state.pastUnits }
                 onChange={ this.onUnitsChange }
-                style={ { fontSize: '14px', fontWeight: '450', color: '#000000' } }
               />
             </div>
           </div>
