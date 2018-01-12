@@ -1,4 +1,3 @@
-/* eslint-disable */
 var path = require('path');
 var express = require('express');
 var compression = require('compression');
