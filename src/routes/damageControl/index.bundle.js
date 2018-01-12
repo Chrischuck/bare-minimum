@@ -176,7 +176,7 @@ export default class DamageCalculator extends React.Component {
 
               <div className='row' style={ { marginLeft: '4%', marginRight: '4%', textAlign: 'center' } } >
                 <a
-                  className='btn btn-primary col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3'
+                  className='btn col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3'
                   onClick={ this.onCalculate }
                 >
                     Calculate

@@ -272,17 +272,12 @@ label {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 12px;
-  font-size: 14px;
   line-height: 1.42857143;
-  border-radius: 4px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-decoration: none;
-}
-
-.btn-primary {  
   margin-top: 10px; 
   font-size: 16px;
   color: #ffffff;
@@ -290,7 +285,8 @@ label {
   border-radius: 1.3125rem;
 }
 
-.btn-primary:hover {
+
+.btn:hover {
   text-decoration: none;  
   color: #ffffff;
   background-color: #1e72df;

@@ -14,12 +14,11 @@ const Modal = ({ isModalOpen, modalData, closeModal }) =>
       <p className='modal-p'>{ modalData.message }</p>
       <div className='modal-button-container'>
         <a
-          className='btn btn-primary'
+          className='btn'
           onClick={ closeModal }
           style={ {
             fontWeight: 500,
             fontSize: '17px',
-            padding: '10px 32px',
             margin: '26px 5px 0',
           } }
         >

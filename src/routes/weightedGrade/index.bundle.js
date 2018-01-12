@@ -230,7 +230,7 @@ export default class WeightedGrade extends React.Component {
                   } }
                 >
                   <a
-                    className='btn btn-primary no-padding col-md-12 col-xs-12'
+                    className='btn no-padding col-md-12 col-xs-12'
                     onClick={ this.addCategory }
                   >
                       Add Category
@@ -245,7 +245,7 @@ export default class WeightedGrade extends React.Component {
                   } }
                 >
                   <a
-                    className='btn btn-primary no-padding col-md-12 col-xs-12'
+                    className='btn no-padding col-md-12 col-xs-12'
                     onClick={ this.calculate }
                   >
                       Calculate

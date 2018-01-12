@@ -279,7 +279,7 @@ export default class GPA extends React.Component {
                 } }
               >
                 <a
-                  className='btn btn-primary no-padding col-md-12 col-xs-12'
+                  className='btn no-padding col-md-12 col-xs-12'
                   onClick={ this.addClass }
                 >
                   Add Class
@@ -294,7 +294,7 @@ export default class GPA extends React.Component {
                 } }
               >
                 <a
-                  className='btn btn-primary no-padding col-md-12 col-xs-12'
+                  className='btn no-padding col-md-12 col-xs-12'
                   onClick={ this.showGpa }
                 >
                   Calculate
