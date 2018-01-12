@@ -18,7 +18,8 @@ const Modal = ({ isModalOpen, modalData, closeModal }) =>
           onClick={ closeModal }
           style={ {
             fontWeight: 500,
-            fontSize: '17px',
+            fontSize: '18px',
+            padding: '8px 20px',
             margin: '26px 5px 0',
           } }
         >

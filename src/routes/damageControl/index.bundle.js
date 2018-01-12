@@ -27,9 +27,19 @@ export default class DamageCalculator extends React.Component {
         type: 'warning',
       });
     } else {
+      const grade = this.calculateGrade()
+      let title = 'Nice!'
+      if (grade < 50) {
+        title = 'Ouch.'
+      } else if (grade >= 50 && grade < 61) {
+        title = 'Bummer.'
+      } else if (grade >= 61 && grade < 80 ) {
+        title = 'Not Bad.'
+      }
+
       this.props.openModal({
-        title: 'After consulting the magic 8 ball...',
-        message: `It has been revealed your grade is now ${this.calculateGrade()}%.`,
+        title,
+        message: `Looks like your grade is now ${this.calculateGrade()}%.`,
         type: null,
       });
     }
@@ -62,7 +72,7 @@ export default class DamageCalculator extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+
     return (
       <div className='container'>
         <Helmet
@@ -159,7 +169,7 @@ export default class DamageCalculator extends React.Component {
                     paddingTop: '.8vh',
                     fontWeight: 400,
                   } }
-                >{'Assignment\'s grade:'}</label>
+                >{'Projected grade:'}</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
                   <input
                     className='form-control'
