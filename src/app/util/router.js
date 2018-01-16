@@ -1,7 +1,40 @@
-import React from 'react';
+import { h, Component } from 'preact'
 import Bundle from './bundle'
 
-class Router extends React.Component {
+import asyncFinalGradeComponent from '../../routes/finalGrade/index.bundle.js';
+import asyncDamageCalculatorComponent from '../../routes/damageControl/index.bundle.js';
+import asyncWeightedGradeComponent from '../../routes/weightedGrade/index.bundle.js';
+import asyncGpaComponent from '../../routes/gpa/index.bundle.js';
+import asyncNotFoundComponent from '../../routes/notFound/index.bundle.js';
+
+const FinalGradeComponent = props => (
+  <Bundle load={ asyncFinalGradeComponent }>
+    { Comp => <Comp { ...props } /> }
+  </Bundle>
+)
+const DamageCalculatorComponent = props => (
+  <Bundle load={ asyncDamageCalculatorComponent }>
+    { Comp => <Comp { ...props } /> }
+  </Bundle>
+)
+const WeightedGradeComponent = props => (
+  <Bundle load={ asyncWeightedGradeComponent }>
+    { Comp => <Comp { ...props } /> }
+  </Bundle>
+)
+
+const GpaComponent = props => (
+  <Bundle load={ asyncGpaComponent }>
+    { Comp => <Comp { ...props } /> }
+  </Bundle>
+)
+const NotFoundComponent = () => (
+  <Bundle load={ asyncNotFoundComponent }>
+    { Comp => <Comp push={ this.push } /> }
+  </Bundle>
+)
+
+class Router extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,39 +59,6 @@ class Router extends React.Component {
     const { history, routes } = this.props;
     const App = routes.component;
     const pathname = history.location.pathname;
-
-    const asyncFinalGradeComponent = routes.childRoutes.FinalGradeRoute;
-    const asyncDamageCalculatorComponent = routes.childRoutes.DamageCalculator;
-    const asyncWeightedGradeComponent = routes.childRoutes.WeightedGradeRoute;
-    const asyncGpaComponent = routes.childRoutes.GPARoute;
-    const asyncNotFoundComponent = routes.childRoutes.NotFoundRoute;
-
-    const FinalGradeComponent = props => (
-      <Bundle load={ asyncFinalGradeComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-    const DamageCalculatorComponent = props => (
-      <Bundle load={ asyncDamageCalculatorComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-    const WeightedGradeComponent = props => (
-      <Bundle load={ asyncWeightedGradeComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-
-    const GpaComponent = props => (
-      <Bundle load={ asyncGpaComponent }>
-        { Comp => <Comp { ...props } /> }
-      </Bundle>
-    )
-    const NotFoundComponent = () => (
-      <Bundle load={ asyncNotFoundComponent }>
-        { Comp => <Comp push={ this.push } /> }
-      </Bundle>
-    )
 
     if (pathname === '/') {
       history.replace('/grade-calculator');

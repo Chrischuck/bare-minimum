@@ -1,9 +1,9 @@
-import React, { Children, cloneElement, Component } from 'react';
+import { h, Component } from 'preact';
 import './styles.css';
-import Header from '../components/header';
-import Modal from '../components/modal';
+import Header from '../components/header/index.js';
+import Modal from '../components/modal/index.js';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
 

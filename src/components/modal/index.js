@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
 const Modal = ({ isModalOpen, modalData, closeModal }) =>
   <div className={ `modal-background ${isModalOpen ? 'visible' : ''}` }>

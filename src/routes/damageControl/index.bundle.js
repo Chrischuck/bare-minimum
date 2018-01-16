@@ -1,9 +1,9 @@
-import React from 'react';
+import { h, Component } from 'preact'
 import Helmet from 'preact-helmet';
 
 import { simpleErrorStringBuilder } from '../../util/stringBuilders';
 
-export default class DamageCalculator extends React.Component {
+export default class DamageCalculator extends Component {
   constructor(props) {
     super(props);
 

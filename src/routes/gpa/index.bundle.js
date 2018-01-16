@@ -1,11 +1,11 @@
-import React from 'react';
+import { h, Component } from 'preact';
 import Helmet from 'preact-helmet';
 
 import InputBox from './components/inputBox';
 import { gradeToNumber } from '../../util/calculations';
 import { gpaStringBuilder } from '../../util/stringBuilders';
 
-export default class GPA extends React.Component {
+export default class GPA extends Component {
   constructor(props) {
     super(props);
     this.state = {

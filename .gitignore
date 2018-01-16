@@ -2,3 +2,5 @@ node_modules
 npm-debug.log
 vscode
 dist
+dev_dist
+package-lock.json
