@@ -1,6 +1,6 @@
-import React from 'react';
+import { h, Component } from 'preact';
 
-export default class InputBox extends React.Component {
+export default class InputBox extends Component {
   constructor(props) {
     super(props);
 

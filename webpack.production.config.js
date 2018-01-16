@@ -10,10 +10,7 @@ module.exports = {
   entry: {
     app: './index.js', 
     vendor: [
-      'react',
-      'react-dom',
       'preact',
-      'preact-compat',
       'preact-helmet'
     ]
   },
@@ -22,39 +19,26 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  resolve: {
-    alias: {
-      'react': 'preact-compat/dist/preact-compat',
-      'react-dom': 'preact-compat/dist/preact-compat'
-  },
-    extensions: ['.js', '.jsx', '.json', '.css']
-  },
   module: {
     loaders: [
       { test: /\.bundle\.js$/, loader: 'bundle-loader', options: { lazy: true } },
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["babel-loader"] },
       { test: /\.eot/, loader: 'url-loader?mimetype=application/vnd.ms-fontobject' },
       { test: /\.ttf/, loader: 'url-loader?mimetype=application/x-font-ttf' },
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
-      { test: /\.svg$/, loader: "svg-loader?limit=10000&mimetype=image/svg+xml" },
+      { test: /\.svg$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
       { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
-      { test: /\.(jpe?g|png)$/i, loaders: [
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.ico$/, loader: "url-loader?limit=100000" },
+       { test: /\.(jpe?g)$/i, loaders: [
             'file-loader?hash=sha512&digest=hex',
             'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ] },
-      { test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
+      ] },
+      {test: /manifest.json$/, loader: 'file-loader?name=manifest.json!web-app-manifest-loader' },
       {
         test: /\.js$/,
         exclude: [/node_modules/],
-        loader: 'babel-loader',
-        query: {
-          presets: ["es2015", "react", "stage-0"],
-          plugins: [
-              ["transform-decorators-legacy"],
-              ["transform-runtime"]
-            ]
-          }
+        loader: 'babel-loader'
       },
     ]
   },

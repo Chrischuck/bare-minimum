@@ -1,6 +1,6 @@
-import React from 'react'
+import { Component } from 'preact'
 
-class Bundle extends React.Component {
+class Bundle extends Component {
   state = {
     mod: null
   }
@@ -27,7 +27,8 @@ class Bundle extends React.Component {
   }
 
   render() {
-    return this.state.mod ? this.props.children(this.state.mod) : null
+    const func = this.props.children[0]
+    return this.state.mod ? func(this.state.mod) : null
   }
 }
 

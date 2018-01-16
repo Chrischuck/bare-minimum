@@ -1,4 +1,4 @@
-import React from 'react';
+import { h, Component } from 'preact';
 import sword from '../../assets/sword.png';
 
 const NotFound = ({ push }) =>

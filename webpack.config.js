@@ -12,25 +12,15 @@ module.exports = {
 
   context: __dirname + '/src',
   entry: [
-    'babel-polyfill',
     './index.js', 
   ],
   output: {
     filename: 'app.js',
     path: __dirname + '/dist' 
   },
-
-  resolve: {
-    alias: {
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat'
-  },
-    extensions: ['.js', '.jsx', '.json', '.css']
-  },
   module: {
     loaders: [
       { test: /\.bundle\.js$/, loader: 'bundle-loader', options: { lazy: true } },
-      { test: /\.jsx?$/, exclude: /node_modules/, use: ["babel-loader"] },
       { test: /\.eot/, loader: 'url-loader?mimetype=application/vnd.ms-fontobject' },
       { test: /\.ttf/, loader: 'url-loader?mimetype=application/x-font-ttf' },
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
@@ -47,17 +37,8 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: [/node_modules/],
-        loader: 'babel-loader',
-        query: {
-          presets: ["es2015", "react", "stage-0"],
-          plugins: [
-              ["transform-decorators-legacy"],
-              ["transform-runtime"]
-            ]
-          }
+        loader: 'babel-loader'
       },
-
-
     ]
   },
 

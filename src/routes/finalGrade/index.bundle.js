@@ -1,9 +1,9 @@
-import React from 'react';
+import { h, Component } from 'preact';
 import Helmet from 'preact-helmet';
 
 import { calculatorStringBuilder, simpleErrorStringBuilder } from '../../util/stringBuilders';
 
-export default class FinalGrade extends React.Component {
+export default class FinalGrade extends Component {
   constructor(props) {
     super(props);
 
