@@ -3,4 +3,5 @@ npm-debug.log
 vscode
 dist
 dev_dist
+.DS_Store
 package-lock.json
