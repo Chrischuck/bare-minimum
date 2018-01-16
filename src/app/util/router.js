@@ -28,9 +28,9 @@ const GpaComponent = props => (
     { Comp => <Comp { ...props } /> }
   </Bundle>
 )
-const NotFoundComponent = () => (
+const NotFoundComponent = props => (
   <Bundle load={ asyncNotFoundComponent }>
-    { Comp => <Comp push={ this.push } /> }
+    { Comp => <Comp push={ props.push } /> }
   </Bundle>
 )
 

@@ -66,7 +66,7 @@ class App extends Component {
             overflow: 'scroll',
           } }
         >
-        <Component openModal={this.openModal} closeModal={this.closeModal} />
+        <Component push={this.props.push} openModal={this.openModal} closeModal={this.closeModal} />
         </div>
       </div>
     );
