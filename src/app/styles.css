@@ -8,7 +8,6 @@ html {
     display: none;
 }
 body {
-  font-family: Roboto;  
   margin: 0;
   height:100%;
   width:100%;
@@ -204,7 +203,16 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 18px;
+  font-weight: 400;
 }
+
+@media (max-width: 768px) {
+  label {
+    font-size: 16px;
+  }
+}
+
 
 .form-control {
   display: block;
@@ -258,7 +266,7 @@ label {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 6px 12px;
+  padding: 4px 10px;
   line-height: 1.42857143;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -266,7 +274,7 @@ label {
   user-select: none;
   text-decoration: none;
   margin-top: 10px; 
-  font-size: 16px;
+  font-size: 17px;
   color: #ffffff;
   background-color: #2f80ed;
   border-radius: 1.3125rem;
@@ -374,6 +382,7 @@ label {
   padding-top: 20px;
   padding-bottom: 10px;
   line-height: 20px;
+  font-size: 18px;
   color: #657786;
   margin-bottom: 0;
   padding-left: 0;

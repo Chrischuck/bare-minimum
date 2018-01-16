@@ -89,7 +89,6 @@ export default class DamageCalculator extends React.Component {
               style={ {
                 marginTop: 15,
                 marginBottom: 15,
-                fontSize: '5vw 5h',
                 color: '#2e2d2d',
               } }
             >Damage Calculator</h2>
@@ -98,7 +97,6 @@ export default class DamageCalculator extends React.Component {
               style={ {
                 marginBottom: 8,
                 marginTop: 0,
-                fontSize: '13px',
                 color: '#5d5d5d',
               } }
             >

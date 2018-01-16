@@ -92,7 +92,6 @@ export default class FinalGrade extends React.Component {
                   textAlign: 'right',
                   lineHeight: '2.2vh',
                   paddingTop: '.8vh',
-                  fontWeight: 400,
                 } }
               >Your current grade:</label>
               <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -106,7 +105,7 @@ export default class FinalGrade extends React.Component {
                   id='currentGrade'
                 />
               </div>
-              <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >%.</label>
+              <label className='col-md-2' htmlFor='currentGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >%.</label>
             </div>
 
               <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
@@ -117,7 +116,6 @@ export default class FinalGrade extends React.Component {
                     paddingRight: '10px',
                     textAlign: 'right',
                     paddingTop: '.8vh',
-                    fontWeight: 400,
                   } }
                 >You want a:</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -131,7 +129,7 @@ export default class FinalGrade extends React.Component {
                     id='requiredGrade'
                   />
                 </div>
-                <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8, fontWeight: 400 } } >% in the class.</label>
+                <label htmlFor='requiredGrade' style={ { paddingTop: '10px', paddingLeft: 8 } } >% in the class.</label>
               </div>
 
               <div className='row form-group has-success is-empty' style={ { marginLeft: '0px', marginRight: '0px', marginTop: '10px', marginBottom: '10px' } } >
@@ -142,7 +140,6 @@ export default class FinalGrade extends React.Component {
                     paddingRight: '10px',
                     textAlign: 'right',
                     paddingTop: '.8vh',
-                    fontWeight: 400,
                   } }
                 >Final's worth:</label>
                 <div className='col-xs-2' style={ { paddingLeft: 0, paddingRight: 0 } } >
@@ -156,7 +153,7 @@ export default class FinalGrade extends React.Component {
                     id='final'
                   />
                 </div>
-                <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4, fontWeight: 400 } } >% of your grade.</label>
+                <label htmlFor='final' style={ { paddingTop: '10px', paddingLeft: 4 } } >% of your grade.</label>
               </div>
 
               <div className='row' style={ { marginLeft: '4%', marginRight: '4%', textAlign: 'center' } } >

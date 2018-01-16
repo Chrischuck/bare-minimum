@@ -166,7 +166,6 @@ export default class GPA extends React.Component {
             style={ {
               marginTop: 14,
               marginBottom: 8,
-              fontSize: '5vw 5h',
               color: '#2e2d2d',
             } }
           >Universal GPA Calculator</h2>
