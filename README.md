@@ -3,7 +3,7 @@
 Live: <a target="_blank" href="https://bareminimum.co" >Bare Minimum!</a>
 
 <p align="center">
-  <img src='https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/logo.png' height='550' width='550'>
+  <img src='https://github.com/Chrischuck/bare-minimum/blob/master/src/assets/logo.png' height='550' width='auto'>
 </p>
 
 Written using preact, webpack 3, babel 7 and love!
