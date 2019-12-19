@@ -16,11 +16,12 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    filename: 'bundle.js'
+    filename: "[name].chunkhash.bundle.js",
+    chunkFilename: "[name].chunkhash.bundle.js",
   },
 
   module: {
-    loaders: [
+    rules: [
       { test: /\.bundle\.js$/, loader: 'bundle-loader', options: { lazy: true } },
       { test: /\.eot/, loader: 'url-loader?mimetype=application/vnd.ms-fontobject' },
       { test: /\.ttf/, loader: 'url-loader?mimetype=application/x-font-ttf' },
@@ -44,8 +45,6 @@ module.exports = {
   },
   
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
     new webpack.LoaderOptionsPlugin({
        minimize: true,
        debug: false
@@ -68,11 +67,6 @@ module.exports = {
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new ExtractTextPlugin("styles.css"),
-    new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': JSON.stringify('production')
-      }
-    }),
     new FaviconsWebpackPlugin({
       logo: './assets/logo.png',
       icons: {

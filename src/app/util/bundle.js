@@ -1,4 +1,4 @@
-import { Component } from 'preact'
+import { Component, toChildArray } from 'preact'
 
 class Bundle extends Component {
   state = {
@@ -27,8 +27,9 @@ class Bundle extends Component {
   }
 
   render() {
-    const func = this.props.children[0]
-    return this.state.mod ? func(this.state.mod) : null
+    const func = toChildArray(this.props.children)[0]
+
+    return this.state.mod && func ? func(this.state.mod) : null
   }
 }
 

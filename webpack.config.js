@@ -19,8 +19,8 @@ module.exports = {
     path: __dirname + '/dist' 
   },
   module: {
-    loaders: [
-      { test: /\.bundle\.js$/, loader: 'bundle-loader', options: { lazy: true } },
+    rules: [
+      { test: /\.bundle\.js$/, use: [ { loader: 'bundle-loader', options: { lazy: true } } ] },
       { test: /\.eot/, loader: 'url-loader?mimetype=application/vnd.ms-fontobject' },
       { test: /\.ttf/, loader: 'url-loader?mimetype=application/x-font-ttf' },
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
@@ -42,14 +42,8 @@ module.exports = {
     ]
   },
 
-  devServer: {
-    hot: true,
-    quiet: true, 
-    historyApiFallback: true,
-  },
-
   plugins: [
-    new DashboardPlugin(dashboard.setData),
+    //new DashboardPlugin(dashboard.setData),
     new HtmlWebpackPlugin({
       title: 'Bare Minimum',
       filename: 'index.html',
