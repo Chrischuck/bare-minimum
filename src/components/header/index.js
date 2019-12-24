@@ -2,31 +2,32 @@ import { h, Component } from 'preact';
 
 import styles from './index.module.css'
 
-console.log(styles)
+function isActiveTabClassName(path = '', tabPath) {
+  return path === tabPath || path === `/${tabPath}` ?
+  styles.activeTab :
+  ''
+}
 
 const Header = ({ path, push }) =>
-  <nav className={styles.navbar}>
-    <div className={styles.navbarContainer}>
-      <div className='navbar-header'>
-        <div className='navbar-brand'>Bare Minimum</div>
+  <div className={styles.navbarContainer}>
+    <div className={styles.navbarHeader}>
+      <h1 className={styles.navbarBrand}>Bare Minimum</h1>
+    </div>
+    <div className={styles.tabContainer}>
+      <div onClick={() => push('grade-calculator')} className={`${styles.tab} ${isActiveTabClassName(path, 'grade-calculator')}`}>
+        <p>Final Grade Calculator</p>
       </div>
-      <div id='navbar' className='navbar-collapse'>
-        <ul className='navbar-nav'>
-          <li style={{ cursor: 'pointer' }} className={ path === 'grade-calculator' || path === '/grade-calculator' ? 'active' : '' }>
-            <a name={ 'grade-calculator' } onClick={ push }>Final Grade Calculator</a>
-          </li>
-          <li style={{ cursor: 'pointer' }} className={ path === 'damage-calculator' || path === '/damage-calculator' ? 'active' : '' }>
-            <a name={ 'damage-calculator' } onClick={ push }>Damage Calculator</a>
-          </li>
-          <li style={{ cursor: 'pointer' }} className={ path === 'weighted-grade-calculator' || path === '/weighted-grade-calculator' ? 'active' : '' }>
-            <a name={ 'weighted-grade-calculator' } onClick={ push }>Weighted Grade Calculator</a>
-          </li>
-          <li style={{ cursor: 'pointer' }} className={ path === 'gpa-calculator' || path === '/gpa-calculator' ? 'active' : '' }>
-            <a name={ 'gpa-calculator' } onClick={ push }>GPA Calculator</a>
-          </li>
-        </ul>
+      <div onClick={() => push('damage-calculator')}className={`${styles.tab} ${isActiveTabClassName(path, 'damage-calculator')}`}>
+        <p>Damage Calculator</p>
+      </div>
+      <div onClick={() => push('weighted-grade-calculator')}className={`${styles.tab} ${isActiveTabClassName(path, 'weighted-grade-calculator')}`}>
+        <p>Weighted Grade Calculator</p>
+      </div>
+      <div onClick={() => push('gpa-calculator')}className={`${styles.tab} ${isActiveTabClassName(path, 'gpa-calculator')}`}>
+        <p>GPA Calculator</p>
       </div>
     </div>
-  </nav>;
+    <div className={styles.placeholder}/>
+  </div>;
 
 export default Header;

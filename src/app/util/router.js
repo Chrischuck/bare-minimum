@@ -48,11 +48,9 @@ class Router extends Component {
     });
   }
 
-  push = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.props.history.push(e.target.name);
-    this.setState({ currentPath: e.target.name });
+  push = (path) => {
+    this.props.history.push(path);
+    this.setState({ currentPath: path });
   }
 
   render() {

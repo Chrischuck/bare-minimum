@@ -4,6 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   context: __dirname + '/src', 
@@ -28,19 +29,24 @@ module.exports = {
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
-      { test: /\.css$/, loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            modules: true,
-            onlyLocals: true,
-            modules: {
-              localIdentName: "[name]__[local]___[hash:base64:5]",
+      { test: /\.css$/, use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader?url=false',
+            options: {
+              importLoaders: 1,
+              modules: true,
+
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              }
             }
-        }
+          }
+        ]
      },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.ico$/, loader: "url-loader?limit=100000" },
-       { test: /\.(jpe?g)$/i, loaders: [
+       { test: /\.(jpe?g)$/i, use: [
             'file-loader?hash=sha512&digest=hex',
             'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
       ] },
@@ -69,7 +75,7 @@ module.exports = {
         removeRedundantAttributes: true
       }
     }),
-    new ExtractTextPlugin("styles.css"),
+    new MiniCssExtractPlugin(),
 
     ...(process.env.NODE_ENV === 'production' ? [
       new webpack.LoaderOptionsPlugin({
