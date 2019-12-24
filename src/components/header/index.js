@@ -1,8 +1,12 @@
 import { h, Component } from 'preact';
 
+import styles from './index.module.css'
+
+console.log(styles)
+
 const Header = ({ path, push }) =>
-  <nav className='navbar'>
-    <div className='navbar-container'>
+  <nav className={styles.navbar}>
+    <div className={styles.navbarContainer}>
       <div className='navbar-header'>
         <div className='navbar-brand'>Bare Minimum</div>
       </div>

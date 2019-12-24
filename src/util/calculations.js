@@ -38,7 +38,7 @@ export function gradeToNumber(grade, APlusCounts, goesToHundreth) {
     case 'E-':
       return 0;
     default:
-      return grade;
+      return 0;
   }
 }
 

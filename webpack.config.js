@@ -28,7 +28,16 @@ module.exports = {
       { test: /\.woff/, loader: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2/, loader: 'url-loader?mimetype=application/font-woff2' },
       { test: /\.svg$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
+      { test: /\.css$/, loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: true,
+            onlyLocals: true,
+            modules: {
+              localIdentName: "[name]__[local]___[hash:base64:5]",
+            }
+        }
+     },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.ico$/, loader: "url-loader?limit=100000" },
        { test: /\.(jpe?g)$/i, loaders: [

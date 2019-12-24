@@ -1,8 +1,10 @@
 import { h, Component } from 'preact';
 
+import styles from './index.module.css';
+
 const Modal = ({ isModalOpen, modalData, closeModal }) =>
-  <div className={ `modal-background ${isModalOpen ? 'visible' : ''}` }>
-    <div className={ `modal-content ${isModalOpen ? 'visible' : ''}` }>
+  <div className={ `${styles.modalBackground} ${isModalOpen ? styles.modalVisible : ''}` }>
+    <div className={ `${styles.modalContent} ${isModalOpen ? styles.modalContentVisible : ''}` }>
       {
         modalData.type &&
         <div className='modal-icon modal-warning'>
