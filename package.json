@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --mode development",
     "build": "NODE_ENV=production webpack -p --config ./webpack.config.js",
     "start": "node server.js",
-    "pretty": "prettier --write \"./src/**/*.{js,json,css}\""
+    "pretty": "prettier --write \"./src/**/*.{js,json,css}\"",
+    "analyze": "NODE_ENV=production ANALYZE=true webpack -p --config ./webpack.config.js"
   },
   "keywords": [
     "grade",

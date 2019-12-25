@@ -5,6 +5,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   context: __dirname + '/src',
@@ -160,6 +161,7 @@ module.exports = {
             }
           })
         ]
-      : [])
+      : []),
+      ...(process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : [])
   ]
 }
