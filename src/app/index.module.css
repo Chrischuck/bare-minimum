@@ -36,7 +36,7 @@ a:hover {
 
 label {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
   white-space: nowrap;
 }
 
@@ -45,6 +45,13 @@ label {
   display: flex;
   justify-content: center;
   overflow: scroll;
+}
+
+@media (max-width: 768px) {
+  label {
+    font-size: 16px;
+    white-space: wrap;
+  }
 }
 
 .switch-body {

@@ -85,7 +85,7 @@ const FinalGrade = ({ openModal }) => {
           inputId="currentGrade"
           value={currentGrade}
           onChange={e => setCurrentGrade(e.target.value)}
-          startLabel="Your current grade:"
+          startLabel="Current grade:"
           endLabel="%."
           placeholder="92"
         />

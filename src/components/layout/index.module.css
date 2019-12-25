@@ -5,7 +5,7 @@
 .card {
   width: 580px;
   min-height: 20px;
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 20px;
   margin-top: 8vh;
   border-radius: 0.25rem;
@@ -25,4 +25,18 @@
 
 .subtitle {
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    border: 0;
+    box-shadow: none;
+    margin-top: 2vh;
+    padding: 5px;
+  }
+
+  .header {
+    font-size: 25px;
+  }
 }

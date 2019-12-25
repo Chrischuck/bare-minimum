@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   max-width: 100%;
-  flex: 1
+  flex: 1;
 }
 .tabContainer {
   display: flex;
