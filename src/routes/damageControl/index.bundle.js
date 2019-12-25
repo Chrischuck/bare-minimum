@@ -1,6 +1,9 @@
 import { h } from 'preact'
 import { useState } from 'preact/hooks'
 
+import {
+  simpleErrorStringBuilder
+} from 'Util/stringBuilders'
 import Layout from 'Components/layout'
 import Button from 'Components/Button'
 import InputRow from 'Components/SimpleInputRow'
@@ -23,15 +26,30 @@ const DamageCalculator = ({ openModal }) => {
     return finalGrade.toFixed(2)
   }
 
+  const errorStringBuilder = () => {
+    const errorString = simpleErrorStringBuilder({
+      'current grade': currentGrade,
+      'assignment\'s weight': assignmentWeight,
+      'assignment\'s grade': assignmentGrade,
+    });
+    if (errorString) {
+      return errorString;
+    }
+    if (Number(assignmentGrade) > 100) {
+      return 'Your final percentage can\'t be more than 100%';
+    }
+    return '';
+  }
+
   const onCalculate = () => {
     if (
-      currentGrade === '' ||
-      assignmentWeight === '' ||
-      assignmentGrade === ''
+      currentGrade === null ||
+      assignmentWeight === null ||
+      assignmentGrade === null
     ) {
       openModal({
         title: 'Uh Oh!',
-        message: this.errorStringBuilder(),
+        message: errorStringBuilder(),
         type: 'warning'
       })
     } else {
@@ -47,7 +65,7 @@ const DamageCalculator = ({ openModal }) => {
 
       openModal({
         title,
-        message: `Looks like your grade is now ${this.calculateGrade()}%.`,
+        message: `Looks like your grade is now ${calculateGrade()}%.`,
         type: null
       })
     }
