@@ -1,49 +1,48 @@
+.modalBackground {
+  position: fixed;
+  z-index: -1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+}
 
-  .modalBackground {
-    position: fixed;
-    z-index: -1000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.6);
-    visibility: hidden;
-  }
-  
-  .modalVisible {
+.modalVisible {
   visibility: visible;
   z-index: 1000;
-  }
-  
-  .modalContent {
-    background-color: #fff;
-    width: 478px;
-    padding: 17px;
-    border-radius: 3px;
-    text-align: center;
-    position: fixed;
-    left: 51%;
-    top: 45%;
-    margin-left: -256px;
-    margin-right: -256px;
-    margin-top: -200px;
-    overflow: hidden;
-    z-index: -99998;
-    transition: .3s;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    opacity: 0;
-    visibility: hidden;
-  }
-  .modalContentVisible {
+}
+
+.modalContent {
+  background-color: #fff;
+  width: 478px;
+  padding: 17px;
+  border-radius: 3px;
+  text-align: center;
+  position: fixed;
+  left: 51%;
+  top: 45%;
+  margin-left: -256px;
+  margin-right: -256px;
+  margin-top: -200px;
+  overflow: hidden;
+  z-index: -99998;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+.modalContentVisible {
   opacity: 1;
-  visibility: visible; 
+  visibility: visible;
   z-index: 99998;
-  }
-  @media (max-width: 540px) {
+}
+@media (max-width: 540px) {
   .modalContent {
     width: auto;
     margin-left: 0;
@@ -51,67 +50,66 @@
     left: 15px;
     right: 15px;
   }
-  }
-  
-  .modalIcon {
-    width: 80px;
-    height: 80px;
-    border: 4px solid gray;
-    -webkit-border-radius: 40px;
-    border-radius: 40px;
-    border-radius: 50%;
-    margin: 20px auto;
-    padding: 0;
-    position: relative;
-    box-sizing: content-box;
-    }
-  .modalIcon.modalWarning {
-    border-color: #F8BB86;
-  }
-  .modalIcon.modalWarning .modalBody {
-    position: absolute;
-    width: 5px;
-    height: 47px;
-    left: 50%;
-    top: 10px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    margin-left: -2px;
-    background-color: #F8BB86;
-  }
-  .modalIcon.modalWarning .modalDot {
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    margin-left: -3px;
-    left: 50%;
-    bottom: 10px;
-    background-color: #F8BB86;
-  }
-  
-  .modalH2 {
-    color: #575757;
-    font-size: 30px;
-    font-weight: 600;
-    text-transform: none;
-    margin: 25px 0;
-    line-height: 40px;
-    display: block;
-    text-align: center;
-    position: relative;
-    padding: 0;
-  }
-  
-  .modalP {
-    color: #797979;
-    font-size: 17px;
-    font-weight: 300;
-    text-align: inherit;
-    float: none;
-    margin: 0;
-    line-height: normal;
-    display: block;
-  }
-  
+}
+
+.modalIcon {
+  width: 80px;
+  height: 80px;
+  border: 4px solid gray;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  border-radius: 50%;
+  margin: 20px auto;
+  padding: 0;
+  position: relative;
+  box-sizing: content-box;
+}
+.modalIcon.modalWarning {
+  border-color: #f8bb86;
+}
+.modalIcon.modalWarning .modalBody {
+  position: absolute;
+  width: 5px;
+  height: 47px;
+  left: 50%;
+  top: 10px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  margin-left: -2px;
+  background-color: #f8bb86;
+}
+.modalIcon.modalWarning .modalDot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  margin-left: -3px;
+  left: 50%;
+  bottom: 10px;
+  background-color: #f8bb86;
+}
+
+.modalH2 {
+  color: #575757;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: none;
+  margin: 25px 0;
+  line-height: 40px;
+  display: block;
+  text-align: center;
+  position: relative;
+  padding: 0;
+}
+
+.modalP {
+  color: #797979;
+  font-size: 17px;
+  font-weight: 300;
+  text-align: inherit;
+  float: none;
+  margin: 0;
+  line-height: normal;
+  display: block;
+}

@@ -1,20 +1,20 @@
-import { h, Component } from 'preact';
-import './styles.css';
-import Header from '../components/header/index.js';
-import Modal from '../components/modal/index.js';
+import { h, Component } from 'preact'
+import './styles.css'
+import Header from '../components/header/index.js'
+import Modal from '../components/modal/index.js'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isModalOpen: false, // schema: ({ title: 'string', messge: 'string', type: null or something})
       modalData: {
         title: '',
         message: '',
-        type: '',
+        type: ''
       }
-    };
+    }
   }
   openModal = ({ title, message, type }) => {
     this.setState({
@@ -22,9 +22,9 @@ class App extends Component {
       modalData: {
         title,
         message,
-        type,
-      },
-    });
+        type
+      }
+    })
   }
 
   closeModal = () => {
@@ -33,43 +33,43 @@ class App extends Component {
       modalData: {
         title: '',
         message: '',
-        type: '',
-      },
-    });
+        type: ''
+      }
+    })
   }
 
   render() {
-    const { pathname, Component, push } = this.props;
-    const { isModalOpen, modalData } = this.state;
+    const { pathname, Component, push } = this.props
+    const { isModalOpen, modalData } = this.state
 
     return (
-      <div id='globalWrapper' className='globalWrapper'>
-        {
-          Header({ path: pathname, push })
-        }
-        {
-          Modal({
-            isModalOpen,
-            modalData,
-            closeModal: this.closeModal,
-          })
-        }
+      <div id="globalWrapper" className="globalWrapper">
+        {Header({ path: pathname, push })}
+        {Modal({
+          isModalOpen,
+          modalData,
+          closeModal: this.closeModal
+        })}
 
         <div
-          className='container'
-          style={ {
+          className="container"
+          style={{
             paddingTop: '2%',
             width: '100%',
             margin: '0 auto',
             paddingLeft: 0,
             paddingRight: 0,
-            overflow: 'scroll',
-          } }
+            overflow: 'scroll'
+          }}
         >
-        <Component push={this.props.push} openModal={this.openModal} closeModal={this.closeModal} />
+          <Component
+            push={this.props.push}
+            openModal={this.openModal}
+            closeModal={this.closeModal}
+          />
         </div>
       </div>
-    );
+    )
   }
 }
-export default App;
+export default App
