@@ -50,7 +50,13 @@ label {
 @media (max-width: 768px) {
   label {
     font-size: 16px;
-    white-space: wrap;
+  }
+}
+
+@media (max-width: 350px) {
+  label {
+    font-size: 12px;
+    font-weight: 500;
   }
 }
 

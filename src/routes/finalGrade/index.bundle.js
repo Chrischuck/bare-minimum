@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import { useState } from 'preact/hooks'
 
 import {
@@ -7,8 +7,8 @@ import {
 } from 'Util/stringBuilders'
 import Layout from 'Components/layout'
 import Button from 'Components/Button'
+import InputRow from 'Components/SimpleInputRow'
 
-import InputRow from './InputRow'
 import styles from './index.module.css'
 
 const FinalGrade = ({ openModal }) => {
@@ -80,35 +80,33 @@ const FinalGrade = ({ openModal }) => {
       metaContent="Final grade calculator to help you pass your classes!"
       title="Final Grade Calculator"
     >
-      <div className="row">
-        <InputRow
-          inputId="currentGrade"
-          value={currentGrade}
-          onChange={e => setCurrentGrade(e.target.value)}
-          startLabel="Current grade:"
-          endLabel="%."
-          placeholder="92"
-        />
-        <InputRow
-          inputId="requiredGrade"
-          value={requiredGrade}
-          onChange={e => setRequiredGrade(e.target.value)}
-          startLabel="You want a:"
-          endLabel="% in the class."
-          placeholder="90"
-        />
-        <InputRow
-          inputId="finalWeight"
-          value={finalWeight}
-          onChange={e => setFinalWeight(e.target.value)}
-          startLabel="Final's worth:"
-          endLabel="% of your grade."
-          placeholder="10"
-        />
+      <InputRow
+        inputId="currentGrade"
+        value={currentGrade}
+        onChange={e => setCurrentGrade(e.target.value)}
+        startLabel="Current grade:"
+        endLabel="%."
+        placeholder="92"
+      />
+      <InputRow
+        inputId="requiredGrade"
+        value={requiredGrade}
+        onChange={e => setRequiredGrade(e.target.value)}
+        startLabel="You want a:"
+        endLabel="% in the class."
+        placeholder="90"
+      />
+      <InputRow
+        inputId="finalWeight"
+        value={finalWeight}
+        onChange={e => setFinalWeight(e.target.value)}
+        startLabel="Final's worth:"
+        endLabel="% of your grade."
+        placeholder="10"
+      />
 
-        <div className={styles.buttonContainer}>
-          <Button onClick={onCalculate}>Calculate</Button>
-        </div>
+      <div className={styles.buttonContainer}>
+        <Button onClick={onCalculate}>Calculate</Button>
       </div>
     </Layout>
   )

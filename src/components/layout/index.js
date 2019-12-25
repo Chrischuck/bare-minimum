@@ -17,7 +17,7 @@ const Layout = ({ children, metaTitle, metaContent, title, subtitle }) => (
     <div className={styles.card}>
       <h2 className={styles.header}>{title}</h2>
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-
+      <br />
       {children}
     </div>
   </div>
