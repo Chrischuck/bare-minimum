@@ -16,28 +16,8 @@ const Layout = ({ children, metaTitle, metaContent, title, subtitle }) => (
     />
     <div className={styles.card}>
       <div style={{ marginTop: 10 }}>
-        <h2
-          className="text-center"
-          style={{
-            marginTop: 15,
-            marginBottom: 15,
-            color: '#2e2d2d'
-          }}
-        >
-          {title}
-        </h2>
-        {subtitle && (
-          <p
-            className="text-center"
-            style={{
-              marginBottom: 8,
-              marginTop: 0,
-              color: '#5d5d5d'
-            }}
-          >
-            {subtitle}
-          </p>
-        )}
+        <h2 className={styles.header}>{title}</h2>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
 
       {children}

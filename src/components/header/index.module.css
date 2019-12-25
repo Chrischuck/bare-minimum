@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   max-width: 100%;
+  flex: 1
 }
 .tabContainer {
   display: flex;
@@ -67,7 +68,7 @@
   flex: 1;
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 1150px) {
   .navbarContainer {
     padding: 0;
   }
@@ -75,6 +76,7 @@
   .navbarContent {
     flex-direction: column;
     padding-right: 0;
+    flex: unset;
   }
 
   .tab > p {

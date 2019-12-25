@@ -1,4 +1,4 @@
-import { h, Component, Fragment} from 'preact'
+import { h, Component, Fragment } from 'preact'
 
 import Header from '../components/header/index.js'
 import Modal from '../components/modal/index.js'
@@ -53,9 +53,7 @@ class App extends Component {
           closeModal: this.closeModal
         })}
 
-        <div
-          className={styles.container}
-        >
+        <div className={styles.container}>
           <Component
             push={this.props.push}
             openModal={this.openModal}

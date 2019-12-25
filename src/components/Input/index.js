@@ -1,15 +1,9 @@
-import { h } from 'preact';
+import { h } from 'preact'
 
 import styles from './index.module.css'
 
-const Input = ({
-    placeholder,
-    onChange,
-    value,
-    type,
-    id,
-}) => (
-    <input
+const Input = ({ placeholder, onChange, value, type, id }) => (
+  <input
     id={id}
     className={styles.input}
     type={type}

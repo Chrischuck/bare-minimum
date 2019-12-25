@@ -12,14 +12,6 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: scroll;
-}
-
 a {
   background-color: transparent;
   color: #2f80ed;
@@ -42,8 +34,18 @@ a:hover {
   box-sizing: border-box;
 }
 
+label {
+  font-size: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
 
-
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
 
 .switch-body {
   padding: 0;

@@ -1,0 +1,19 @@
+.parent {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.inputContainer {
+  width: 16.6%;
+  margin: 0 5px;
+}
+
+.startLabel {
+  text-align: right;
+  flex: 1;
+}
+
+.endLabel {
+  flex: 1;
+}
