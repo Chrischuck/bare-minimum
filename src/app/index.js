@@ -1,7 +1,9 @@
-import { h, Component } from 'preact'
-import './styles.css'
+import { h, Component, Fragment} from 'preact'
+
 import Header from '../components/header/index.js'
 import Modal from '../components/modal/index.js'
+
+import styles from './index.module.css'
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +45,7 @@ class App extends Component {
     const { isModalOpen, modalData } = this.state
 
     return (
-      <div id="globalWrapper" className="globalWrapper">
+      <Fragment>
         {Header({ path: pathname, push })}
         {Modal({
           isModalOpen,
@@ -52,15 +54,7 @@ class App extends Component {
         })}
 
         <div
-          className="container"
-          style={{
-            paddingTop: '2%',
-            width: '100%',
-            margin: '0 auto',
-            paddingLeft: 0,
-            paddingRight: 0,
-            overflow: 'scroll'
-          }}
+          className={styles.container}
         >
           <Component
             push={this.props.push}
@@ -68,7 +62,7 @@ class App extends Component {
             closeModal={this.closeModal}
           />
         </div>
-      </div>
+      </Fragment>
     )
   }
 }

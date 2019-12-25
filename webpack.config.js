@@ -1,6 +1,6 @@
+const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
@@ -19,6 +19,16 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true
+  },
+
+  resolve: {
+    alias: {
+      App: path.resolve(__dirname, 'src/app/'),
+      Assets: path.resolve(__dirname, 'src/assets/'),
+      Components: path.resolve(__dirname, 'src/components/'),
+      Routes: path.resolve(__dirname, 'src/routes/'),
+      Util: path.resolve(__dirname, 'src/util/'),
+    }
   },
 
   module: {

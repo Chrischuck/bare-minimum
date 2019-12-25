@@ -1,0 +1,16 @@
+.container {
+  margin-top: 80px;
+}
+
+.card {
+    width: calc((576px * .5) + 295px);
+    min-height: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 8vh;
+    border-radius: .25rem;
+    box-shadow: 0 1px 0 rgba(0,0,0,.25);
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}

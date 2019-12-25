@@ -1,18 +1,20 @@
 import { h } from 'preact'
 import Helmet from 'preact-helmet'
 
-const Layout = ({}) => (
-  <div className="container">
+import styles from './index.module.css'
+
+const Layout = ({ children, metaTitle, metaContent, title, subtitle }) => (
+  <div className={styles.container}>
     <Helmet
-      title="Bare Minimum | Damage Calculator"
+      title={metaTitle}
       meta={[
         {
           name: 'description',
-          content: 'See how an assignment will affect your grade!'
+          content: { metaContent }
         }
       ]}
     />
-    <div className="well infobox">
+    <div className={styles.card}>
       <div style={{ marginTop: 10 }}>
         <h2
           className="text-center"
@@ -22,20 +24,23 @@ const Layout = ({}) => (
             color: '#2e2d2d'
           }}
         >
-          Damage Calculator
+          {title}
         </h2>
-        <p
-          className="text-center"
-          style={{
-            marginBottom: 8,
-            marginTop: 0,
-            color: '#5d5d5d'
-          }}
-        >
-          Find out how an assignment will affect your grade.
-        </p>
-        <div className="row"></div>
+        {subtitle && (
+          <p
+            className="text-center"
+            style={{
+              marginBottom: 8,
+              marginTop: 0,
+              color: '#5d5d5d'
+            }}
+          >
+            {subtitle}
+          </p>
+        )}
       </div>
+
+      {children}
     </div>
   </div>
 )
