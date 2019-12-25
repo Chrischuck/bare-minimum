@@ -26,7 +26,7 @@
   "author": "Chris Chuck",
   "license": "MIT",
   "dependencies": {
-    "history": "^4.10.1",
+    "history": "^5.0.0-beta.3",
     "preact": "^10.1.1",
     "preact-helmet": "^4.0.0-alpha-3"
   },
