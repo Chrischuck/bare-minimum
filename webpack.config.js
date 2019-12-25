@@ -20,6 +20,9 @@ module.exports = {
     filename: "[name].chunkhash.bundle.js",
     chunkFilename: "[name].chunkhash.bundle.js",
   },
+  devServer: {
+    historyApiFallback: true
+  },
 
   module: {
     rules: [
@@ -32,13 +35,11 @@ module.exports = {
       { test: /\.css$/, use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader?url=false',
+            loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true,
-
               modules: {
-                localIdentName: "[name]__[local]___[hash:base64:5]",
+                localIdentName: process.env.NODE_ENV === 'production' ? '[hash:base64:5]' : "[name]__[local]___[hash:base64:5]",
               }
             }
           }

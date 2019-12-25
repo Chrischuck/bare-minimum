@@ -1,24 +1,22 @@
-  
+.navbarContent {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 100%;
+}  
   .tabContainer {
-      flex: 1;
     display: flex;
     justify-content: center;
     overflow-y: hidden;
-    overflow-x: visible !important;
-  }
-  
-  .placeholder {
-    max-width: 250px;
+    overflow-x: visible;
+    margin: 0 20px;
   }
 
   .navbarHeader {
       display: flex;
-      justify-content: center;
       align-items: center;
-      max-width: 250px;
+      flex: 1;
+      white-space: nowrap;
     }
-
-      
   
   .navbarContainer {
     position: absolute;
@@ -27,9 +25,10 @@
     border-width: 0 0 1px;
     background-color: #fff;
     box-shadow: 0 0 4px #657786;
-    height: 90px;
+    height: 80px;
     display: flex;
-    padding: 0 10px;
+    padding: 0 30px;
+    justify-content: center;
   }
   
   .navbarBrand {
@@ -47,7 +46,7 @@
   }
 
   .tab > p {
-    font-size: 21px;
+    font-size: 20px;
     margin: 0 15px;
     white-space: nowrap
   }
@@ -64,25 +63,43 @@
     color: #2f80ed;
   }
 
+  .placeholder {
+      flex: 1
+  }
 
-  @media (max-width: 1065px) {
+
+  @media (max-width: 1160px) {
     .navbarContainer {
+        padding: 0;
+      }
+
+    .navbarContent {
         flex-direction: column;
+        padding-right: 0;
     }
+
+    .tab > p {
+        font-size: 20px;
+        margin: 0 8px;
+    }
+
+    .navbarHeader {
+        justify-content: left;
+    }
+
     .placeholder {
         display: none;
     }
 
-    .tab > p {
-        font-size: 16px;
-        margin: 0 8px;
-    }
-
     .navbarBrand {
-        font-size: 25px;
-        }
+        font-size: 27px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
     .tabContainer {
         overflow-x: scroll;
+        justify-content: left;
+        margin: 0;
     }
   }
 
