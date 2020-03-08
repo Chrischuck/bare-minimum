@@ -1,6 +1,12 @@
 import { h, Component } from 'preact'
 import Helmet from 'preact-helmet'
 
+import Layout from 'Components/layout'
+import ButtonRow from 'Components/ButtonRow'
+import TripleInputRow from 'Components/TripleInputRow'
+import DoubleInputRow from 'Components/DoubleInputRow'
+import Checkbox from 'Components/Checkbox'
+
 import InputBox from './components/inputBox'
 import { gradeToNumber } from '../../util/calculations'
 import { gpaStringBuilder } from '../../util/stringBuilders'
@@ -159,251 +165,59 @@ export default class GPA extends Component {
     }
 
     return (
-      <div className="container wrapperClass" style={{ marginBottom: 5 }}>
-        <Helmet
-          title="Bare Minimum | Universal GPA Calculator"
-          meta={[
-            { name: 'description', content: "See how you've done so far!" }
-          ]}
+      <Layout
+        title="Bare Minimum | Universal GPA Calculator"
+        metaContent="See how you've done so far!"
+        title="Universal GPA Calculator"
+      >
+        <Checkbox
+          label="A+ is a 4.33 at your school."
+          value={APlusCounts}
+          onClick={console.log}
+          id="checkbox1"
+        />
+        <Checkbox
+          label="Grade scale goes to the hundreth place."
+          value={goesToHundreth}
+          onClick={console.log}
+          id="checkbox2"
+        />
+        <Checkbox
+          label="Greater than a 4.0 is attainable."
+          value={greaterThan4}
+          onClick={console.log}
+          id="checkbox3"
         />
 
-        <div className="well infobox">
-          <h2
-            className="text-center"
-            style={{
-              marginTop: 14,
-              marginBottom: 8,
-              color: '#2e2d2d'
-            }}
-          >
-            Universal GPA Calculator
-          </h2>
-
-          <div
-            className="row input-switch-row text-center switch-body"
-            style={{ marginBottom: '5px' }}
-          >
-            <p
-              className="col-md-10 col-sm-10 col-xs-10"
-              style={{
-                display: 'inline',
-                verticalAlign: 'middle',
-                paddingRight: '0px',
-                paddingLeft: '2%',
-                marginTop: 0,
-                marginBottom: 0,
-                marginRight: 0
-              }}
-            >
-              A+ is a 4.33 at your school.
-            </p>
-            <div
-              className="col-md-2 col-sm-2 col-xs-2"
-              style={{ paddingLeft: '0px', float: 'left' }}
-            >
-              <input
-                type="checkbox"
-                id="checkbox1"
-                name="set-name"
-                checked={APlusCounts}
-                className="switch-input"
-              />
-              <label
-                htmlFor="checkbox1"
-                className="switch-label"
-                id="APlusCounts"
-                onClick={this.toggleInput}
-              />
-            </div>
-          </div>
-
-          <div
-            className="row input-switch-row text-center switch-body"
-            style={{ marginBottom: '5px' }}
-          >
-            <p
-              className="col-md-10 col-sm-10 col-xs-10"
-              style={{
-                display: 'inline',
-                verticalAlign: 'middle',
-                paddingRight: '0px',
-                paddingLeft: '0px',
-                marginTop: 0,
-                marginBottom: 0,
-                marginRight: 0
-              }}
-            >
-              Grade scale goes to the hundreth place.
-            </p>
-            <div
-              className="col-md-2 col-sm-2 col-xs-2"
-              style={{ paddingLeft: '0px' }}
-            >
-              <input
-                type="checkbox"
-                id="checkbox2"
-                name="set-name"
-                checked={goesToHundreth}
-                className="switch-input"
-              />
-              <label
-                htmlFor="checkbox2"
-                className="switch-label"
-                id="goesToHundreth"
-                onClick={this.toggleInput}
-              />
-            </div>
-          </div>
-
-          <div
-            className="row input-switch-row text-center switch-body"
-            style={{ marginBottom: '6px' }}
-          >
-            <p
-              className="col-md-10 col-sm-10 col-xs-10"
-              style={{
-                display: 'inline',
-                verticalAlign: 'middle',
-                paddingRight: '0px',
-                paddingLeft: '0px',
-                marginTop: 0,
-                marginBottom: 0,
-                marginRight: 0
-              }}
-            >
-              Greater than a 4.0 is attainable.
-            </p>
-            <div
-              className="col-md-2 col-sm-2 col-xs-2"
-              style={{ paddingLeft: '0px' }}
-            >
-              <input
-                type="checkbox"
-                id="checkbox3"
-                name="set-name"
-                checked={greaterThan4}
-                className="switch-input"
-              />
-              <label
-                htmlFor="checkbox3"
-                className="switch-label"
-                id="greaterThan4"
-                onClick={this.toggleInput}
-              />
-            </div>
-          </div>
-
-          <div className="row input-row">
-            <div
-              className="form-group has-success is-empty col-md-6 col-xs-6"
-              style={{
-                paddingLeft: '5px',
-                paddingRight: '5px',
-                marginBottom: 5
-              }}
-            >
-              <label
-                htmlFor="pastGPA"
-                className="form-label"
-                style={{ fontWeight: 500 }}
-              >
-                {'Past GPA '}
-                <span
-                  className="semi-bold"
-                  style={{
-                    color: '#99999c',
-                    fontSize: '14px',
-                    fontWeight: 500
-                  }}
-                >
-                  (optional)
-                </span>
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="pastGPA"
-                autoComplete="off"
-                placeholder="3.8"
-                value={this.state.pastGpa}
-                onChange={this.onPastGpaChange}
-              />
-            </div>
-
-            <div
-              className="form-group has-success is-empty col-md-6 col-xs-6"
-              style={{
-                paddingLeft: '5px',
-                paddingRight: '5px',
-                marginBottom: 5
-              }}
-            >
-              <label
-                htmlFor="pastUnits"
-                className="form-label"
-                style={{ fontWeight: 500 }}
-              >
-                {'Past Units '}
-                <span
-                  className="semi-bold"
-                  style={{
-                    color: '#99999c',
-                    fontSize: '14px',
-                    fontWeight: 500
-                  }}
-                >
-                  (optional)
-                </span>
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="pastUnits"
-                autoComplete="off"
-                placeholder="60"
-                value={this.state.pastUnits}
-                onChange={this.onUnitsChange}
-              />
-            </div>
-          </div>
+        <DoubleInputRow
+          firstColumnLabel="Past GPA"
+          secondColumnLabel="Past Units"
+          firstColInputProps={{
+            value: this.state.pastGpa,
+            onInput: this.onPastGpaChange,
+            maxLength: 3,
+            placeholder: '3.8',
+            type: 'number'
+          }}
+          secondColInputProps={{
+            value: this.state.pastGpa,
+            onInput: this.onUnitsChange,
+            placeholder: '60',
+            type: 'number'
+          }}
+          firstColumnOptional
+          secondColumnOptional
+        />
 
           {inputs}
 
-          <div className="row input-row" style={{ paddingTop: '1px' }}>
-            <div className="col-md-12 col-xs-12" style={{ padding: 0 }}>
-              <div
-                className="pull-left col-md-6 col-xs-6"
-                style={{
-                  paddingLeft: '5px',
-                  paddingRight: '5px'
-                }}
-              >
-                <a
-                  className="btn no-padding col-md-12 col-xs-12"
-                  onClick={this.addClass}
-                >
-                  Add Class
-                </a>
-              </div>
 
-              <div
-                className="pull-right col-md-6 col-xs-6"
-                style={{
-                  paddingLeft: '5px',
-                  paddingRight: '5px'
-                }}
-              >
-                <a
-                  className="btn no-padding col-md-12 col-xs-12"
-                  onClick={this.showGpa}
-                >
-                  Calculate
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <ButtonRow
+            leftButtonClick={this.addClass}
+            rightButtonClick={this.showGpa}
+          />
+
+      </Layout>
     )
   }
 }

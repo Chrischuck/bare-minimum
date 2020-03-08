@@ -130,49 +130,46 @@ const WeightedGrade = ({
       title="Weighted Final Grade Calculator"
       subtitle="% sign is not neccesary"
     >
-        <div>
-          <DoubleInputRow
-            firstColumnLabel="You want a:"
-            secondColumnLabel="Final's worth:"
-            firstColInputProps={{
-              value: requiredGrade,
-              onInput: (e) => setRequiredGrade(e.target.value),
-              maxLength: 3,
-              placeholder: '93%',
-              type: 'number'
-            }}
-            secondColInputProps={{
-              value: finalWeight,
-              onInput: (e) => setFinalWeight(e.target.value),
-              maxLength: 3,
-              placeholder: '20%',
-              type: 'number'
-            }}
+      <DoubleInputRow
+        firstColumnLabel="You want a:"
+        secondColumnLabel="Final's worth:"
+        firstColInputProps={{
+          value: requiredGrade,
+          onInput: (e) => setRequiredGrade(e.target.value),
+          maxLength: 3,
+          placeholder: '93%',
+          type: 'number'
+        }}
+        secondColInputProps={{
+          value: finalWeight,
+          onInput: (e) => setFinalWeight(e.target.value),
+          maxLength: 3,
+          placeholder: '20%',
+          type: 'number'
+        }}
+      />
 
+      {inputCount.map(value => {
+        const placeholders = renderCategories(value)
+        return (
+          <TripleInputRow
+            key={value}
+            firstColumnLabel="Category"
+            secondColumnLabel="Your Grade"
+            thirdColumnLabel="Weight"
+            inputCount={value}
+            onChange={onChange}
+            firstColInputProps={placeholders.firstColInputProps}
+            secondColInputProps={{ type: 'number', ...placeholders.secondColInputProps }}
+            thirdColInputProps={{ type: 'number', ...placeholders.thirdColInputProps }}
           />
+        )
+      })}
 
-          {inputCount.map(value => {
-            const placeholders = renderCategories(value)
-            return (
-              <TripleInputRow
-                key={value}
-                firstColumnLabel="Category"
-                secondColumnLabel="Your Grade"
-                thirdColumnLabel="Weight"
-                inputCount={value}
-                onChange={onChange}
-                firstColInputProps={placeholders.firstColInputProps}
-                secondColInputProps={{ type: 'number', ...placeholders.secondColInputProps }}
-                thirdColInputProps={{ type: 'number', ...placeholders.thirdColInputProps }}
-              />
-            )
-          })}
-
-          <ButtonRow
-            leftButtonClick={() => setInputCount([...inputCount, inputCount.pop() + 1])}
-            rightButtonClick={calculate}
-          />
-        </div>
+      <ButtonRow
+        leftButtonClick={() => setInputCount([...inputCount, inputCount.pop() + 1])}
+        rightButtonClick={calculate}
+      />
     </Layout>
   )
 }
