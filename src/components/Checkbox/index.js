@@ -4,8 +4,8 @@ import styles from './index.module.css'
 
 const Checkbox = ({
     label,
-    value,
-    onClick,
+    checked,
+    onChange,
     id,
 }) => (
     <div className={styles.container}>
@@ -15,13 +15,13 @@ const Checkbox = ({
                 className={styles.input}
                 type="checkbox"
                 id={id}
-                checked={value}
+                checked={checked}
+                onChange={onChange}
             />
             <label
                 className={styles.label}
                 htmlFor={id}
                 id={`${id}-label`}
-                onClick={onClick}
             />
         </div>
     </div>

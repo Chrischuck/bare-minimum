@@ -22,7 +22,7 @@ export default ({
     const [goesToHundreth, setGoesToHundreth] = useState(false)
     const [inputCount, setInputCount] = useState([1, 2, 3])
 
-  const onPastGpaChange = event => {
+    const onPastGpaChange = event => {
     if (
       Number(event.target.value) > 4 &&
       !APlusCounts &&
@@ -130,20 +130,20 @@ export default ({
     >
       <Checkbox
         label="A+ is a 4.33 at your school."
-        value={APlusCounts}
-        onClick={console.log}
+        checked={APlusCounts}
+        onChange={() => setAPlusCounts(prev => !prev)}
         id="checkbox1"
       />
       <Checkbox
         label="Grade scale goes to the hundreth place."
-        value={goesToHundreth}
-        onClick={console.log}
+        checked={goesToHundreth}
+        onChange={() => setGoesToHundreth(prev => !prev)}
         id="checkbox2"
       />
       <Checkbox
         label="Greater than a 4.0 is attainable."
-        value={greaterThan4}
-        onClick={console.log}
+        checked={greaterThan4}
+        onChange={() => setGreaterThan4(prev => !prev)}
         id="checkbox3"
       />
 
@@ -158,7 +158,7 @@ export default ({
           type: 'number'
         }}
         secondColInputProps={{
-          value: pastGpa,
+          value: pastUnits,
           onInput: onUnitsChange,
           placeholder: '60',
           type: 'number'
