@@ -1,0 +1,45 @@
+.container {
+  margin-top: 80px;
+}
+
+.card {
+  width: 580px;
+  min-height: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 8vh;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: rgb(46, 45, 45);
+  text-align: center;
+  font-size: 30px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: rgb(93, 93, 93);
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    border: 0;
+    box-shadow: none;
+    margin-top: 2vh;
+    padding: 5px;
+  }
+
+  .header {
+    font-size: 25px;
+  }
+}

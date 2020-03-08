@@ -1,0 +1,106 @@
+.navbarContent {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 100%;
+  flex: 1;
+}
+.tabContainer {
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+  overflow-x: visible;
+  margin: 0 20px;
+}
+
+.navbarHeader {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.navbarContainer {
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  border-width: 0 0 1px;
+  background-color: #fff;
+  box-shadow: 0 0 4px #657786;
+  height: 70px;
+  display: flex;
+  padding: 0 30px;
+  justify-content: center;
+}
+
+.navbarBrand {
+  cursor: default;
+  color: black;
+  font-size: 28px;
+  margin: 0;
+}
+
+.tab {
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.tab > p {
+  font-size: 18px;
+  margin: 0 15px;
+  white-space: nowrap;
+  color: rgb(93, 93, 93);
+}
+
+.activeTab {
+  border-bottom: 2px solid #1da1f2;
+}
+
+.activeTab > p {
+  color: #2f80ed !important;
+}
+
+.tab:hover > p {
+  color: #2f80ed;
+}
+
+.placeholder {
+  flex: 1;
+}
+
+@media (max-width: 1150px) {
+  .navbarContainer {
+    padding: 0;
+  }
+
+  .navbarContent {
+    flex-direction: column;
+    padding-right: 0;
+    flex: unset;
+  }
+
+  .tab > p {
+    font-size: 20px;
+    margin: 0 8px;
+  }
+
+  .navbarHeader {
+    justify-content: left;
+  }
+
+  .placeholder {
+    display: none;
+  }
+
+  .navbarBrand {
+    font-size: 27px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .tabContainer {
+    overflow-x: scroll;
+    justify-content: left;
+    margin: 0;
+  }
+}
