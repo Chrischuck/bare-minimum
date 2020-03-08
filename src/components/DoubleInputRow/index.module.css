@@ -1,0 +1,18 @@
+.row {
+    display: flex;
+}
+
+.inputContainer {
+    padding: 0 2.5px;
+    margin-bottom: 5
+}
+
+.label {
+    font-weight: 500;
+}
+
+.optional {
+    color: #99999c;
+    font-size: 13px;
+    font-weight: 500;
+}

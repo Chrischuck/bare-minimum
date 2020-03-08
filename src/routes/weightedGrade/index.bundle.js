@@ -1,48 +1,32 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
+import { useState} from 'preact/hooks'
 
 import Layout from 'Components/layout'
 import ButtonRow from 'Components/ButtonRow'
 import TripleInputRow from 'Components/TripleInputRow'
+import DoubleInputRow from 'Components/DoubleInputRow'
 
-import { calculatorStringBuilder } from '../../util/stringBuilders'
+import { calculatorStringBuilder } from 'Util/stringBuilders'
+import renderCategories from 'Util/renderWeightedGrade'
 
-export default class WeightedGrade extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      categories: {},
-      requiredGrade: '',
-      finalWeight: '',
-      inputCount: 3
-    }
-  }
+const WeightedGrade = ({
+  openModal
+}) => {
+  const [categories, setCategories] = useState({})
+  const [requiredGrade, setRequiredGrade] = useState('')
+  const [finalWeight, setFinalWeight] = useState('')
+  const [inputCount, setInputCount] = useState([1, 2, 3])
 
-  shouldComponentUpdate(_, nextState) {
-    return (
-      this.state.inputCount !== nextState.inputCount ||
-      this.state.isModalOpen !== nextState.isModalOpen
-    )
-  }
-
-  onInputChange = event => {
-    this.setState({ [event.target.name]: event.target.value })
-  }
 
   // Get data from the children....maybe use redux for this
-  onChange = (id, category, grade, weight) => {
-    const { categories } = this.state
-    const previousCategory = categories[id]
-    categories[id] = { category, grade, weight }
-    if (previousCategory && previousCategory.category !== category) {
-      this.setState({ categories })
-    } else {
-      this.setState({ categories })
-    }
+  const onChange = (id, category, grade, weight) => {
+    const categoriesCopy = { ...categories }
+    categoriesCopy[id] = { category, grade, weight }
+    setCategories(categoriesCopy)
   }
 
   // All logic
-  calculate = () => {
-    const { categories, requiredGrade, finalWeight } = this.state
+  const calculate = () => {
     const keys = Object.keys(categories)
     const requiredPercent = Number(requiredGrade) / 100
     const finalPercent = Number(finalWeight) / 100
@@ -51,7 +35,7 @@ export default class WeightedGrade extends Component {
     let totalPercentage = Number(finalWeight)
 
     if (!requiredPercent) {
-      this.props.openModal({
+      openModal({
         title: 'Uh Oh!',
         message: "The grade you want doesn't look right!",
         type: 'warning'
@@ -59,7 +43,7 @@ export default class WeightedGrade extends Component {
       return
     }
     if (!finalPercent) {
-      this.props.openModal({
+      openModal({
         title: 'Uh Oh!',
         message: "The final's weight doesn't look right!",
         type: 'warning'
@@ -74,7 +58,7 @@ export default class WeightedGrade extends Component {
       const numericalWeight = Number(weight) / 100
       totalPercentage += Number(weight)
       if (!numericalGrade && category) {
-        this.props.openModal({
+        openModal({
           title: 'Oops!',
           message: `Your grade for ${category} doesn't look right!`,
           type: 'warning'
@@ -82,7 +66,7 @@ export default class WeightedGrade extends Component {
         return
       }
       if (!numericalWeight && category) {
-        this.props.openModal({
+        openModal({
           title: 'Oops!',
           message: `Your weight for ${category} doesn't look right!`,
           type: 'warning'
@@ -95,7 +79,7 @@ export default class WeightedGrade extends Component {
       }
     }
     if (totalWeights === 0) {
-      this.props.openModal({
+      openModal({
         title: 'Oh no!',
         message: "Looks like you haven't added any categories!",
         type: 'warning'
@@ -103,7 +87,7 @@ export default class WeightedGrade extends Component {
       return
     }
     if (totalPercentage !== 100) {
-      this.props.openModal({
+      openModal({
         title: 'Oops!',
         message:
           totalPercentage > 100
@@ -122,16 +106,16 @@ export default class WeightedGrade extends Component {
       : Math.floor(finalGrade * 100) / 100
 
     if (!isNaN(calculatedGrade)) {
-      this.props.openModal({
+      openModal({
         title: 'You can do it!',
         message: calculatorStringBuilder(
           calculatedGrade,
-          this.state.requiredGrade
+          requiredGrade
         ),
         type: null
       })
     } else {
-      this.props.openModal({
+      openModal({
         title: 'Uh Oh!',
         message: 'Something went wrong, make sure your inputs are right!',
         type: 'warning'
@@ -139,101 +123,58 @@ export default class WeightedGrade extends Component {
     }
   }
 
-  addCategory = () => {
-    const { inputCount } = this.state
-    this.setState({ inputCount: inputCount + 1 })
-  }
+  return (
+    <Layout
+      metaTitle="Bare Minimum | Weighted Final Grade Calculator"
+      metaContent="Weighted Final grade calculator to help you pass your classes!"
+      title="Weighted Final Grade Calculator"
+      subtitle="% sign is not neccesary"
+    >
+        <div>
+          <DoubleInputRow
+            firstColumnLabel="You want a:"
+            secondColumnLabel="Final's worth:"
+            firstColInputProps={{
+              value: requiredGrade,
+              onInput: (e) => setRequiredGrade(e.target.value),
+              maxLength: 3,
+              placeholder: '93%',
+              type: 'number'
+            }}
+            secondColInputProps={{
+              value: finalWeight,
+              onInput: (e) => setFinalWeight(e.target.value),
+              maxLength: 3,
+              placeholder: '20%',
+              type: 'number'
+            }}
 
-  render() {
-    const { inputCount } = this.state
-    const inputs = []
-    for (let i = 0; i < inputCount; i++) {
-      inputs.push(
-        <TripleInputRow
-          firstColumnLabel="Category"
-          secondColumnLabel="Your Grade"
-          thirdColumnLabel="Weight"
-          inputCount={i}
-          onChange={this.onChange}
-          secondColInputProps={{ type: 'number' }}
-          thirdColInputProps={{ type: 'number' }}
-        />
-      )
-    }
-    return (
-      <Layout
-        metaTitle="Bare Minimum | Weighted Final Grade Calculator"
-        metaContent="Weighted Final grade calculator to help you pass your classes!"
-        title="Weighted Final Grade Calculator"
-        subtitle="% sign is not neccesary"
-      >
-          <div>
+          />
 
-            <div className="row input-row">
-              <div
-                className="form-group has-success is-empty col-md-6 col-xs-6 col-sm-6"
-                style={{
-                  paddingLeft: '0px',
-                  paddingRight: '2.5px',
-                  marginBottom: 5
-                }}
-              >
-                <label
-                  htmlFor={'requiredGrade'}
-                  className="form-label"
-                  style={{ fontWeight: 500 }}
-                >
-                  You want a:
-                </label>
-                <input
-                  maxLength="3"
-                  type="number"
-                  className="form-control"
-                  id={'requiredGrade'}
-                  autoComplete="off"
-                  name="requiredGrade"
-                  value={this.state.requiredGrade}
-                  onChange={this.onInputChange}
-                  placeholder={'93%'}
-                />
-              </div>
-              <div
-                className="form-group has-success is-empty col-md-6 col-xs-6 col-sm-6"
-                style={{
-                  paddingLeft: '2.5px',
-                  paddingRight: '0px',
-                  marginBottom: 5
-                }}
-              >
-                <label
-                  htmlFor={'finalWeight'}
-                  className="form-label"
-                  style={{ fontWeight: 500 }}
-                >
-                  Final's worth:
-                </label>
-                <input
-                  maxLength="3"
-                  type="number"
-                  className="form-control"
-                  id={'finalWeight'}
-                  autoComplete="off"
-                  value={this.state.finalWeight}
-                  name="finalWeight"
-                  onChange={this.onInputChange}
-                  placeholder={'20%'}
-                />
-              </div>
-            </div>
+          {inputCount.map(value => {
+            const placeholders = renderCategories(value)
+            return (
+              <TripleInputRow
+                key={value}
+                firstColumnLabel="Category"
+                secondColumnLabel="Your Grade"
+                thirdColumnLabel="Weight"
+                inputCount={value}
+                onChange={onChange}
+                firstColInputProps={placeholders.firstColInputProps}
+                secondColInputProps={{ type: 'number', ...placeholders.secondColInputProps }}
+                thirdColInputProps={{ type: 'number', ...placeholders.thirdColInputProps }}
+              />
+            )
+          })}
 
-            {inputs}
-
-            <ButtonRow
-              leftButtonClick={this.addCategory}
-              rightButtonClick={this.calculate}
-            />
-          </div>
-      </Layout>
-    )
-  }
+          <ButtonRow
+            leftButtonClick={() => setInputCount({ inputCount: [...inputCount, inputCount.pop() + 1] })}
+            rightButtonClick={calculate}
+          />
+        </div>
+    </Layout>
+  )
 }
+
+export default WeightedGrade
