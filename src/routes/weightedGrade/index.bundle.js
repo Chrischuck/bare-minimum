@@ -1,7 +1,9 @@
 import { h, Component } from 'preact'
-import Helmet from 'preact-helmet'
 
-import InputBox from './components/inputBox'
+import Layout from 'Components/layout'
+import ButtonRow from 'Components/ButtonRow'
+import TripleInputRow from 'Components/TripleInputRow'
+
 import { calculatorStringBuilder } from '../../util/stringBuilders'
 
 export default class WeightedGrade extends Component {
@@ -15,7 +17,7 @@ export default class WeightedGrade extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(_, nextState) {
     return (
       this.state.inputCount !== nextState.inputCount ||
       this.state.isModalOpen !== nextState.isModalOpen
@@ -27,7 +29,7 @@ export default class WeightedGrade extends Component {
   }
 
   // Get data from the children....maybe use redux for this
-  stateFromChild = (id, category, grade, weight) => {
+  onChange = (id, category, grade, weight) => {
     const { categories } = this.state
     const previousCategory = categories[id]
     categories[id] = { category, grade, weight }
@@ -147,44 +149,26 @@ export default class WeightedGrade extends Component {
     const inputs = []
     for (let i = 0; i < inputCount; i++) {
       inputs.push(
-        <InputBox inputCount={i} stateToParent={this.stateFromChild} />
+        <TripleInputRow
+          firstColumnLabel="Category"
+          secondColumnLabel="Your Grade"
+          thirdColumnLabel="Weight"
+          inputCount={i}
+          onChange={this.onChange}
+          secondColInputProps={{ type: 'number' }}
+          thirdColInputProps={{ type: 'number' }}
+        />
       )
     }
     return (
-      <div className="container">
-        <Helmet
-          title="Bare Minimum | Weighted Final Grade Calculator"
-          meta={[
-            {
-              name: 'description',
-              content:
-                'Weighted Final grade calculator to help you pass your classes!'
-            }
-          ]}
-        />
-        <div className="well infobox">
+      <Layout
+        metaTitle="Bare Minimum | Weighted Final Grade Calculator"
+        metaContent="Weighted Final grade calculator to help you pass your classes!"
+        title="Weighted Final Grade Calculator"
+        subtitle="% sign is not neccesary"
+      >
           <div>
-            <h2
-              className="text-center"
-              style={{
-                marginTop: 15,
-                marginBottom: 2,
-                color: '#2e2d2d'
-              }}
-            >
-              Weighted Final Grade Calculator
-            </h2>
 
-            <p
-              className="text-center"
-              style={{
-                marginBottom: 8,
-                marginTop: 0,
-                color: '#5d5d5d'
-              }}
-            >
-              % sign is not neccesary
-            </p>
             <div className="row input-row">
               <div
                 className="form-group has-success is-empty col-md-6 col-xs-6 col-sm-6"
@@ -244,42 +228,12 @@ export default class WeightedGrade extends Component {
 
             {inputs}
 
-            <div className="row input-row" style={{ paddingTop: '1px' }}>
-              <div className="col-md-12 col-xs-12" style={{ padding: 0 }}>
-                <div
-                  className="pull-left col-md-6 col-xs-6"
-                  style={{
-                    paddingLeft: '0px',
-                    paddingRight: '2.5px'
-                  }}
-                >
-                  <a
-                    className="btn no-padding col-md-12 col-xs-12"
-                    onClick={this.addCategory}
-                  >
-                    Add Category
-                  </a>
-                </div>
-
-                <div
-                  className="pull-right col-md-6 col-xs-6"
-                  style={{
-                    paddingLeft: '2.5px',
-                    paddingRight: '0px'
-                  }}
-                >
-                  <a
-                    className="btn no-padding col-md-12 col-xs-12"
-                    onClick={this.calculate}
-                  >
-                    Calculate
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ButtonRow
+              leftButtonClick={this.addCategory}
+              rightButtonClick={this.calculate}
+            />
           </div>
-        </div>
-      </div>
+      </Layout>
     )
   }
 }

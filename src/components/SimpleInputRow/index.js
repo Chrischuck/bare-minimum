@@ -18,10 +18,9 @@ const InputRow = ({
     </label>
     <div className={styles.inputContainer}>
       <Input
-        className="form-control"
         type="number"
         value={value}
-        onChange={onChange}
+        onInput={onChange}
         placeholder={placeholder}
         id={inputId}
       />

@@ -1,0 +1,8 @@
+.container { 
+    display: flex;
+    margin-top: 10px;
+}
+
+.split {
+    width: 15px
+}
