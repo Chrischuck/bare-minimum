@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
-import Input from 'Components/input'
+import Input from 'Components/Input'
 
 import styles from './index.module.css'
 

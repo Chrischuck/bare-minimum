@@ -1,6 +1,6 @@
 import { h } from 'preact'
 
-import Input from 'Components/input'
+import Input from 'Components/Input'
 
 import styles from './index.module.css'
 
