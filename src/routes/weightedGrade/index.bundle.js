@@ -169,7 +169,7 @@ const WeightedGrade = ({
           })}
 
           <ButtonRow
-            leftButtonClick={() => setInputCount({ inputCount: [...inputCount, inputCount.pop() + 1] })}
+            leftButtonClick={() => setInputCount([...inputCount, inputCount.pop() + 1])}
             rightButtonClick={calculate}
           />
         </div>
