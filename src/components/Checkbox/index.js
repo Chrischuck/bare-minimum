@@ -9,24 +9,8 @@ const Checkbox = ({
     id,
 }) => (
     <div className={styles.container}>
-        <p
-            className="col-md-10 col-sm-10 col-xs-10"
-            style={{
-            display: 'inline',
-            verticalAlign: 'middle',
-            paddingRight: '0px',
-            paddingLeft: '2%',
-            marginTop: 0,
-            marginBottom: 0,
-            marginRight: 0
-            }}
-        >
-            {label}
-        </p>
-        <div
-            className="col-md-2 col-sm-2 col-xs-2"
-            style={{ paddingLeft: '0px', float: 'left' }}
-        >
+        <span>{label}</span>
+        <div>
             <input
                 className={styles.input}
                 type="checkbox"

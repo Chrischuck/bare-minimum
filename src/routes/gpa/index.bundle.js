@@ -1,5 +1,5 @@
-import { h, Component } from 'preact'
-import Helmet from 'preact-helmet'
+import { h } from 'preact'
+import { useState } from 'preact/hooks'
 
 import Layout from 'Components/layout'
 import ButtonRow from 'Components/ButtonRow'
@@ -7,90 +7,62 @@ import TripleInputRow from 'Components/TripleInputRow'
 import DoubleInputRow from 'Components/DoubleInputRow'
 import Checkbox from 'Components/Checkbox'
 
-import InputBox from './components/inputBox'
-import { gradeToNumber } from '../../util/calculations'
-import { gpaStringBuilder } from '../../util/stringBuilders'
+import { gradeToNumber } from 'Util/calculations'
+import { gpaStringBuilder } from 'Util/stringBuilders'
+import renderCategories from 'Util/renderClasses'
 
-export default class GPA extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      courses: {},
-      pastGpa: '',
-      pastUnits: '',
-      APlusCounts: false,
-      greaterThan4: false,
-      goesToHundreth: false,
-      inputCount: 3
-    }
-  }
+export default ({
+  openModal
+}) => {
+    const [courses, setCourses] = useState({})
+    const [pastGpa, setGpa] = useState('')
+    const [pastUnits, setPastUnits] = useState('')
+    const [APlusCounts, setAPlusCounts] = useState(false)
+    const [greaterThan4, setGreaterThan4] = useState(false)
+    const [goesToHundreth, setGoesToHundreth] = useState(false)
+    const [inputCount, setInputCount] = useState([1, 2, 3])
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return (
-      this.state.inputCount !== nextState.inputCount ||
-      this.state.isModalOpen !== nextState.isModalOpen
-    )
-  }
-
-  onPastGpaChange = event => {
+  const onPastGpaChange = event => {
     if (
       Number(event.target.value) > 4 &&
-      !this.state.APlusCounts &&
-      !this.state.greaterThan4
+      !APlusCounts &&
+      !greaterThan4
     ) {
-      this.props.openModal({
+      openModal({
         title: 'Impossible!',
         message: "You can't have a gpa higher than a 4.0!",
         type: 'warning'
       })
     } else if (Number(event.target.value) < 0) {
-      this.props.openModal({
+      openModal({
         title: 'Hmm!',
         message: "I don't think anyone's gpa can be that bad!",
         type: 'warning'
       })
     } else {
-      this.setState({ pastGpa: event.target.value })
+      setGpa(event.target.value)
     }
   }
 
-  onUnitsChange = event => {
+  const onUnitsChange = event => {
     if (Number(event.target.value) < 0) {
-      this.props.openModal({
+      openModal({
         title: 'Oh dear!',
         message: "You can't have negative units!",
         type: 'warning'
       })
     } else {
-      this.setState({ pastUnits: event.target.value })
+      setPastUnits(event.target.value)
     }
   }
 
-  toggleInput = event => {
-    this.setState({ [event.target.id]: !this.state[event.target.id] })
+  const onChange = (id, course, grade, units) => {
+    const coursesCopy = { ...courses }
+    coursesCopy[id] = { course, grade, units }
+    setCourses(coursesCopy)
   }
 
-  stateFromChild = (id, course, grade, units) => {
-    const { courses } = this.state
-    const previousCategory = courses[id]
-    courses[id] = { course, grade, units }
-    if (previousCategory && previousCategory.course !== course) {
-      this.setState({ courses })
-    } else {
-      this.setState({ courses })
-    }
-  }
-
-  calculate = () => {
-    const {
-      courses,
-      pastGpa,
-      pastUnits,
-      APlusCounts,
-      greaterThan4,
-      goesToHundreth
-    } = this.state
-
+  const calculate = () => {
     const keys = Object.keys(courses)
     let totalPoints = 0
     let totalCredits = 0
@@ -103,7 +75,7 @@ export default class GPA extends Component {
         totalPoints += numericGrade * Number(units)
         totalCredits += Number(units)
       } else if (typeof numericGrade !== 'number' && grade && units) {
-        this.props.openModal({
+        openModal({
           title: 'Oops!',
           message: course
             ? `Your grade for ${course} doesn't look right!`
@@ -133,16 +105,16 @@ export default class GPA extends Component {
     return finalGpa > 4 && !greaterThan4 ? '4.0' : finalGpa
   }
 
-  showGpa = () => {
-    const gpa = this.calculate()
+  const showGpa = () => {
+    const gpa = calculate()
     if (gpa !== 0) {
-      this.props.openModal({
+      openModal({
         title: 'Nice!',
         message: gpaStringBuilder(gpa),
         type: null
       })
     } else {
-      this.props.openModal({
+      openModal({
         title: 'Oh no!',
         message: "You haven't added any classes",
         type: 'warning'
@@ -150,74 +122,72 @@ export default class GPA extends Component {
     }
   }
 
-  addClass = () => {
-    const { inputCount } = this.state
-    this.setState({ inputCount: inputCount + 1 })
-  }
+  return (
+    <Layout
+      title="Bare Minimum | Universal GPA Calculator"
+      metaContent="See how you've done so far!"
+      title="Universal GPA Calculator"
+    >
+      <Checkbox
+        label="A+ is a 4.33 at your school."
+        value={APlusCounts}
+        onClick={console.log}
+        id="checkbox1"
+      />
+      <Checkbox
+        label="Grade scale goes to the hundreth place."
+        value={goesToHundreth}
+        onClick={console.log}
+        id="checkbox2"
+      />
+      <Checkbox
+        label="Greater than a 4.0 is attainable."
+        value={greaterThan4}
+        onClick={console.log}
+        id="checkbox3"
+      />
 
-  render() {
-    const { inputCount, APlusCounts, greaterThan4, goesToHundreth } = this.state
-    const inputs = []
-    for (let i = 0; i < inputCount; i++) {
-      inputs.push(
-        <InputBox inputCount={i} stateToParent={this.stateFromChild} />
-      )
-    }
+      <DoubleInputRow
+        firstColumnLabel="Past GPA"
+        secondColumnLabel="Past Units"
+        firstColInputProps={{
+          value: pastGpa,
+          onInput: onPastGpaChange,
+          maxLength: 3,
+          placeholder: '3.8',
+          type: 'number'
+        }}
+        secondColInputProps={{
+          value: pastGpa,
+          onInput: onUnitsChange,
+          placeholder: '60',
+          type: 'number'
+        }}
+        firstColumnOptional
+        secondColumnOptional
+      />
 
-    return (
-      <Layout
-        title="Bare Minimum | Universal GPA Calculator"
-        metaContent="See how you've done so far!"
-        title="Universal GPA Calculator"
-      >
-        <Checkbox
-          label="A+ is a 4.33 at your school."
-          value={APlusCounts}
-          onClick={console.log}
-          id="checkbox1"
-        />
-        <Checkbox
-          label="Grade scale goes to the hundreth place."
-          value={goesToHundreth}
-          onClick={console.log}
-          id="checkbox2"
-        />
-        <Checkbox
-          label="Greater than a 4.0 is attainable."
-          value={greaterThan4}
-          onClick={console.log}
-          id="checkbox3"
-        />
-
-        <DoubleInputRow
-          firstColumnLabel="Past GPA"
-          secondColumnLabel="Past Units"
-          firstColInputProps={{
-            value: this.state.pastGpa,
-            onInput: this.onPastGpaChange,
-            maxLength: 3,
-            placeholder: '3.8',
-            type: 'number'
-          }}
-          secondColInputProps={{
-            value: this.state.pastGpa,
-            onInput: this.onUnitsChange,
-            placeholder: '60',
-            type: 'number'
-          }}
-          firstColumnOptional
-          secondColumnOptional
-        />
-
-          {inputs}
-
-
-          <ButtonRow
-            leftButtonClick={this.addClass}
-            rightButtonClick={this.showGpa}
+      {inputCount.map(value => {
+        const placeholders = renderCategories(value)
+        return (
+          <TripleInputRow
+            key={value}
+            firstColumnLabel="Class"
+            secondColumnLabel="Grade"
+            thirdColumnLabel="Units"
+            inputCount={value}
+            onChange={onChange}
+            firstColInputProps={placeholders.firstColInputProps}
+            secondColInputProps={{ ...placeholders.secondColInputProps }}
+            thirdColInputProps={{ type: 'number', ...placeholders.thirdColInputProps }}
           />
+        )
+      })}
 
-      </Layout>
-    )
-  }
+      <ButtonRow
+        leftButtonClick={() => setInputCount([...inputCount, inputCount.pop() + 1])}
+        rightButtonClick={showGpa}
+      />
+    </Layout>
+  )
 }
