@@ -1,5 +1,7 @@
 import { h, Component } from 'preact'
 
+import Button from 'Components/Button'
+
 import styles from './index.module.css'
 
 const Modal = ({ isModalOpen, modalData, closeModal }) => (
@@ -14,26 +16,17 @@ const Modal = ({ isModalOpen, modalData, closeModal }) => (
       }`}
     >
       {modalData.type && (
-        <div className="modal-icon modal-warning">
-          <span className="modal-body" />
-          <span className="modal-dot" />
+        <div className={`${styles.modalIcon} ${styles.modalWarning}`}>
+          <span className={styles.modalBody} />
+          <span className={styles.modalDot} />
         </div>
       )}
-      <h2 className="modal-h2">{modalData.title}</h2>
-      <p className="modal-p">{modalData.message}</p>
-      <div className="modal-button-container">
-        <a
-          className="btn"
-          onClick={closeModal}
-          style={{
-            fontWeight: 500,
-            fontSize: '18px',
-            padding: '8px 20px',
-            margin: '26px 5px 0'
-          }}
-        >
+      <h2 className={styles.modalH2} >{modalData.title}</h2>
+      <p className={styles.modalP}>{modalData.message}</p>
+      <div className={styles.buttonContainer}>
+        <Button onClick={closeModal}>
           ok
-        </a>
+        </Button>
       </div>
     </div>
   </div>
