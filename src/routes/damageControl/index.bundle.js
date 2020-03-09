@@ -73,9 +73,9 @@ const DamageCalculator = ({ openModal }) => {
 
   return (
     <Layout
-      metaTitle="Bare Minimum | Final Grade Calculator"
-      metaContent="Final grade calculator to help you pass your classes!"
-      title="Final Grade Calculator"
+      metaTitle="Bare Minimum | Damage Calculator"
+      metaContent="Find out how an assignment will affect your grade."
+      title="Damage Calculator"
       subtitle="Find out how an assignment will affect your grade."
     >
       <InputRow
