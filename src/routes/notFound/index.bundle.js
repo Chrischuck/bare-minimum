@@ -19,6 +19,10 @@ const NotFound = ({ push }) => (
         {
           property: 'og:image',
           content: '/not-found-preview.png'
+        },
+        {
+          property: 'og:title',
+          content: 'Bare Minimum | 404 Not Found'
         }
       ]}
     />

@@ -15,6 +15,10 @@ const Layout = ({ children, metaTitle, metaContent, title, subtitle, img = '/pub
         {
           property: 'og:image',
           content: `https://bareminimum.co${img}`
+        },
+        {
+          property: 'og:title',
+          content: metaTitle
         }
       ]}
     />
