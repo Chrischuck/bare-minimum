@@ -114,6 +114,7 @@ module.exports = {
           new webpack.optimize.AggressiveMergingPlugin(),
           new FaviconsWebpackPlugin({
             logo: './assets/logo.png',
+            outputPath: 'public/favicons',
             icons: {
               android: false,
               appleIcon: false,
