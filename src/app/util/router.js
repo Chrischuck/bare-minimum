@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import App from '../index.js'
 import Bundle from './bundle'
 
 import asyncFinalGradeComponent from '../../routes/finalGrade/index.bundle.js'
@@ -50,8 +51,7 @@ class Router extends Component {
   }
 
   render() {
-    const { history, routes } = this.props
-    const App = routes.component
+    const { history } = this.props
     const pathname = history.location.pathname
 
     if (pathname === '/') {
