@@ -151,6 +151,9 @@ module.exports = {
             cacheMaps: [
               {
                 match: function(requestUrl) {
+                  if (url.pathname.indexOf('/public/') === 0) {
+                    return;
+                  }
                   return new URL('/', location)
                 },
                 requestTypes: ['navigate']
