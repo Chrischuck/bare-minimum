@@ -1,67 +1,46 @@
-import { h, Component, Fragment } from 'preact'
+import { h, Fragment } from 'preact'
+import { useState } from 'preact/hooks'
 
 import Header from 'Components/Header'
 import Modal from 'Components/Modal'
 
 import styles from './index.module.css'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
+const App = ({ pathname, push, Component }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalData, setModalData] = useState({
+    title: '',
+    message: '',
+    type: ''
+  })
 
-    this.state = {
-      isModalOpen: false, // schema: ({ title: 'string', messge: 'string', type: null or something})
-      modalData: {
-        title: '',
-        message: '',
-        type: ''
-      }
-    }
-  }
-  openModal = ({ title, message, type }) => {
-    this.setState({
-      isModalOpen: true,
-      modalData: {
-        title,
-        message,
-        type
-      }
-    })
+  const openModal = ({ title, message, type }) => {
+    setIsModalOpen(true)
+    setModalData({ title, message, type })
   }
 
-  closeModal = () => {
-    this.setState({
-      isModalOpen: false,
-      modalData: {
-        title: '',
-        message: '',
-        type: ''
-      }
-    })
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setModalData({ title: '', message: '', type: '' })
   }
 
-  render() {
-    const { pathname, Component, push } = this.props
-    const { isModalOpen, modalData } = this.state
+  return (
+    <Fragment>
+      {Header({ path: pathname, push })}
+      {Modal({
+        isModalOpen,
+        modalData,
+        closeModal
+      })}
 
-    return (
-      <Fragment>
-        {Header({ path: pathname, push })}
-        {Modal({
-          isModalOpen,
-          modalData,
-          closeModal: this.closeModal
-        })}
-
-        <div className={styles.container}>
-          <Component
-            push={this.props.push}
-            openModal={this.openModal}
-            closeModal={this.closeModal}
-          />
-        </div>
-      </Fragment>
-    )
-  }
+      <div className={styles.container}>
+        <Component
+          push={push}
+          openModal={openModal}
+          closeModal={closeModal}
+        />
+      </div>
+    </Fragment>
+  )
 }
 export default App
