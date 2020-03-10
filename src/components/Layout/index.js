@@ -10,11 +10,11 @@ const Layout = ({ children, metaTitle, metaContent, title, subtitle, img = '/pub
       meta={[
         {
           name: 'description',
-          content: { metaContent }
+          content: metaContent
         },
         {
           property: 'og:image',
-          content: img
+          content: `https://bareminimum.co${img}`
         }
       ]}
     />
