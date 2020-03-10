@@ -3,17 +3,17 @@
   "short_name": "Bare Minimum",
   "icons": [
     {
-      "src": "./assets/logo.png",
+      "src": "./assets/android-chrome-144x144.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "./assets/logo.png",
+      "src": "./assets/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./assets/logo.png",
+      "src": "./assets/android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState} from 'preact/hooks'
 
-import Layout from 'Components/layout'
+import Layout from 'Components/Layout'
 import ButtonRow from 'Components/ButtonRow'
 import TripleInputRow from 'Components/TripleInputRow'
 import DoubleInputRow from 'Components/DoubleInputRow'
@@ -129,6 +129,7 @@ const WeightedGrade = ({
       metaContent="Weighted Final grade calculator to help you pass your classes!"
       title="Weighted Final Grade Calculator"
       subtitle="% sign is not neccesary"
+      img="/public/weighted-grade-preview.png"
     >
       <DoubleInputRow
         firstColumnLabel="You want a:"

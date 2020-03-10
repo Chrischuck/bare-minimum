@@ -5,7 +5,7 @@ import {
   calculatorStringBuilder,
   simpleErrorStringBuilder
 } from 'Util/stringBuilders'
-import Layout from 'Components/layout'
+import Layout from 'Components/Layout'
 import Button from 'Components/Button'
 import InputRow from 'Components/SimpleInputRow'
 
@@ -79,6 +79,7 @@ const FinalGrade = ({ openModal }) => {
       metaTitle="Bare Minimum | Final Grade Calculator"
       metaContent="Final grade calculator to help you pass your classes!"
       title="Final Grade Calculator"
+      img="/public/final-grade-preview.png"
     >
       <InputRow
         inputId="currentGrade"

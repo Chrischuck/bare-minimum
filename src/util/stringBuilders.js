@@ -52,7 +52,7 @@ export function gpaStringBuilder(gpa) {
 export function simpleErrorStringBuilder(payload = {}) {
   const keys = Object.keys(payload)
   let baseString = 'Please input your'
-  const emptyKeys = keys.filter(key => payload[key] === '')
+  const emptyKeys = keys.filter(key => payload[key] === null)
   const length = emptyKeys.length
   if (emptyKeys.length < 1) {
     return ''

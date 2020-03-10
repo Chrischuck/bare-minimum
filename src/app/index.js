@@ -1,7 +1,7 @@
 import { h, Component, Fragment } from 'preact'
 
-import Header from '../components/header/index.js'
-import Modal from '../components/modal/index.js'
+import Header from 'Components/Header'
+import Modal from 'Components/Modal'
 
 import styles from './index.module.css'
 

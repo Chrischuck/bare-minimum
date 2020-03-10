@@ -129,7 +129,8 @@ module.exports = {
           }),
           new CopyWebpackPlugin([
             { from: '../_redirects' },
-            { from: '../manifest.json' }
+            { from: '../manifest.json' },
+            { from: '../public', to: 'public' },
           ]),
           new OfflinePlugin({
             caches: {

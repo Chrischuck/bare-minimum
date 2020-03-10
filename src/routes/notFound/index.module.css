@@ -1,0 +1,8 @@
+.container {
+    margin-top: 15%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}

@@ -3,7 +3,7 @@ import Helmet from 'preact-helmet'
 
 import styles from './index.module.css'
 
-const Layout = ({ children, metaTitle, metaContent, title, subtitle }) => (
+const Layout = ({ children, metaTitle, metaContent, title, subtitle, img = '/public/final-grade-preview' }) => (
   <div className={styles.container}>
     <Helmet
       title={metaTitle}
@@ -11,6 +11,10 @@ const Layout = ({ children, metaTitle, metaContent, title, subtitle }) => (
         {
           name: 'description',
           content: { metaContent }
+        },
+        {
+          property: 'og:image',
+          content: img
         }
       ]}
     />

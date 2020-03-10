@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState } from 'preact/hooks'
 
-import Layout from 'Components/layout'
+import Layout from 'Components/Layout'
 import ButtonRow from 'Components/ButtonRow'
 import TripleInputRow from 'Components/TripleInputRow'
 import DoubleInputRow from 'Components/DoubleInputRow'
@@ -127,6 +127,7 @@ export default ({
       title="Bare Minimum | Universal GPA Calculator"
       metaContent="See how you've done so far!"
       title="Universal GPA Calculator"
+      img="/public/gpa-preview.png"
     >
       <Checkbox
         label="A+ is a 4.33 at your school."

@@ -4,7 +4,7 @@ import { useState } from 'preact/hooks'
 import {
   simpleErrorStringBuilder
 } from 'Util/stringBuilders'
-import Layout from 'Components/layout'
+import Layout from 'Components/Layout'
 import Button from 'Components/Button'
 import InputRow from 'Components/SimpleInputRow'
 
@@ -77,6 +77,7 @@ const DamageCalculator = ({ openModal }) => {
       metaContent="Find out how an assignment will affect your grade."
       title="Damage Calculator"
       subtitle="Find out how an assignment will affect your grade."
+      img="/public/damage-preview.png"
     >
       <InputRow
         inputId="currentGrade"
