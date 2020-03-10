@@ -13,7 +13,7 @@ const NotFound = ({ push }) => (
         {
           name: 'description',
           content: {
-            metaContent: "I think you're lost!."
+            metaContent: "I think you're lost!"
           }
         },
         {
