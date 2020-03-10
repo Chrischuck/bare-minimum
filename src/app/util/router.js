@@ -1,6 +1,4 @@
-import { h } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
-
+import { h, Component } from 'preact'
 import Bundle from './bundle'
 
 import asyncFinalGradeComponent from '../../routes/finalGrade/index.bundle.js'
@@ -32,59 +30,69 @@ const NotFoundComponent = props => (
   </Bundle>
 )
 
-const Router = ({ history, routes }) => {
-  const [_, setCurrentPath] = useState();
-
-  useEffect(() => {
-    history.listen(location => { setCurrentPath(location) })
-  }, []);
-
-  const push = path => {
-    history.push(path)
+class Router extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentPath: props.history.location.pathname
+    }
   }
 
+  componentWillMount() {
+    this.props.history.listen(location => {
+      this.setState({ currentPath: location })
+    })
+  }
 
-  const App = routes.component
-  const pathname = history.location.pathname
+  push = path => {
+    this.props.history.push(path)
+    this.setState({ currentPath: path })
+  }
 
-  if (pathname === '/') {
-    history.replace('/grade-calculator')
-    const component = <FinalGradeComponent />
+  render() {
+    const { history, routes } = this.props
+    const App = routes.component
+    const pathname = history.location.pathname
+
+    if (pathname === '/') {
+      history.replace('/grade-calculator')
+      this.setState({ currentPath: '/grade-calculator' })
+      const component = <FinalGradeComponent />
+      return (
+        <App
+          pathname={history.location.pathname}
+          component={component}
+          push={this.push}
+        />
+      )
+    }
+
+    let component = null
+
+    switch (pathname) {
+      case '/grade-calculator':
+        component = FinalGradeComponent
+        break
+      case '/damage-calculator':
+        component = DamageCalculatorComponent
+        break
+      case '/weighted-grade-calculator':
+        component = WeightedGradeComponent
+        break
+      case '/gpa-calculator':
+        component = GpaComponent
+        break
+      default:
+        component = NotFoundComponent
+    }
     return (
       <App
         pathname={history.location.pathname}
-        component={component}
-        push={push}
+        Component={component}
+        push={this.push}
       />
     )
   }
-
-  let component = null
-
-  switch (pathname) {
-    case '/grade-calculator':
-      component = FinalGradeComponent
-      break
-    case '/damage-calculator':
-      component = DamageCalculatorComponent
-      break
-    case '/weighted-grade-calculator':
-      component = WeightedGradeComponent
-      break
-    case '/gpa-calculator':
-      component = GpaComponent
-      break
-    default:
-      component = NotFoundComponent
-  }
-
-  return (
-    <App
-      pathname={history.location.pathname}
-      Component={component}
-      push={push}
-    />
-  )
 }
 
 export default Router

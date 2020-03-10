@@ -16,16 +16,13 @@ class Bundle extends Component {
   }
 
   load(props) {
-    this.setState({
-      mod: null
-    })
+    this.setState({ mod: null })
     props.load(mod => {
       this.setState({
         mod: mod.default ? mod.default : mod
       })
     })
   }
-
   render() {
     const func = toChildArray(this.props.children)[0]
 
