@@ -91,6 +91,7 @@ module.exports = {
       title: 'Bare Minimum',
       filename: 'index.html',
       template: './index.html',
+      prefix: 'public/favicons/',
       inject: true,
       minify: {
         collapseWhitespace: true,
