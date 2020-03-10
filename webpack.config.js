@@ -91,7 +91,6 @@ module.exports = {
       title: 'Bare Minimum',
       filename: 'index.html',
       template: './index.html',
-      prefix: 'public/favicons/',
       inject: true,
       minify: {
         collapseWhitespace: true,
@@ -116,6 +115,7 @@ module.exports = {
           new FaviconsWebpackPlugin({
             logo: './assets/logo.png',
             outputPath: 'public/favicons',
+            prefix: 'public/favicons/',
             icons: {
               android: false,
               appleIcon: false,
